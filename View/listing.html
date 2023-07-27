@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https: //kit.fontawesome.com/9b0c9c9952.js"crossorigin="anonymous">
+    </script>
+</head>
+ 
+<body>
+  <!-- new one -->
+  <div class="container">
+    <div class="header">
+      <div class="left-section">
+        <h1>What's Up<span class="username">Ganesh</span></h1>
+        <p>CREATE A TODO</p>
+      </div>
+      <div class="right-section">
+        <div class="search-icon-div">
+          <span class="fa fa-search form-control-feedback"></span>
+        </div>
+        <input placeholder="search" type="search" class="input-box" />
+        <ul class="icons">
+          <li class="right-icon">
+            <img src="./icons/clarity_notification-line.png" />
+          </li>
+          <li class="right-icon">
+            <img src="./icons/dark_mode.png" />
+          </li>
+          <li class="right-icon">
+            <img src="./icons/logout_FILL0_wght400_GRAD0_opsz48 1.png" />
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="add-todo-btn-section">
+      <div class="Task_Type">
+        <input type="button" class="nav Professional-btn addswitch" name="1" value="professional" id="professional">
+        <input type="button" class="nav Personal-btn" id="personal" name="2" value="personal" id="personal">
+      </div>
+      <div class="add-todo-inner-section">
+        <h2 class="add-btn">ADD TODO</h2>
+        <div class="input-type">
+          <div>
+            <span>Single</span>
+          </div>
+          <div>
+            <span>Multiple</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="body-mainDiv" style="display: none;">
+      <div class="form-todo">
+        <form action="">
+
+          <h2>Pick Category</h2>
+          <div class="Task_Type">
+            <input type="button" class="nav Professional-btn addswitch" name="1" value="professional" id="professional">
+            <input type="button" class="nav Personal-btn" id="personal" name="2" value="personal" id="personal">
+          </div>
+          <div>
+            <div class="inputdiv">
+              <div>
+                <label for="project">What on your todo?</label>
+                <input type="text" placeholder="e.g Getsomg milk" id="project" name="Task_name">
+              </div>
+              <div>
+                <label for="project" placeholder="Get Date/Time">What on your due?</label>
+                <input type="date" placeholder="Get Date/Time" value="" name="artistid">
+              </div>
+            </div>
+
+            <div class="matix">
+              <div>
+                <label for="project">Urgent</label>
+                <br>
+                <input type="button" value="Yes">
+                <input type="button" value="No">
+
+              </div>
+              <div>
+                <label for="">Important</label>
+                <br>
+                <input type="button" value="Yes">
+                <input type="button" value="No">
+              </div>
+
+            </div>
+
+            <button type="submit" class="submit-btn">Submit</button>
+          </div>
+        </form>
+      </div>
+      <div class="body-content">
+        <h3>Let's Start With Some Good Habits</h3>
+        <div class="pre-define-todo">
+          <div class="contents">
+            <div>
+              <img src="./images/glass.png" />
+            </div>
+            <p>Drink water, keep healthy</p>
+            <div>
+              <button class="add">ADD</button>
+            </div>
+          </div>
+          <div class="contents">
+            <div>
+              <img src="./images/human.png" />
+            </div>
+            <p>Go Exercising</p>
+            <div>
+              <button class="add">ADD</button>
+            </div>
+          </div>
+          <div class="contents">
+            <div>
+              <img src="./images/ph_moon-fill.png" />
+            </div>
+            <p>Go to bed early</p>
+            <div>
+              <button class="add">ADD</button>
+            </div>
+          </div>
+          <div class="contents">
+            <div>
+              <img src="./images/ph_book-fill.png" />
+            </div>
+            <p>Keep Reading</p>
+            <div>
+              <button class="add">ADD</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <form class="form-group" action="" method="post">
+        <div class="closeBtn">
+          <bold>X</bold>
+        </div>
+        <div class="todo-section">
+          <label for="todo name">Task Name</label>
+          <input type="text" class="todo-name" placeholder="Enter the todo name" />
+        </div>
+        <div class="other-input-section">
+          <div class="categoryDiv">
+            <label for="category">Pick category<span class="manditorySymbol">*</span></label><br>
+            <label for="professional">Professional</label>
+            <input type="radio" id="professional" name="category" value="professional" />
+            <label for="personal">Personal</label>
+            <input type="radio" id="personal" name="category" value="Personal" />
+          </div>
+          <div class="timeDiv">
+            <label for="personal">Please pick your Time & Date<span class="manditorySymbol">*</span></label>
+            <input type="datetime-local" name="dateTime">
+          </div>
+          <div class="priorityDiv">
+            <label>Please choose your priority<span class="manditorySymbol">*</span></label><br>
+            <label for="urgent">Urgent</label><br>
+            <label for="yes">Yes</label>
+            <input type="radio" id="urgent" name="priority" value="Yes" />
+            <label for="no">No</label>
+            <input type="radio" id="urgent" name="priority" value="No" />
+          </div>
+          <div class="priorityDiv">
+            <label for="Important">Important</label><br>
+            <label for="yes">Yes</label>
+            <input type="radio" id="Important" name="priority" value="yes" />
+            <label for="no">No</label>
+            <input type="radio" id="Important" name="priority" value="no" />
+          </div>
+          <div class="submissionDiv">
+            <button type="button" id="submit">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="taskDetailBox">
+      <div class="do">
+      <p class="heading">Do</p>
+      <div class="doBox">
+        <div class="welcome">
+        <li>welcome</li>
+      </div>
+      <div class="time">
+        <li>15/7</li>
+        <li>12.00 PM</li>
+      </div>
+      </div>
+      </div>
+      <div class="defer">
+        <p class="heading">Defer</p>
+        <div class="doBox"></div>
+      </div>
+      <div class="deleate">
+        <p class="heading">Delegate</p>
+        <div class="doBox"></div>
+      </div>
+      <div class="delete">
+        <p class="heading">Delete</p>
+        <div class="doBox"></div>
+      </div>
+    </div>
+    <section id="taskDetailView">
+
+    </section>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,422 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+/* ---------------color choosing------------- */
+:root {
+  --primary-color: #5fb32e;
+  --secondary-color: #e5f7ee;
+  --thresary-color: #ffffff;
+  --font-color: #090909;
+  --do-color:#99CC11;
+  --defer-color:#4588EE;
+  --delegate-color:#F7A821;
+  --delete-color:#CE4317;
+}
+body {
+  background-color: #f3f3f5;
+}
+.container {
+  position: relative;
+  padding: 40px 80px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+/* -----------home page right side element styling----------------- */
+.right-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+}
+/* ---------------for search icon ------------------ */
+.search-icon-div {
+  color: var(--font-color);
+  position: absolute;
+  right: 400px;
+  top: 25px;
+  color: #52a521;
+}
+
+/* ------------------for search box ---------------- */
+.input-box {
+  font-size: 14px;
+  height: 37px;
+  width: 300px;
+  border: 1px #5fb32e;
+  border-radius: 10px;
+  background-color: var(--thresary-color);
+  padding: 0px 10px 0px 45px;
+  border: 1px solid #5fb32e;
+}
+.input-box:hover {
+  transition: 0.2s;
+  box-shadow: #9b9c9a 0px 6px 12px -2px, #9b9c9a 0px 3px 7px -3px;
+}
+.input-box:focus {
+  outline: none;
+}
+.input-box::placeholder {
+  color: #9b9c9a;
+}
+/* ---------------styling for left side elements----------- */
+.left-section h1 {
+  font-size: 22px;
+}
+.left-section .username {
+  font-size: 22px;
+  padding: 0px 6px;
+  font-weight: 100;
+}
+.left-section p {
+  font-size: 16px;
+  padding: 10px 0px;
+}
+
+/* --------------for icon ---------------- */
+.icons {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+.right-icon {
+  cursor: pointer;
+}
+/* ---------------styling for add todo buttons---------------- */
+.add-todo-inner-section {
+  position: relative;
+}
+.add-todo-btn-section {
+  width: 1210px;
+  display: flex;
+  gap: 440px;
+  justify-content: flex-end;
+  padding: 30px 130px;
+}
+.add-btn {
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 100;
+  background-color: var(--primary-color);
+  border-radius: 5px;
+  color: var(--thresary-color);
+  padding: 10px 41px;
+}
+.add-btn:hover {
+  box-shadow: #9b9c9a 0px 5px 15px;
+  border-radius: 5px 5px 0px 0px;
+}
+/* -----------below style for input type visible button (single or multiplr )------------------ */
+.add-btn:hover +.input-type {
+  display: block;
+}
+.input-type:hover {
+  display: block;
+}
+/* ------------styel for input div ----------- */
+.input-type {
+  position: absolute;
+  background-color: var(--thresary-color);
+  border-radius: 0px 0px 5px 5px;
+  border: 1px solid var(--primary-color);
+  box-shadow: #9b9c9a 0px 5px 15px;
+  display: none;
+}
+/* ------------style for todo input child div------------------ */
+.input-type div {
+  cursor: pointer;
+  text-align: center;
+  color: var(--primary-color);
+  padding: 10px 54px;
+}
+/* -----------------style for todo input type(single or multiple)---------------- */
+.input-type div:hover {
+  color: var(--thresary-color);
+  background-color: #5fb32e;
+}
+
+/* ------------------for suggestion todo portion (home page body content)--------------- */
+.body-mainDiv {
+  display: flex;
+  justify-content: center;
+}
+
+.body-content {
+  display: flex;
+  /* display: none; */
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--thresary-color);
+  height: 420px;
+  width: 753px;
+  border-radius: 10px;
+}
+
+/* -----------styling for header ---------------- */
+.body-content h3 {
+  font-weight: 100;
+  font-size: 24px;
+  padding: 35px 282px 25px 45px;
+}
+
+/* -----------------main div for all the separate div styling------------- */
+.pre-define-todo {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+/* ------------inner separate div styling------------------ */
+.contents {
+  height: 57px;
+  width: 522px;
+  border-radius: 5px;
+  background-color: #d9d9d9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 25px;
+}
+
+/* ------------for inner content p tag------------ */
+.contents p {
+  font-size: 16px;
+}
+/* -----------style for add text ----------- */
+.contents .add {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+.contents .add:hover {
+  text-shadow: 2px 2px 8px #5fb32e;
+}
+
+/* ============================For form section============================ */
+
+.form-section {
+  display: none;
+  position: absolute;
+  top: 12rem;
+  right: 18rem;
+}
+.show {
+  display: block;
+}
+.hide {
+  display: none;
+}
+.form-group {
+  background-color: var(--thresary-color);
+  height: 460px;
+  width: 780px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.closeBtn {
+  cursor: pointer;
+  color: var(--thresary-color);
+  font-weight: bold;
+  background-color: red;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+
+/* ***************form design css is here after  *****************/
+.form-todo {
+  display: none;
+  height: 558px;
+  width: 644px;
+  background-color: #FFFFFF;
+  margin: 0px 0px 0px 318px;
+  border-radius: 10px;
+}
+
+.form-todo h2 {
+  margin: 0px 0px 0px 40px;
+}
+
+form {
+  padding-top: 40px;
+}
+
+/* .Task_Type {
+  margin: 20px 0px 0px 149px;
+  display: flex;
+} */
+
+.Task_Type input {
+  cursor: pointer;
+  height: 35px;
+  width: 135px;
+}
+
+
+/* .form-todo  {
+  margin: 0px 0px 0px 40px;
+} */
+.inputdiv {
+  display: table-caption;
+}
+
+input.Professional-btn {
+
+  border-radius: 5px 0px 0px 5px;
+  /* border-right: 0px; */
+}
+.Professional-btndummy{
+  border-radius: 5px 0px 0px 5px;
+  border: 1px solid #7F808A;
+  border-right: none;
+}
+.personalclass{
+  border-radius: 0px 5px 5px 0px;
+  border: 1px solid #5FB32E;
+  background-color: #6defae;
+}
+
+input.Personal-btn {
+  border-radius: 0px 5px 5px 0px;
+  border: 1px solid #7F808A;
+  border-left: none;
+}
+
+.inputdiv div {
+  margin: 20px 0px 0px 38px;
+  gap: 20px;
+  display: grid;
+}
+
+.inputdiv input {
+  height: 35px;
+  width: 225px;
+  border: 2px solid #7F808A;
+  border-radius: 5px;
+}
+
+button.addTodo {
+  margin: 0px 0px 0px 965px;
+  height: 35px;
+}
+
+.matix div {
+  margin: 20px 0px 0px 38px;
+  gap: 20px;
+}
+
+.matix div input {
+  margin: 15px 15px 0px 0px;
+  height: 35px;
+  width: 35px;
+  border-radius: 5px;
+  border: 2px solid #7F808A;
+  font-size: 15px;
+}
+.matix div input:hover{
+ 
+  background-color: #6defae;
+  outline-color: #5FB32E;
+}
+button {
+  border-radius: 5px;
+
+}
+.inputdiv input:focus{
+  outline-color: #5FB32E;
+  background-color: #6defae;
+}
+.inputdiv input:hover{
+  border: 2px solid #5FB32E;
+ 
+}
+
+.form-todo .submit-btn {
+  width: 220px;
+  height: 40px;
+  margin: 20px 0px 0px 212px;
+  background-color: #5FB32E;
+  border: none;
+  color: #FFFFFF;
+  font-size: 18px;
+}
+/* .submit-btn:hover{
+
+} */
+.addswitch{
+  border: 3px solid #5FB32E;
+  background-color: #6defae;
+  color: #5fb32e;
+}
+
+.addswitch1 {
+  border: 1px solid #7F808A;
+  border-radius: 5px 0px 0px 5px;
+  border-right: none;
+}
+
+.doBox{
+  height: 200px;
+  width: 371px;
+  /* background-color: #99cc11; */
+  /* margin-right: 140px; */
+  /* margin-bottom: 19px; */
+  border-radius: 20px;
+}
+.taskDetailBox {
+  display: flex;
+  gap: 10px 110px;
+  width: 860px;
+  flex-wrap: wrap;
+  margin-left: 200px;
+}
+.heading{
+  font-weight: bolder;
+  margin: 10px;
+}
+.Task_Type {
+  /* margin: 20px 0px 0px 149px; */
+  display: flex;
+}
+
+.do > .doBox {
+  background-color: var(--do-color);
+}
+.defer > .doBox{
+  background-color: var(--defer-color);
+}
+
+.deleate > .doBox{
+  background-color: var(--delegate-color);
+}
+
+.delete > .doBox{
+  background-color: var(--delete-color);
+}
+.time{
+  display: flex;
+  justify-content: flex-end;
+}
+.doBox{
+  display: flex;
+  justify-content: space-between;
+  padding: 5%;
+  list-style: none;
+}
+
+.time>:first-child {
+  margin-right: 7px;
+}
+.doBox:hover{
+  box-shadow: 7px 7px 24px rgb(122 120 151);
+}
