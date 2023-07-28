@@ -25,10 +25,9 @@ body {
 }
 
 .active {
-  filter: blur(4px);
+  filter: blur(1px);
   pointer-events: none;
   user-select: none;
-  background-color: #ebf3eb;
 }
 
 .header {
