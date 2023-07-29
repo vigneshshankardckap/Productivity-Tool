@@ -220,3 +220,20 @@ let projectField = document.querySelector(".projectName")
 // })
 // ==================================================================================
 
+
+
+// ------------- Notification icon  ------------------
+let Notificationbtn = document.querySelector(".notification");
+let closelist = document.querySelector("#close-notificationList")
+let Habitsdiv = document.querySelector(".Habitsdiv");
+
+console.log(Notificationbtn);
+console.log(Habitsdiv);
+function openNotofy() {
+    Habitsdiv.classList.toggle("showdiv");
+}
+
+
+closelist.addEventListener("click", (e) => {
+    Habitsdiv.classList.remove("showdiv");
+})

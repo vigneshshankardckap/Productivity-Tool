@@ -13,6 +13,18 @@
 <body>
   <!-- this is the main container of the application -->
   <div class="container">
+    <div class="Habitsdiv">
+      <div class="notification-title">
+        <h4>Notification </h4>
+        <button class="cancelicon" id="close-notificationList">X</button>
+      </div>
+      <hr>
+      <div class="Tasklist">
+        <p>Drink water</p>
+        <button class="removetask">Remove</button>
+      </div>
+
+    </div>
     <div class="inner-container">
       <header class="header">
         <div class="left-section">
@@ -26,7 +38,7 @@
           <input placeholder="search" type="search" class="input-box" />
           <ul class="icons">
             <li class="right-icon">
-              <img src="../Icons/clarity_notification-line.png" />
+              <img class="notification" src="../Icons/clarity_notification-line.png"  onclick="openNotofy()" />
             </li>
             <li class="right-icon">
               <img src="../Icons/dark_mode.png" />
@@ -114,7 +126,7 @@
           <div class="inputdiv">
             <div>
               <label for="project">What on your todo?</label>
-              <input type="text" placeholder="e.g Getsome Milk" name="Task_name" class="projectName" />
+              <input type="text" placeholder="E.g Make Todo " name="Task_name" class="projectName" />
             </div>
             <div>
               <label for="project" placeholder="Get Date/Time">What on your due?</label>
