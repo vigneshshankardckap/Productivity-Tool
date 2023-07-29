@@ -47,14 +47,14 @@ let htmlEle = `
     <div class="category-div">
       <label>pick category</label>
       <div class="task_type">
-        <input type="button" class="typeBtn" name="1" value="professional" id="professional" />
-        <input type="button" class="typeBtn " id="personal" name="2" value="personal" id="personal" />
+        <input type="button" class="typeBtn" name="1" value="Professional" id="professional" />
+        <input type="button" class="typeBtn " id="personal" name="2" value="Personal" id="personal" />
       </div>
     </div>
     <div class="date-time-div">
       <label>what is your due?</label>
       <div>
-        <input type="datetime-local" placeholder="Get Date/Time" class="dateTime" value="" name="artistid" />
+        <input type="datetime-local" placeholder="Get Date/Time" class="multiDateTime" value="" name="artistid" />
       </div>
     </div>
     <div class="urgentDiv">

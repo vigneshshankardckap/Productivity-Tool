@@ -48,8 +48,8 @@ body {
 .search-icon-div {
   color: var(--font-color);
   position: absolute;
-  right: 400px;
-  top: 25px;
+  right: 401px;
+  top: 9px;
   color: #52a521;
 }
 
@@ -58,7 +58,7 @@ body {
   font-size: 14px;
   height: 37px;
   width: 300px;
-  border-radius: 10px;
+  border-radius: 5px;
   background-color: var(--thresary-color);
   padding: 0px 10px 0px 45px;
   border: none;
@@ -250,18 +250,21 @@ body {
 /* ============================For single form section============================ */
 
 /* ***************form design css is here after  *****************/
+:root{
+  --single-border-radius: 5px;
+}
 .single-input-form {
   display: none;
   position: absolute;
   height: 27rem;
   width: 770px;
   background-color: var(--thresary-color);
-  border-radius: 10px;
+  border-radius: var(--single-border-radius);
   right: 18rem;
-  top: 185px;
-  padding: 0px 15px;
+  top: 163px;
+  padding: 25px 25px;
   box-shadow: #00000029 0px 10px 36px 0px,
-    #0000000f 0px 0px 0px 1px;
+  #0000000f 0px 0px 0px 1px;
 }
 
 .single-input-form p {
@@ -277,14 +280,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 5px;
   border: 1px solid #656664;
-  margin-left: 710px;
+  margin-left: 690px;
   font-weight: bold;
 }
 
 .close-btn:hover {
-  transition: 0.2s;
+  transition: 0.3s;
+  border-radius: var(--single-border-radius);
   color: var(--thresary-color);
   background-color: var(--primary-color);
   box-shadow: var(--shadow-color) 0px 7px 29px 0px;
@@ -299,9 +302,9 @@ body {
   padding: 0px 0px 0px 40px;
 }
 
-.single-input-form form {
+/* .single-input-form form {
   padding-top: 20px;
-}
+} */
 
 /* -----below style for task type(personal or professional)---------------- */
 .Task_Type {
@@ -323,7 +326,7 @@ body {
 .Task_Type .typeBtn {
   border: 1px solid var(--primary-color);
   color: #656664;
-  border-radius: 5px;
+  border-radius: var(--single-border-radius);
   background-color: var(--thresary-color);
   font-size: 16px;
   transition: 0.3s;
@@ -340,7 +343,7 @@ body {
   height: 35px;
   width: 275px;
   border: 1px solid var(--primary-color);
-  border-radius: 3px;
+  border-radius: var(--single-border-radius);
   padding: 0px 10px;
 }
 
@@ -365,7 +368,7 @@ body {
 .matix div input {
   height: 31px;
   width: 38px;
-  border-radius: 5px;
+  border-radius: var(--single-border-radius);
   border: 1px solid var(--primary-color);
   background-color: var(--thresary-color);
   font-size: 15px;
@@ -382,7 +385,7 @@ body {
 }
 
 button {
-  border-radius: 5px;
+  border-radius: var(--single-border-radius);
 }
 
 .inputdiv input:focus {
@@ -398,7 +401,7 @@ button {
   border: none;
   color: var(--thresary-color);
   font-size: 16px;
-  margin: 20px 0px 10px 255px;
+  margin: 20px 0px 10px 200px;
   cursor: pointer;
 }
 
@@ -411,7 +414,7 @@ button {
 
 .multiple-input-form {
   position: absolute;
-  top: 160px;
+  top: 140px;
   right: 190px;
   display: none;
 
@@ -421,10 +424,14 @@ button {
 } */
 
 /* -------multi input form close button styling--------- */
+
+:root{
+  --multi-border-radius: 7px;
+  --inputs-top-margin:15px;
+}
 .main-div-closeBtn {
   cursor: pointer;
   color: #fd4e4e;
-  border-radius: 7px;
   font-weight: 600;
   border: 1px solid #f19393;
   width: fit-content;
@@ -433,7 +440,8 @@ button {
 }
 
 .main-div-closeBtn:hover {
-  transition: 0.2s;
+  transition: 0.3s;
+  border-radius: var(--multi-border-radius);
   border: 1px solid #fd4e4e;
   color: var(--thresary-color);
   background-color: #fd4e4e;
@@ -448,8 +456,8 @@ button {
 .multiple-input-form .multiple-forms-div {
   width: 1000px;
   background-color: var(--thresary-color);
-  padding: 30px 50px;
-  border-radius: 10px;
+  padding: 30px 43px;
+  border-radius: var(--multi-border-radius);
   margin-top: 20px;
   border: 1px solid var(--primary-color);
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
@@ -464,7 +472,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 5px;
+  border-radius: var(--multi-border-radius);
   border: 1px solid #656664;
   margin-left: 890px;
   font-weight: bold;
@@ -487,7 +495,7 @@ button {
   height: 85px;
   width: 914px;
   border: 1px solid #656664;
-  border-radius: 10px;
+  border-radius: var(--multi-border-radius);
   padding: 10px;
   overflow: auto;
   resize: vertical;
@@ -505,7 +513,7 @@ button {
 }
 
 .task_type {
-  margin: 15px 5px 0px 0px;
+  margin-top: var(--inputs-top-margin);
 }
 
 .task_type .typeBtn {
@@ -514,24 +522,24 @@ button {
   width: 135px;
   border: 1px solid #656664;
   color: #656664;
-  border-radius: 5px;
+  border-radius: var(--multi-border-radius);
   background-color: var(--thresary-color);
   font-size: 16px;
 }
 
 .other-input-div input {
   height: 35px;
-  border-radius: 10px;
+  border-radius: var(--multi-border-radius);
   border: 1px solid #656664;
 }
 
-.dateTime {
+.multiDateTime {
   padding: 0px 10px;
-  margin: 15px 5px 0px 0px;
+  margin-top: var(--inputs-top-margin);
   width: 225px;
 }
 
-.dateTime:focus {
+.multiDateTime:focus {
   outline: none;
 }
 
@@ -540,14 +548,14 @@ button {
   cursor: pointer;
   width: 35px;
   background-color: var(--thresary-color);
-  margin: 15px 5px 0px 0px;
+  margin-top: var(--inputs-top-margin);
 }
 
 .ImportantDiv input {
   cursor: pointer;
   width: 35px;
   background-color: var(--thresary-color);
-  margin: 15px 5px 0px 0px;
+  margin-top: var(--inputs-top-margin);
 }
 
 /* ------------multi form submit button styling--------- */
@@ -584,7 +592,7 @@ button {
   background-color: var(--primary-color);
   color: var(--thresary-color);
   font-size: 26px;
-  border-radius: 5px;
+  border-radius: var(--multi-border-radius);
   width: 35px;
   height: 35px;
   text-align: center;
