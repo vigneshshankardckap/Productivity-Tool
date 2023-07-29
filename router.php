@@ -20,6 +20,7 @@ class router
             'uri' => $uri,
             'action' => $action,
             'method' => 'GET',
+            'middleware' => null
         ];
         return $this;
     }
@@ -42,9 +43,7 @@ class router
     {
         foreach ($this->router as $router) {
 
-            if ($router['uri']==$_SERVER['REQUEST_URI']){
-
-                if ($router['action']) {
+            if ($router['uri']===$_SERVER['REQUEST_URI']){
 
                     switch ($router['action']) {
 
@@ -52,18 +51,22 @@ class router
                             $this->controller->addSingleTask($_POST);
                             break;
 
+                            case"login";
+                            $this->controller->login($_POST);
+                            break;
+                            case "signup";
+                            $this->controller->signUp($_POST);
+                            break;
+
+
+
+
                         default:
                             $this->controller->LandingPage();
 
                         }
 
                     }
-                }
-
-                else{
-                    $this->controller->LandingPage();
-
-                }
             }
         }
            

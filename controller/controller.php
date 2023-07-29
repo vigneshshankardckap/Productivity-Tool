@@ -11,18 +11,22 @@ class UserController {
 
         $this->userModel = new UserModule();
     }
+    
 
      public function LandingPage(){
 
       $this->userModel->homePage();
     }
 
+    public function login($data){
 
-    function addSingleTask($data){
+        $this->userModel->logincheck($data);
+        require "index.html";
 
-
-    //   $date= date("Y-m-d H:i:s", strtotime($data['DateAndTime']));
-   
+    }
+    public function signUp($data){
+        $this->userModel->signUp($data);
+        require "index.html";
     }
 
     
