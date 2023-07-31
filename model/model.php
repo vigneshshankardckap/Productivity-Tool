@@ -4,12 +4,12 @@ require 'con.php';
 class UserModule extends Database
 {
 
-    public function homePage()
-    {
+    // public function homePage()
+    // {
 
-        require "index.html";
+    //     require "index.html";
         
-    }
+    // }
     public function logincheck($data){
         $username=$data['email'];
         $userpassword=$data['password'];
@@ -20,7 +20,7 @@ class UserModule extends Database
         if($datas){
            $_SESSION['name']=['name'=>$username];
 
-            header('Location:/View/homepage.html');
+            header('Location:/');
 
         }
         else{
@@ -33,7 +33,6 @@ class UserModule extends Database
         $email = $data['email'];
         $check = $this->db->query("SELECT * FROM users WHERE email_id = '$email'");
         $exists = $check->fetchAll(PDO::FETCH_OBJ);
-//
         if ($exists)
         {
             header('location:/');
@@ -44,10 +43,26 @@ class UserModule extends Database
             $email = $data['email'];
             $password = $data['password'];
             $insert = $this->db->query("INSERT INTO users(username,email_id,password)VALUES ('$name','$email','$password')");
-           header('location:View/homepage.html');
+           header('location:/');
 
 
         }
+
+    }
+
+    public function store($data)
+    {
+        // var_dump($data);
+  
+      $key = array_keys($data);
+  
+      $val = array_values($data);
+  
+          $sql = "INSERT INTO tasks (" . implode(', ', $key) . ") "
+          . "VALUES ('" . implode("', '", $val) . "')";
+        $query =   $this->db->prepare($sql);
+        $query->execute();
+        header("location:/");
 
     }
     

@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="../CSS/homepage.css" />
   <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
   <script src="https://kit.fontawesome.com/52d2b40c3f.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 </head>
 
 <body>
@@ -111,7 +113,7 @@
 
     <!-- this section is our single input form ----------- (it is separated from the inner container div for background blur)-->
     <div class="single-input-form">
-      <form action="index.php" method="post">
+      <!-- <form action="/store" method="post"> -->
         <div class="close-btn">
           <div>
             <span>X</span>
@@ -148,7 +150,7 @@
             <input type="button" name="important-priority-btn" value="No" id="firstFrom" class="important-priority-btn" />
           </div>
         </div>
-        <button type="submit" class="submit-btn">Submit</button>
+        <button type="submit" onclick="store()" class="submit-btn">Submit</button>
       </form>
     </div>
   </div>

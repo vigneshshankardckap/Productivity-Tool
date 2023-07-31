@@ -2,7 +2,6 @@
 
 require 'model/model.php';
 
-
 class UserController {
 
     private $userModel;
@@ -12,23 +11,31 @@ class UserController {
         $this->userModel = new UserModule();
     }
     
-
      public function LandingPage(){
-
-      $this->userModel->homePage();
+        require "View/homepage.html";
+      
     }
 
-    public function login($data){
-
-        $this->userModel->logincheck($data);
-        require "index.html";
-
-    }
-    public function signUp($data){
-        $this->userModel->signUp($data);
+    public function login(){
         require "index.html";
     }
 
+    public function loginLogic(){
+        $this->userModel->logincheck($_POST);
+    }
+
+    public function signUp(){
+        require "index.html";
+    }
+
+    public function signupLogic(){
+        $this->userModel->signUp($_POST);
+    }
+    
+    public function store(){
+        $this->userModel->store($_REQUEST);
+    }
     
 
+    
 }
