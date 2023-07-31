@@ -65,6 +65,14 @@ class UserModule extends Database
         header("location:/");
 
     }
+
+    public function lists(){
+
+        $query = $this->db->prepare("SELECT * FROM tasks where category_id = 1");
+        $query->execute();
+        $details = $query->fetchAll();
+        echo json_encode($details);
+    }
     
 
 }
