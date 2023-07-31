@@ -197,7 +197,7 @@ for (let i = 0; i < importantBtn.length; i++) {
 let DateField = document.querySelector(".dateTime");
 
 DateField.addEventListener("click", () => {
-  console.log(DateField.value);
+  // console.log(DateField.value);
 
 })
 
@@ -205,6 +205,75 @@ DateField.addEventListener("click", () => {
 let projectField = document.querySelector(".projectName")
 
 
+// let urgentPri = $('.urgent-yes').val();
+// let urgentno = $('.urgent-no').val();
+// let importantyes = $('.important-yes').val();
+// let importantno = $('.important-no').val();
+
+let allInput = document.querySelectorAll('.data')
+
+let allInputs = document.querySelectorAll('.datas')
+let category_id;
+let category = document.querySelectorAll('.category')
+for(let i=0;i<category.length;i++){
+  category[i].addEventListener('click',(e)=>{
+      category_id =  e.target.id
+  })
+}
+
+let data;
+for(let i=0;i<allInput.length;i++){
+  console.log(allInput[i]);
+  console.log(allInputs[i]);
+
+     allInput[i].addEventListener('click',(e)=>{
+      if(allInput[i].value == 1 && allInputs[i].value == 1){
+       data = 1
+      }
+      else if(allInput[i].value == 0 && allInputs[i].value == 1){
+        data = 2
+       }    
+      else if(allInput[i].value == 1 && allInputs[i].value == 0){
+        data = 3
+       }    
+     else if(allInput[i].value == 0 && allInputs[i].value == 0){
+        data = 4
+       }
+     })
+}
+function store(){
+  let projectName =  $(".projectName").val();
+  let dateTime = $(".dateTime").val();
+  let priority = data;
+  let pickCateid = category_id;
+
+    console.log(data)
+
+   
+
+  // console.log(urgentPri,importantBtn)
+  //  console.log(professional,projectName,dateTime,urgentPri,importantBtn)
+      
+   let FrontendObj = {
+     "category_id": pickCateid,
+     "task_name":projectName,
+     "dates":dateTime,
+     "user_id":1,
+     "matrix_id":priority
+   }
+
+
+
+    //  $.ajax({
+    //              method: 'POST',
+    //              url: '/store',
+    //              data: FrontendObj,
+    //              success: function (response) {
+    //                console.log(response);
+
+    //              }
+    //          })
+}
 // setInterval(() => {
 //   if (projectField.value != "") {
 //     projectField.style.backgroundColor = "#bff5da";
