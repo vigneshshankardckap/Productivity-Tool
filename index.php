@@ -27,6 +27,8 @@ $router->post('/signupLogic',"signupLogic");
 
 $router->post('/store',"store");
 
+$router->get('/list','list');
+
 
 
 $router->routing();

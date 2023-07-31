@@ -35,6 +35,11 @@ class UserController {
     public function store(){
         $this->userModel->store($_REQUEST);
     }
+   
+    public function list(){
+        require 'View/listing.html';
+    }
+
     
 
     

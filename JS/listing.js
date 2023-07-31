@@ -23,3 +23,17 @@ for (let i = 0; i < doBox.length; i++) {
 }
 
 
+let obj = [];
+$( window ).ready(function() {
+
+    $.ajax({
+      url: '/list',
+      method: 'GET',
+      success: function (response) {
+        console.log(response);
+
+      }
+
+  })
+
+  })
