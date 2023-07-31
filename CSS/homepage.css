@@ -10,7 +10,7 @@
   --primary-color: #5fb32e;
   --secondary-color: #b6e7ce;
   --thresary-color: #ffffff;
-  --font-color: #090909;
+  --font-color: #000000;
   --focus-color: #e1f8ec;
   --shadow-color: #479c16ab;
   --background-color: #f3f3f5;
@@ -18,8 +18,8 @@
 
 .darkmode{
   --primary-color:#5fb32e;
-  --secondary-color: b6e7ce;
-  --thresary-color: #191C24;
+  --secondary-color: #b6e7ce;
+  --thresary-color: #000000;
   --font-color: white;
   --focus-color: #ffffff;
   --shadow-color: darkgreen;
@@ -70,9 +70,11 @@ body {
   height: 37px;
   width: 300px;
   border-radius: 5px;
+  color: var(--font-color);
+
   background-color: var(--thresary-color);
   padding: 0px 10px 0px 45px;
-  border: none;
+  border: 1px solid white;
 }
 
 .input-box:focus {
@@ -83,12 +85,13 @@ body {
 }
 
 .input-box::placeholder {
-  color: #0c2001;
+  color: var(--font-color);
 }
 
 /* ---------------styling for left side elements----------- */
 .left-section h1 {
   font-size: 22px;
+  color: var(--font-color);
 }
 
 .left-section .username {
@@ -131,7 +134,7 @@ body {
   font-weight: 600;
   background-color: var(--primary-color);
   border-radius: 5px;
-  color: var(--thresary-color);
+  color: white;
   padding: 10px 41px;
 }
 
@@ -232,7 +235,7 @@ body {
   height: 57px;
   width: 522px;
   border-radius: 5px;
-  background-color: #d9d9d9;
+  background-color: var(--background-color);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -242,6 +245,7 @@ body {
 /* ------------for inner content p tag------------ */
 .contents p {
   font-size: 16px;
+  color: var(--font-color);
 }
 
 /* -----------style for add text ----------- */
@@ -280,8 +284,11 @@ body {
 
 .single-input-form p {
   padding-left: 200px;
+  color: var(--font-color);
 }
-
+.single-input-form label {
+  color: var(--font-color);
+}
 /* ---------close button for form---------------- */
 .close-btn {
   cursor: pointer;
@@ -338,7 +345,7 @@ body {
   border: 1px solid var(--primary-color);
   color: #656664;
   border-radius: var(--single-border-radius);
-  background-color: var(--thresary-color);
+  background-color: var(--background-color);
   font-size: 16px;
   transition: 0.3s;
 }
@@ -355,6 +362,9 @@ body {
   width: 275px;
   border: 1px solid var(--primary-color);
   border-radius: var(--single-border-radius);
+  /* background-color: var(--thresary-color); */
+  background-color: var(--background-color);
+  columns: var(--font-color);
   padding: 0px 10px;
 }
 
@@ -381,7 +391,7 @@ body {
   width: 38px;
   border-radius: var(--single-border-radius);
   border: 1px solid var(--primary-color);
-  background-color: var(--thresary-color);
+  background-color: var(--background-color);
   font-size: 15px;
   margin: 5px 5px 0px 0px;
   font-weight: 500;
@@ -465,7 +475,7 @@ button {
 /* ----------style for form inside of multi input div---------- */
 .multiple-input-form .multiple-forms-div {
   width: 1000px;
-  background-color: var(--thresary-color);
+  background-color: var(--background-color);
   padding: 30px 43px;
   border-radius: var(--multi-border-radius);
   margin-top: 20px;
@@ -473,6 +483,12 @@ button {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 
+.multiple-forms-div label{
+  color: var(--font-color);
+}
+.matix input{
+  color: var(--font-color);
+}
 /* ---------multi form one specific form closing button ----------- */
 .multi-close-btn {
   cursor: pointer;
@@ -533,7 +549,8 @@ button {
   border: 1px solid #656664;
   color: #656664;
   border-radius: var(--multi-border-radius);
-  background-color: var(--thresary-color);
+
+  color: var(--font-color);
   font-size: 16px;
 }
 
@@ -541,7 +558,10 @@ button {
   height: 35px;
   border-radius: var(--multi-border-radius);
   border: 1px solid #656664;
+  color: var(--font-color);
+  background-color: var(--background-color);
 }
+
 
 .multiDateTime {
   padding: 0px 10px;

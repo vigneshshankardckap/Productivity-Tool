@@ -6,7 +6,6 @@ let multiFormDiv = document.querySelector(".multiple-input-form");
 let innerContainer = document.querySelector(".inner-container")
 let cancelBtn = document.querySelector(".cancel-btn");
 let empty = document.querySelector(".forms-inner-div")
-let darkBtn = document.querySelector(".darkmode")
 
 // ======================below code is for open single form and multi form ===============================
 for (let i = 0; i < inputBtn.length; i++) {
@@ -89,21 +88,21 @@ function AddOneMoreForm() {
   <span id=${multiformCnt}>X</span>
   </div>
     <div class="multi-input-div">
-      <label>what on your todo?</label>
+      <label>What on your todo?</label>
       <div class="todo-input-box">
         <textarea name="Task_name" id="" cols="30" rows="10" placeholder="Enter your todo"></textarea>
       </div>
     </div>
     <div class="other-input-div">
       <div class="category-div">
-        <label>pick category</label>
+        <label>Pick category</label>
         <div class="task_type">
           <input type="button" class="typeBtn" name="1" value="Professional" id=${multiformCnt} />
           <input type="button" class="typeBtn" id=${multiformCnt} name="2" value="Personal" id="personal" />
         </div>
       </div>
       <div class="date-time-div">
-        <label>what is your due?</label>
+        <label>When is your due?</label>
         <div>
           <input type="datetime-local" placeholder="Get Date/Time" class="multiDateTime" value="" name="artistid" />
         </div>
@@ -357,6 +356,7 @@ closelist.addEventListener("click", (e) => {
 // ==========================================================================================================
 
 // ==========================This below function is for dark mode functionality==============================
+let darkBtn = document.querySelector(".darkmode")
 
 darkBtn.addEventListener("click", () => {
   darkMode()
