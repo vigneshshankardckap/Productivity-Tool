@@ -12,7 +12,8 @@ class UserController {
     }
     
      public function LandingPage(){
-        require "View/homepage.html";
+         require "View/homepage.php";
+//        $this->userModel->homePage();
       
     }
 
@@ -34,6 +35,16 @@ class UserController {
     
     public function store(){
         $this->userModel->store($_REQUEST);
+    }
+
+    public function addTask($tasks){
+//        var_dump($tasks);
+        $this->userModel->addTask($tasks);
+    }
+
+    public function addedTaskDetails(){
+        $tasks = $this->userModel->addedTaskDetails();
+        require "View/homepage.php";
     }
     
 

@@ -4,12 +4,10 @@ require 'con.php';
 class UserModule extends Database
 {
 
-    // public function homePage()
-    // {
-
-    //     require "index.html";
-        
-    // }
+//    public function homePage()
+//    {
+//        require "index.html";
+//    }
     public function logincheck($data){
         $username=$data['email'];
         $userpassword=$data['password'];
@@ -18,7 +16,9 @@ class UserModule extends Database
         $datas=$fetch->fetchall();
 
         if($datas){
-           $_SESSION['name']=['name'=>$username];
+            $_SESSION['name'] = $datas[0]['username'];
+            $_SESSION['id'] = $datas[0]['id'];
+        //    $_SESSION['name']=['name'=>$username];
 
             header('Location:/');
 
@@ -39,6 +39,8 @@ class UserModule extends Database
             $_SESSION['guest_user'] ="Kindly Please Login";
         }
         else {
+            $_SESSION['name'] = $data['name'];
+
             $name = $data['name'];
             $email = $data['email'];
             $password = $data['password'];
@@ -65,6 +67,24 @@ class UserModule extends Database
         header("location:/");
 
     }
+
+    public function addTask($value){
+        $userId = $_SESSION['id'];
+        $valueId = array_keys($value);
+        $taskId = $valueId[0];
+        $insertUserAddedTask = $this->db->query("INSERT INTO userAddedTask(user_id,addTask_id)VALUES ('$userId','$taskId')");
+        header('location:/');
+    }
+
+    public function addedTaskDetails(){
+        $userId = $_SESSION['id'];
+        $fetchAddedTasks = $this->db->query("SELECT name FROM addTask JOIN userAddedTask on addTask.id = userAddedTask.addTask_id where userAddedTask.user_id = '$userId'");
+        $exists = $fetchAddedTasks->fetchAll();
+        return $exists;
+    }
+
+
+
     
 
 }

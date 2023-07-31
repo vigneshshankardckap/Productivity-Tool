@@ -30,7 +30,7 @@
     <div class="inner-container">
       <header class="header">
         <div class="left-section">
-          <h1>What's Up<span class="username">Yuva</span></h1>
+          <h1>What's Up<span class="username"><?php echo $_SESSION['name']; ?></span></h1>
         </div>
         <!-- this is our right side contents -->
         <div class="right-section">
@@ -38,6 +38,9 @@
             <i class="fa-solid fa-magnifying-glass" style="color: #0c2001"></i>
           </div>
           <input placeholder="search" type="search" class="input-box" />
+            <form method="post" action="/addedTaskDetails">
+                <button name="addedTask">AddedTask</button>
+            </form>
           <ul class="icons">
             <li class="right-icon">
               <img class="notification" src="../Icons/clarity_notification-line.png"  onclick="openNotofy()" />
@@ -51,6 +54,12 @@
           </ul>
         </div>
       </header>
+        <div>
+<!--            --><?php //if($) ?>
+            <?php foreach ($tasks as $key => $value) :?>
+                <p><?php echo $value['name'] ?></p>
+            <?php endforeach; ?>
+        </div>
       <!-- this below section is for add button -->
       <div class="add-todo-btn-section">
         <div class="add-todo-inner-section">
@@ -66,7 +75,9 @@
         </div>
       </div>
       <!-- this is the body content (suggesed todo) -->
-      <div class="body-mainDiv">
+        <form action="/addTask" method="post">
+
+        <div class="body-mainDiv">
         <div class="body-content">
           <h3>Let's Start With Some Good Habits</h3>
           <div class="pre-define-todo">
@@ -76,7 +87,7 @@
               </div>
               <p>Drink Water, Keep Healthy</p>
               <div>
-                <button class="add">ADD</button>
+                <button class="add" name="1">ADD</button>
               </div>
             </div>
             <div class="contents">
@@ -85,7 +96,7 @@
               </div>
               <p>Go Exercising</p>
               <div>
-                <button class="add">ADD</button>
+                <button class="add" name="2">ADD</button>
               </div>
             </div>
             <div class="contents">
@@ -94,7 +105,7 @@
               </div>
               <p>Go To Bed Early</p>
               <div>
-                <button class="add">ADD</button>
+                <button class="add" name="3">ADD</button>
               </div>
             </div>
             <div class="contents">
@@ -103,12 +114,14 @@
               </div>
               <p>Keep Reading</p>
               <div>
-                <button class="add">ADD</button>
+                <button class="add" name="4">ADD</button>
               </div>
             </div>
           </div>
         </div>
       </div>
+        </form>
+
     </div>
 
     <!-- this section is our single input form (it is separated from the inner container div for background blur)-->
@@ -152,7 +165,6 @@
           </div>
         </div>
         <button type="submit" onclick="store()" class="submit-btn">Submit</button>
-      </form>
     </div>
   </div>
   </div>
@@ -200,6 +212,7 @@
                   <input type="button" value="Yes" class="important-priority-btn" />
                   <input type="button" value="No" class="important-priority-btn" />
                 </div>
+
               </div>
             </div>
           </div>

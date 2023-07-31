@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -8,7 +9,6 @@ error_reporting(E_ALL);
 
 require 'router.php';
 
-session_start();
 
 // $controller = new UserController();
 
@@ -26,6 +26,10 @@ $router->get('/signup',"signUp");
 $router->post('/signupLogic',"signupLogic");
 
 $router->post('/store',"store");
+
+$router->post('/addTask','addTask');
+
+$router->post('/addedTaskDetails','addedTaskDetails');
 
 
 
