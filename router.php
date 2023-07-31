@@ -48,16 +48,16 @@ class router
 
                 $action = $router['controller'];
 
-                    }
             }
+        }
 
             if($action){
-                $this->controller->$action();
+                $this->controller->$action($_POST);
             }
             else{
                 require 'error.php';
             }
-        }
+    }
            
 
 }

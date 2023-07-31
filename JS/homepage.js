@@ -43,10 +43,10 @@ function openSingleForm(params) {
 
   function classListAdd(getBtns, getBtn) {
     getBtns.addEventListener("click", (e) => {
-      console.log(getBtns)
-      let targetId = e.target.id;
+    
+      let targetClass = e.target.classList.value;
       for (let j = 0; j < getBtn.length; j++) {
-        if (getBtn[j].getAttribute("id") == targetId) {
+        if (getBtn[j].getAttribute("class") == targetClass) {
           getBtn[j].style.backgroundColor = ""
           getBtn[j].style.color = ""
           getBtn[j].style.border = "";
@@ -248,8 +248,9 @@ let DateField = document.querySelector(".dateTime");
 
 DateField.addEventListener("click", () => {
   // console.log(DateField.value);
-
+// console.log(category_id)
 })
+
 
 
 let projectField = document.querySelector(".projectName")
@@ -261,48 +262,52 @@ let projectField = document.querySelector(".projectName")
 // let importantno = $('.important-no').val();
 
 let allInput = document.querySelectorAll('.data')
-
+console.log(allInput,"ll");
 let allInputs = document.querySelectorAll('.datas')
+console.log(allInputs,"kk");
+
 let category_id;
 let category = document.querySelectorAll('.category')
+
 for(let i=0;i<category.length;i++){
-  category[i].addEventListener('click',(e)=>{
-      category_id =  e.target.id
+  category[i].addEventListener('click',(event)=>{
+      category_id =  event.target.id
   })
 }
 
-let data;
-for(let i=0;i<allInput.length;i++){
-  console.log(allInput[i]);
-  console.log(allInputs[i]);
 
+
+let data;
+let urgent;
+let important;
+for(let i=0;i<allInput.length;i++){
      allInput[i].addEventListener('click',(e)=>{
-      if(allInput[i].value == 1 && allInputs[i].value == 1){
-       data = 1
-      }
-      else if(allInput[i].value == 0 && allInputs[i].value == 1){
-        data = 2
-       }    
-      else if(allInput[i].value == 1 && allInputs[i].value == 0){
-        data = 3
-       }    
-     else if(allInput[i].value == 0 && allInputs[i].value == 0){
-        data = 4
-       }
+        urgent = allInputs[i].value
+     })
+     allInputs[i].addEventListener('click',(e)=>{
+     important = allInputs[i].value
      })
 }
 function store(){
-  let projectName =  $(".projectName").val();
-  let dateTime = $(".dateTime").val();
-  let priority = data;
-  let pickCateid = category_id;
 
-    console.log(data)
 
-   
+  if(urgent == 1 && important == 1){
+    data = 1
+   }
+   else if(urgent == 0 && important == 1){
+     data = 2
+    }    
+   else if(urgent == 1 && important== 0){
+     data = 3
+    }    
+  else if(urgent== 0 && important == 0){
+     data = 4
+    } 
 
-  // console.log(urgentPri,importantBtn)
-  //  console.log(professional,projectName,dateTime,urgentPri,importantBtn)
+    let projectName =  $(".projectName").val();
+    let dateTime = $(".dateTime").val();
+    let priority = data;
+    let pickCateid = category_id;
       
    let FrontendObj = {
      "category_id": pickCateid,
@@ -314,15 +319,15 @@ function store(){
 
 
 
-    //  $.ajax({
-    //              method: 'POST',
-    //              url: '/store',
-    //              data: FrontendObj,
-    //              success: function (response) {
-    //                console.log(response);
+          $.ajax({
+                 method: 'POST',
+                 url: '/store',
+                 data: FrontendObj,
+                 success: function (response) {
+                   console.log(response);
 
-    //              }
-    //          })
+                 }
+             })
 }
 // setInterval(() => {
 //   if (projectField.value != "") {

@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -8,24 +9,30 @@ error_reporting(E_ALL);
 
 require 'router.php';
 
-session_start();
 
 // $controller = new UserController();
 
 $router = new router();
 
 
-$router->get('/','LandingPage');
+$router->get('/LandingPage','LandingPage');
+
+$router->get('/','login');
 
 $router->get('/login',"login");
 
 $router->post('/loginLogic',"loginLogic");
+
 
 $router->get('/signup',"signUp");
 
 $router->post('/signupLogic',"signupLogic");
 
 $router->post('/store',"store");
+
+$router->get('/list','list');
+
+$router->get('/logout',"logout");
 
 
 

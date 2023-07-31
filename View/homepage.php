@@ -30,8 +30,9 @@
     <div class="inner-container">
       <header class="header">
         <div class="left-section">
-          <h1>What's Up<span class="username">Yuva</span></h1>
+          <h1>What's Up<span class="username"><?php echo $_SESSION['name'];?></span></h1>
         </div>
+        <!-- <?php echo $_SESSION['name'];?> -->
         <!-- this is our right side contents -->
         <div class="right-section">
           <div class="search-icon-div">
@@ -46,8 +47,8 @@
               <img class="darkmode" src="../Icons/dark_mode.png" />
             </li>
             <li class="right-icon">
-              <img src="../Icons/logout_FILL0_wght400_GRAD0_opsz48 1.png" />
-            </li>
+             <a href="/logout"><img src="../Icons/logout_FILL0_wght400_GRAD0_opsz48 1.png" /></a>
+            </li> 
           </ul>
         </div>
       </header>
@@ -121,8 +122,8 @@
         </div>
         <p>Pick Category</p>
         <div class="Task_Type">
-          <input type="button" class="typeBtn firstFrom" name="task_type" value="Professional" id=1 />
-          <input type="button" class="typeBtn firstFrom" name="task_type" value="Personal" id="2" />
+          <input type="button" class="typeBtn firstFrom category" name="task_type" value="Professional" id=1 />
+          <input type="button" class="typeBtn firstFrom category" name="task_type" value="Personal" id="2" />
         </div>
         <div>
           <div class="inputdiv">
@@ -140,14 +141,14 @@
           <div class="urgentDiv">
             <label for="project">Urgent</label>
             <br />
-            <input type="button" name="urgent-priority-btn" value="Yes" id="firstFrom" class="urgent-priority-btn" />
-            <input type="button" name="urgent-priority-btn" value="No" id="firstFrom" class="urgent-priority-btn" />
+            <input type="button" name="urgent-priority-btn" value="1" id="firstFrom" class="urgent-priority-btn data" />
+            <input type="button" name="urgent-priority-btn" value="0" id="firstFrom" class="urgent-priority-btn data" />
           </div>
           <div class="ImportantDiv">
             <label for="">Important</label>
             <br />
-            <input type="button" name="important-priority-btn" value="Yes" id="firstFrom" class="important-priority-btn" />
-            <input type="button" name="important-priority-btn" value="No" id="firstFrom" class="important-priority-btn" />
+            <input type="button" name="important-priority-btn" value="1" id="firstFrom" class="important-priority-btn datas" />
+            <input type="button" name="important-priority-btn" value="0" id="firstFrom" class="important-priority-btn datas" />
           </div>
         </div>
         <button type="submit" onclick="store()" class="submit-btn">Submit</button>
@@ -174,5 +175,3 @@
   </div>
   <script src="../JS/homepage.js"></script>
 </body>
-
-</html>
