@@ -3,11 +3,6 @@ require 'con.php';
 
 class UserModule extends Database
 {
-
-//    public function homePage()
-//    {
-//        require "index.html";
-//    }
     public function logincheck($data){
         $username=$data['email'];
         $userpassword=$data['password'];
@@ -17,9 +12,9 @@ class UserModule extends Database
         $datas=$fetch->fetchall();
         
         if($datas){
-           $_SESSION['name']=['name'=>$username];
+            $_SESSION['name']=  $datas[0]['username'];
 
-            header('Location:/');
+            header('Location:/LandingPage');
 
         }
         else{
