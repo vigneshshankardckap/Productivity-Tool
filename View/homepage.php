@@ -40,10 +40,10 @@
           <input placeholder="search" type="search" class="input-box" />
           <ul class="icons">
             <li class="right-icon">
-              <img class="notification" src="../Icons/clarity_notification-line.png"  onclick="openNotofy()" />
+              <img class="notification" src="../Icons/clarity_notification-line.png" onclick="openNotofy()" />
             </li>
             <li class="right-icon">
-              <img src="../Icons/dark_mode.png" />
+              <img class="darkmode" src="../Icons/dark_mode.png" />
             </li>
             <li class="right-icon">
               <img src="../Icons/logout_FILL0_wght400_GRAD0_opsz48 1.png" />
@@ -111,7 +111,7 @@
       </div>
     </div>
 
-    <!-- this section is our single input form (it is separated from the inner container div for background blur)-->
+    <!-- this section is our single input form ----------- (it is separated from the inner container div for background blur)-->
     <div class="single-input-form">
       <!-- <form action="/store" method="post"> -->
         <div class="close-btn">
@@ -121,9 +121,8 @@
         </div>
         <p>Pick Category</p>
         <div class="Task_Type">
-          <input type="button" class="professional category" name="task_type" value="Professional" id="1" />
-
-          <input type="button" class="personal " name="task_type" value="Personal" id="2" />
+          <input type="button" class="typeBtn firstFrom" name="task_type" value="Professional" id=1 />
+          <input type="button" class="typeBtn firstFrom" name="task_type" value="Personal" id="2" />
         </div>
         <div>
           <div class="inputdiv">
@@ -141,14 +140,14 @@
           <div class="urgentDiv">
             <label for="project">Urgent</label>
             <br />
-            <input type="button" name="urgent-priority-btn" value="1" class="urgent-priority-btn urgent-yes data" />
-            <input type="button" name="urgent-priority-btn" value="0" class="urgent-priority-btn urgent-no data" />
+            <input type="button" name="urgent-priority-btn" value="Yes" id="firstFrom" class="urgent-priority-btn" />
+            <input type="button" name="urgent-priority-btn" value="No" id="firstFrom" class="urgent-priority-btn" />
           </div>
           <div class="ImportantDiv">
             <label for="">Important</label>
             <br />
-            <input type="button" name="important-priority-btn" value="1" class="important-priority-btn important-yes datas" />
-            <input type="button" name="important-priority-btn" value="0" class="important-priority-btn important-no datas" />
+            <input type="button" name="important-priority-btn" value="Yes" id="firstFrom" class="important-priority-btn" />
+            <input type="button" name="important-priority-btn" value="No" id="firstFrom" class="important-priority-btn" />
           </div>
         </div>
         <button type="submit" onclick="store()" class="submit-btn">Submit</button>
@@ -158,61 +157,19 @@
   </div>
 
   <!-- this is multiple-input-form  -->
-  <div class="multiple-input-form">
-    <div class="allForm">
+  <div class="multiple-input-form">`
       <form action="" method="post" class="multiple-form">
-        <div class="divCon">
-          <div class="multiple-forms-div">
-            <div class="main-div-closeBtn">
-              <span>X</span>
-            </div>
-            <div class="multi-input-div">
-              <label>what on your todo?</label>
-              <div class="todo-input-box">
-                <textarea name="Task_name" id="" cols="30" rows="10" placeholder="Enter your todo"></textarea>
-              </div>
-            </div>
-            <div class="other-input-div">
-              <div class="category-div">
-                <label>pick category</label>
-                <div class="task_type">
-                  <input type="button" class="typeBtn" name="1" value="professional" id="professional" />
-                  <input type="button" class="typeBtn " id="personal" name="2" value="personal" id="personal" />
-                </div>
-              </div>
-              <div class="date-time-div">
-                <label>what is your due?</label>
-                <div>
-                  <input type="datetime-local" placeholder="Get Date/Time" class="multiDateTime" value=""
-                    name="artistid" />
-                </div>
-              </div>
-              <div class="urgentDiv">
-                <label>Urgent</label>
-                <div>
-                  <input type="button" value="Yes" class="urgent-priority-btn" />
-                  <input type="button" value="No" class="urgent-priority-btn" />
-                </div>
-              </div>
-              <div class="ImportantDiv">
-                <label>Important</label>
-                <div class="">
-                  <input type="button" value="Yes" class="important-priority-btn" />
-                  <input type="button" value="No" class="important-priority-btn" />
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="forms-inner-div">
+          <!-- multiple forms injected here  -->
         </div>
         <div class="addOneMoreTodo">
-          <span class="addDivBtn">+</span>
+          <span class="addDivBtn" onclick="AddOneMoreForm()">+</span>
         </div>
-        <div class="submit-btn-div">
-          <button type="submit" class="submit-btn">Submit</button>
+        <div class="multiForm-btn-div">
+          <!-- <button type="button" class="cancel-btn">Cancel</button> -->
+          <button type="button" class="submit-btn">Submit</button>
         </div>
       </form>
-    </div>
-
   </div>
   </div>
   <script src="../JS/homepage.js"></script>

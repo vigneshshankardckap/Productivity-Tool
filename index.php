@@ -27,10 +27,6 @@ $router->post('/signupLogic',"signupLogic");
 
 $router->post('/store',"store");
 
-$router->post('/addTask','addTask');
-
-$router->post('/addedTaskDetails','addedTaskDetails');
-
 
 
 $router->routing();
