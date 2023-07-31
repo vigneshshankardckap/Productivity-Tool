@@ -36,7 +36,6 @@ class UserController {
     public function store(){
         $this->userModel->store($_REQUEST);
     }
-<<<<<<< HEAD
 
     public function addTask($tasks){
 //        var_dump($tasks);
@@ -47,13 +46,6 @@ class UserController {
         $tasks = $this->userModel->addedTaskDetails();
         require "View/homepage.php";
     }
-=======
-   
-    public function list(){
-        require 'View/listing.html';
-    }
-
->>>>>>> 21a6b17c4ec7dfc9773eedd951075fc3d209c174
     
 
     

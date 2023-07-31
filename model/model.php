@@ -68,7 +68,6 @@ class UserModule extends Database
 
     }
 
-<<<<<<< HEAD
     public function addTask($value){
         $userId = $_SESSION['id'];
         $valueId = array_keys($value);
@@ -83,18 +82,4 @@ class UserModule extends Database
         $exists = $fetchAddedTasks->fetchAll();
         return $exists;
     }
-
-
-
-=======
-    public function lists(){
-
-        $query = $this->db->prepare("SELECT * FROM tasks where category_id = 1");
-        $query->execute();
-        $details = $query->fetchAll();
-        echo json_encode($details);
-    }
->>>>>>> 21a6b17c4ec7dfc9773eedd951075fc3d209c174
-    
-
 }
