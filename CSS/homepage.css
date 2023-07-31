@@ -12,11 +12,22 @@
   --thresary-color: #ffffff;
   --font-color: #090909;
   --focus-color: #e1f8ec;
-  --shadow-color: #abf381;
+  --shadow-color: #479c16ab;
+  --background-color: #f3f3f5;
+}
+
+.darkmode{
+  --primary-color:#5fb32e;
+  --secondary-color: b6e7ce;
+  --thresary-color: #191C24;
+  --font-color: white;
+  --focus-color: #ffffff;
+  --shadow-color: darkgreen;
+  --background-color: #191C24;
 }
 
 body {
-  background-color: #f3f3f5;
+  background-color: var(--background-color);
 }
 
 .container {
@@ -279,8 +290,8 @@ body {
   width: 30px;
   display: flex;
   justify-content: center;
-  align-items: center;
-  border: 1px solid #656664;
+  align-items: center;  
+  border: 1px solid var(--primary-color);
   margin-left: 690px;
   font-weight: bold;
 }
@@ -290,7 +301,7 @@ body {
   border-radius: var(--single-border-radius);
   color: var(--thresary-color);
   background-color: var(--primary-color);
-  box-shadow: var(--shadow-color) 0px 7px 29px 0px;
+  box-shadow: var(--shadow-color) 0px 0px 8px 0px;
 }
 
 /* --------------this show for open the single form ---------------- */
@@ -417,7 +428,6 @@ button {
   top: 140px;
   right: 190px;
   display: none;
-
 }
 /* .divCon{
   display: none;
@@ -431,20 +441,20 @@ button {
 }
 .main-div-closeBtn {
   cursor: pointer;
-  color: #fd4e4e;
+  color: var(--primary-color);
   font-weight: 600;
-  border: 1px solid #f19393;
+  border: 1px solid var(--primary-color);
   width: fit-content;
   padding: 5px 10px;
   margin-left: 55pc;
+  border-radius: 3px;
 }
 
 .main-div-closeBtn:hover {
   transition: 0.3s;
   border-radius: var(--multi-border-radius);
-  border: 1px solid #fd4e4e;
   color: var(--thresary-color);
-  background-color: #fd4e4e;
+  background-color: var(--primary-color);
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
@@ -559,15 +569,16 @@ button {
 }
 
 /* ------------multi form submit button styling--------- */
-.submit-btn-div {
+.multiForm-btn-div {
   display: flex;
   justify-content: end;
   margin: 10px 0px;
+  gap: 20px;
 }
 
-.multiple-input-form .submit-btn {
+.multiple-input-form .submit-btn, .cancel-btn{
   height: 40px;
-  width: 150px;
+  width: 120px;
   font-size: 16px;
   background-color: var(--primary-color);
   border: none;
@@ -575,10 +586,22 @@ button {
   color: var(--thresary-color);
 }
 
+.multiple-input-form .cancel-btn{
+
+  background-color:#82868B;
+  color:  var(--thresary-color);
+}
+
 .multiple-input-form .submit-btn:hover {
   transition: 0.2s;
-  box-shadow: var(--shadow-color) 0px 5px 15px;
+  box-shadow: var(--shadow-color) 0px 4px 10px;
 }
+
+.multiple-input-form .cancel-btn:hover{
+  transition: 0.2s;
+  box-shadow: #a7abaf 0px 4px 10px;
+}
+
 
 /* -------------add more button ---------- */
 .addOneMoreTodo {
@@ -667,4 +690,8 @@ button.removetask {
 
 .showdiv{
   display: block;
+}
+
+.activeBtn{
+  background-color: black;
 }
