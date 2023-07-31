@@ -15,11 +15,14 @@ session_start();
 $router = new router();
 
 
-$router->get('/','LandingPage');
+$router->get('/LandingPage','LandingPage');
+
+$router->get('/','login');
 
 $router->get('/login',"login");
 
 $router->post('/loginLogic',"loginLogic");
+
 
 $router->get('/signup',"signUp");
 
@@ -29,6 +32,7 @@ $router->post('/store',"store");
 
 $router->get('/list','list');
 
+$router->get('/logout',"logout");
 
 
 $router->routing();

@@ -40,6 +40,14 @@ class UserController {
         require 'View/listing.html';
     }
 
+       
+    public function logout(){
+        session_destroy();
+        header("location:/login");
+    }
+
+
+    
     
 
     

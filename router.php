@@ -48,8 +48,8 @@ class router
 
                 $action = $router['controller'];
 
-                    }
             }
+        }
 
             if($action){
                 $this->controller->$action();
@@ -57,7 +57,7 @@ class router
             else{
                 require 'error.php';
             }
-        }
+    }
            
 
 }
