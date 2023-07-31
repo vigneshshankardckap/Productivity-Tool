@@ -1,5 +1,5 @@
 <?php 
-
+require 'controller/controller.php';
 class router
 {
 
@@ -13,24 +13,24 @@ class router
     }
 
 
-    public function get($uri, $action)
+    public function get($uri, $controller)
 
     {
         $this->router[] = [
             'uri' => $uri,
-            'action' => $action,
+            'controller' => $controller,
             'method' => 'GET',
             'middleware' => null
         ];
         return $this;
     }
 
-    public function post($uri, $action)
+    public function post($uri, $controller)
     {
         $this->router[] = [
             'uri' => $uri,
-            'action' => $action,
-            'method' => 'GET',
+            'controller' => $controller,
+            'method' => 'POST',
             'middleware' => null
         ];
         return $this;
@@ -41,32 +41,21 @@ class router
     
     public function routing()
     {
+        $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
         foreach ($this->router as $router) {
 
-            if ($router['uri']===$_SERVER['REQUEST_URI']){
+            if ($router['uri']== $uri){
 
-                    switch ($router['action']) {
-
-                           case"addSingleTask":
-                            $this->controller->addSingleTask($_POST);
-                            break;
-
-                            case"login";
-                            $this->controller->login($_POST);
-                            break;
-                            case "signup";
-                            $this->controller->signUp($_POST);
-                            break;
-
-
-
-
-                        default:
-                            $this->controller->LandingPage();
-
-                        }
+                $action = $router['controller'];
 
                     }
+            }
+
+            if($action){
+                $this->controller->$action();
+            }
+            else{
+                require 'error.php';
             }
         }
            

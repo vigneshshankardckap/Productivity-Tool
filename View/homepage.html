@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="../CSS/homepage.css" />
   <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
   <script src="https://kit.fontawesome.com/52d2b40c3f.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 </head>
 
 <body>
@@ -99,7 +101,7 @@
 
     <!-- this section is our single input form (it is separated from the inner container div for background blur)-->
     <div class="single-input-form">
-      <form action="index.php" method="post">
+      <!-- <form action="/store" method="post"> -->
         <div class="close-btn">
           <div>
             <span>X</span>
@@ -107,8 +109,9 @@
         </div>
         <p>Pick Category</p>
         <div class="Task_Type">
-          <input type="button" class="typeBtn" name="task_type" value="Professional" id="professional" />
-          <input type="button" class="typeBtn" name="task_type" value="Personal" id="personal" />
+          <input type="button" class="professional category" name="task_type" value="Professional" id="1" />
+
+          <input type="button" class="personal " name="task_type" value="Personal" id="2" />
         </div>
         <div>
           <div class="inputdiv">
@@ -126,17 +129,17 @@
           <div class="urgentDiv">
             <label for="project">Urgent</label>
             <br />
-            <input type="button" name="urgent-priority-btn" value="Yes" class="urgent-priority-btn" />
-            <input type="button" name="urgent-priority-btn" value="No" class="urgent-priority-btn" />
+            <input type="button" name="urgent-priority-btn" value="1" class="urgent-priority-btn urgent-yes data" />
+            <input type="button" name="urgent-priority-btn" value="0" class="urgent-priority-btn urgent-no data" />
           </div>
           <div class="ImportantDiv">
             <label for="">Important</label>
             <br />
-            <input type="button" name="important-priority-btn" value="Yes" class="important-priority-btn" />
-            <input type="button" name="important-priority-btn" value="No" class="important-priority-btn" />
+            <input type="button" name="important-priority-btn" value="1" class="important-priority-btn important-yes datas" />
+            <input type="button" name="important-priority-btn" value="0" class="important-priority-btn important-no datas" />
           </div>
         </div>
-        <button type="submit" class="submit-btn">Submit</button>
+        <button type="submit" onclick="store()" class="submit-btn">Submit</button>
       </form>
     </div>
   </div>
