@@ -30,8 +30,9 @@
     <div class="inner-container">
       <header class="header">
         <div class="left-section">
-          <h1>What's Up<span class="username">Yuva</span></h1>
+          <h1>What's Up<span class="username"><?php echo $_SESSION['name'];?></span></h1>
         </div>
+        <!-- <?php echo $_SESSION['name'];?> -->
         <!-- this is our right side contents -->
         <div class="right-section">
           <div class="search-icon-div">
@@ -46,8 +47,8 @@
               <img class="darkmode" src="../Icons/dark_mode.png" />
             </li>
             <li class="right-icon">
-              <img src="../Icons/logout_FILL0_wght400_GRAD0_opsz48 1.png" />
-            </li>
+             <a href="/logout"><img src="../Icons/logout_FILL0_wght400_GRAD0_opsz48 1.png" /></a>
+            </li> 
           </ul>
         </div>
       </header>

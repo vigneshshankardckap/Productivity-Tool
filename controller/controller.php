@@ -46,7 +46,10 @@ class UserController {
         $tasks = $this->userModel->addedTaskDetails();
         require "View/homepage.php";
     }
-    
-
+       
+    public function logout(){
+        session_destroy();
+        header("location:/login");
+    }
     
 }

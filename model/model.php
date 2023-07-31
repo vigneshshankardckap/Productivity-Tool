@@ -12,13 +12,12 @@ class UserModule extends Database
         $username=$data['email'];
         $userpassword=$data['password'];
 
+
         $fetch = $this->db->query("SELECT * from users where email_id ='$username' and  password='$userpassword'");
         $datas=$fetch->fetchall();
-
+        
         if($datas){
-            $_SESSION['name'] = $datas[0]['username'];
-            $_SESSION['id'] = $datas[0]['id'];
-        //    $_SESSION['name']=['name'=>$username];
+           $_SESSION['name']=['name'=>$username];
 
             header('Location:/');
 
@@ -35,17 +34,20 @@ class UserModule extends Database
         $exists = $check->fetchAll(PDO::FETCH_OBJ);
         if ($exists)
         {
-            header('location:/');
+            header('location:/login');
             $_SESSION['guest_user'] ="Kindly Please Login";
         }
         else {
-            $_SESSION['name'] = $data['name'];
-
             $name = $data['name'];
             $email = $data['email'];
             $password = $data['password'];
             $insert = $this->db->query("INSERT INTO users(username,email_id,password)VALUES ('$name','$email','$password')");
-           header('location:/');
+
+
+                $check = $this->db->query("SELECT * FROM users WHERE email_id = '$email'");
+                    $exists = $check->fetchAll();
+                    $_SESSION['name'] = $exists[0]['username'];
+           header('location:/LandingPage');
 
 
         }
@@ -54,7 +56,7 @@ class UserModule extends Database
 
     public function store($data)
     {
-        // var_dump($data);
+        
   
       $key = array_keys($data);
   
@@ -64,7 +66,7 @@ class UserModule extends Database
           . "VALUES ('" . implode("', '", $val) . "')";
         $query =   $this->db->prepare($sql);
         $query->execute();
-        header("location:/");
+        header("location:/list");
 
     }
 
