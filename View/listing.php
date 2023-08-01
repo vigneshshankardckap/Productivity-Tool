@@ -7,15 +7,12 @@
   <title>Document</title>
   <link rel="stylesheet" href="../CSS/homepage.css" />
   <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
-  <!-- <script src="https://kit.fontawesome.com/9b0c9c9952.js" crossorigin="anonymous"></script> -->
-
   <script src="https://kit.fontawesome.com/52d2b40c3f.js" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 </head>
 
 <body>
-
   <!-- this is the main container of the application -->
   <div class="container">
     <div class="Habitsdiv">
@@ -24,16 +21,10 @@
         <button class="cancelicon" id="close-notificationList">X</button>
       </div>
       <hr>
-        <?php foreach ($tasks as $key => $value) :?>
-        <div class="Tasklist">
-        <p><?php echo $value['name'] ?></p>
-            <form method="post" action="/deleteAddedTask">
-            <button class="removetask" name="<?php echo $value['id'] ?>">Remove</button>
-            </form>
-        </div>
-        <?php endforeach; ?>
-
-
+      <div class="Tasklist">
+        <p>Drink water</p>
+        <button class="removetask">Remove</button>
+      </div>
 
     </div>
     <div class="inner-container">
@@ -41,45 +32,34 @@
         <div class="left-section">
           <h1>What's Up<span class="username"><?php echo $_SESSION['name']; ?></span></h1>
         </div>
-        <!-- <?php echo $_SESSION['name']; ?> -->
         <!-- this is our right side contents -->
         <div class="right-section">
           <div class="search-icon-div">
-            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-magnifying-glass" style="color: #0c2001"></i>
           </div>
           <input placeholder="search" type="search" class="input-box" />
+          <form method="post" action="/addedTaskDetails">
+                <button name="addedTask">AddedTask</button>
+            </form>
           <ul class="icons">
-<<<<<<< HEAD
-<!--              <form method="post" action="/addedTaskDetails">-->
-              <li class="right-icon">
-                  <form method="post" action="/addedTaskDetails">
-                      <button name="addedTaskDetails" type="button" style="border: none"><img class="notification" src="../Icons/clarity_notification-line.png" onclick="openNotofy()" />
-                      </button>
-                  </form>
-
-              </li>
-<!--              </form>-->
-
-              <li class="right-icon">
-              <img class="darkmode" src="../Icons/dark_mode.png" />
-=======
             <li class="right-icon">
-              <i class="fa-regular fa-bell notification" onclick="openNotofy()"></i>
+              <img class="notification" src="../Icons/clarity_notification-line.png"  onclick="openNotofy()" />
             </li>
             <li class="right-icon">
-              <i class="fa-regular fa-moon darkmode"></i>
->>>>>>> e74bec6e48603902e238986b59175da3691a20ea
+              <img src="../Icons/dark_mode.png" />
             </li>
             <li class="right-icon">
-              <a href="/logout">
-                <i class="fa-solid fa-arrow-right-from-bracket logout"></i>
-              </a>
-
+              <img src="../Icons/logout_FILL0_wght400_GRAD0_opsz48 1.png" />
             </li>
           </ul>
         </div>
       </header>
-
+        <div>
+<!--            --><?php //if($) ?>
+<!--            --><?php //foreach ($tasks as $key => $value) :?>
+<!--                <p>--><?php //echo $value['name'] ?><!--</p>-->
+<!--            --><?php //endforeach; ?>
+        </div>
       <!-- this below section is for add button -->
       <div class="add-todo-btn-section">
         <div class="add-todo-inner-section">
@@ -94,12 +74,10 @@
           </div>
         </div>
       </div>
-<!--      <form method="post" action="/addedTaskDetails">-->
-<!--                <button name="addedTask">AddedTask</button>-->
-<!--            </form>-->
       <!-- this is the body content (suggesed todo) -->
-      <form action="/addTask" method="post">
-      <div class="body-mainDiv">
+        <form action="/addTask" method="post">
+
+        <div class="body-mainDiv">
         <div class="body-content">
           <h3>Let's Start With Some Good Habits</h3>
           <div class="pre-define-todo">
@@ -118,7 +96,7 @@
               </div>
               <p>Go Exercising</p>
               <div>
-                <button class="add" name="2" >ADD</button>
+                <button class="add" name="2">ADD</button>
               </div>
             </div>
             <div class="contents">
@@ -142,10 +120,11 @@
           </div>
         </div>
       </div>
-</form>
+        </form>
+
     </div>
 
-    <!-- this section is our single input form ----------- (it is separated from the inner container div for background blur)-->
+    <!-- this section is our single input form (it is separated from the inner container div for background blur)-->
     <div class="single-input-form">
       <!-- <form action="/store" method="post"> -->
         <div class="close-btn">
@@ -155,13 +134,14 @@
         </div>
         <p>Pick Category</p>
         <div class="Task_Type">
-          <input type="button" class="typeBtn firstFrom category" name="task_type" value="Professional" id=1 />
-          <input type="button" class="typeBtn firstFrom category" name="task_type" value="Personal" id="2" />
+          <input type="button" class="professional category" name="task_type" value="Professional" id="1" />
+
+          <input type="button" class="personal " name="task_type" value="Personal" id="2" />
         </div>
         <div>
           <div class="inputdiv">
             <div>
-              <label for="project">What is on your todo?</label>
+              <label for="project">What on your todo?</label>
               <input type="text" placeholder="E.g Make Todo " name="Task_name" class="projectName" />
             </div>
             <div>
@@ -174,37 +154,80 @@
           <div class="urgentDiv">
             <label for="project">Urgent</label>
             <br />
-            <input type="button" name="urgent-priority-btn" value="1" id="firstFrom" class="urgent-priority-btn data" />
-            <input type="button" name="urgent-priority-btn" value="0" id="firstFrom" class="urgent-priority-btn data" />
+            <input type="button" name="urgent-priority-btn" value="1" class="urgent-priority-btn urgent-yes data" />
+            <input type="button" name="urgent-priority-btn" value="0" class="urgent-priority-btn urgent-no data" />
           </div>
           <div class="ImportantDiv">
             <label for="">Important</label>
             <br />
-            <input type="button" name="important-priority-btn" value="1" id="firstFrom" class="important-priority-btn datas" />
-            <input type="button" name="important-priority-btn" value="0" id="firstFrom" class="important-priority-btn datas" />
+            <input type="button" name="important-priority-btn" value="1" class="important-priority-btn important-yes datas" />
+            <input type="button" name="important-priority-btn" value="0" class="important-priority-btn important-no datas" />
           </div>
         </div>
         <button type="submit" onclick="store()" class="submit-btn">Submit</button>
-      </form>
     </div>
   </div>
   </div>
 
   <!-- this is multiple-input-form  -->
-  <div class="multiple-input-form">`
-    <form action="" method="post" class="multiple-form">
-      <div class="forms-inner-div">
-        <!-- multiple forms injected here  -->
-      </div>
-      <div class="addOneMoreTodo">
-        <span class="addDivBtn" onclick="AddOneMoreForm()">+</span>
-      </div>
-      <div class="multiForm-btn-div">
-        <!-- <button type="button" class="cancel-btn">Cancel</button> -->
-        <button type="button" class="submit-btn">Submit</button>
-      </div>
-    </form>
+  <div class="multiple-input-form">
+    <div class="allForm">
+      <form action="" method="post" class="multiple-form">
+        <div class="divCon">
+          <div class="multiple-forms-div">
+            <div class="main-div-closeBtn">
+              <span>X</span>
+            </div>
+            <div class="multi-input-div">
+              <label>what on your todo?</label>
+              <div class="todo-input-box">
+                <textarea name="Task_name" id="" cols="30" rows="10" placeholder="Enter your todo"></textarea>
+              </div>
+            </div>
+            <div class="other-input-div">
+              <div class="category-div">
+                <label>pick category</label>
+                <div class="task_type">
+                  <input type="button" class="typeBtn" name="1" value="professional" id="professional" />
+                  <input type="button" class="typeBtn " id="personal" name="2" value="personal" id="personal" />
+                </div>
+              </div>
+              <div class="date-time-div">
+                <label>what is your due?</label>
+                <div>
+                  <input type="datetime-local" placeholder="Get Date/Time" class="multiDateTime" value=""
+                    name="artistid" />
+                </div>
+              </div>
+              <div class="urgentDiv">
+                <label>Urgent</label>
+                <div>
+                  <input type="button" value="Yes" class="urgent-priority-btn" />
+                  <input type="button" value="No" class="urgent-priority-btn" />
+                </div>
+              </div>
+              <div class="ImportantDiv">
+                <label>Important</label>
+                <div class="">
+                  <input type="button" value="Yes" class="important-priority-btn" />
+                  <input type="button" value="No" class="important-priority-btn" />
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="addOneMoreTodo">
+          <span class="addDivBtn">+</span>
+        </div>
+        <div class="submit-btn-div">
+          <button type="submit" class="submit-btn">Submit</button>
+        </div>
+      </form>
+    </div>
   </div>
   </div>
   <script src="../JS/homepage.js"></script>
 </body>
+
+</html>

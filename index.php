@@ -35,5 +35,10 @@ $router->get('/list','list');
 $router->get('/logout',"logout");
 
 
+$router->post('/addTask','addTask');
+
+$router->post('/addedTaskDetails','addedTaskDetails');
+
+$router->post('/deleteAddedTask','deleteAddedTask');
 
 $router->routing();
