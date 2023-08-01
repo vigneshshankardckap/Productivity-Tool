@@ -262,9 +262,9 @@ let projectField = document.querySelector(".projectName")
 // let importantno = $('.important-no').val();
 
 let allInput = document.querySelectorAll('.data')
-console.log(allInput,"ll");
+// console.log(allInput,"ll");
 let allInputs = document.querySelectorAll('.datas')
-console.log(allInputs,"kk");
+// console.log(allInputs,"kk");
 
 let category_id;
 let category = document.querySelectorAll('.category')
