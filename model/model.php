@@ -30,7 +30,9 @@ class UserModule extends Database
         if ($exists)
         {
             header('location:/login');
+
             $_SESSION['guest_user'] ="Kindly Please Login";
+            
         }
         else {
             $name = $data['name'];
@@ -48,11 +50,12 @@ class UserModule extends Database
         }
 
     }
+     public function UserId(){
+         
+     }
 
     public function store($data)
     {
-        
-  
       $key = array_keys($data);
   
       $val = array_values($data);
@@ -79,4 +82,6 @@ class UserModule extends Database
         $exists = $fetchAddedTasks->fetchAll();
         return $exists;
     }
+
+
 }
