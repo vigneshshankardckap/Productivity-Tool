@@ -7,12 +7,15 @@
   <title>Document</title>
   <link rel="stylesheet" href="../CSS/homepage.css" />
   <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+  <!-- <script src="https://kit.fontawesome.com/9b0c9c9952.js" crossorigin="anonymous"></script> -->
+
   <script src="https://kit.fontawesome.com/52d2b40c3f.js" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 </head>
 
 <body>
+
   <!-- this is the main container of the application -->
   <div class="container">
     <div class="Habitsdiv">
@@ -30,25 +33,28 @@
     <div class="inner-container">
       <header class="header">
         <div class="left-section">
-          <h1>What's Up<span class="username"><?php echo $_SESSION['name'];?></span></h1>
+          <h1>What's Up<span class="username"><?php echo $_SESSION['name']; ?></span></h1>
         </div>
-        <!-- <?php echo $_SESSION['name'];?> -->
+        <!-- <?php echo $_SESSION['name']; ?> -->
         <!-- this is our right side contents -->
         <div class="right-section">
           <div class="search-icon-div">
-            <i class="fa-solid fa-magnifying-glass" style="color: #0c2001"></i>
+            <i class="fa-solid fa-magnifying-glass"></i>
           </div>
           <input placeholder="search" type="search" class="input-box" />
           <ul class="icons">
             <li class="right-icon">
-              <img class="notification" src="../Icons/clarity_notification-line.png" onclick="openNotofy()" />
+              <i class="fa-regular fa-bell notification" onclick="openNotofy()"></i>
             </li>
             <li class="right-icon">
-              <img class="darkmode" src="../Icons/dark_mode.png" />
+              <i class="fa-regular fa-moon darkmode"></i>
             </li>
             <li class="right-icon">
-             <a href="/logout"><img src="../Icons/logout_FILL0_wght400_GRAD0_opsz48 1.png" /></a>
-            </li> 
+              <a href="/logout">
+                <i class="fa-solid fa-arrow-right-from-bracket logout"></i>
+              </a>
+
+            </li>
           </ul>
         </div>
       </header>
@@ -115,43 +121,43 @@
     <!-- this section is our single input form ----------- (it is separated from the inner container div for background blur)-->
     <div class="single-input-form">
       <!-- <form action="/store" method="post"> -->
-        <div class="close-btn">
-          <div>
-            <span>X</span>
-          </div>
-        </div>
-        <p>Pick Category</p>
-        <div class="Task_Type">
-          <input type="button" class="typeBtn firstFrom category" name="task_type" value="Professional" id=1 />
-          <input type="button" class="typeBtn firstFrom category" name="task_type" value="Personal" id="2" />
-        </div>
+      <div class="close-btn">
         <div>
-          <div class="inputdiv">
-            <div>
-              <label for="project">What is on your todo?</label>
-              <input type="text" placeholder="E.g Make Todo " name="Task_name" class="projectName" />
-            </div>
-            <div>
-              <label for="project" placeholder="Get Date/Time">What on your due?</label>
-              <input type="datetime-local" placeholder="Get Date/Time" class="dateTime" value="" name="dateTime" />
-            </div>
+          <span>X</span>
+        </div>
+      </div>
+      <p>Pick Category</p>
+      <div class="Task_Type">
+        <input type="button" class="typeBtn firstFrom category" name="task_type" value="Professional" id=1 />
+        <input type="button" class="typeBtn firstFrom category" name="task_type" value="Personal" id="2" />
+      </div>
+      <div>
+        <div class="inputdiv">
+          <div>
+            <label for="project">What is on your todo?</label>
+            <input type="text" placeholder="E.g Make Todo " name="Task_name" class="projectName" />
+          </div>
+          <div>
+            <label for="project" placeholder="Get Date/Time">What on your due?</label>
+            <input type="datetime-local" placeholder="Get Date/Time" class="dateTime" value="" name="dateTime" />
           </div>
         </div>
-        <div class="matix">
-          <div class="urgentDiv">
-            <label for="project">Urgent</label>
-            <br />
-            <input type="button" name="urgent-priority-btn" value="1" id="firstFrom" class="urgent-priority-btn data" />
-            <input type="button" name="urgent-priority-btn" value="0" id="firstFrom" class="urgent-priority-btn data" />
-          </div>
-          <div class="ImportantDiv">
-            <label for="">Important</label>
-            <br />
-            <input type="button" name="important-priority-btn" value="1" id="firstFrom" class="important-priority-btn datas" />
-            <input type="button" name="important-priority-btn" value="0" id="firstFrom" class="important-priority-btn datas" />
-          </div>
+      </div>
+      <div class="matix">
+        <div class="urgentDiv">
+          <label for="project">Urgent</label>
+          <br />
+          <input type="button" name="urgent-priority-btn" value="1" id="firstFrom" class="urgent-priority-btn data" />
+          <input type="button" name="urgent-priority-btn" value="0" id="firstFrom" class="urgent-priority-btn data" />
         </div>
-        <button type="submit" onclick="store()" class="submit-btn">Submit</button>
+        <div class="ImportantDiv">
+          <label for="">Important</label>
+          <br />
+          <input type="button" name="important-priority-btn" value="1" id="firstFrom" class="important-priority-btn datas" />
+          <input type="button" name="important-priority-btn" value="0" id="firstFrom" class="important-priority-btn datas" />
+        </div>
+      </div>
+      <button type="submit" onclick="store()" class="submit-btn">Submit</button>
       </form>
     </div>
   </div>
@@ -159,18 +165,18 @@
 
   <!-- this is multiple-input-form  -->
   <div class="multiple-input-form">`
-      <form action="" method="post" class="multiple-form">
-        <div class="forms-inner-div">
-          <!-- multiple forms injected here  -->
-        </div>
-        <div class="addOneMoreTodo">
-          <span class="addDivBtn" onclick="AddOneMoreForm()">+</span>
-        </div>
-        <div class="multiForm-btn-div">
-          <!-- <button type="button" class="cancel-btn">Cancel</button> -->
-          <button type="button" class="submit-btn">Submit</button>
-        </div>
-      </form>
+    <form action="" method="post" class="multiple-form">
+      <div class="forms-inner-div">
+        <!-- multiple forms injected here  -->
+      </div>
+      <div class="addOneMoreTodo">
+        <span class="addDivBtn" onclick="AddOneMoreForm()">+</span>
+      </div>
+      <div class="multiForm-btn-div">
+        <!-- <button type="button" class="cancel-btn">Cancel</button> -->
+        <button type="button" class="submit-btn">Submit</button>
+      </div>
+    </form>
   </div>
   </div>
   <script src="../JS/homepage.js"></script>
