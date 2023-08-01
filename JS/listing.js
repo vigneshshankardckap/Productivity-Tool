@@ -2,7 +2,6 @@ let professional = document.querySelector("#professional");
 let personal =document.querySelector("#personal");
 let doBox = document.querySelectorAll(".doBox")
 
-console.log(doBox)
 personal.addEventListener("click",()=>{
     professional.classList.remove("addswitch");
     professional.classList.add("Professional-btndummy")
@@ -18,7 +17,7 @@ professional.addEventListener("click",()=>{
 })
 for (let i = 0; i < doBox.length; i++) {
     doBox[i].addEventListener("click",()=>{
-        alert("welcome")
+       
     })    
 }
 

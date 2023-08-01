@@ -44,7 +44,12 @@ class UserModule extends Database
                 $check = $this->db->query("SELECT * FROM users WHERE email_id = '$email'");
                     $exists = $check->fetchAll();
                     $_SESSION['name'] = $exists[0]['username'];
-           header('location:/LandingPage');
+
+            
+                $check = $this->db->query("SELECT id FROM users WHERE email_id = '$email'");
+                $exists = $check->fetchAll();
+                $_SESSION['id'] = $exists[0]['id'];
+                    header('location:/LandingPage');
 
 
         }
@@ -56,15 +61,26 @@ class UserModule extends Database
 
     public function store($data)
     {
-      $key = array_keys($data);
+        if(!empty($data)){
+            $key = array_keys($data);
   
-      $val = array_values($data);
+            $val = array_values($data);
+      
+           
+              $sql = "INSERT INTO tasks (" . implode(', ', $key) . ") "
+              . "VALUES ('" . implode("', '", $val) . "')";
+            $query =   $this->db->prepare($sql);
+            $query->execute();
+            header('location:/list');
+
+        }
+
+    
   
-          $sql = "INSERT INTO tasks (" . implode(', ', $key) . ") "
-          . "VALUES ('" . implode("', '", $val) . "')";
-        $query =   $this->db->prepare($sql);
-        $query->execute();
-        header("location:/list");
+
+    
+  
+
 
     }
 

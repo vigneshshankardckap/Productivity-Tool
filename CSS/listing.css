@@ -354,7 +354,7 @@ button {
 
 } */
 .addswitch{
-  border: 3px solid #5FB32E;
+  border: 1px solid #5FB32E;
   background-color: #6defae;
   color: #5fb32e;
 }
@@ -420,3 +420,4 @@ button {
 .doBox:hover{
   box-shadow: 7px 7px 24px rgb(122 120 151);
 }
+

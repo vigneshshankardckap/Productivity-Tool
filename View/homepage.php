@@ -129,11 +129,11 @@
           <div class="inputdiv">
             <div>
               <label for="project">What is on your todo?</label>
-              <input type="text" placeholder="E.g Make Todo " name="Task_name" class="projectName" />
+              <input type="text" placeholder="E.g Make Todo " required name="Task_name" class="projectName" />
             </div>
             <div>
               <label for="project" placeholder="Get Date/Time">What on your due?</label>
-              <input type="datetime-local" placeholder="Get Date/Time" class="dateTime" value="" name="dateTime" />
+              <input type="datetime-local" placeholder="Get Date/Time" class="dateTime" value="" required name="dateTime" />
             </div>
           </div>
         </div>
@@ -151,8 +151,8 @@
             <input type="button" name="important-priority-btn" value="0" id="firstFrom" class="important-priority-btn datas" />
           </div>
         </div>
-        <button type="submit" onclick="store()" class="submit-btn">Submit</button>
-      </form>
+     <a href="/list">  <button type="submit" onclick="store()" class="submit-btn">Submit</button> </a>
+      <!-- </form> -->
     </div>
   </div>
   </div>
