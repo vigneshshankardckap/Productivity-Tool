@@ -3,11 +3,6 @@ require 'con.php';
 
 class UserModule extends Database
 {
-
-//    public function homePage()
-//    {
-//        require "index.html";
-//    }
     public function logincheck($data){
 
         $username=$data['email'];
@@ -18,8 +13,12 @@ class UserModule extends Database
         $datas=$fetch->fetchall();
         
         if($datas){
+<<<<<<< HEAD
            $_SESSION['name']=$datas[0]['username'];
            $_SESSION['id'] = $datas[0]['id'];
+=======
+            $_SESSION['name']=  $datas[0]['username'];
+>>>>>>> e74bec6e48603902e238986b59175da3691a20ea
 
             header('Location:/LandingPage');
 
@@ -37,7 +36,9 @@ class UserModule extends Database
         if ($exists)
         {
             header('location:/login');
+
             $_SESSION['guest_user'] ="Kindly Please Login";
+            
         }
         else {
             $name = $data['name'];
@@ -55,11 +56,12 @@ class UserModule extends Database
         }
 
     }
+     public function UserId(){
+         
+     }
 
     public function store($data)
     {
-        
-  
       $key = array_keys($data);
   
       $val = array_values($data);
@@ -90,6 +92,7 @@ class UserModule extends Database
         return $exists;
     }
 
+<<<<<<< HEAD
     public function deleteAddedTask($id){
         $userId = $id;
         $userAddedId = array_keys($userId);
@@ -97,4 +100,7 @@ class UserModule extends Database
         $deleteAddedHabits = $this->db->query("DELETE FROM userAddedTask WHERE id = '$taskId';");
         header('location:/LandingPage');
     }
+=======
+
+>>>>>>> e74bec6e48603902e238986b59175da3691a20ea
 }

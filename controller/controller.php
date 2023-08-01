@@ -38,7 +38,7 @@ class UserController {
     }
 
     public function addTask($tasks){
-//        var_dump($tasks);
+
         $this->userModel->addTask($tasks);
     }
 
