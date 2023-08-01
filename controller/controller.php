@@ -7,11 +7,11 @@ class UserController {
     private $userModel;
 
     public function __construct() {
-
         $this->userModel = new UserModule();
     }
     
      public function LandingPage(){
+         $tasks = $this->userModel->addedTaskDetails();
          require "View/homepage.php";
 //        $this->userModel->homePage();
       
@@ -43,7 +43,6 @@ class UserController {
     }
 
     public function addedTaskDetails(){
-        $tasks = $this->userModel->addedTaskDetails();
         require "View/homepage.php";
     }
        
@@ -51,5 +50,9 @@ class UserController {
         session_destroy();
         header("location:/login");
     }
-    
+
+    public function deleteAddedTask(){
+        $this->userModel->deleteAddedTask($_POST);
+    }
+
 }
