@@ -14,6 +14,8 @@
   --focus-color: #e1f8ec;
   --shadow-color: #479c16ab;
   --background-color: #f3f3f5;
+  --icon-color : #000000;
+  --input-background-color : inherit;
 }
 
 .darkmode{
@@ -23,7 +25,9 @@
   --font-color: white;
   --focus-color: #ffffff;
   --shadow-color: darkgreen;
-  --background-color: #191C24;
+  --background-color: #191c24;
+  --icon-color : #5fb32e;
+  --input-background-color : #2a3038;
 }
 
 body {
@@ -57,12 +61,14 @@ body {
 
 /* ---------------for search icon ------------------ */
 .search-icon-div {
-  color: var(--font-color);
+  color: var(--icon-color);
   position: absolute;
-  right: 401px;
-  top: 9px;
-  color: #52a521;
+  right: 378px;
+  top: 8px;
+  font-size: 20px;
+ 
 }
+
 
 /* ------------------for search box ---------------- */
 .input-box {
@@ -110,6 +116,11 @@ body {
   display: flex;
   gap: 20px;
   list-style: none;
+  color: var(--icon-color);
+  font-size: 20px;
+}
+.icons .logout {
+  color: var(--icon-color);
 }
 
 .right-icon {
@@ -337,15 +348,15 @@ body {
   width: 135px;
 }
 
-.Task_Type input:hover {
+/* .Task_Type input:hover {
   background-color: var(--focus-color);
-}
+} */
 
 .Task_Type .typeBtn {
   border: 1px solid var(--primary-color);
   color: #656664;
   border-radius: var(--single-border-radius);
-  background-color: var(--background-color);
+  background-color: var(--input-background-color);
   font-size: 16px;
   transition: 0.3s;
 }
@@ -363,7 +374,7 @@ body {
   border: 1px solid var(--primary-color);
   border-radius: var(--single-border-radius);
   /* background-color: var(--thresary-color); */
-  background-color: var(--background-color);
+  background-color: var(--input-background-color);
   columns: var(--font-color);
   padding: 0px 10px;
 }
@@ -372,9 +383,9 @@ body {
   cursor: pointer;
 }
 
-.inputdiv input:hover {
+/* .inputdiv input:hover {
   background-color: var(--focus-color);
-}
+} */
 
 /* button.addTodo {
   height: 35px;
@@ -391,7 +402,7 @@ body {
   width: 38px;
   border-radius: var(--single-border-radius);
   border: 1px solid var(--primary-color);
-  background-color: var(--background-color);
+  background-color: var(--input-background-color);
   font-size: 15px;
   margin: 5px 5px 0px 0px;
   font-weight: 500;
@@ -410,7 +421,7 @@ button {
 }
 
 .inputdiv input:focus {
-  background-color: var(--focus-color);
+  /* background-color: var(--focus-color); */
   outline: none;
 }
 
@@ -476,6 +487,7 @@ button {
 .multiple-input-form .multiple-forms-div {
   width: 1000px;
   background-color: var(--background-color);
+
   padding: 30px 43px;
   border-radius: var(--multi-border-radius);
   margin-top: 20px;
@@ -559,7 +571,8 @@ button {
   border-radius: var(--multi-border-radius);
   border: 1px solid #656664;
   color: var(--font-color);
-  background-color: var(--background-color);
+  /* background-color: var(--background-color); */
+  background-color: var(--input-background-color);
 }
 
 
@@ -577,14 +590,12 @@ button {
 .urgentDiv input {
   cursor: pointer;
   width: 35px;
-  background-color: var(--thresary-color);
   margin-top: var(--inputs-top-margin);
 }
 
 .ImportantDiv input {
   cursor: pointer;
   width: 35px;
-  background-color: var(--thresary-color);
   margin-top: var(--inputs-top-margin);
 }
 
