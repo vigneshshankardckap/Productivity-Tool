@@ -17,6 +17,7 @@ class UserController {
       
     }
 
+
     public function login(){
         require "index.html";
     }
@@ -35,6 +36,7 @@ class UserController {
         $this->userModel->signUp($_POST);
     }
     
+
     public function store(){
         $this->userModel->store($_REQUEST);
         // header("loation:/list");
