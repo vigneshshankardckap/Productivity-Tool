@@ -30,7 +30,7 @@
     <div class="inner-container">
       <header class="header">
         <div class="left-section">
-          <h1>What's Up<span class="username"><?php echo $_SESSION['name']; ?></span></h1>
+          <h1>What's Up<span class="username"><?php echo $_SESSION['username']; ?></span></h1>
         </div>
         <!-- this is our right side contents -->
         <div class="right-section">

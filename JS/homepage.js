@@ -253,6 +253,8 @@ DateField.addEventListener("click", () => {
 
 
 
+
+
 let projectField = document.querySelector(".projectName")
 
 
@@ -306,6 +308,7 @@ function store(){
 
     let projectName =  $(".projectName").val();
     let dateTime = $(".dateTime").val();
+    let user_id =$(".user_id").val();
     let priority = data;
     let pickCateid = category_id;
       
@@ -313,7 +316,7 @@ function store(){
      "category_id": pickCateid,
      "task_name":projectName,
      "dates":dateTime,
-     "user_id":1,
+     "user_id":user_id,
      "matrix_id":priority
    }
 
@@ -324,7 +327,7 @@ function store(){
                  url: '/store',
                  data: FrontendObj,
                  success: function (response) {
-                   console.log(response);
+                  window.location.href='/list'
 
                  }
              })

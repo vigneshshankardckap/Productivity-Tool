@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php
+//var_dump($tasks);
+?><!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -39,7 +41,7 @@
     <div class="inner-container">
       <header class="header">
         <div class="left-section">
-          <h1>What's Up<span class="username"><?php echo $_SESSION['name']; ?></span></h1>
+          <h1>What's Up<span class="username"><?php echo $_SESSION['username']; ?></span></h1>
         </div>
         <!-- <?php echo $_SESSION['name']; ?> -->
         <!-- this is our right side contents -->
@@ -49,7 +51,6 @@
           </div>
           <input placeholder="search" type="search" class="input-box" />
           <ul class="icons">
-<<<<<<< HEAD
 <!--              <form method="post" action="/addedTaskDetails">-->
               <li class="right-icon">
                   <form method="post" action="/addedTaskDetails">
@@ -62,13 +63,7 @@
 
               <li class="right-icon">
               <img class="darkmode" src="../Icons/dark_mode.png" />
-=======
-            <li class="right-icon">
-              <i class="fa-regular fa-bell notification" onclick="openNotofy()"></i>
-            </li>
-            <li class="right-icon">
-              <i class="fa-regular fa-moon darkmode"></i>
->>>>>>> e74bec6e48603902e238986b59175da3691a20ea
+
             </li>
             <li class="right-icon">
               <a href="/logout">
@@ -155,6 +150,7 @@
         </div>
         <p>Pick Category</p>
         <div class="Task_Type">
+            <input type="text" name="user_id" class="user_id" value="<?=$_SESSION['userid']?>">
           <input type="button" class="typeBtn firstFrom category" name="task_type" value="Professional" id=1 />
           <input type="button" class="typeBtn firstFrom category" name="task_type" value="Personal" id="2" />
         </div>
@@ -165,6 +161,7 @@
               <input type="text" placeholder="E.g Make Todo " name="Task_name" class="projectName" />
             </div>
             <div>
+
               <label for="project" placeholder="Get Date/Time">What on your due?</label>
               <input type="datetime-local" placeholder="Get Date/Time" class="dateTime" value="" name="dateTime" />
             </div>

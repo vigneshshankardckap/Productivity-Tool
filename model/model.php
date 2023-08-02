@@ -13,8 +13,8 @@ class UserModule extends Database
         $datas=$fetch->fetchall();
         
         if($datas){
-           $_SESSION['name']=$datas[0]['username'];
-           $_SESSION['id'] = $datas[0]['id'];
+           $_SESSION['username']=$datas[0]['username'];
+           $_SESSION['userid'] = $datas[0]['id'];
 
             header('Location:/LandingPage');
 
@@ -45,7 +45,7 @@ class UserModule extends Database
 
                 $check = $this->db->query("SELECT * FROM users WHERE email_id = '$email'");
                     $exists = $check->fetchAll();
-                    $_SESSION['name'] = $exists[0]['username'];
+                    $_SESSION['username'] = $exists[0]['username'];
 
             
                 $check = $this->db->query("SELECT id FROM users WHERE email_id = '$email'");
@@ -87,8 +87,8 @@ class UserModule extends Database
     }
 
     public function addTask($value){
-        $userId = $_SESSION['id'];
-//        var_dump($userId);
+        $userId = $_SESSION['userid'];
+        var_dump($userId);
         $valueId = array_keys($value);
         $taskId = $valueId[0];
         $insertUserAddedTask = $this->db->query("INSERT INTO userAddedTask(user_id,addTask_id)VALUES ('$userId','$taskId')");
@@ -96,11 +96,13 @@ class UserModule extends Database
     }
 
     public function addedTaskDetails(){
+//        var_dump($_POST);
 
-        $userId = $_SESSION['id'];
+        $userId = $_SESSION['userid'];
 //        $fetchAddedTasks = $this->db->query("SELECT id,name FROM addTask JOIN userAddedTask on addTask.id = userAddedTask.addTask_id where userAddedTask.user_id = '$userId'");
         $fetchAddedTasks = $this->db->query("select userAddedTask.id,name from addTask join userAddedTask on addTask.id = userAddedTask.addTask_id where userAddedTask.user_id = '$userId'");
         $exists = $fetchAddedTasks->fetchAll();
+//        var_dump($exists);
         return $exists;
     }
 
