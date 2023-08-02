@@ -6,12 +6,10 @@ class router
     public $router = [];
     public $controller;
 
-
     public function __construct()
     {
         $this->controller = new UserController();
     }
-
 
     public function get($uri, $controller)
 
@@ -36,9 +34,6 @@ class router
         return $this;
     }
 
-
-
-    
     public function routing()
     {
         $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
@@ -49,7 +44,7 @@ class router
                 $action = $router['controller'];
 
             }
-        }
+    }
 
             if($action){
                 $this->controller->$action($_POST);
@@ -58,6 +53,5 @@ class router
                 require 'error.php';
             }
     }
-           
 
 }
