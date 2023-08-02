@@ -36,6 +36,7 @@
     <div class="inner-container">
       <header class="header">
         <div class="left-section">
+          <img src="../Images/logo.png">
           <h1>What's Up<span class="username"><?php echo $_SESSION['username']; ?></span></h1>
         </div>
         <!-- <?php echo $_SESSION['name']; ?> -->
@@ -46,19 +47,11 @@
           </div>
           <input placeholder="search" type="search" class="input-box" />
           <ul class="icons">
-<!--              <form method="post" action="/addedTaskDetails">-->
-              <li class="right-icon">
-                  <form method="post" action="/addedTaskDetails">
-                      <button name="addedTaskDetails" type="button" style="border: none"><img class="notification" src="../Icons/clarity_notification-line.png" onclick="openNotofy()" />
-                      </button>
-                  </form>
-
-              </li>
-<!--              </form>-->
-
-              <li class="right-icon">
-              <img class="darkmode" src="../Icons/dark_mode.png" />
-
+            <li class="right-icon">
+              <i class="fa-regular fa-bell notification" onclick="openNotofy()"></i>
+            </li>
+            <li class="right-icon">
+              <i class="fa-regular fa-moon darkmode"></i>
             </li>
             <li class="right-icon">
               <a href="/logout">
@@ -72,7 +65,7 @@
       <!-- this below section is for add button -->
       <div class="add-todo-btn-section">
         <div class="add-todo-inner-section">
-          <h2 class="add-btn">ADD TODO</h2>
+          <h2 class="add-btn">ADD TASK</h2>
           <div class="input-type">
             <div class="input-type-btn">
               <span>Single</span>
@@ -144,15 +137,15 @@
         </div>
         <p>Pick Category</p>
         <div class="Task_Type">
-            <input type="text" name="user_id" class="user_id" value="<?=$_SESSION['userid']?>">
+            <input name="user_id" class="user_id" value="<?=$_SESSION['userid']?>" type="hidden">
           <input type="button" class="typeBtn firstFrom category" name="task_type" value="Professional" id=1 />
           <input type="button" class="typeBtn firstFrom category" name="task_type" value="Personal" id="2" />
         </div>
         <div>
           <div class="inputdiv">
             <div>
-              <label for="project">What is on your todo?</label>
-              <input type="text" placeholder="E.g Make Todo " name="Task_name" class="projectName" />
+              <label for="project">What is on your task?</label>
+              <input type="text" placeholder="E.g Make Task " name="Task_name" class="projectName" />
             </div>
             <div>
 

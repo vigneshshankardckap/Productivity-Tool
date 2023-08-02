@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: Inter;
 }
 /* ---------------color choosing------------- */
 :root {
@@ -14,7 +14,7 @@
   --shadow-color: #479c16ab;
   --background-color: #f3f3f5;
   --input-background-color : inherit;
-  
+  --input-type-hover: #ffffff;
   --do-color:#99CC11;
   --defer-color:#4588EE;
   --delegate-color:#F7A821;
@@ -32,6 +32,7 @@
   --background-color: #191c24;
   --icon-color : #5fb32e;
   --input-background-color : #2a3038;
+  --input-type-hover: #ffffff;
 }
 
 body {
@@ -44,7 +45,7 @@ body {
 }
 
 .active {
-  filter: blur(1px);
+  filter: blur(2px);
   pointer-events: none;
   user-select: none;
 }
@@ -55,6 +56,12 @@ body {
 }
 
 /* -----------home page right side element styling----------------- */
+.left-section{
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
 .right-section {
   display: flex;
   justify-content: center;
@@ -68,7 +75,7 @@ body {
   color: var(--icon-color);
   position: absolute;
   right: 378px;
-  top: 8px;
+  top: 17px;
   font-size: 20px;
  
 }
@@ -150,7 +157,7 @@ body {
   background-color: var(--primary-color);
   border-radius: 5px;
   color: white;
-  padding: 10px 41px;
+  padding: 10px 43px;
 }
 
 .add-btn:hover {
@@ -170,7 +177,7 @@ body {
 /* ------------styel for input type   div ----------- */
 .input-type {
   position: absolute;
-  background-color: var(--thresary-color);
+  background-color: var(--input-type-hover);
   border-radius: 0px 0px 5px 5px;
   box-shadow: #9b9c9a 0px 5px 15px;
   display: none;
@@ -616,14 +623,18 @@ button {
   /* margin-bottom: 19px; */
   border-radius: 20px;
 }
+.doBox{
+  color: var(--font-color);
+}
 .taskDetailBox {
   display: flex;
   gap: 10px 110px;
   width: 860px;
   flex-wrap: wrap;
-  margin-left: 200px;
+  margin-left: 160px;
 }
 .heading{
+  color: var(--font-color);
   font-weight: bolder;
   margin: 10px;
 }
@@ -670,13 +681,14 @@ button {
 /* notification list div */
 
 .Habitsdiv {
-  width: 345px;
+
+  width: 343px;
   display: none;
   border: 2px solid black;
   position: absolute;
   min-height: 550px;
-  top: 96px;
-  left: 913px;
+  top: 85px;
+  left: 1000px;
   border-radius: 10px;
   background-color: #FFFFFF;
   z-index: 1;
