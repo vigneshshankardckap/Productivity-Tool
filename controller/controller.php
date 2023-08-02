@@ -17,6 +17,7 @@ class UserController {
       
     }
 
+
     public function login(){
         require "index.html";
     }
@@ -33,9 +34,9 @@ class UserController {
         $this->userModel->signUp($_POST);
     }
     
-    public function store(){
-        $this->userModel->store($_REQUEST);
-    }
+//    public function store(){
+//        $this->userModel->store($_REQUEST);
+//    }
 
     public function addTask($tasks){
 //        var_dump($tasks);
