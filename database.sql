@@ -82,6 +82,8 @@ INSERT INTO `tasks` (`id`, `task_name`, `dates`, `user_id`, `category_id`, `matr
 
 INSERT INTO `tasks` (`task_name`, `dates`, `user_id`, `category_id`, `matrix_id`, `comments`, `created_at`, `updated_at`) VALUES ( 'walk', '2023-07-12', '2', '2', '1', 'Every one hour i need to drink water ', current_timestamp(), '0000-00-00 00:00:00.000000'), ('exercise', '2023-07-18', '2', '1', '1', 'I need to prepare for PHP assessment with in today night', current_timestamp(), '0000-00-00 00:00:00.000000');
 
+INSERT INTO `addTask` (`id`, `name`, `created_at`, `updated_at`) VALUES (NULL, 'Drink water, Keep healthy', current_timestamp(), '0000-00-00 00:00:00.000000'), (NULL, 'Go Exercising', current_timestamp(), '0000-00-00 00:00:00.000000'), (NULL, 'Go to bed Early', current_timestamp(), '0000-00-00 00:00:00.000000'), (NULL, 'Keep Reading', current_timestamp(), '0000-00-00 00:00:00.000000');
+
 SELECT * from tasks where user_id = 2;
 
 SELECT * from tasks where user_id = 2 AND matrix_id = 1;
