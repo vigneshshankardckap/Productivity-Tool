@@ -7,8 +7,6 @@
   <title>Document</title>
   <link rel="stylesheet" href="../CSS/homepage.css" />
   <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
-  <!-- <script src="https://kit.fontawesome.com/9b0c9c9952.js" crossorigin="anonymous"></script> -->
-
   <script src="https://kit.fontawesome.com/52d2b40c3f.js" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
@@ -32,9 +30,6 @@
             </form>
         </div>
         <?php endforeach; ?>
-
-
-
     </div>
     <div class="inner-container">
       <header class="header">
@@ -59,7 +54,6 @@
               <a href="/logout">
                 <i class="fa-solid fa-arrow-right-from-bracket logout"></i>
               </a>
-
             </li>
           </ul>
         </div>
