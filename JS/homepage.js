@@ -196,51 +196,6 @@ function AddOneMoreForm() {
 
 }
 // ========================================================================================================/
-
-// ===========================priority buttons fuctionality===========================//
-
-let urgentBtn = document.querySelectorAll(".urgent-priority-btn")
-let importantBtn = document.querySelectorAll(".important-priority-btn")
-
-// -------------below code for urgent button----------------//
-for (let i = 0; i < urgentBtn.length; i++) {
-  urgentBtn[i].addEventListener('click', () => {
-    // console.log(urgentBtn[i].value)
-
-    for (let i = 0; i < urgentBtn.length; i++) {
-      urgentBtn[i].style.backgroundColor = "";
-      urgentBtn[i].style.color = ""
-      urgentBtn[i].style.borderColor = ""
-    }
-
-    urgentBtn[i].style.backgroundColor = "#bff5da"
-    urgentBtn[i].style.color = "#5fb32e"
-    urgentBtn[i].style.borderColor = "#5fb32e"
-    urgentBtn[i].style.transition = "0.3s"
-
-
-  })
-}
-
-// -------------below code for important button------------------//
-for (let i = 0; i < importantBtn.length; i++) {
-  importantBtn[i].addEventListener('click', () => {
-    console.log(importantBtn[i].value)
-
-    for (let i = 0; i < importantBtn.length; i++) {
-      importantBtn[i].style.backgroundColor = "";
-      importantBtn[i].style.color = ""
-      importantBtn[i].style.borderColor = ""
-
-    }
-
-    importantBtn[i].style.backgroundColor = "#bff5da";
-    importantBtn[i].style.color = "#5fb32e"
-    importantBtn[i].style.borderColor = "#5fb32e"
-    importantBtn[i].style.transition = "0.3s"
-
-  })
-}
 // =========================================================================================================//
 
 
