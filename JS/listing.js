@@ -88,9 +88,9 @@ function AddOneMoreForm() {
   <span id=${multiformCnt}>X</span>
   </div>
     <div class="multi-input-div">
-      <label>What on your todo?</label>
+      <label>What on your task?</label>
       <div class="todo-input-box">
-        <textarea name="Task_name" id="" cols="30" rows="10" placeholder="Enter your todo"></textarea>
+        <textarea name="Task_name" id="" cols="30" rows="10" placeholder="Enter your task"></textarea>
       </div>
     </div>
     <div class="other-input-div">

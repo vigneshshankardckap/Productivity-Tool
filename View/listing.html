@@ -34,11 +34,11 @@
     <div class="inner-container">
       <header class="header">
         <div class="left-section">
+          <img src="../Images/logo.png">
           <h1>What's Up<span class="username">
-              <?php echo $_SESSION['name']; ?>
+              <!-- <?php echo $_SESSION['name']; ?> -->
             </span></h1>
         </div>
-        <!-- <?php echo $_SESSION['name']; ?> -->
         <!-- this is our right side contents -->
         <div class="right-section">
           <div class="search-icon-div">
@@ -64,7 +64,7 @@
       <!-- this below section is for add button -->
       <div class="add-todo-btn-section">
         <div class="add-todo-inner-section">
-          <h2 class="add-btn">ADD TODO</h2>
+          <h2 class="add-btn">ADD TASK</h2>
           <div class="input-type">
             <div class="input-type-btn">
               <span>Single</span>
@@ -102,7 +102,8 @@
         </div>
       </div>
       <section id="taskDetailView">
-
+        <!-- <h1>Task List</h1>
+        <p>list the task</p> -->
       </section>
     </div>
 
@@ -122,8 +123,8 @@
       <div>
         <div class="inputdiv">
           <div>
-            <label for="project">What is on your todo?</label>
-            <input type="text" placeholder="E.g Make Todo " name="Task_name" class="projectName" />
+            <label for="project">What is on your task?</label>
+            <input type="text" placeholder="E.g Make task " name="Task_name" class="projectName" />
           </div>
           <div>
             <label for="project" placeholder="Get Date/Time">What on your due?</label>
