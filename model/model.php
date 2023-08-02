@@ -3,11 +3,6 @@ require 'con.php';
 
 class UserModule extends Database
 {
-
-//    public function homePage()
-//    {
-//        require "index.html";
-//    }
     public function logincheck($data){
 
         $username=$data['email'];
@@ -37,7 +32,9 @@ class UserModule extends Database
         if ($exists)
         {
             header('location:/login');
+
             $_SESSION['guest_user'] ="Kindly Please Login";
+            
         }
         else {
             $name = $data['name'];
@@ -49,26 +46,43 @@ class UserModule extends Database
                 $check = $this->db->query("SELECT * FROM users WHERE email_id = '$email'");
                     $exists = $check->fetchAll();
                     $_SESSION['name'] = $exists[0]['username'];
-           header('location:/LandingPage');
+
+            
+                $check = $this->db->query("SELECT id FROM users WHERE email_id = '$email'");
+                $exists = $check->fetchAll();
+                $_SESSION['id'] = $exists[0]['id'];
+                    header('location:/LandingPage');
 
 
         }
 
     }
+     public function UserId(){
+         
+     }
 
     public function store($data)
     {
-        
+        if(!empty($data)){
+            $key = array_keys($data);
   
-      $key = array_keys($data);
+            $val = array_values($data);
+      
+           
+              $sql = "INSERT INTO tasks (" . implode(', ', $key) . ") "
+              . "VALUES ('" . implode("', '", $val) . "')";
+            $query =   $this->db->prepare($sql);
+            $query->execute();
+            header('location:/list');
+
+        }
+
+    
   
-      $val = array_values($data);
+
+    
   
-          $sql = "INSERT INTO tasks (" . implode(', ', $key) . ") "
-          . "VALUES ('" . implode("', '", $val) . "')";
-        $query =   $this->db->prepare($sql);
-        $query->execute();
-        header("location:/list");
+
 
     }
 
@@ -82,7 +96,7 @@ class UserModule extends Database
     }
 
     public function addedTaskDetails(){
-//        var_dump($_POST);
+
         $userId = $_SESSION['id'];
 //        $fetchAddedTasks = $this->db->query("SELECT id,name FROM addTask JOIN userAddedTask on addTask.id = userAddedTask.addTask_id where userAddedTask.user_id = '$userId'");
         $fetchAddedTasks = $this->db->query("select userAddedTask.id,name from addTask join userAddedTask on addTask.id = userAddedTask.addTask_id where userAddedTask.user_id = '$userId'");

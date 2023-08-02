@@ -17,6 +17,7 @@
                     <!-- <a href="#" class="social"><i class="fab fa-facebook-f"></i></a> -->
                     <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
                     <!-- <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>  -->
+            <!-- <p><?php echo  $_SESSION['guest_user'] ="Kindly Please Login";  ?></p> -->
                 </div>
                 <span>or use your email for registration</span>
                 <input type="text" placeholder="Name" name="name" />
@@ -26,7 +27,7 @@
             </form>
         </div>
         <div class="form-container sign-in-container">
-            <form action="/loginLogic" method="post">
+            <form action="/loginLogic" method="post" name="form" onsubmit="return validated()">
                 <h1>Log in</h1>
                 <div class="social-container">
                     <!-- <a href="#" class="social"><i class="fab fa-facebook-f"></i></a> -->
@@ -34,9 +35,10 @@
                     <!-- <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a> -->
                 </div>
                 <span>or use your account</span>
-                <input type="email" placeholder="Email" name="email" />
+                <input type="text" placeholder="Email" name="email" />
+                <p class="emailError">Please Fill Up Your Email </p>
                 <input type="password" placeholder="Password"  name="password"/>
-                <!-- <a href="#">Forgot your password?</a> -->
+                <p class="passError">Please Fill Up Your Password </p>
                 <button>login In</button>
             </form>
         </div>
