@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
   <link rel="stylesheet" href="../CSS/listing.css" />
+<link rel="stylesheet" href="">
   <script src="https: //kit.fontawesome.com/9b0c9c9952.js"crossorigin="anonymous">
     </script>
 </head>
@@ -15,8 +16,8 @@
   <div class="container">
     <div class="header">
       <div class="left-section">
-        <h1>What's Up<span class="username">Ganesh</span></h1>
-        <p>CREATE A TODO</p>
+        <h1>What's Up<span class="username"><?php echo $_SESSION['name'];?></span></h1>
+
       </div>
       <div class="right-section">
         <div class="search-icon-div">
@@ -31,16 +32,17 @@
             <img src="../Icons/dark_mode.png" />
           </li>
           <li class="right-icon">
-            <img src="../Icons/logout_FILL0_wght400_GRAD0_opsz48 1.png" />
+            <a href="/logout"><img src="../Icons/logout_FILL0_wght400_GRAD0_opsz48 1.png" /></a>
           </li>
         </ul>
       </div>
     </div>
+
     
     <div class="add-todo-btn-section">
       <div class="Task_Type">
-        <input type="button" class="nav Professional-btn addswitch" name="1" value="professional" id="professional">
-        <input type="button" class="nav Personal-btn" id="personal" name="2" value="personal" id="personal">
+        <input type="button" class="nav Professional-btn addswitch" name="1" value="Professional" id="professional">
+        <input type="button" class="nav Personal-btn" id="personal" name="2" value="Personal" id="personal">
       </div>
       <div class="add-todo-inner-section">
         <h2 class="add-btn">ADD TODO</h2>
@@ -60,8 +62,8 @@
 
           <h2>Pick Category</h2>
           <div class="Task_Type">
-            <input type="button" class="nav Professional-btn addswitch" name="1" value="professional" id="professional">
-            <input type="button" class="nav Personal-btn" id="personal" name="2" value="personal" id="personal">
+            <input type="button" class="nav Professional-btn addswitch" name="1" value="Professional" id="professional">
+            <input type="button" class="nav Personal-btn" id="personal" name="2" value="Personal" id="personal">
           </div>
           <div>
             <div class="inputdiv">

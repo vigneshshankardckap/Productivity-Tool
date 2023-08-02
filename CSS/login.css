@@ -260,3 +260,12 @@ footer a {
 button{
 	cursor: pointer;
 }
+
+.emailError,
+.passError{
+	margin-top: 5px;
+    color: red;
+	display: none;
+	/* background-color: rgb(255, 225, 225); */
+
+}

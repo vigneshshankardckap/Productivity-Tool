@@ -29,17 +29,23 @@ class UserController {
     public function signUp(){
         require "index.html";
     }
-
+    public function list(){
+        require "View/listing.html";
+    }
     public function signupLogic(){
         $this->userModel->signUp($_POST);
     }
     
-//    public function store(){
-//        $this->userModel->store($_REQUEST);
-//    }
+
+    public function store(){
+        $this->userModel->store($_REQUEST);
+        // header("loation:/list");
+        // header('location:/');
+
+    }
 
     public function addTask($tasks){
-//        var_dump($tasks);
+
         $this->userModel->addTask($tasks);
     }
 
