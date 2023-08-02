@@ -49,7 +49,7 @@
           </div>
           <input placeholder="search" type="search" class="input-box" />
           <ul class="icons">
-<<<<<<< HEAD
+
 <!--              <form method="post" action="/addedTaskDetails">-->
               <li class="right-icon">
                   <form method="post" action="/addedTaskDetails">
@@ -62,13 +62,7 @@
 
               <li class="right-icon">
               <img class="darkmode" src="../Icons/dark_mode.png" />
-=======
-            <li class="right-icon">
-              <i class="fa-regular fa-bell notification" onclick="openNotofy()"></i>
-            </li>
-            <li class="right-icon">
-              <i class="fa-regular fa-moon darkmode"></i>
->>>>>>> e74bec6e48603902e238986b59175da3691a20ea
+
             </li>
             <li class="right-icon">
               <a href="/logout">
