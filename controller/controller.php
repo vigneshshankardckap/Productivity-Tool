@@ -30,6 +30,10 @@ class UserController {
         require "index.html";
     }
     public function list(){
+        $fetchAllDataDo = $this->userModel->fetchDataFromDo();
+        $fetchAllDataDefer=$this->userModel->fetchDataFromdefer();
+        $fetchAllDataDelegate=$this->userModel->fetchDataFromdelegate();
+        $fetchAllDataDelete=$this->userModel->fetchDataFromdelete();
         require "View/listing.html";
     }
     public function signupLogic(){
@@ -39,8 +43,7 @@ class UserController {
 
     public function store(){
         $this->userModel->store($_REQUEST);
-        // header("loation:/list");
-        // header('location:/');
+
 
     }
 
@@ -62,4 +65,8 @@ class UserController {
         $this->userModel->deleteAddedTask($_POST);
     }
 
+    public function fetchData(){
+        $this->userModel->fetchDataFromDb();
+
+    }
 }

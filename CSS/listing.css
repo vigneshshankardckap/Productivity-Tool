@@ -644,18 +644,18 @@ button {
 }
 
 .do > .doBox {
-  background-color: var(--do-color);
+  background-color: #32de84;
 }
 .defer > .doBox{
-  background-color: var(--defer-color);
+  background-color:#1da1f2;
 }
 
 .deleate > .doBox{
-  background-color: var(--delegate-color);
+  background-color: #FFFF00;
 }
 
 .delete > .doBox{
-  background-color: var(--delete-color);
+  background-color: #D2122E;
 }
 .time{
   display: flex;
