@@ -660,7 +660,6 @@ button {
 .do>.doBox {
   background-color: var(--do-color);
 }
-
 .defer>.doBox {
   background-color: var(--defer-color);
 }
@@ -671,6 +670,7 @@ button {
 
 .delete>.doBox {
   background-color: var(--delete-color);
+
 }
 
 .time {
