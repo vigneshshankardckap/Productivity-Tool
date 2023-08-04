@@ -657,7 +657,6 @@ button {
   /* margin: 20px 0px 0px 149px; */
   display: flex;
 }
-
 .do>.doBox {
   background-color: var(--do-color);
 }
