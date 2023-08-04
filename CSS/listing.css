@@ -672,6 +672,7 @@ button {
 
 .delete>.doBox {
   background-color: var(--delete-color);
+
 }
 
 .time {

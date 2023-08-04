@@ -8,6 +8,22 @@
   <link rel="stylesheet" href="../CSS/listing.css" />
   <link rel="stylesheet" href="">
   <script src="https://kit.fontawesome.com/52d2b40c3f.js" crossorigin="anonymous"></script>
+  <style>
+.fetchdata{
+  margin-left:20px;
+  padding:10px;
+  color: black;
+}
+    li>span{
+      margin-left: 10px;
+    }
+.contents {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 70px;
+}
+  </style>
 </head>
 
 <body>
@@ -80,25 +96,54 @@
           <p class="heading">Do</p>
           <div class="doBox">
             <div class="welcome">
-              <li>welcome</li>
-            </div>
-            <div class="time">
-              <li>15/7</li>
-              <li>12.00 PM</li>
+              <?php foreach($fetchAllDataDo as $datum): ?>
+                <div class="contents">
+                  <li class="fetchdata"><?php echo $datum->task_name ?></li>
+                  <p> <?php echo $datum->dates ?>  </p>
+                </div>
+              <?php endforeach; ?>
             </div>
           </div>
         </div>
         <div class="defer">
           <p class="heading">Defer</p>
-          <div class="doBox"></div>
+          <div class="doBox">
+            <div class="welcome">
+              <?php foreach($fetchAllDataDefer as $datum): ?>
+              <div class="contents">
+                <li class="fetchdata"><?php echo $datum->task_name ?></li>
+                <p> <?php echo $datum->dates ?>  </p>
+              </div>
+              <?php endforeach; ?>
+            </div>
+          </div>
         </div>
         <div class="deleate">
           <p class="heading">Delegate</p>
-          <div class="doBox"></div>
+          <div class="doBox">
+            <div class="welcome">
+              <?php foreach($fetchAllDataDefer as $datum): ?>
+              <div class="contents">
+                <li class="fetchdata"><?php echo $datum->task_name ?></li>
+                <p> <?php echo $datum->dates ?>  </p>
+              </div>
+              <?php endforeach; ?>
+            </div>
+
+          </div>
         </div>
         <div class="delete">
           <p class="heading">Delete</p>
-          <div class="doBox"></div>
+          <div class="doBox">
+            <div class="welcome">
+              <?php foreach($fetchAllDataDelete as $datum): ?>
+              <div class="contents">
+                <li class="fetchdata"><?php echo $datum->task_name ?></li>
+                <p> <?php echo $datum->dates ?>  </p>
+              </div>
+              <?php endforeach; ?>
+            </div>
+          </div>
         </div>
       </div>
       <section id="taskDetailView">

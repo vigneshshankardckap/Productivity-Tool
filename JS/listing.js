@@ -43,7 +43,7 @@ function openSingleForm(params) {
 
   function classListAdd(getBtns, getBtn) {
     getBtns.addEventListener("click", (e) => {
-    
+
       let targetClass = e.target.classList.value;
       for (let j = 0; j < getBtn.length; j++) {
         if (getBtn[j].getAttribute("class") == targetClass) {
@@ -59,7 +59,7 @@ function openSingleForm(params) {
     })
   }
 
-            // ------this below close button for close the single form ----------
+  // ------this below close button for close the single form ----------
 
   let closeBtn = document.querySelector(".close-btn");
 
@@ -175,12 +175,12 @@ function AddOneMoreForm() {
         multipleFormsDiv[i].remove();
       }
     })
-    
+
     // for (let i = 0; i < multipleFormsDiv.length; i++) {
     //   // multipleFormsDiv.addEventListener("onmouseenter", () => {
     //   console.log(multipleFormsDiv[i]);
     //   // })
-      
+
     // }
 
     // cancelButton.addEventListener("click", () => {
@@ -203,7 +203,7 @@ let DateField = document.querySelector(".dateTime");
 
 DateField.addEventListener("click", () => {
   // console.log(DateField.value);
-// console.log(category_id)
+  // console.log(category_id)
 })
 
 
@@ -224,9 +224,9 @@ let allInputs = document.querySelectorAll('.datas')
 let category_id;
 let category = document.querySelectorAll('.category')
 
-for(let i=0;i<category.length;i++){
-  category[i].addEventListener('click',(event)=>{
-      category_id =  event.target.id
+for (let i = 0; i < category.length; i++) {
+  category[i].addEventListener('click', (event) => {
+    category_id = event.target.id
   })
 }
 
@@ -235,54 +235,54 @@ for(let i=0;i<category.length;i++){
 let data;
 let urgent;
 let important;
-for(let i=0;i<allInput.length;i++){
-     allInput[i].addEventListener('click',(e)=>{
-        urgent = allInputs[i].value
-     })
-     allInputs[i].addEventListener('click',(e)=>{
-     important = allInputs[i].value
-     })
+for (let i = 0; i < allInput.length; i++) {
+  allInput[i].addEventListener('click', (e) => {
+    urgent = allInputs[i].value
+  })
+  allInputs[i].addEventListener('click', (e) => {
+    important = allInputs[i].value
+  })
 }
-function store(){
+function store() {
 
 
-  if(urgent == 1 && important == 1){
+  if (urgent == 1 && important == 1) {
     data = 1
-   }
-   else if(urgent == 0 && important == 1){
-     data = 2
-    }    
-   else if(urgent == 1 && important== 0){
-     data = 3
-    }    
-  else if(urgent== 0 && important == 0){
-     data = 4
-    } 
+  }
+  else if (urgent == 0 && important == 1) {
+    data = 2
+  }
+  else if (urgent == 1 && important == 0) {
+    data = 3
+  }
+  else if (urgent == 0 && important == 0) {
+    data = 4
+  }
 
-    let projectName =  $(".projectName").val();
-    let dateTime = $(".dateTime").val();
-    let priority = data;
-    let pickCateid = category_id;
-      
-   let FrontendObj = {
-     "category_id": pickCateid,
-     "task_name":projectName,
-     "dates":dateTime,
-     "user_id":1,
-     "matrix_id":priority
-   }
+  let projectName = $(".projectName").val();
+  let dateTime = $(".dateTime").val();
+  let priority = data;
+  let pickCateid = category_id;
+
+  let FrontendObj = {
+    "category_id": pickCateid,
+    "task_name": projectName,
+    "dates": dateTime,
+    "user_id": 1,
+    "matrix_id": priority
+  }
 
 
 
-          $.ajax({
-                 method: 'POST',
-                 url: '/store',
-                 data: FrontendObj,
-                 success: function (response) {
-                   console.log(response);
+  $.ajax({
+    method: 'POST',
+    url: '/store',
+    data: FrontendObj,
+    success: function (response) {
+      console.log(response);
 
-                 }
-             })
+    }
+  })
 }
 // setInterval(() => {
 //   if (projectField.value != "") {
@@ -339,13 +339,13 @@ function darkMode() {
 
 
 // ==============================================================
-let personal =document.querySelector("#personal");
+let personal = document.querySelector("#personal");
 let doBox = document.querySelectorAll(".doBox")
 
 for (let i = 0; i < doBox.length; i++) {
-    doBox[i].addEventListener("click",()=>{
-       
-    })    
+  doBox[i].addEventListener("click", () => {
+
+  })
 }
 
 
