@@ -658,6 +658,7 @@ button {
   display: flex;
 }
 
+
 .do>.doBox {
   background-color: var(--do-color);
 }
@@ -672,6 +673,7 @@ button {
 
 .delete>.doBox {
   background-color: var(--delete-color);
+
 }
 
 .time {
