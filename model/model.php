@@ -63,6 +63,7 @@ class UserModule extends Database
 
     public function store($data)
     {
+
         var_dump($data);
         $taskName = $data['Task_name'];
         $dueDate = $data['dateTime'];
@@ -70,15 +71,6 @@ class UserModule extends Database
         $categoryId = $data['task_type'];
         $urgent = $data['urgent'];
         $important = $data['important'];
-        // $urgentYes = intval($data['urgentY']);
-        // // var_dump($urgent."gokul");
-        // $urgentNo = intval($data['urgentN']);
-        // $importantYes = intval($data['importantY']);
-        // $importantNo = intval($data['importantN']);
-
-        
-
-        // $urgeImp=0;
 
         if($urgent == 1 && $important == 1){
             $urgeImp = 1;
@@ -133,20 +125,27 @@ class UserModule extends Database
     }
 
     public function fetchDataFromDo(){
-//        $userId=$_SESSION['userid'];
-        return $this->db->query("SELECT * from tasks where user_id =1 AND matrix_id = 1")->fetchAll(PDO::FETCH_OBJ);
+       $userId=$_SESSION['userid'];
+        return $this->db->query("SELECT * from tasks where user_id =$userId AND matrix_id = 1")->fetchAll(PDO::FETCH_OBJ);
 
     }
     public function fetchDataFromdefer(){
-        return $this->db->query("SELECT * from tasks where user_id =1 AND matrix_id = 2")->fetchAll(PDO::FETCH_OBJ);
+       $userId=$_SESSION['userid'];
+
+        return $this->db->query("SELECT * from tasks where user_id =$userId AND matrix_id = 2")->fetchAll(PDO::FETCH_OBJ);
 
     }
     public function fetchDataFromdelegate(){
-        return $this->db->query("SELECT * from tasks where user_id =1 AND matrix_id = 3")->fetchAll(PDO::FETCH_OBJ);
+       $userId=$_SESSION['userid'];
+
+        return $this->db->query("SELECT * from tasks where user_id =$userId AND matrix_id = 3")->fetchAll(PDO::FETCH_OBJ);
 
     }
+    
     public function fetchDataFromdelete(){
-        return $this->db->query("SELECT * from tasks where user_id =1 AND matrix_id = 4")->fetchAll(PDO::FETCH_OBJ);
+
+       $userId=$_SESSION['userid'];
+        return $this->db->query("SELECT * from tasks where user_id =$userId AND matrix_id = 4")->fetchAll(PDO::FETCH_OBJ);
 
     }
 }
