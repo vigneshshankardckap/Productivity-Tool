@@ -234,23 +234,25 @@ body {
   display: none;
   position: absolute;
   height: 27rem;
-  width: 770px;
-  background-color: var(--thresary-color);
+  width: 600px;
+  background-color: #eeeeee;
   border-radius: var(--single-border-radius);
   right: 18rem;
   top: 163px;
-  padding: 25px 25px;
+  padding: 5px 24px;
   box-shadow: #00000029 0px 10px 36px 0px,
     #0000000f 0px 0px 0px 1px;
 }
 
 .single-input-form p {
-  padding-left: 200px;
+  padding-left: 120px;
   color: var(--font-color);
+  font-weight: bold;
 }
 
 .single-input-form label {
   color: var(--font-color);
+  font-weight:600;
 }
 
 /* ---------close button for form---------------- */
@@ -263,7 +265,7 @@ body {
   justify-content: center;
   align-items: center;
   border: 1px solid var(--primary-color);
-  margin-left: 690px;
+  margin-left: 545px;
   font-weight: bold;
 }
 
@@ -290,7 +292,7 @@ body {
 
 /* -----below style for task type(personal or professional)---------------- */
 .Task_Type {
-  padding: 10px 0px 0px 200px;
+  padding: 10px 0px 0px 90px;
   display: flex;
   gap: 10px;
 }
@@ -316,7 +318,7 @@ body {
 
 /* --------this below style is for inputs (todo input and date)------------ */
 .inputdiv div {
-  padding: 12px 0px 0px 198px;
+  padding: 12px 0px 0px 120px;
   gap: 10px;
   display: grid;
 }
@@ -327,7 +329,7 @@ body {
   border: 1px solid var(--primary-color);
   border-radius: var(--single-border-radius);
   /* background-color: var(--thresary-color); */
-  background-color: var(--input-background-color);
+  background-color:white;
   columns: var(--font-color);
   padding: 0px 10px;
 }
@@ -346,12 +348,14 @@ body {
 /* ------------below style is for our priority buttons-------------- */
 .matix {
   display: flex;
-  padding: 12px 0px 0px 200px;
+  padding: 24 px 0px 0px 120px;
   gap: 35px;
+  margin-left: 120px;
+  margin-top: 25px;
 }
 
 .matix div input {
-  height: 31px;
+  height: 20px;
   width: 38px;
   border-radius: var(--single-border-radius);
   border: 1px solid var(--primary-color);
@@ -380,13 +384,13 @@ button {
 
 /* ---------single todo form submit button--------- */
 .single-input-form .submit-btn {
-  width: 155px;
+  width: 175px;
   height: 35px;
   background-color: var(--primary-color);
   border: none;
   color: var(--thresary-color);
   font-size: 16px;
-  margin: 20px 0px 10px 200px;
+  margin: 20px 0px 10px 160px;
   cursor: pointer;
 }
 
@@ -840,4 +844,79 @@ button.removetask {
 .make-changes button{
 border: none;
 
+}
+
+
+/* ====================radio button style==================================== */
+
+
+.wrapper{
+  display: inline-flex;
+  
+  height: 70px;
+  /* width: 400px; */
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 5px;
+  padding: 15px 15px;
+  /* box-shadow: 5px 5px 30px rgba(0,0,0,0.2); */
+}
+.wrapper .option{
+  background: #fff;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 0 10px;
+  border: 2px solid lightgrey;
+  transition: all 0.3s ease;
+}
+/* .wrapper .option .dot{
+  height: 20px;
+  width: 20px;
+  background: #d9d9d9;
+  border-radius: 50%;
+  position: relative;
+}
+.wrapper .option .dot::before{
+  position: absolute;
+  content: "";
+  top: 4px;
+  left: 4px;
+  width: 12px;
+  height: 12px;
+  background: #5fb32e;
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(1.5);
+  transition: all 0.3s ease;
+} */
+.wrapper >input[type="radio"]{
+  display: none;
+}
+#option-1:checked:checked ~ .option-1,
+#option-2:checked:checked ~ .option-2{
+  border-color: #5fb32e;
+  background:#5fb32e;
+}
+#option-1:checked:checked ~ .option-1 .dot,
+#option-2:checked:checked ~ .option-2 .dot{
+  background: #fff;
+}
+#option-1:checked:checked ~ .option-1 .dot::before,
+#option-2:checked:checked ~ .option-2 .dot::before{
+  opacity: 1;
+  transform: scale(1);
+}
+.wrapper .option span{
+  font-size: 20px;
+  color: #808080;
+}
+#option-1:checked:checked ~ .option-1 span,
+#option-2:checked:checked ~ .option-2 span{
+  color: #fff;
 }
