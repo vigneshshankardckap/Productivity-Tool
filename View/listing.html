@@ -2,14 +2,12 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="../CSS/listing.css" />
     <link rel="stylesheet" href="">
     <script src="https://kit.fontawesome.com/52d2b40c3f.js" crossorigin="anonymous"></script>
-
 </head>
 
 <body>
@@ -77,7 +75,6 @@
                 </div>
             </div>
         </div>
-
         <div class="taskDetailBox">
             <div class="do">
                 <p class="heading">Do</p>
@@ -98,7 +95,7 @@
             <div class="deleate">
                 <p class="heading">Delegate</p>
                 <div class="doBox"></div>
-            </div>
+          </div>
             <div class="delete">
                 <p class="heading">Delete</p>
                 <div class="doBox"></div>
@@ -185,18 +182,18 @@
     <hr>
     <div class="Task-list">
 
-      <h3>Task name</h3>
+      <h3>Task Name</h3>
 
       <h3>Due date and Time</h3>
-      <h3>mark as completed</h3>
+      <h3>Mark as Completed</h3>
     </div>
     <hr>
 
   </div>
   <div class="task-info">
     <div class="list-name">
-      <h5>todo app design</h5>
-      <h5>22/07/2022</h5>
+      <h5 id="Task-Name">todo app designd</h5>
+      <h4 id="due-date">22/07/2022</h4>
     </div>
     <div class="add-Cmt">
 
@@ -205,16 +202,21 @@
 
     </div>
     <div>
-      <div class="Task-progress">
-        <input type="checkbox" name="" id="">
-      </div>
+      <div class="change">
+        <div class="Task-progress">
+          <div class="round">
+            <input type="checkbox" id="checkbox"/>
+            <label for="checkbox"></label>
+          </div>
 
-      <div class="make-changes">
-        <button><i class="fa-solid fa-pen"></i></button>
-        <button><i class="fa-solid fa-trash-can"></i></button>
-        <button><i class="fa-solid fa-comment"></i></i></button>
-      </div>
+        </div>
 
+        <div class="make-changes">
+          <button><i class="fa-solid fa-pen"></i></button>
+          <button><i class="fa-solid fa-trash-can"></i></button>
+          <button class="add-comment-btn"><i class="fa-solid fa-comment"></i></i></button>
+        </div>
+      </div>
     </div>
   </div>
   </div>
