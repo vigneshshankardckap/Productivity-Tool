@@ -19,10 +19,15 @@ for (let i = 0; i < inputBtn.length; i++) {
     else if (inputBtn[i].innerText == "Multiple") {
       multiFormDiv.classList.add("show");
       AddOneMoreForm();
+      textAreaCreation()
       // AddOneMoreForm();
     }
   })
 }
+let addDivBtn = document.querySelector('.addDivBtn');
+addDivBtn.addEventListener("click", () => {
+  textAreaCreation()
+})
 //========================================single form functionality================================/
 
 function openSingleForm(params) {
@@ -87,7 +92,7 @@ function AddOneMoreForm() {
     <div class="multi-input-div">
       <label>What on your task?</label>
       <div class="todo-input-box">
-        <textarea name="Task_name" id="" cols="30" rows="10" placeholder="Enter your task"></textarea>
+
       </div>
     </div>
     <div class="other-input-div">
@@ -122,8 +127,57 @@ function AddOneMoreForm() {
   </form>
   </div>
   `
+
+  // <div class="multi-input-div">
+  // <label>What on your task?</label>
+  // <div class="todo-input-box">
+  //   <textarea name="Task_name" id="" cols="30" rows="10" placeholder="Enter your task"></textarea>
+  // </div>
+  // </div>
+
+  // -----main div for multiple form section------
+  let mainDiv = document.createElement('div');
+  mainDiv.setAttribute('class','multiple-forms-div')
+  //------creating form element for multiple------
+  let forms = document.createElement('form');
+  forms.setAttribute('class','multiple-forms');
+  forms.setAttribute('action','');
+  forms.setAttribute('method','post');
+  //-------close button div for multiple--------
+  let mainDivCloseBtn = document.createElement('div');
+  mainDivCloseBtn.setAttribute('class','main-div-closeBtn');
+  mainDivCloseBtn.setAttribute('id',`${multiformCnt}`);
+  //--------close X symbole creat-----------
+  let closeSymbole = document.createElement('span')
+  closeSymbole.setAttribute('id',`${multiformCnt}`);
+  closeSymbole.innerText = 'X'
+  //--------creating todo input div-----------
+  let todoInput = document.createElement('div');
+  todoInput.setAttribute('class','multi-input-div')
+  let label1 = document.createElement('label');
+  let todoInputBox = document.createElement('div');
+  todoInputBox.setAttribute('class','todo-input-box');
+  let textarea = document.createElement('textarea');
+  textarea.name = 'Task_name';
+  textarea.placeholder = 'Enter Your Task';
+
+
+
+  //--------append the symbole in button div--------
+  mainDivCloseBtn.append(closeSymbole);
+  forms.append(mainDivCloseBtn);
+  mainDiv.append(forms);
+  empty.append(mainDiv);
+
   // ----------below code for adding color to the taskType(personal or professional) ----------------
 
+  buttonActions()
+  closeBtnActions()
+
+}
+
+// --------- classList add and remove function------------
+function buttonActions(params) {
   let taskType = document.querySelectorAll(".typeBtn");
   let urgentBtn = document.querySelectorAll(".urgent-priority-btn");
   let importantBtn = document.querySelectorAll(".important-priority-btn");
@@ -136,7 +190,6 @@ function AddOneMoreForm() {
 
   function classListAdd(getBtns, getBtn) {
     getBtns.addEventListener("click", (e) => {
-      // console.log(getBtns)
       let targetId = e.target.id;
       for (let j = 0; j < getBtn.length; j++) {
         if (getBtn[j].getAttribute("id") == targetId) {
@@ -152,10 +205,13 @@ function AddOneMoreForm() {
     })
   }
 
+}
 
+// ----------function close button multi----------------
+function closeBtnActions(params) {
   // -----------------this below close button for close multi form-----------------
 
-  let mainDivCloseBtn = document.querySelectorAll(".main-div-closeBtn");
+  // let mainDivCloseBtn = document.querySelectorAll(".main-div-closeBtn");
   let multipleFormsDiv = document.querySelectorAll(".multiple-forms-div");
   // let cancelButton = document.querySelector(".cancel-btn");
 
@@ -173,27 +229,9 @@ function AddOneMoreForm() {
       }
     })
 
-    // for (let i = 0; i < multipleFormsDiv.length; i++) {
-    //   // multipleFormsDiv.addEventListener("onmouseenter", () => {
-    //   console.log(multipleFormsDiv[i]);
-    //   // })
-
-    // }
-
-    // cancelButton.addEventListener("click", () => {
-
-    //   innerContainer.classList.remove("active");
-    //   multipleFormsDiv[i].remove();
-    //   multiFormDiv.classList.remove("show");
-    //   // console.log(multipleFormsDiv[i]);
-
-    // })
-
   }
-
 }
 // ========================================================================================================/
-// =========================================================================================================//
 
 
 let DateField = document.querySelector(".dateTime");

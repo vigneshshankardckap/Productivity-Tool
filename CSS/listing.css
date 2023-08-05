@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Cardo:400i|Rubik:400,700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -21,6 +23,10 @@
   --delegate-color: #F7A821;
   --delete-color: #CE4317;
   --icon-color: #000000;
+  --d: 700ms;
+  --e: cubic-bezier(0.19, 1, 0.22, 1);
+  --font-sans: "Rubik", sans-serif;
+  --font-serif: "Cardo", serif;
 }
 
 .darkmode {
@@ -43,9 +49,11 @@ body {
 .container {
   position: relative;
   padding: 35px 80px;
+  width: -webkit-fill-available;
 }
 
 .active {
+  color: var(--background-color);
   filter: blur(2px);
   pointer-events: none;
   user-select: none;
@@ -89,7 +97,7 @@ body {
   width: 300px;
   border-radius: 5px;
   color: var(--font-color);
-
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 5px;
   background-color: var(--thresary-color);
   padding: 0px 10px 0px 45px;
   border: 1px solid white;
@@ -181,10 +189,10 @@ body {
   position: absolute;
   background-color: var(--input-type-hover);
   border-radius: 0px 0px 5px 5px;
-  box-shadow: #9b9c9a 0px 5px 15px;
   display: none;
   animation-duration: 1s;
   animation-name: showInputBox;
+  z-index: 1;
 }
 
 @keyframes showInputBox {
@@ -234,7 +242,7 @@ body {
   display: none;
   position: absolute;
   height: 27rem;
-  width: 770px;
+  width: 35rem;
   background-color: var(--thresary-color);
   border-radius: var(--single-border-radius);
   right: 18rem;
@@ -245,7 +253,7 @@ body {
 }
 
 .single-input-form p {
-  padding-left: 200px;
+  /* padding-left: 200px; */
   color: var(--font-color);
 }
 
@@ -263,7 +271,7 @@ body {
   justify-content: center;
   align-items: center;
   border: 1px solid var(--primary-color);
-  margin-left: 690px;
+  margin-left: 30rem;
   font-weight: bold;
 }
 
@@ -281,7 +289,7 @@ body {
 }
 
 .single-input-form h2 {
-  padding: 0px 0px 0px 40px;
+  /* padding: 0px 0px 0px 40px; */
 }
 
 /* .single-input-form form {
@@ -290,7 +298,7 @@ body {
 
 /* -----below style for task type(personal or professional)---------------- */
 .Task_Type {
-  padding: 10px 0px 0px 200px;
+  padding: 10px 0px 0px 0px;
   display: flex;
   gap: 10px;
 }
@@ -316,7 +324,7 @@ body {
 
 /* --------this below style is for inputs (todo input and date)------------ */
 .inputdiv div {
-  padding: 12px 0px 0px 198px;
+  padding: 12px 0px 0px px;
   gap: 10px;
   display: grid;
 }
@@ -346,7 +354,7 @@ body {
 /* ------------below style is for our priority buttons-------------- */
 .matix {
   display: flex;
-  padding: 12px 0px 0px 200px;
+  padding: 12px 0px 0px 0px;
   gap: 35px;
 }
 
@@ -386,7 +394,7 @@ button {
   border: none;
   color: var(--thresary-color);
   font-size: 16px;
-  margin: 20px 0px 10px 200px;
+  margin: 20px 0px 10px 0px;
   cursor: pointer;
 }
 
@@ -626,12 +634,10 @@ button {
 
 
 /* ================================================================================================= */
+/* 
 .doBox {
   height: 200px;
   width: 371px;
-  /* background-color: #99cc11; */
-  /* margin-right: 140px; */
-  /* margin-bottom: 19px; */
   border-radius: 20px;
 }
 
@@ -654,7 +660,6 @@ button {
 }
 
 .Task_Type {
-  /* margin: 20px 0px 0px 149px; */
   display: flex;
 }
 .do>.doBox {
@@ -691,9 +696,191 @@ button {
 
 .doBox:hover {
   box-shadow: 7px 7px 24px rgb(122 120 151);
+} */
+
+
+* {
+  box-sizing: border-box;
 }
 
+html, body {
+  height: 100%;
+}
 
+body {
+  display: grid;
+  place-items: center;
+}
+
+.page-content {
+  display: grid;
+  grid-gap: 1rem;
+  padding: 1rem;
+  max-width: 1024px;
+  margin: 0 auto;
+  font-family: var(--font-sans);
+}
+@media (min-width: 600px) {
+  .page-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 800px) {
+  .page-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.card {
+  border-radius: 5  px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  padding: 1rem;
+  width: 100%;
+  text-align: center;
+  color: whitesmoke;
+  background-color: whitesmoke;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1), 0 4px 4px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.1), 0 16px 16px rgba(0, 0, 0, 0.1);
+}
+@media (min-width: 600px) {
+  .card {
+    height: 350px;
+  }
+}
+.card:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 110%;
+  background-size: cover;
+  background-position: 0 0;
+  transition: transform calc(var(--d) * 1.5) var(--e);
+  pointer-events: none;
+}
+.card:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200%;
+  pointer-events: none;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.009) 11.7%, rgba(0, 0, 0, 0.034) 22.1%, rgba(0, 0, 0, 0.072) 31.2%, rgba(0, 0, 0, 0.123) 39.4%, rgba(0, 0, 0, 0.182) 46.6%, rgba(0, 0, 0, 0.249) 53.1%, rgba(0, 0, 0, 0.32) 58.9%, rgba(0, 0, 0, 0.394) 64.3%, rgba(0, 0, 0, 0.468) 69.3%, rgba(0, 0, 0, 0.54) 74.1%, rgba(0, 0, 0, 0.607) 78.8%, rgba(0, 0, 0, 0.668) 83.6%, rgba(0, 0, 0, 0.721) 88.7%, rgba(0, 0, 0, 0.762) 94.1%, rgba(0, 0, 0, 0.90) 100%);
+  transform: translateY(-50%);
+  transition: transform calc(var(--d) * 2) var(--e);
+}
+.card:nth-child(1):before {
+  background-image: url(https://img.freepik.com/free-vector/flat-design-starting-line-business-illustration_23-2149498656.jpg?size=626&ext=jpg&ga=GA1.2.2017626677.1691142482&semt=ais);
+}
+.card:nth-child(2):before {
+  background-image: url(https://cdn.discordapp.com/attachments/1031926160747139112/1136975523076116540/Group_1000002089.png);
+}
+.card:nth-child(3):before {
+  background-image: url(https://img.freepik.com/free-vector/add-files-concept-illustration_114360-511.jpg?w=740&t=st=1691147303~exp=1691147903~hmac=19225471150743acd363abbce7d7dabfab09cc0ef614cf3b5890c61d7eaeba54);
+}
+.card:nth-child(4):before {
+  background-image: url(https://img.freepik.com/free-vector/young-guy-carrying-bag-with-garbage-trash-bin_74855-7952.jpg?w=740&t=st=1691147471~exp=1691148071~hmac=14de78aa2077d351812b48c735a0552a1bd490b993c97fd29b38989fb0eeb617);
+}
+
+.content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  transition: transform var(--d) var(--e);
+  z-index: 1;
+}
+.content > * + * {
+  margin-top: 1rem;
+}
+
+.title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.title:before{
+  color: #0A2E1F;
+}
+
+.copy {
+  /* font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-style: italic;
+  line-height: 1.35; */
+}
+
+.btn {
+  cursor: pointer;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.65rem;
+  font-weight: bold;
+  letter-spacing: 0.025rem;
+  text-transform: uppercase;
+  color: white;
+  background-color: black;
+  border: none;
+}
+.btn:hover {
+  background-color: #0d0d0d;
+}
+.btn:focus {
+  outline: 1px dashed yellow;
+  outline-offset: 3px;
+}
+
+@media (hover: hover) and (min-width: 600px) {
+  .card:after {
+    transform: translateY(0);
+  }
+
+  .content {
+    transform: translateY(calc(100% - 4.5rem));
+  }
+  .content > *:not(.title) {
+    opacity: 0;
+    transform: translateY(1rem);
+    transition: transform var(--d) var(--e), opacity var(--d) var(--e);
+  }
+
+  .card:hover,
+.card:focus-within {
+    align-items: center;
+  }
+  .card:hover:before,
+.card:focus-within:before {
+    transform: translateY(-4%);
+  }
+  .card:hover:after,
+.card:focus-within:after {
+    transform: translateY(-50%);
+  }
+  .card:hover .content,
+.card:focus-within .content {
+    transform: translateY(0);
+  }
+  .card:hover .content > *:not(.title),
+.card:focus-within .content > *:not(.title) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: calc(var(--d) / 8);
+  }
+
+  .card:focus-within:before, .card:focus-within:after,
+.card:focus-within .content,
+.card:focus-within .content > *:not(.title) {
+    transition-duration: 0s;
+  }
+}
 /* ================================================================================ */
 
 /* notification list div */
@@ -706,7 +893,7 @@ button {
   position: absolute;
   min-height: 550px;
   top: 85px;
-  left: 1000px;
+  left: 920px;
   border-radius: 10px;
   background-color: #FFFFFF;
   z-index: 1;
