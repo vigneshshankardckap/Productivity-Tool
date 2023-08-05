@@ -4,6 +4,7 @@
   box-sizing: border-box;
   font-family: Inter;
 }
+
 /* ---------------color choosing------------- */
 :root {
   --primary-color: #5fb32e;
@@ -13,25 +14,25 @@
   --focus-color: #e1f8ec;
   --shadow-color: #479c16ab;
   --background-color: #f3f3f5;
-  --input-background-color : inherit;
+  --input-background-color: inherit;
   --input-type-hover: #ffffff;
-  --do-color:#99CC11;
-  --defer-color:#4588EE;
-  --delegate-color:#F7A821;
-  --delete-color:#CE4317;
-  --icon-color : #000000;
+  --do-color: #99CC11;
+  --defer-color: #4588EE;
+  --delegate-color: #F7A821;
+  --delete-color: #CE4317;
+  --icon-color: #000000;
 }
 
-.darkmode{
-  --primary-color:#5fb32e;
+.darkmode {
+  --primary-color: #5fb32e;
   --secondary-color: #b6e7ce;
   --thresary-color: #000000;
   --font-color: white;
   --focus-color: #ffffff;
   --shadow-color: darkgreen;
   --background-color: #191c24;
-  --icon-color : #5fb32e;
-  --input-background-color : #2a3038;
+  --icon-color: #5fb32e;
+  --input-background-color: #2a3038;
   --input-type-hover: #ffffff;
 }
 
@@ -56,7 +57,7 @@ body {
 }
 
 /* -----------home page right side element styling----------------- */
-.left-section{
+.left-section {
   display: flex;
   gap: 20px;
   align-items: center;
@@ -77,7 +78,7 @@ body {
   right: 378px;
   top: 17px;
   font-size: 20px;
- 
+
 }
 
 
@@ -130,6 +131,7 @@ body {
   color: var(--icon-color);
   font-size: 20px;
 }
+
 .icons .logout {
   color: var(--icon-color);
 }
@@ -220,12 +222,14 @@ body {
   color: var(--thresary-color);
   background-color: #838f7cfa;
 }
+
 /* ============================For single form section============================ */
 
 /* ***************form design css is here after  *****************/
-:root{
+:root {
   --single-border-radius: 5px;
 }
+
 .single-input-form {
   display: none;
   position: absolute;
@@ -237,16 +241,18 @@ body {
   top: 163px;
   padding: 25px 25px;
   box-shadow: #00000029 0px 10px 36px 0px,
-  #0000000f 0px 0px 0px 1px;
+    #0000000f 0px 0px 0px 1px;
 }
 
 .single-input-form p {
   padding-left: 200px;
   color: var(--font-color);
 }
+
 .single-input-form label {
   color: var(--font-color);
 }
+
 /* ---------close button for form---------------- */
 .close-btn {
   cursor: pointer;
@@ -255,7 +261,7 @@ body {
   width: 30px;
   display: flex;
   justify-content: center;
-  align-items: center;  
+  align-items: center;
   border: 1px solid var(--primary-color);
   margin-left: 690px;
   font-weight: bold;
@@ -399,16 +405,18 @@ button {
   right: 190px;
   display: none;
 }
+
 /* .divCon{
   display: none;
 } */
 
 /* -------multi input form close button styling--------- */
 
-:root{
+:root {
   --multi-border-radius: 7px;
-  --inputs-top-margin:15px;
+  --inputs-top-margin: 15px;
 }
+
 .main-div-closeBtn {
   cursor: pointer;
   color: var(--primary-color);
@@ -444,12 +452,14 @@ button {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 
-.multiple-forms-div label{
+.multiple-forms-div label {
   color: var(--font-color);
 }
-.matix input{
+
+.matix input {
   color: var(--font-color);
 }
+
 /* ---------multi form one specific form closing button ----------- */
 .multi-close-btn {
   cursor: pointer;
@@ -556,7 +566,8 @@ button {
   gap: 20px;
 }
 
-.multiple-input-form .submit-btn, .cancel-btn{
+.multiple-input-form .submit-btn,
+.cancel-btn {
   height: 40px;
   width: 120px;
   font-size: 16px;
@@ -566,10 +577,10 @@ button {
   color: var(--thresary-color);
 }
 
-.multiple-input-form .cancel-btn{
+.multiple-input-form .cancel-btn {
 
-  background-color:#82868B;
-  color:  var(--thresary-color);
+  background-color: #82868B;
+  color: var(--thresary-color);
 }
 
 .multiple-input-form .submit-btn:hover {
@@ -577,7 +588,7 @@ button {
   box-shadow: var(--shadow-color) 0px 4px 10px;
 }
 
-.multiple-input-form .cancel-btn:hover{
+.multiple-input-form .cancel-btn:hover {
   transition: 0.2s;
   box-shadow: #a7abaf 0px 4px 10px;
 }
@@ -615,7 +626,7 @@ button {
 
 
 /* ================================================================================================= */
-.doBox{
+.doBox {
   height: 200px;
   width: 371px;
   /* background-color: #99cc11; */
@@ -623,9 +634,11 @@ button {
   /* margin-bottom: 19px; */
   border-radius: 20px;
 }
-.doBox{
+
+.doBox {
   color: var(--font-color);
 }
+
 .taskDetailBox {
   display: flex;
   gap: 10px 110px;
@@ -633,35 +646,41 @@ button {
   flex-wrap: wrap;
   margin-left: 160px;
 }
-.heading{
+
+.heading {
   color: var(--font-color);
   font-weight: bolder;
   margin: 10px;
 }
+
 .Task_Type {
   /* margin: 20px 0px 0px 149px; */
   display: flex;
 }
 
-.do > .doBox {
+.do>.doBox {
   background-color: var(--do-color);
 }
-.defer > .doBox{
+
+.defer>.doBox {
   background-color: var(--defer-color);
 }
 
-.deleate > .doBox{
+.deleate>.doBox {
   background-color: var(--delegate-color);
 }
 
-.delete > .doBox{
+.delete>.doBox {
   background-color: var(--delete-color);
+
 }
-.time{
+
+.time {
   display: flex;
   justify-content: flex-end;
 }
-.doBox{
+
+.doBox {
   display: flex;
   justify-content: space-between;
   padding: 5%;
@@ -671,7 +690,8 @@ button {
 .time>:first-child {
   margin-right: 7px;
 }
-.doBox:hover{
+
+.doBox:hover {
   box-shadow: 7px 7px 24px rgb(122 120 151);
 }
 
@@ -703,14 +723,15 @@ button {
   align-items: center;
 }
 
-.Habitsdiv hr{
+.Habitsdiv hr {
   height: 1px;
-  background-color:  #7F808A;
+  background-color: #7F808A;
 
   border: none;
 
 }
-.Habitsdiv .notification-title  .cancelicon{ 
+
+.Habitsdiv .notification-title .cancelicon {
   border: none;
   background: none;
   color: red;
@@ -720,15 +741,16 @@ button {
 
 .Habitsdiv .Tasklist {
   justify-content: space-between;
-    display: flex;
-    background-color: #D9D9D9;
-    width: 302px;
-    height: 43px;
-    align-items: center;
-    margin: 15px 25px 0px 25px;
-    border-radius: 5px;
-    padding: 0px 15px;
+  display: flex;
+  background-color: #D9D9D9;
+  width: 302px;
+  height: 43px;
+  align-items: center;
+  margin: 15px 25px 0px 25px;
+  border-radius: 5px;
+  padding: 0px 15px;
 }
+
 button.removetask {
   border: none;
   cursor: pointer;
@@ -736,10 +758,86 @@ button.removetask {
   background: none;
 }
 
-.showdiv{
+.showdiv {
   display: block;
 }
 
-.activeBtn{
+.activeBtn {
   background-color: black;
+}
+
+/* ============================= this  block for the added todoinfo =========================*/
+
+.Task-list {
+  display: flex;
+  gap: 300px;
+  margin-left: 80px;
+}
+
+.Task-Details hr {
+
+  margin: 20px 0px;
+}
+
+.task-info {
+  width: 1200px;
+  height: 59px;
+  border-radius: 10px;
+  margin: 12px 40px;
+  background-color: var(--input-type-hover);
+  display: flex;
+
+}
+
+.task-info .list-name {
+  display: flex;
+  padding: 20px 40px;
+  gap: 254px;
+  font-size: 20px;
+  color: #7F808A;
+}
+
+.add-Cmt {
+  padding: 8px 91px;
+
+}
+
+.add-Cmt input {
+  position: relative;
+  width: 250px;
+  height: 43px;
+  background-color: var(--input-type-hover);
+  border-radius: 10px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.25) 4px -1px 31px, rgba(0, 0, 0, 0.22) 0px 10px 12px;
+}
+
+.add-Cmt button {
+  position: absolute;
+  margin: 12px -31px;
+  border-radius: 11px;
+  padding: 5px;
+  font-size: 9px;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.Task-progress {
+  padding: 20px 0px;
+}
+
+.Task-progress input {
+  font-size: 24px;
+  width: 22px;
+  height: 21px;
+  border-radius: 50%;
+}
+.make-changes{
+  display: flex;
+  gap: 20px;
+}
+
+.make-changes button{
+border: none;
+
 }

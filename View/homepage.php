@@ -1,6 +1,7 @@
 <?php
 //var_dump($tasks);
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -24,14 +25,14 @@
         <button class="cancelicon" id="close-notificationList">X</button>
       </div>
       <hr>
-        <?php foreach ($tasks as $key => $value) :?>
+      <?php foreach ($tasks as $key => $value) : ?>
         <div class="Tasklist">
-        <p><?php echo $value['name'] ?></p>
-            <form method="post" action="/deleteAddedTask">
+          <p><?php echo $value['name'] ?></p>
+          <form method="post" action="/deleteAddedTask">
             <button class="removetask" name="<?php echo $value['id'] ?>">Remove</button>
-            </form>
+          </form>
         </div>
-        <?php endforeach; ?>
+      <?php endforeach; ?>
     </div>
     <div class="inner-container">
       <header class="header">
@@ -76,55 +77,55 @@
           </div>
         </div>
       </div>
-<!--      <form method="post" action="/addedTaskDetails">-->
-<!--                <button name="addedTask">AddedTask</button>-->
-<!--            </form>-->
+      <!--      <form method="post" action="/addedTaskDetails">-->
+      <!--                <button name="addedTask">AddedTask</button>-->
+      <!--            </form>-->
       <!-- this is the body content (suggesed todo) -->
       <form action="/addTask" method="post">
-      <div class="body-mainDiv">
-        <div class="body-content">
-          <h3>Let's Start With Some Good Habits</h3>
-          <div class="pre-define-todo">
-            <div class="contents">
-              <div>
-                <img src="../Images/glass.png" />
+        <div class="body-mainDiv">
+          <div class="body-content">
+            <h3>Let's Start With Some Good Habits</h3>
+            <div class="pre-define-todo">
+              <div class="contents">
+                <div>
+                  <img src="../Images/glass.png" />
+                </div>
+                <p>Drink Water, Keep Healthy</p>
+                <div>
+                  <button class="add" name="1">ADD</button>
+                </div>
               </div>
-              <p>Drink Water, Keep Healthy</p>
-              <div>
-                <button class="add" name="1">ADD</button>
+              <div class="contents">
+                <div>
+                  <img src="../Images/human.png" />
+                </div>
+                <p>Go Exercising</p>
+                <div>
+                  <button class="add" name="2">ADD</button>
+                </div>
               </div>
-            </div>
-            <div class="contents">
-              <div>
-                <img src="../Images/human.png" />
+              <div class="contents">
+                <div>
+                  <img src="../Images/ph_moon-fill.png" />
+                </div>
+                <p>Go To Bed Early</p>
+                <div>
+                  <button class="add" name="3">ADD</button>
+                </div>
               </div>
-              <p>Go Exercising</p>
-              <div>
-                <button class="add" name="2" >ADD</button>
-              </div>
-            </div>
-            <div class="contents">
-              <div>
-                <img src="../Images/ph_moon-fill.png" />
-              </div>
-              <p>Go To Bed Early</p>
-              <div>
-                <button class="add" name="3">ADD</button>
-              </div>
-            </div>
-            <div class="contents">
-              <div>
-                <img src="../Images/ph_book-fill.png" />
-              </div>
-              <p>Keep Reading</p>
-              <div>
-                <button class="add" name="4">ADD</button>
+              <div class="contents">
+                <div>
+                  <img src="../Images/ph_book-fill.png" />
+                </div>
+                <p>Keep Reading</p>
+                <div>
+                  <button class="add" name="4">ADD</button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-</form>
+      </form>
     </div>
 
     <!-- this section is our single input form ----------- (it is separated from the inner container div for background blur)-->
@@ -132,7 +133,8 @@
        <form action="/store" method = "post" >
         <div class="close-btn">
           <div>
-            <span>X</span>
+            <label for="project">What is on your task?</label>
+            <input type="text" placeholder="E.g Make Task " name="Task_name" class="projectName" />
           </div>
         </div>
         <p>Pick Category</p>
@@ -151,9 +153,8 @@
             </div>
             <div>
 
-              <label for="project" placeholder="Get Date/Time">What on your due?</label>
-              <input type="datetime-local" placeholder="Get Date/Time" class="dateTime" value="" name="dateTime" />
-            </div>
+            <label for="project" placeholder="Get Date/Time">What on your due?</label>
+            <input type="datetime-local" placeholder="Get Date/Time" class="dateTime" value="" name="dateTime" />
           </div>
         </div>
         <div class="matix">
@@ -173,7 +174,8 @@
             <input type="radio" class="important-priority-btn" id="2" value="1" name="important">
           </div>
         </div>
-        <button type="submit" onclick="store()" class="submit-btn">Submit</button>
+      </div>
+      <button type="submit" onclick="store()" class="submit-btn">Submit</button>
       </form>
     </div>
   </div>

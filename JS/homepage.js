@@ -21,10 +21,7 @@ for (let i = 0; i < inputBtn.length; i++) {
       AddOneMoreForm();
       // AddOneMoreForm();
     }
-
-
   })
-
 }
 //========================================single form functionality================================/
 
@@ -172,13 +169,123 @@ function AddOneMoreForm() {
         multipleFormsDiv[i].remove();
       }
     })
+
+    // for (let i = 0; i < multipleFormsDiv.length; i++) {
+    //   // multipleFormsDiv.addEventListener("onmouseenter", () => {
+    //   console.log(multipleFormsDiv[i]);
+    //   // })
+
+    // }
+
+    // cancelButton.addEventListener("click", () => {
+
+    //   innerContainer.classList.remove("active");
+    //   multipleFormsDiv[i].remove();
+    //   multiFormDiv.classList.remove("show");
+    //   // console.log(multipleFormsDiv[i]);
+
+    // })
+
+let DateField = document.querySelector(".dateTime");
+
+DateField.addEventListener("click", () => {
+  // console.log(DateField.value);
+  // console.log(category_id)
+})
+
+
+
+
+
+let projectField = document.querySelector(".projectName")
+
+
+// let urgentPri = $('.urgent-yes').val();
+// let urgentno = $('.urgent-no').val();
+// let importantyes = $('.important-yes').val();
+// let importantno = $('.important-no').val();
+
+let allInput = document.querySelectorAll('.data')
+// console.log(allInput,"ll");
+let allInputs = document.querySelectorAll('.datas')
+// console.log(allInputs,"kk");
+
+let category_id;
+let category = document.querySelectorAll('.category')
+
+for (let i = 0; i < category.length; i++) {
+  category[i].addEventListener('click', (event) => {
+    category_id = event.target.id
+  })
+}
+
+
+
+let data;
+let urgent;
+let important;
+for (let i = 0; i < allInput.length; i++) {
+  allInput[i].addEventListener('click', (e) => {
+    urgent = allInputs[i].value
+  })
+  allInputs[i].addEventListener('click', (e) => {
+    important = allInputs[i].value
+  })
+}
+function store() {
+
+
+  if (urgent == 1 && important == 1) {
+    data = 1
+  }
+  else if (urgent == 0 && important == 1) {
+    data = 2
+  }
+  else if (urgent == 1 && important == 0) {
+    data = 3
+  }
+  else if (urgent == 0 && important == 0) {
+    data = 4
   }
 
-}
-// ========================================================================================================/
-// =========================================================================================================
+  let projectName = $(".projectName").val();
+  let dateTime = $(".dateTime").val();
+  let user_id = $(".user_id").val();
+  let priority = data;
+  let pickCateid = category_id;
 
-// ==================================================================================
+  let FrontendObj = {
+    "category_id": pickCateid,
+    "task_name": projectName,
+    "dates": dateTime,
+    "user_id": user_id,
+    "matrix_id": priority
+  }
+
+
+
+  $.ajax({
+    method: 'POST',
+    url: '/store',
+    data: FrontendObj,
+    success: function (response) {
+      window.location.href = '/list'
+
+    }
+  })
+}
+// setInterval(() => {
+//   if (projectField.value != "") {
+//     projectField.style.backgroundColor = "#bff5da";
+// }
+// }, 1000);
+// projectField.addEventListener("click  ", () => {
+//     if (projectField.value == "") {
+//         projectField.style.backgroundColor = "";
+//     }
+//     else {
+//         projectField.style.backgroundColor = "#bff5da";
+//     }
 
 // ------------- Notification icon  ------------------
 let Notificationbtn = document.querySelector(".notification");

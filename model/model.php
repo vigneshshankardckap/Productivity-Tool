@@ -131,4 +131,22 @@ class UserModule extends Database
         $deleteAddedHabits = $this->db->query("DELETE FROM userAddedTask WHERE id = '$taskId';");
         header('location:/LandingPage');
     }
+
+    public function fetchDataFromDo(){
+//        $userId=$_SESSION['userid'];
+        return $this->db->query("SELECT * from tasks where user_id =1 AND matrix_id = 1")->fetchAll(PDO::FETCH_OBJ);
+
+    }
+    public function fetchDataFromdefer(){
+        return $this->db->query("SELECT * from tasks where user_id =1 AND matrix_id = 2")->fetchAll(PDO::FETCH_OBJ);
+
+    }
+    public function fetchDataFromdelegate(){
+        return $this->db->query("SELECT * from tasks where user_id =1 AND matrix_id = 3")->fetchAll(PDO::FETCH_OBJ);
+
+    }
+    public function fetchDataFromdelete(){
+        return $this->db->query("SELECT * from tasks where user_id =1 AND matrix_id = 4")->fetchAll(PDO::FETCH_OBJ);
+
+    }
 }
