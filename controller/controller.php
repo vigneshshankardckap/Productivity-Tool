@@ -30,7 +30,7 @@ class UserController {
         require "index.html";
     }
     public function list(){
-        require "View/listing.html";
+         require "View/listing.php";
     }
     public function signupLogic(){
         $this->userModel->signUp($_POST);
@@ -38,10 +38,8 @@ class UserController {
     
 
     public function store(){
+        // var_dump($_POST);
         $this->userModel->store($_REQUEST);
-        // header("loation:/list");
-        // header('location:/');
-
     }
 
     public function addTask($tasks){
@@ -61,5 +59,9 @@ class UserController {
     public function deleteAddedTask(){
         $this->userModel->deleteAddedTask($_POST);
     }
+
+//    public function storeValue(){
+//        $this->userModel->storeValue($_POST);
+//    }
 
 }

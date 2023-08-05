@@ -63,27 +63,45 @@ class UserModule extends Database
 
     public function store($data)
     {
-        if(!empty($data)){
-            $key = array_keys($data);
-  
-            $val = array_values($data);
-      
-           
-              $sql = "INSERT INTO tasks (" . implode(', ', $key) . ") "
-              . "VALUES ('" . implode("', '", $val) . "')";
-            $query =   $this->db->prepare($sql);
-            $query->execute();
-            header('location:/list');
+        var_dump($data);
+        $taskName = $data['Task_name'];
+        $dueDate = $data['dateTime'];
+        $userId = $data['user_id'];
+        $categoryId = $data['task_type'];
+        $urgent = $data['urgent'];
+        $important = $data['important'];
+        // $urgentYes = intval($data['urgentY']);
+        // // var_dump($urgent."gokul");
+        // $urgentNo = intval($data['urgentN']);
+        // $importantYes = intval($data['importantY']);
+        // $importantNo = intval($data['importantN']);
+
+        
+
+        // $urgeImp=0;
+
+        if($urgent == 1 && $important == 1){
+            $urgeImp = 1;
+            echo "Do";
+        }
+        elseif ($urgent == 0 && $important == 1){
+            $urgeImp = 2;
+            echo "Defer";
 
         }
+        elseif ($urgent == 1 && $important == 0){
+            $urgeImp = 3;
+            echo "Delegate";
+        }
+        elseif ($urgent == 0 && $important == 0){
+            $urgeImp = 4;
+            echo "Delete";
+        }
 
-    
-  
+        // var_dump($urgeImp);
 
-    
-  
-
-
+    $insertIntoTable = $this->db->query("INSERT INTO tasks(task_name,dates,user_id,category_id,matrix_id)VALUES('$taskName','$dueDate','$userId','$categoryId','$urgeImp')");
+       header('location:/list');
     }
 
     public function addTask($value){
