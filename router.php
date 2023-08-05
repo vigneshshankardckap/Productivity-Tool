@@ -52,7 +52,7 @@ class router
         }
 
             if($action){
-                $this->controller->$action($_POST);
+                $this->controller->$action();
             }
             else{
                 require 'error.php';

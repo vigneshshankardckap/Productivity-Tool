@@ -129,7 +129,6 @@ function AddOneMoreForm() {
   let importantBtn = document.querySelectorAll(".important-priority-btn");
 
   for (let i = 0; i < taskType.length; i++) {
-    classListAdd(taskType[i], taskType);
     classListAdd(urgentBtn[i], urgentBtn);
     classListAdd(importantBtn[i], importantBtn);
   }
@@ -157,10 +156,8 @@ function AddOneMoreForm() {
 
   let mainDivCloseBtn = document.querySelectorAll(".main-div-closeBtn");
   let multipleFormsDiv = document.querySelectorAll(".multiple-forms-div");
-  // let cancelButton = document.querySelector(".cancel-btn");
 
   for (let i = 0; i < mainDivCloseBtn.length; i++) {
-    // console.log(multipleFormsDiv[i]);
     mainDivCloseBtn[i].addEventListener("click", () => {
       cnt--;
       if (cnt == 0) {
@@ -188,13 +185,6 @@ function AddOneMoreForm() {
     //   // console.log(multipleFormsDiv[i]);
 
     // })
-
-  }
-
-}
-// ========================================================================================================/
-// =========================================================================================================//
-
 
 let DateField = document.querySelector(".dateTime");
 
@@ -296,8 +286,6 @@ function store() {
 //     else {
 //         projectField.style.backgroundColor = "#bff5da";
 //     }
-// })
-// ==================================================================================
 
 // ------------- Notification icon  ------------------
 let Notificationbtn = document.querySelector(".notification");
