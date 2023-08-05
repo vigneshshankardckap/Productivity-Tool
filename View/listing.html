@@ -9,20 +9,22 @@
   <link rel="stylesheet" href="">
   <script src="https://kit.fontawesome.com/52d2b40c3f.js" crossorigin="anonymous"></script>
   <style>
-.fetchdata{
-  margin-left:20px;
-  padding:10px;
-  color: black;
-}
-    li>span{
+    .fetchdata {
+      margin-left: 20px;
+      padding: 10px;
+      color: black;
+    }
+
+    li>span {
       margin-left: 10px;
     }
-.contents {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 70px;
-}
+
+    .contents {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 70px;
+    }
   </style>
 </head>
 
@@ -97,10 +99,14 @@
           <div class="doBox">
             <div class="welcome">
               <?php foreach($fetchAllDataDo as $datum): ?>
-                <div class="contents">
-                  <li class="fetchdata"><?php echo $datum->task_name ?></li>
-                  <p> <?php echo $datum->dates ?>  </p>
-                </div>
+              <div class="contents">
+                <li class="fetchdata">
+                  <?php echo $datum->task_name ?>
+                </li>
+                <p>
+                  <?php echo $datum->dates ?>
+                </p>
+              </div>
               <?php endforeach; ?>
             </div>
           </div>
@@ -111,8 +117,12 @@
             <div class="welcome">
               <?php foreach($fetchAllDataDefer as $datum): ?>
               <div class="contents">
-                <li class="fetchdata"><?php echo $datum->task_name ?></li>
-                <p> <?php echo $datum->dates ?>  </p>
+                <li class="fetchdata">
+                  <?php echo $datum->task_name ?>
+                </li>
+                <p>
+                  <?php echo $datum->dates ?>
+                </p>
               </div>
               <?php endforeach; ?>
             </div>
@@ -124,8 +134,12 @@
             <div class="welcome">
               <?php foreach($fetchAllDataDefer as $datum): ?>
               <div class="contents">
-                <li class="fetchdata"><?php echo $datum->task_name ?></li>
-                <p> <?php echo $datum->dates ?>  </p>
+                <li class="fetchdata">
+                  <?php echo $datum->task_name ?>
+                </li>
+                <p>
+                  <?php echo $datum->dates ?>
+                </p>
               </div>
               <?php endforeach; ?>
             </div>
@@ -138,8 +152,12 @@
             <div class="welcome">
               <?php foreach($fetchAllDataDelete as $datum): ?>
               <div class="contents">
-                <li class="fetchdata"><?php echo $datum->task_name ?></li>
-                <p> <?php echo $datum->dates ?>  </p>
+                <li class="fetchdata">
+                  <?php echo $datum->task_name ?>
+                </li>
+                <p>
+                  <?php echo $datum->dates ?>
+                </p>
               </div>
               <?php endforeach; ?>
             </div>
@@ -219,18 +237,18 @@
     <hr>
     <div class="Task-list">
 
-      <h3>Task name</h3>
+      <h3>Task Name</h3>
 
       <h3>Due date and Time</h3>
-      <h3>mark as completed</h3>
+      <h3>Mark as Completed</h3>
     </div>
     <hr>
 
   </div>
   <div class="task-info">
     <div class="list-name">
-      <h5>todo app design</h5>
-      <h5>22/07/2022</h5>
+      <h5 id="Task-Name">todo app designd</h5>
+      <h4 id="due-date">22/07/2022</h4>
     </div>
     <div class="add-Cmt">
 
@@ -239,16 +257,21 @@
 
     </div>
     <div>
-      <div class="Task-progress">
-        <input type="checkbox" name="" id="">
-      </div>
+      <div class="change">
+        <div class="Task-progress">
+          <div class="round">
+            <input type="checkbox" id="checkbox"/>
+            <label for="checkbox"></label>
+          </div>
 
-      <div class="make-changes">
-        <button><i class="fa-solid fa-pen"></i></button>
-        <button><i class="fa-solid fa-trash-can"></i></button>
-        <button><i class="fa-solid fa-comment"></i></i></button>
-      </div>
+        </div>
 
+        <div class="make-changes">
+          <button><i class="fa-solid fa-pen"></i></button>
+          <button><i class="fa-solid fa-trash-can"></i></button>
+          <button class="add-comment-btn"><i class="fa-solid fa-comment"></i></i></button>
+        </div>
+      </div>
     </div>
   </div>
   </div>

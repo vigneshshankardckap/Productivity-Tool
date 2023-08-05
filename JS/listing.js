@@ -363,3 +363,21 @@ for (let i = 0; i < doBox.length; i++) {
 //   })
 
 //   })
+
+// ==============================================================
+
+let commentBtn = document.querySelector(".add-comment-btn");
+let commentInput = document.querySelector(".add-Cmt");
+let TaskCompleted = document.querySelector("#checkbox");
+let task_name = document.querySelector("#Task-Name");
+let task_due = document.querySelector("#due-date");
+
+commentBtn.addEventListener("click",()=>{
+  commentInput.classList.toggle("addvisibility")
+})
+
+TaskCompleted.addEventListener("click",()=>{
+  task_name.classList.toggle("completedTask");
+  task_due.classList.toggle("completedTask")
+
+})
