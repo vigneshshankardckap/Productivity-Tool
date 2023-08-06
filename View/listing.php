@@ -186,14 +186,108 @@
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+=======
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../CSS/listing.css" />
+    <link rel="stylesheet" href="">
+    <script src="https://kit.fontawesome.com/52d2b40c3f.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+<!-- this is the main container of the application -->
+<div class="container">
+    <div class="Habitsdiv">
+        <div class="notification-title">
+            <h4>Notification </h4>
+            <button class="cancelicon" id="close-notificationList">X</button>
         </div>
+        <hr>
+        <?php foreach ($tasks as $key => $value) :?>
+            <div class="Tasklist">
+                <p>
+                    <?php echo $value['name'] ?>
+                </p>
+                <form method="post" action="/deleteAddedTask">
+                    <button class="removetask" name="<?php echo $value['id'] ?>">Remove</button>
+                </form>
+            </div>
+        <?php endforeach; ?>
+    </div>
+    <div class="inner-container">
+        <header class="header">
+            <div class="left-section">
+                <img src="../Images/logo.png">
+                <h1>What's Up<span class="username">
+              <!-- <?php echo $_SESSION['username']; ?> -->
+            </span></h1>
+            </div>
+            <!-- this is our right side contents -->
+            <div class="right-section">
+                <div class="search-icon-div">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <input placeholder="search" type="search" class="input-box" />
+                <ul class="icons">
+                    <li class="right-icon">
+                        <i class="fa-regular fa-bell notification" onclick="openNotofy()"></i>
+                    </li>
+                    <li class="right-icon">
+                        <i class="fa-regular fa-moon darkmode"></i>
+                    </li>
+                    <li class="right-icon">
+                        <a href="/logout">
+                            <i class="fa-solid fa-arrow-right-from-bracket logout"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+
+        <!-- this below section is for add button -->
+        <div class="add-todo-btn-section">
+            <div class="add-todo-inner-section">
+                <h2 class="add-btn">ADD TASK</h2>
+                <div class="input-type">
+                    <div class="input-type-btn">
+                        <span>Single</span>
+                    </div>
+                    <div class="input-type-btn">
+                        <span>Multiple</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="taskDetailBox">
+            <div class="do">
+                <p class="heading">Do</p>
+                <div class="doBox">
+                    <div class="welcome">
+                        <li>welcome</li>
+                    </div>
+                    <div class="time">
+                        <li>15/7</li>
+                        <li>12.00 PM</li>
+                    </div>
+                </div>
+            </div>
+            <div class="defer">
+                <p class="heading">Defer</p>
+                <div class="doBox"></div>
+            </div>
+            <div class="deleate">
+                <p class="heading">Delegate</p>
+                <div class="doBox"></div>
+            </div>
+            <div class="delete">
+                <p class="heading">Delete</p>
+                <div class="doBox"></div>
         <!-- --------------------------- -->
       </div>
-    </div>
-      <!-- this section is our single input form ----------- (it is separated from the inner container div for background blur)-->
 
+      <!-- this section is our single input form ----------- (it is separated from the inner container div for background blur)-->
     <!-- this is the single form section -->
     <div class="single-input-form">
       <!-- <form action="/store" method="post"> -->

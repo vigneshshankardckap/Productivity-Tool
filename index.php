@@ -28,7 +28,7 @@ $router->get('/signup',"signUp");
 
 $router->post('/signupLogic',"signupLogic");
 
-//$router->post('/store',"store");
+$router->post('/store',"store");
 
 $router->get('/list','list');
 
@@ -40,5 +40,7 @@ $router->post('/addTask','addTask');
 $router->post('/addedTaskDetails','addedTaskDetails');
 
 $router->post('/deleteAddedTask','deleteAddedTask');
+
+//$router->post('/storeValue','storeValue');
 
 $router->routing();

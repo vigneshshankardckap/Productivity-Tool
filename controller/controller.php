@@ -13,7 +13,6 @@ class UserController {
      public function LandingPage(){
          $tasks = $this->userModel->addedTaskDetails();
          require "View/homepage.php";
-//        $this->userModel->homePage();
       
     }
 
@@ -32,12 +31,14 @@ class UserController {
 
 
     public function list(){
+
         $fetchAllDataDo = $this->userModel->fetchDataFromDo();
         // var_dump($fetchAllDataDo);
         $fetchAllDataDefer=$this->userModel->fetchDataFromdefer();
         $fetchAllDataDelegate=$this->userModel->fetchDataFromdelegate();
         $fetchAllDataDelete=$this->userModel->fetchDataFromdelete();
         require "View/listing.php";
+
     }
     public function signupLogic(){
         $this->userModel->signUp($_POST);
@@ -45,9 +46,8 @@ class UserController {
     
 
     public function store(){
+
         $this->userModel->store($_REQUEST);
-
-
     }
 
     public function addTask($tasks){
@@ -68,8 +68,10 @@ class UserController {
         $this->userModel->deleteAddedTask($_POST);
     }
 
+
     public function fetchData(){
         $this->userModel->fetchDataFromDo();
 
     }
+
 }

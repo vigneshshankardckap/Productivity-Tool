@@ -63,27 +63,37 @@ class UserModule extends Database
 
     public function store($data)
     {
-        if(!empty($data)){
-            $key = array_keys($data);
-  
-            $val = array_values($data);
-      
-           
-              $sql = "INSERT INTO tasks (" . implode(', ', $key) . ") "
-              . "VALUES ('" . implode("', '", $val) . "')";
-            $query =   $this->db->prepare($sql);
-            $query->execute();
-            header('location:/list');
+
+        var_dump($data);
+        $taskName = $data['Task_name'];
+        $dueDate = $data['dateTime'];
+        $userId = $data['user_id'];
+        $categoryId = $data['task_type'];
+        $urgent = $data['urgent'];
+        $important = $data['important'];
+
+        if($urgent == 1 && $important == 1){
+            $urgeImp = 1;
+            echo "Do";
+        }
+        elseif ($urgent == 0 && $important == 1){
+            $urgeImp = 2;
+            echo "Defer";
 
         }
+        elseif ($urgent == 1 && $important == 0){
+            $urgeImp = 3;
+            echo "Delegate";
+        }
+        elseif ($urgent == 0 && $important == 0){
+            $urgeImp = 4;
+            echo "Delete";
+        }
 
-    
-  
+        // var_dump($urgeImp);
 
-    
-  
-
-
+    $insertIntoTable = $this->db->query("INSERT INTO tasks(task_name,dates,user_id,category_id,matrix_id)VALUES('$taskName','$dueDate','$userId','$categoryId','$urgeImp')");
+       header('location:/list');
     }
 
     public function addTask($value){
@@ -115,20 +125,27 @@ class UserModule extends Database
     }
 
     public function fetchDataFromDo(){
-//        $userId=$_SESSION['userid'];
-        return $this->db->query("SELECT * from tasks where user_id =1 AND matrix_id = 1")->fetchAll(PDO::FETCH_OBJ);
+       $userId=$_SESSION['userid'];
+        return $this->db->query("SELECT * from tasks where user_id =$userId AND matrix_id = 1")->fetchAll(PDO::FETCH_OBJ);
 
     }
     public function fetchDataFromdefer(){
-        return $this->db->query("SELECT * from tasks where user_id =1 AND matrix_id = 2")->fetchAll(PDO::FETCH_OBJ);
+       $userId=$_SESSION['userid'];
+
+        return $this->db->query("SELECT * from tasks where user_id =$userId AND matrix_id = 2")->fetchAll(PDO::FETCH_OBJ);
 
     }
     public function fetchDataFromdelegate(){
-        return $this->db->query("SELECT * from tasks where user_id =1 AND matrix_id = 3")->fetchAll(PDO::FETCH_OBJ);
+       $userId=$_SESSION['userid'];
+
+        return $this->db->query("SELECT * from tasks where user_id =$userId AND matrix_id = 3")->fetchAll(PDO::FETCH_OBJ);
 
     }
+    
     public function fetchDataFromdelete(){
-        return $this->db->query("SELECT * from tasks where user_id =1 AND matrix_id = 4")->fetchAll(PDO::FETCH_OBJ);
+
+       $userId=$_SESSION['userid'];
+        return $this->db->query("SELECT * from tasks where user_id =$userId AND matrix_id = 4")->fetchAll(PDO::FETCH_OBJ);
 
     }
 }
