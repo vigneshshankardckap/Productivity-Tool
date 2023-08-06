@@ -94,10 +94,9 @@ body {
 .search-icon-div {
   color: var(--icon-color);
   position: absolute;
-  right: 378px;
-  top: 17px;
-  font-size: 20px;
-
+  right: 380px;
+  top: 19px;
+  font-size: 18px;
 }
 
 

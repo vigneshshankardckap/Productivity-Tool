@@ -110,9 +110,6 @@
               <?php foreach ($fetchAllDataDo as $key => $do) : ?>
                 <div class="todoList">
                   <p class="copy"> <?php echo $do->task_name; ?></p>
-                  <p class="copy"> <?php echo $do->task_name; ?></p>
-                  <p class="copy"> <?php echo $do->task_name; ?></p>
-                  <p class="copy"> <?php echo $do->task_name; ?></p>
                 </div>
               <?php endforeach; ?>
             </div>
