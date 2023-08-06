@@ -16,7 +16,6 @@
 </head>
 
 <body>
-
   <!-- this is the main container of the application -->
   <div class="container">
     <div class="Habitsdiv">
@@ -48,8 +47,8 @@
           </div>
           <input placeholder="search" type="search" class="input-box" />
           <ul class="icons">
-            <li class="right-icon">
-              <i class="fa-regular fa-bell notification" onclick="openNotofy()"></i>
+            <li class="right-icon" onclick="openNotofy()">
+              <i class="fa-regular fa-bell notification"></i>
             </li>
             <li class="right-icon">
               <i class="fa-regular fa-moon darkmode"></i>
@@ -128,69 +127,71 @@
       </form>
     </div>
 
-    <!-- this section is our single input form ----------- (it is separated from the inner container div for background blur)-->
-    <div class="single-input-form">
-      <!-- <form action="/store" method="post"> -->
-      <div class="close-btn">
-        <div>
-          <span>X</span>
-        </div>
-      </div>
-      <p>Pick Category</p>
-      <div class="Task_Type">
-        <input name="user_id" class="user_id" value="<?= $_SESSION['userid'] ?>" type="hidden">
-        <input type="button" class="typeBtn firstFrom category" name="task_type" value="Professional" id=1 />
-        <input type="button" class="typeBtn firstFrom category" name="task_type" value="Personal" id="2" />
-      </div>
-      <div>
-        <div class="inputdiv">
-          <div>
-            <label for="project">What is on your task?</label>
-            <input type="text" placeholder="E.g Make Task " name="Task_name" class="projectName" />
-          </div>
-          <div>
 
-            <label for="project" placeholder="Get Date/Time">What on your due?</label>
-            <input type="datetime-local" placeholder="Get Date/Time" class="dateTime" value="" name="dateTime" />
+    <!-- this section is our single input form ----------- (it is separated from the inner container div for background blur)-->
+
+    <div class="single-input-form">
+      <form action="/store" method="post">
+        <div class="close-btn">
+         <span>x</span>
+        </div>
+        <p>Pick Category</p>
+        <div class="Task_Type">
+          <input name="user_id" class="user_id" value="<?= $_SESSION['userid'] ?>" type="hidden">
+          <label for="css">Professional</label><br>
+          <input type="radio" class="typeBtn firstFrom category" id="1" value="1" name="task_type">
+          <label for="css">Personal</label><br>
+          <input type="radio" class="typeBtn firstFrom category" id="2" value="2" name="task_type">
+        </div>
+        <div>
+          <div class="inputdiv">
+            <div>
+              <label for="project">What is on your task?</label>
+              <input type="text" placeholder="E.g Make Task " name="Task_name" class="projectName" />
+            </div>
+            <div>
+
+              <label for="project" placeholder="Get Date/Time">What on your due?</label>
+              <input type="datetime-local" placeholder="Get Date/Time" class="dateTime" value="" name="dateTime" />
+            </div>
+          </div>
+          <div class="matix">
+            <div class="urgentDiv">
+              <label for="project">Urgent</label>
+              <br>
+              <label for="css">Yes</label>
+              <input type="radio" class="urgent-priority-btn data" id="1" value="0" name="urgent">
+              <label for="css">No</label>
+              <input type="radio" class="urgent-priority-btn data" id="2" value="1" name="urgent">
+            </div>
+            <div class="ImportantDiv">
+              <label for="project">Important</label>
+              <label for="css">Yes</label>
+              <input type="radio" class="important-priority-btn" id="1" value="0" name="important">
+              <label for="css">No</label>
+              <input type="radio" class="important-priority-btn" id="2" value="1" name="important">
+            </div>
           </div>
         </div>
-      </div>
-      <div class="matix">
-        <div class="urgentDiv">
-          <label for="project">Urgent</label>
-          <br />
-          <input type="button" name="urgent-priority-btn" value="1" id="firstFrom" class="urgent-priority-btn data" />
-          <input type="button" name="urgent-priority-btn" value="0" id="firstFrom" class="urgent-priority-btn data" />
-        </div>
-        <div class="ImportantDiv">
-          <label for="">Important</label>
-          <br />
-          <input type="button" name="important-priority-btn" value="1" id="firstFrom" class="important-priority-btn datas" />
-          <input type="button" name="important-priority-btn" value="0" id="firstFrom" class="important-priority-btn datas" />
-        </div>
-      </div>
-      <button type="submit" onclick="store()" class="submit-btn">Submit</button>
+        <button type="submit" onclick="store()" class="submit-btn">Submit</button>
       </form>
     </div>
-  </div>
-  </div>
-
-  <!-- this is multiple-input-form  -->
-  <div class="multiple-input-form">`
-    <form action="" method="post" class="multiple-form">
-      <div class="forms-inner-div">
-        <!-- multiple forms injected here  -->
-      </div>
-      <div class="addOneMoreTodo">
-        <span class="addDivBtn" onclick="AddOneMoreForm()">+</span>
-      </div>
-      <div class="multiForm-btn-div">
-        <!-- <button type="button" class="cancel-btn">Cancel</button> -->
-        <button type="button" class="submit-btn">Submit</button>
-      </div>
-    </form>
-  </div>
-  </div>
+    <!-- this is multiple-input-form  -->
+    <div class="multiple-input-form">`
+      <form action="" method="post" class="multiple-form">
+        <div class="forms-inner-div">
+          <!-- multiple forms injected here  -->
+        </div>
+        <div class="addOneMoreTodo">
+          <span class="addDivBtn" onclick="AddOneMoreForm()">+</span>
+        </div>
+        <div class="multiForm-btn-div">
+          <!-- <button type="button" class="cancel-btn">Cancel</button> -->
+          <button type="button" class="submit-btn">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>  
   <script src="../JS/homepage.js"></script>
 </body>
 

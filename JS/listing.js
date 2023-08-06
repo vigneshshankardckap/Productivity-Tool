@@ -32,7 +32,6 @@ function openSingleForm(params) {
   let urgentBtn = document.querySelectorAll(".urgent-priority-btn");
   let importantBtn = document.querySelectorAll(".important-priority-btn");
 
-
   for (let i = 0; i < taskType.length; i++) {
     classListAdd(taskType[i], taskType);
     classListAdd(urgentBtn[i], urgentBtn);
@@ -102,7 +101,7 @@ function AddOneMoreForm() {
       <div class="date-time-div">
         <label>When is your due?</label>
         <div>
-          <input type="datetime-local" placeholder="Get Date/Time" class="multiDateTime" value="" name="artistid" />
+          <input type="datetime-local" placeholder="Get Date/Time" class="multiDateTime" value="" name="" />
         </div>
       </div>
       <div class="urgentDiv">
@@ -159,10 +158,8 @@ function AddOneMoreForm() {
 
   let mainDivCloseBtn = document.querySelectorAll(".main-div-closeBtn");
   let multipleFormsDiv = document.querySelectorAll(".multiple-forms-div");
-  // let cancelButton = document.querySelector(".cancel-btn");
 
   for (let i = 0; i < mainDivCloseBtn.length; i++) {
-    // console.log(multipleFormsDiv[i]);
     mainDivCloseBtn[i].addEventListener("click", () => {
       cnt--;
       if (cnt == 0) {
@@ -173,22 +170,6 @@ function AddOneMoreForm() {
       else {
         multipleFormsDiv[i].remove();
       }
-    })
-
-    for (let i = 0; i < multipleFormsDiv.length; i++) {
-      // multipleFormsDiv.addEventListener("onmouseenter", () => {
-      console.log(multipleFormsDiv[i]);
-      // })
-
-    }
-
-    cancelButton.addEventListener("click", () => {
-
-      innerContainer.classList.remove("active");
-      multipleFormsDiv[i].remove();
-      multiFormDiv.classList.remove("show");
-      // console.log(multipleFormsDiv[i]);
-
     })
 
   }
@@ -352,4 +333,22 @@ for (let i = 0; i < showMoreBtn.length; i++) {
 let popUpclose = document.querySelector('#popUpCloseBtn');
 popUpclose.addEventListener("click", () => {
   popUpWnd.classList.toggle('invisible');
-})
+});
+
+// ==============================================================
+
+// let commentBtn = document.querySelector(".add-comment-btn");
+// let commentInput = document.querySelector(".add-Cmt");
+// let TaskCompleted = document.querySelector("#checkbox");
+// let task_name = document.querySelector("#Task-Name");
+// let task_due = document.querySelector("#due-date");
+
+// commentBtn.addEventListener("click", () => {
+//   commentInput.classList.toggle("addvisibility")
+// })
+
+// TaskCompleted.addEventListener("click", () => {
+//   task_name.classList.toggle("completedTask");
+//   task_due.classList.toggle("completedTask")
+
+// })

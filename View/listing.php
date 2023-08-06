@@ -64,8 +64,8 @@
         </div>
         <div>
           <div class="Task_Type">
-            <input type="button" class="typeBtn firstFrom category" name="task_type" value="Professional" id=1 />
-            <input type="button" class="typeBtn firstFrom category" name="task_type" value="Personal" id="2" />
+            <input value="Professional"  />
+            <input type="button" value="Personal" />
           </div>
           <div class="add-todo-btn-section">
             <div class="add-todo-inner-section">
@@ -189,12 +189,8 @@
             </div>
           </div>
         </div>
-        <!-- --------------------------- -->
       </div>
     </div>
-      <!-- this section is our single input form ----------- (it is separated from the inner container div for background blur)-->
-
-    <!-- this is the single form section -->
     <div class="single-input-form">
       <!-- <form action="/store" method="post"> -->
       <div class="close-btn">
