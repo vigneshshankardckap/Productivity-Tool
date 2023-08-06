@@ -19,9 +19,7 @@ for (let i = 0; i < inputBtn.length; i++) {
     else if (inputBtn[i].innerText == "Multiple") {
       multiFormDiv.classList.add("show");
       AddOneMoreForm();
-      // AddOneMoreForm();
     }
-
 
   })
 
@@ -130,6 +128,7 @@ function AddOneMoreForm() {
   let taskType = document.querySelectorAll(".typeBtn");
   let urgentBtn = document.querySelectorAll(".urgent-priority-btn");
   let importantBtn = document.querySelectorAll(".important-priority-btn");
+  console.log(taskType);
 
   for (let i = 0; i < taskType.length; i++) {
     classListAdd(taskType[i], taskType);
@@ -176,21 +175,21 @@ function AddOneMoreForm() {
       }
     })
 
-    // for (let i = 0; i < multipleFormsDiv.length; i++) {
-    //   // multipleFormsDiv.addEventListener("onmouseenter", () => {
-    //   console.log(multipleFormsDiv[i]);
-    //   // })
+    for (let i = 0; i < multipleFormsDiv.length; i++) {
+      // multipleFormsDiv.addEventListener("onmouseenter", () => {
+      console.log(multipleFormsDiv[i]);
+      // })
 
-    // }
+    }
 
-    // cancelButton.addEventListener("click", () => {
+    cancelButton.addEventListener("click", () => {
 
-    //   innerContainer.classList.remove("active");
-    //   multipleFormsDiv[i].remove();
-    //   multiFormDiv.classList.remove("show");
-    //   // console.log(multipleFormsDiv[i]);
+      innerContainer.classList.remove("active");
+      multipleFormsDiv[i].remove();
+      multiFormDiv.classList.remove("show");
+      // console.log(multipleFormsDiv[i]);
 
-    // })
+    })
 
   }
 
@@ -229,7 +228,6 @@ for (let i = 0; i < category.length; i++) {
     category_id = event.target.id
   })
 }
-
 
 
 let data;
@@ -273,7 +271,6 @@ function store() {
   }
 
 
-
   $.ajax({
     method: 'POST',
     url: '/store',
@@ -284,19 +281,7 @@ function store() {
     }
   })
 }
-// setInterval(() => {
-//   if (projectField.value != "") {
-//     projectField.style.backgroundColor = "#bff5da";
-// }
-// }, 1000);
-// projectField.addEventListener("click  ", () => {
-//     if (projectField.value == "") {
-//         projectField.style.backgroundColor = "";
-//     }
-//     else {
-//         projectField.style.backgroundColor = "#bff5da";
-//     }
-// })
+
 // ==================================================================================
 
 // ------------- Notification icon  ------------------
@@ -327,17 +312,6 @@ function darkMode() {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
 // ==============================================================
 let personal = document.querySelector("#personal");
 let doBox = document.querySelectorAll(".doBox")
@@ -363,3 +337,19 @@ for (let i = 0; i < doBox.length; i++) {
 //   })
 
 //   })
+// =================================================================================================
+// ---------------show more button functionality code here--------------
+let showMoreBtn = document.querySelectorAll(".showMoreBtn");
+let popUpWnd = document.querySelector('.testing-window');
+
+for (let i = 0; i < showMoreBtn.length; i++) {
+  showMoreBtn[i].addEventListener("click", () => {
+    popUpWnd.classList.toggle('invisible');
+  });
+
+}
+
+let popUpclose = document.querySelector('#popUpCloseBtn');
+popUpclose.addEventListener("click", () => {
+  popUpWnd.classList.toggle('invisible');
+})
