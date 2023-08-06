@@ -8,10 +8,24 @@
   <link rel="stylesheet" href="../CSS/listing.css" />
   <link rel="stylesheet" href="https://cdn.tailwindcss.com">
   <script src="https://kit.fontawesome.com/52d2b40c3f.js" crossorigin="anonymous"></script>
+  <style>
+    .fetchdata {
+      margin-left: 20px;
+      padding: 10px;
+      color: black;
+    }
 
+    li>span {
+      margin-left: 10px;
+    }
 
-
-
+    .contents {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 70px;
+    }
+  </style>
 </head>
 
 <body>
@@ -81,34 +95,50 @@
           </div>
         </div>
       </div>
+        <main class="page-content">
+          <div class="card">
+            <div class="content">
+              <h2 class="title">DO FIRST</h2>
+              <?php foreach($fetchAllDataDo as $do): ?>
+                <!-- <?= var_dump($do)?> -->
+              <p class="copy"> <?php echo $do->task_name ?></p>
+              <?php endforeach; ?>
 
-      <div class="taskDetailBox">
-        <div class="do">
-          <p class="heading">Do</p>
-          <div class="doBox">
-            <div class="welcome">
-              <li>welcome</li>
-            </div>
-            <div class="time">
-              <li>15/7</li>
-              <li>12.00 PM</li>
+            <button class="btn">View Trips</button>
 
             </div>
           </div>
-        </div>
-        <div class="defer">
-          <p class="heading">Defer</p>
-          <div class="doBox"></div>
-        </div>
-        <div class="deleate">
-          <p class="heading">Delegate</p>
-          <div class="doBox"></div>
-        </div>
-        <div class="delete">
-          <p class="heading">Delete</p>
-          <div class="doBox"></div>
-        </div>
-
+          <div class="card">
+            <div class="content">
+              <h2 class="title">DEFER</h2>
+              <?php foreach($fetchAllDataDefer as $defer): ?>
+                <!-- <?= var_dump($defer)?> -->
+              <p class="copy"> <?php echo $defer->task_name ?></p>
+              <?php endforeach; ?>
+              <button class="btn">View Trips</button>
+            </div>
+          </div>
+          <div class="card">
+            <div class="content">
+              <h2 class="title">DELEGATE</h2>
+              <?php foreach($fetchAllDataDelegate as $Delegate): ?>
+                <!-- <?= var_dump($Delegate)?> -->
+              <p class="copy"> <?php echo $Delegate->task_name ?></p>
+              <?php endforeach; ?>
+              <button class="btn">Book Now</button>
+            </div>
+          </div>
+          <div class="card">
+            <div class="content">
+              <h2 class="title">DELETE</h2>
+              <?php foreach($fetchAllDataDelete as $delete): ?>
+              
+                <p class="copy"> <?php echo $delete->dates ?></p>
+              <?php endforeach; ?>
+              <button class="btn">Book Now</button>
+            </div>
+          </div>
+        </main>
       </div>
       <section id="taskDetailView">
         <!-- <h1>Task List</h1>
@@ -149,9 +179,6 @@
             <label for="css">Personal</label><br>
             <input type="radio" class="typeBtn firstFrom category" id="2" value="2" name="task_type"> -->
         </div>
-
-
-
 
 
         <div>

@@ -83,15 +83,15 @@ body {
   width: 300px;
   border-radius: 5px;
   color: var(--font-color);
-
-  background-color: var(--thresary-color);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 5px;
+      background-color: var(--thresary-color);
   padding: 0px 10px 0px 45px;
   border: 1px solid white;
 }
 
 .input-box:focus {
   transition: 0.4s;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
   outline: none;
   border: 1px solid #52a521;
 }
@@ -153,7 +153,7 @@ body {
   background-color: var(--primary-color);
   border-radius: 5px;
   color: white;
-  padding: 10px 43px
+  padding: 10px 42px;
 }
 
 .add-btn:hover {
@@ -179,6 +179,7 @@ body {
   display: none;
   animation-duration: 1s;
   animation-name: showInputBox;
+  z-index: 1;
 }
 
 @keyframes showInputBox {

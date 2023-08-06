@@ -28,13 +28,16 @@ class UserController {
     public function signUp(){
         require "index.html";
     }
+
+
     public function list(){
 
         $fetchAllDataDo = $this->userModel->fetchDataFromDo();
+        // var_dump($fetchAllDataDo);
         $fetchAllDataDefer=$this->userModel->fetchDataFromdefer();
         $fetchAllDataDelegate=$this->userModel->fetchDataFromdelegate();
         $fetchAllDataDelete=$this->userModel->fetchDataFromdelete();
-        require "View/listing.html";
+        require "View/listing.php";
 
     }
     public function signupLogic(){
@@ -67,7 +70,7 @@ class UserController {
 
 
     public function fetchData(){
-        $this->userModel->fetchDataFromDb();
+        $this->userModel->fetchDataFromDo();
 
     }
 
