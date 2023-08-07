@@ -304,6 +304,7 @@ body {
 .Task_Type {
   display: flex;
   gap: 10px;
+  margin-left: 94px;
 }
 
 .Task_Type input {
@@ -324,7 +325,7 @@ body {
 
 /* --------this below style is for inputs (todo input and date)------------ */
 .inputdiv div {
-  padding: 12px 0px 0px 120px;
+  padding: 6px 0px 0px 120px;
   gap: 10px;
   display: grid;
 }
@@ -350,7 +351,7 @@ body {
   padding: 24 px 0px 0px 120px;
   gap: 35px;
   margin-left: 120px;
-  margin-top: 25px;
+  margin-top: 15px;
 }
 
 .matix div input {
@@ -958,13 +959,11 @@ button.removetask {
 
 .wrapper{
   display: inline-flex;
-  
-  height: 70px;
-  /* width: 400px; */
+  height: 62px;
   align-items: center;
   justify-content: space-evenly;
   border-radius: 5px;
-  padding: 15px 15px;
+  padding: 13px;
   /* box-shadow: 5px 5px 30px rgba(0,0,0,0.2); */
 }
 .wrapper .option{

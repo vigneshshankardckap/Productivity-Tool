@@ -189,61 +189,78 @@
       </div>
     </div>
     <div class="single-input-form">
-      <!-- <form action="/store" method="post"> -->
-      <div class="close-btn">
-        <div>
-          <span>X</span>
-        </div>
-      </div>
-      <p>Pick Category</p>
-      <div class="Task_Type">
-        <input type="button" class="typeBtn firstFrom category" name="task_type" value="Professional" id=1 />
-        <input type="button" class="typeBtn firstFrom category" name="task_type" value="Personal" id="2" />
-      </div>
-      <div>
-        <div class="inputdiv">
+      <form action="/store" method="post">
+        <div class="close-btn">
           <div>
-            <label for="project">What is on your task?</label>
-            <input type="text" placeholder="E.g Make task " name="Task_name" class="projectName" />
-          </div>
-          <div>
-            <label for="project" placeholder="Get Date/Time">What on your due?</label>
-            <input type="datetime-local" placeholder="Get Date/Time" class="dateTime" value="" name="dateTime" />
+            <span>X</span>
           </div>
         </div>
-      </div>
-      <div class="matix">
-        <div class="urgentDiv">
-          <label for="project">Urgent</label>
-          <br />
-          <input type="button" name="urgent-priority-btn" value="1" id="firstFrom" class="urgent-priority-btn data" />
-          <input type="button" name="urgent-priority-btn" value="0" id="firstFrom" class="urgent-priority-btn data" />
-        </div>
-        <div class="ImportantDiv">
-          <label for="">Important</label>
-          <br />
-          <input type="button" name="important-priority-btn" value="1" id="firstFrom" class="important-priority-btn datas" />
-          <input type="button" name="important-priority-btn" value="0" id="firstFrom" class="important-priority-btn datas" />
-        </div>
-      </div>
-      <button type="submit" onclick="store()" class="submit-btn">Submit</button>
-      </form>
-    </div>
-    <!-- ------------------------------------------ -->
+        <p>Pick Category</p>
 
-    <!-- this is multiple-input-form  -->
-    <div class="multiple-input-form">`
-      <form action="" method="post" class="multiple-form">
-        <div class="forms-inner-div">
-          <!-- multiple forms injected here  -->
+
+        <div class="Task_Type">
+          <div class="wrapper">
+            <input name="user_id" class="user_id" value="<?=$_SESSION['userid']?>" type="hidden">
+
+            <input type="radio" name="task_type" id="option-1" value="1" class="category" checked>
+            <input type="radio" name="task_type" id="option-2" value="2" class="category">
+
+            <label for="option-1" class="option option-1">
+              <div class="dot"></div>
+              <span>Professional</span>
+            </label>
+
+            <label for="option-2" class="option option-2">
+              <div class="dot"></div>
+              <span>Personal</span>
+            </label>
+          </div>
+          <!-- <label for="css">Professional</label><br>
+            <input type="radio" class="typeBtn firstFrom category" id="1" value="1" name="task_type">
+            <label for="css">Personal</label><br>
+            <input type="radio" class="typeBtn firstFrom category" id="2" value="2" name="task_type"> -->
         </div>
-        <div class="addOneMoreTodo">
-          <span class="addDivBtn" onclick="AddOneMoreForm()">+</span>
+
+
+
+
+
+        <div>
+          <div class="inputdiv">
+            <div>
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+                What is on your Task
+              </label>
+              <input
+                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-black focus:bg-white"
+                id="grid-first-name" type="text" placeholder="projectName"  name="Task_name" >
+             
+            </div>
+            <div>
+
+              <label for="project" placeholder="Get Date/Time">What on your due?</label>
+              <input type="datetime-local" placeholder="Get Date/Time" class="dateTime" value="" name="dateTime" />
+            </div>
+          </div>
         </div>
-        <div class="multiForm-btn-div">
-          <!-- <button type="button" class="cancel-btn">Cancel</button> -->
-          <button type="button" class="submit-btn">Submit</button>
+        <div class="matix">
+          <div class="urgentDiv">
+            <label for="project">Urgent</label>
+            <br>
+            <label for="css">Yes</label>
+            <input type="radio" class="urgent-priority-btn data" id="1" value="1" name="urgent">
+            <label for="css">No</label>
+            <input type="radio" class="urgent-priority-btn data" id="2" value="0" name="urgent">
+          </div>
+          <div class="ImportantDiv">
+            <label for="project">Important</label><br>
+            <label for="css">Yes</label>
+            <input type="radio" class="important-priority-btn" id="1" value="1" name="important">
+            <label for="css">No</label>
+            <input type="radio" class="important-priority-btn" id="2" value="0" name="important">
+          </div>
         </div>
+        <button type="submit" onclick="store()" class="submit-btn">Submit</button>
       </form>
     </div>
   </div>
