@@ -90,6 +90,7 @@ function AddOneMoreForm() {
     <div class="multi-input-div">
       <label>What on your task?</label>
       <div class="todo-input-box">
+      <textarea id=${multiformCnt} placeholder="Enter your task" ></textarea> 
       </div>
     </div>
     <div class="other-input-div">
@@ -124,94 +125,6 @@ function AddOneMoreForm() {
   </form>
   </div>
   `
-
-
-
-//   // -----main div for multiple form section------
-//   let mainDiv = document.createElement('div');
-//   mainDiv.setAttribute('class', 'multiple-forms-div')
-//   //------creating form element for multiple------
-//   let forms = document.createElement('form');
-//   forms.setAttribute('class', 'multiple-forms');
-//   forms.setAttribute('action', '');
-//   forms.setAttribute('method', 'post');
-//   //-------close button div for multiple--------
-//   let mainDivCloseBtn = document.createElement('div');
-//   mainDivCloseBtn.setAttribute('class', 'main-div-closeBtn');
-//   mainDivCloseBtn.setAttribute('id', `${multiformCnt}`);
-//   //--------close X symbole creat-----------
-//   let closeSymbole = document.createElement('span')
-//   closeSymbole.setAttribute('id', `${multiformCnt}`);
-//   closeSymbole.innerText = 'X'
-//   //--------creating todo input div-----------
-//   let todoInput = document.createElement('div');
-//   todoInput.setAttribute('class', 'multi-input-div')
-//   let label1 = document.createElement('label');
-//   label1.innerText = 'What on your task?'
-//   let todoInputBox = document.createElement('div');
-//   todoInputBox.setAttribute('class', 'todo-input-box');
-//   let textarea = document.createElement('textarea');
-//   textarea.name = 'Task_name';
-//   textarea.placeholder = 'Enter Your Task';
-//   // -----------append----------
-//   todoInput.appendChild(label1)
-//   todoInputBox.appendChild(textarea)
-//   todoInput.append(todoInputBox)
-//   mainDivCloseBtn.append(closeSymbole);
-//   forms.append(mainDivCloseBtn);
-
-//   // -------------creating other inout -------------
-//   let otherInputs = document.createElement('div');
-//   otherInputs.setAttribute('class', 'other-input-div');
-//   let categoryDiv = document.createElement('div');
-//   categoryDiv.setAttribute('class', 'category-div');
-//   let label2 = document.createElement('label');
-//   label2.innerText = "Pick category";
-//   let taskType = document.createElement('div');
-//   taskType.setAttribute('class', 'task_type');
-//   let professionalBtn = document.createElement('input');
-//   professionalBtn.setAttribute('type', 'button');
-//   professionalBtn.setAttribute('id', `${multiformCnt}`);
-//   professionalBtn.setAttribute('name', '1');
-//   professionalBtn.value = 'Professional';
-//   professionalBtn.setAttribute('class', 'typeBtn')
-
-//   let personalBtn = document.createElement('input');
-//   personalBtn.value = 'Personal';
-//   personalBtn.setAttribute('type', 'button');
-//   personalBtn.setAttribute('id', `${multiformCnt}`);
-//   personalBtn.setAttribute('name', '2');
-//   personalBtn.setAttribute('class', 'typeBtn')
-
-//   // -----------append----------
-
-//   otherInputs.append(categoryDiv)
-//   categoryDiv.appendChild(label2)
-//   categoryDiv.appendChild(taskType)
-//   taskType.appendChild(professionalBtn);
-//   taskType.appendChild(personalBtn)
-
-//       //       < div class="date-time-div" >
-//       // //       <label>When is your due?</label>
-//       // //       <div>
-//       // //         <input type="datetime-local" placeholder="Get Date/Time" class="multiDateTime" value="" name="dateTime" />
-//       // //       </div>
-//       // //     </div>
-// // -----------creating date time div--------------
-//   let dateTimeDiv = document.createElement('div')
-//   dateTimeDiv.setAttribute('class', 'date-time-div')
-//   let innerDiv = document.createElement('div')
-//   let dateInput = document.createElement('input')
-//   dateInput.placeholder = 'Get Date/Time'
-//   dateInput.name = 'dateTime'
-//   dateInput.type = 'datetime-local'
-  
-
-
-//   mainDiv.append(forms);
-//   mainDiv.append(todoInput)
-//   mainDiv.append(otherInputs)
-//   empty.append(mainDiv);
 
   // ----------below code for adding color to the taskType(personal or professional) ----------------
 
@@ -254,7 +167,7 @@ function buttonActions(params) {
 function closeBtnActions(params) {
   // -----------------this below close button for close multi form-----------------
 
-  // let mainDivCloseBtn = document.querySelectorAll(".main-div-closeBtn");
+  let mainDivCloseBtn = document.querySelectorAll(".main-div-closeBtn");
   let multipleFormsDiv = document.querySelectorAll(".multiple-forms-div");
 
   for (let i = 0; i < mainDivCloseBtn.length; i++) {
@@ -272,106 +185,8 @@ function closeBtnActions(params) {
 
   }
 }
-let DateField = document.querySelector(".dateTime");
-
-DateField.addEventListener("click", () => {
-  // console.log(DateField.value);
-  // console.log(category_id)
-})
 
 
-
-
-
-let projectField = document.querySelector(".projectName")
-
-
-// let urgentPri = $('.urgent-yes').val();
-// let urgentno = $('.urgent-no').val();
-// let importantyes = $('.important-yes').val();
-// let importantno = $('.important-no').val();
-
-let allInput = document.querySelectorAll('.data')
-// console.log(allInput,"ll");
-let allInputs = document.querySelectorAll('.datas')
-// console.log(allInputs,"kk");
-
-let category_id;
-let category = document.querySelectorAll('.category')
-
-for (let i = 0; i < category.length; i++) {
-  category[i].addEventListener('click', (event) => {
-    category_id = event.target.id
-  })
-}
-
-
-
-// let data;
-// let urgent;
-// let important;
-// for (let i = 0; i < allInput.length; i++) {
-//   allInput[i].addEventListener('click', (e) => {
-//     urgent = allInputs[i].value
-//   })
-//   allInputs[i].addEventListener('click', (e) => {
-//     important = allInputs[i].value
-//   })
-// }
-function store() {
-
-
-  if (urgent == 1 && important == 1) {
-    data = 1
-  }
-  else if (urgent == 0 && important == 1) {
-    data = 2
-  }
-  else if (urgent == 1 && important == 0) {
-    data = 3
-  }
-  else if (urgent == 0 && important == 0) {
-    data = 4
-  }
-
-  let projectName = $(".projectName").val();
-  let dateTime = $(".dateTime").val();
-  let user_id = $(".user_id").val();
-  let priority = data;
-  let pickCateid = category_id;
-
-  let FrontendObj = {
-    "category_id": pickCateid,
-    "task_name": projectName,
-    "dates": dateTime,
-    "user_id": user_id,
-    "matrix_id": priority
-  }
-
-
-
-  $.ajax({
-    method: 'POST',
-    url: '/store',
-    data: FrontendObj,
-    success: function (response) {
-      window.location.href = '/list'
-
-    }
-  })
-}
-// setInterval(() => {
-//   if (projectField.value != "") {
-//     projectField.style.backgroundColor = "#bff5da";
-// }
-// }, 1000);
-// projectField.addEventListener("click  ", () => {
-//     if (projectField.value == "") {
-//         projectField.style.backgroundColor = "";
-//     }
-//     else {
-//         projectField.style.backgroundColor = "#bff5da";
-//     }
 
 // ------------- Notification icon  ------------------
 let Notificationbtn = document.querySelector(".notification");
@@ -390,12 +205,19 @@ closelist.addEventListener("click", (e) => {
 // ==========================================================================================================
 
 // ==========================This below function is for dark mode functionality==============================
-let darkBtn = document.querySelector(".darkmode")
+// ==========================This below function is for dark mode functionality==============================
+let darkBtn = document.querySelector(".theme-btn")
 
-darkBtn.addEventListener("click", () => {
-  darkMode()
-})
+  darkBtn.addEventListener("click",()=>{
+    if(darkBtn.classList.contains("fa-moon")){
+        document.querySelector(":root").classList.add("darkmode")
+        darkBtn.classList.remove("fa-moon")
+        darkBtn.classList.add("fa-sun")
 
-function darkMode() {
-  document.querySelector(":root").classList.toggle("darkmode")
-}
+    }
+    else{
+      document.querySelector(":root").classList.remove("darkmode")
+      darkBtn.classList.remove("fa-sun")
+      darkBtn.classList.add("fa-moon")
+    }
+  })

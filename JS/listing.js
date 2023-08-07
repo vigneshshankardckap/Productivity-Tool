@@ -188,94 +188,6 @@ function AddOneMoreForm() {
 
 }
 // ========================================================================================================/
-// =========================================================================================================//
-
-
-let DateField = document.querySelector(".dateTime");
-
-DateField.addEventListener("click", () => {
-  // console.log(DateField.value);
-  // console.log(category_id)
-})
-
-
-
-// let projectField = document.querySelector(".projectName")
-
-
-// // let urgentPri = $('.urgent-yes').val();
-// // let urgentno = $('.urgent-no').val();
-// // let importantyes = $('.important-yes').val();
-// // let importantno = $('.important-no').val();
-
-// let allInput = document.querySelectorAll('.data')
-// // console.log(allInput,"ll");
-// let allInputs = document.querySelectorAll('.datas')
-// // console.log(allInputs,"kk");
-
-// let category_id;
-// let category = document.querySelectorAll('.category')
-
-// for (let i = 0; i < category.length; i++) {
-//   category[i].addEventListener('click', (event) => {
-//     category_id = event.target.id
-//   })
-// }
-
-
-// let data;
-// let urgent;
-// let important;
-// for (let i = 0; i < allInput.length; i++) {
-//   allInput[i].addEventListener('click', (e) => {
-//     urgent = allInputs[i].value
-//   })
-//   allInputs[i].addEventListener('click', (e) => {
-//     important = allInputs[i].value
-//   })
-// }
-// function store() {
-
-
-//   if (urgent == 1 && important == 1) {
-//     data = 1
-//   }
-//   else if (urgent == 0 && important == 1) {
-//     data = 2
-//   }
-//   else if (urgent == 1 && important == 0) {
-//     data = 3
-//   }
-//   else if (urgent == 0 && important == 0) {
-//     data = 4
-//   }
-
-//   let projectName = $(".projectName").val();
-//   let dateTime = $(".dateTime").val();
-//   let priority = data;
-//   let pickCateid = category_id;
-
-//   let FrontendObj = {
-//     "category_id": pickCateid,
-//     "task_name": projectName,
-//     "dates": dateTime,
-//     "user_id": 1,
-//     "matrix_id": priority
-//   }
-
-
-//   $.ajax({
-//     method: 'POST',
-//     url: '/store',
-//     data: FrontendObj,
-//     success: function (response) {
-//       console.log(response);
-
-//     }
-//   })
-// }
-
-// ==================================================================================
 
 // ------------- Notification icon  ------------------
 let Notificationbtn = document.querySelector(".notification");
@@ -294,42 +206,22 @@ closelist.addEventListener("click", (e) => {
 // ==========================================================================================================
 
 // ==========================This below function is for dark mode functionality==============================
-let darkBtn = document.querySelector(".darkmode")
+let darkBtn = document.querySelector(".theme-btn")
 
-darkBtn.addEventListener("click", () => {
-  darkMode()
-})
+  darkBtn.addEventListener("click",()=>{
+    if(darkBtn.classList.contains("fa-moon")){
+        document.querySelector(":root").classList.add("darkmode")
+        darkBtn.classList.remove("fa-moon")
+        darkBtn.classList.add("fa-sun")
 
-function darkMode() {
-  document.querySelector(":root").classList.toggle("darkmode")
-}
-
-
-// ==============================================================
-let personal = document.querySelector("#personal");
-let doBox = document.querySelectorAll(".doBox")
-
-for (let i = 0; i < doBox.length; i++) {
-  doBox[i].addEventListener("click", () => {
-
+    }
+    else{
+      document.querySelector(":root").classList.remove("darkmode")
+      darkBtn.classList.remove("fa-sun")
+      darkBtn.classList.add("fa-moon")
+    }
   })
-}
 
-
-// let obj = [];
-// $( window ).ready(function() {
-
-//     $.ajax({
-//       url: '/list',
-//       method: 'GET',
-//       success: function (response) {
-//         console.log(response);
-
-//       }
-
-//   })
-
-//   })
 // =================================================================================================
 // ---------------show more button functionality code here--------------
 let showMoreBtn = document.querySelectorAll(".showMoreBtn");
@@ -343,7 +235,7 @@ for (let i = 0; i < showMoreBtn.length; i++) {
 }
 
 let popUpclose = document.querySelector('#popUpCloseBtn');
-popUpclose.addEventListener("click", () => {
+  popUpclose.addEventListener("click", () => {
   popUpWnd.classList.toggle('invisible');
 });
 
@@ -371,7 +263,7 @@ for (let j = 0; j < commentBtn.length; j++) {
 for (let i = 0; i < TaskCompleted.length; i++) {
 
   TaskCompleted[i].addEventListener("click", () => {
-    task_name.classList.add("completedTask")
+    task_name.classList.toggle("completedTask")
     // task_due.classList.add("completedTask")
   })
   // console.log(TaskCompleted[i]);

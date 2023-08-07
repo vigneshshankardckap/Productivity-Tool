@@ -53,7 +53,7 @@
               <i class="fa-regular fa-bell notification"></i>
             </li>
             <li class="right-icon">
-              <i class="fa-regular fa-moon darkmode"></i>
+            <i class="fa-regular fa-moon theme-btn"></i>
             </li>
             <li class="right-icon">
               <a href="/logout">

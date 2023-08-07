@@ -52,7 +52,7 @@
                 <i class="fa-regular fa-bell notification" onclick="openNotofy()"></i>
               </li>
               <li class="right-icon">
-                <i class="fa-regular fa-moon darkmode"></i>
+                <i class="fa-regular fa-moon theme-btn"></i>
               </li>
               <li class="right-icon">
                 <a href="/logout">
@@ -226,8 +226,6 @@
           </div>
         </div>
         <p>Pick Category</p>
-
-
         <div class="Task_Type">
           <div class="wrapper">
             <input name="user_id" class="user_id" value="<?= $_SESSION['userid'] ?>" type="hidden">
@@ -245,15 +243,7 @@
               <span>Personal</span>
             </label>
           </div>
-          <!-- <label for="css">Professional</label><br>
-            <input type="radio" class="typeBtn firstFrom category" id="1" value="1" name="task_type">
-            <label for="css">Personal</label><br>
-            <input type="radio" class="typeBtn firstFrom category" id="2" value="2" name="task_type"> -->
         </div>
-
-
-
-
 
         <div>
           <div class="inputdiv">
@@ -289,6 +279,21 @@
           </div>
         </div>
         <button type="submit" onclick="store()" class="submit-btn">Submit</button>
+      </form>
+    </div>
+    <!-- this is multiple-input-form  -->
+    <div class="multiple-input-form">`
+      <form action="" method="post" class="multiple-form">
+        <div class="forms-inner-div">
+          <!-- multiple forms injected here  -->
+        </div>
+        <div class="addOneMoreTodo">
+          <span class="addDivBtn" onclick="AddOneMoreForm()">+</span>
+        </div>
+        <div class="multiForm-btn-div">
+          <!-- <button type="button" class="cancel-btn">Cancel</button> -->
+          <button type="button" class="submit-btn">Submit</button>
+        </div>
       </form>
     </div>
   </div>
