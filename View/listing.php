@@ -38,7 +38,8 @@
           <div class="left-section">
             <img src="../Images/logo.png">
             <h1>What's Up<span class="username">
-                <!-- <?php echo $_SESSION['username']; ?> -->
+                <?php echo $_SESSION['username']; ?> 
+               
               </span></h1>
           </div>
           <!-- this is our right side contents -->
@@ -201,7 +202,10 @@
                                 </div>
                                 <div class="make-changes">
                                   <button><i class="fa-solid fa-pen"></i></button>
+                                  <form action="/deleteTask" method="post" >
+                                    <input type="text" hidden name=task_id value ="<?php echo $do->id ?>"/> 
                                   <button><i class="fa-solid fa-trash-can"></i></button>
+                                  </form>
                                   <button class="add-comment-btn"><i class="fa-solid fa-comment"></i></button>
                                 </div>
                               </div>

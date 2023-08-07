@@ -36,11 +36,14 @@ $router->get('/logout',"logout");
 
 
 $router->post('/addTask','addTask');
+$router->post('/deleteTask','deleteTask');
+
+
 
 $router->post('/addedTaskDetails','addedTaskDetails');
 
 $router->post('/deleteAddedTask','deleteAddedTask');
 
-//$router->post('/storeValue','storeValue');
+
 
 $router->routing();
