@@ -64,7 +64,7 @@
         </div>
         <div>
           <div class="Task_Type">
-            <input value="Professional"  />
+            <input value="Professional" />
             <input type="button" value="Personal" />
           </div>
           <div class="add-todo-btn-section">
@@ -108,24 +108,26 @@
             <div class="content">
               <h2 class="title">DO FIRST</h2>
               <?php foreach ($fetchAllDataDo as $key => $do) : ?>
-                <div class="todoList">
+                <?php if ($key < 5) : ?>
                   <p class="copy"> <?php echo $do->task_name; ?></p>
-                </div>
+                <?php endif; ?>
               <?php endforeach; ?>
             </div>
             <div>
-              <button class="showMoreBtn">Show More..</button>
+              <button class="showMoreBtn">View Task..</button>
             </div>
           </div>
           <div class="card">
             <div class="content">
               <h2 class="title">DEFER</h2>
               <?php foreach ($fetchAllDataDefer as $defer) : ?>
-                <p class="copy"> <?php echo $defer->task_name ?></p>
+                <?php if ($key < 5) : ?>
+                  <p class="copy"> <?php echo $defer->task_name ?></p>
+                <?php endif; ?>
               <?php endforeach; ?>
             </div>
             <div>
-              <button class="showMoreBtn">Show More..</button>
+              <button class="showMoreBtn">View Task..</button>
             </div>
           </div>
           <div class="card">
@@ -136,32 +138,29 @@
               <?php endforeach; ?>
             </div>
             <div>
-              <button class="showMoreBtn">Show More..</button>
+              <button class="showMoreBtn">View Task..</button>
             </div>
           </div>
           <div class="card">
             <div class="content">
               <h2 class="title">DELETE</h2>
               <?php foreach ($fetchAllDataDelete as $delete) : ?>
-                <p class="copy"> <?php echo $delete->dates ?></p>
+                <p class="copy"> <?php echo $delete->task_name ?></p>
               <?php endforeach; ?>
             </div>
             <div>
-              <button class="showMoreBtn">Show More..</button>
+              <button class="showMoreBtn">View Task..</button>
             </div>
           </div>
         </main>
       </div>
-      <section id="taskDetailView">
-
-      </section>
       <!-- pop up window code here -->
       <div class="testing-window invisible">
         <div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
           <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
           <div class="fixed inset-0 z-10 overflow-y-auto">
             <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <div class="relative  overflow-hidden rounded-lg bg-white text-left shadow-xl sm:my-8 sm:w-full sm:max-w-lg">
+              <div class="relative  overflow-hidden rounded-lg bg-white text-left shadow-xl sm:my-8 w-11/12 m-auto">
                 <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
                   <button type="button" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto" id='popUpCloseBtn'>X<button>
                 </div>
@@ -171,12 +170,33 @@
                       <h3 class="text-base font-semibold leading-6 text-gray-900" id="modal-title">DO FIRST</h3>
                       <div class="mt-2">
                         <?php foreach ($fetchAllDataDo as $key => $do) : ?>
-                          <p class="text-sm text-gray-500"><?php echo $do->task_name; ?></p>
-                          <p class="text-sm text-gray-500"><?php echo $do->task_name; ?></p>
-                          <p class="text-sm text-gray-500"><?php echo $do->task_name; ?></p>
-                          <p class="text-sm text-gray-500"><?php echo $do->task_name; ?></p>
-                          <p class="text-sm text-gray-500"><?php echo $do->task_name; ?></p>
-                          <p class="text-sm text-gray-500"><?php echo $do->task_name; ?></p>
+                          <div class="task-info">
+                            <div class="list-name">
+                              <h5 id="Task-Name" class="text-sm text-gray-500">
+                                <?php echo $do->task_name; ?>
+                              </h5>
+                              <h4 id="due-date"> <?php echo $do->dates; ?></h4>
+                            </div>
+                            <div class="add-Cmt">
+                              <input type="text" placeholder="comment here ">
+                              <button><i class="fa-solid fa-upload"></i></button>
+                            </div>
+                            <div>
+                              <div class="change">
+                                <div class="Task-progress">
+                                  <div class="round">
+                                    <input type="checkbox" id="checkbox" />
+                                    <label for="checkbox"></label>
+                                  </div>
+                                </div>
+                                <div class="make-changes">
+                                  <button><i class="fa-solid fa-pen"></i></button>
+                                  <button><i class="fa-solid fa-trash-can"></i></button>
+                                  <button class="add-comment-btn"><i class="fa-solid fa-comment"></i></i></button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         <?php endforeach; ?>
                       </div>
                     </div>

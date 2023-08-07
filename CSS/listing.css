@@ -95,7 +95,7 @@ body {
   color: var(--icon-color);
   position: absolute;
   right: 380px;
-  top: 19px;
+  top: 16px;
   font-size: 18px;
 }
 
@@ -304,7 +304,7 @@ body {
 .Task_Type {
   display: flex;
   gap: 10px;
-  margin-left: 94px;
+  margin-left: 119px;
 }
 
 .Task_Type input {
@@ -850,6 +850,9 @@ button.removetask {
 .list-name h4 {
   width: 212px;
        font-size: 20px;
+}
+.completedTask{
+  text-decoration: line-through;
 }
 
 .add-Cmt {
