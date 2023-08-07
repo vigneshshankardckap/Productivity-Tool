@@ -68,7 +68,6 @@ body {
 }
 
 .header>:last-child {
-  padding-left: 470px;
   align-items: center;
   display: flex;
   justify-content: space-between;
@@ -304,28 +303,25 @@ body {
 .Task_Type {
   display: flex;
   gap: 10px;
-  margin-left: 119px;
+  margin-left: 24rem;
+  align-items: center;
 }
-
-.Task_Type input {
-  cursor: pointer;
-  height: 35px;
-  width: 135px;
+.switchCat{
+  color: var(--font-color);
+  font-size: 18px;
 }
-
-
-.Task_Type .typeBtn {
+.switchBall{
+  background-color: #fbfbfb;
   border: 1px solid var(--primary-color);
-  color: #656664;
-  border-radius: var(--single-border-radius);
-  background-color: var(--input-background-color);
-  font-size: 16px;
-  transition: 0.3s;
 }
-
+.after\:content-\[\'\'\]::after {
+  --tw-content: '';
+  content: var(--tw-content);
+  background-color: var(--primary-color);
+}
 /* --------this below style is for inputs (todo input and date)------------ */
 .inputdiv div {
-  padding: 6px 0px 0px 120px;
+  padding: 12px 0px 0px 120px;
   gap: 10px;
   display: grid;
 }
@@ -351,7 +347,7 @@ body {
   padding: 24 px 0px 0px 120px;
   gap: 35px;
   margin-left: 120px;
-  margin-top: 15px;
+  margin-top: 25px;
 }
 
 .matix div input {
@@ -838,10 +834,11 @@ button.removetask {
 
 .task-info .list-name {
   display: flex;
-  padding: 20px 0px 20px 40px;
+  padding: 0px 0px 0px 0px;
   gap: 39px;
   font-size: 20px;
   color: #7F808A;
+  align-items: center;
 }
 
 .list-name h5 {
@@ -964,11 +961,13 @@ button.removetask {
 
 .wrapper{
   display: inline-flex;
-  height: 62px;
+  
+  height: 70px;
+  /* width: 400px; */
   align-items: center;
   justify-content: space-evenly;
   border-radius: 5px;
-  padding: 13px;
+  padding: 15px 15px;
   /* box-shadow: 5px 5px 30px rgba(0,0,0,0.2); */
 }
 .wrapper .option{

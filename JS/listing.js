@@ -24,6 +24,11 @@ for (let i = 0; i < inputBtn.length; i++) {
   })
 
 }
+
+// ============================================
+ let switchs = document.querySelector(".switchBall")
+
+
 //========================================single form functionality================================/
 
 function openSingleForm(params) {
@@ -366,8 +371,4 @@ for (let i = 0; i < TaskCompleted.length; i++) {
 
 }
 
-
-
-
-  
-
+// ========================================================================
