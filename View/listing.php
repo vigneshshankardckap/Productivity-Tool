@@ -64,7 +64,7 @@
         </div>
         <div>
           <div class="Task_Type">
-            <span class="ml-3 font-medium switchCat">PROFESSIONAL</span>
+            <span class="ml-3 font-medium switchCat on">PROFESSIONAL</span>
             <label class="relative inline-flex items-center cursor-pointer">
               <input type="checkbox" value="" class="sr-only peer">
               <div class="w-14 h-7  peer-focus:outline-none peer -focus:ring-4  rounded-full peer  peer-checked:after:translate-x-full  after:content-[''] after:absolute after:top-0.5 after:left-[4px]   after:border after:rounded-full after:h-6 after:w-6 after:transition-all   switchBall"></div>
@@ -87,22 +87,22 @@
         </div>
       </header>
       <div class="Habitsdiv">
-      <div class="notification-title">
-        <h4>Notification </h4>
-        <div>
-          <button class="cancelicon" id="close-notificationList">X</button>
+        <div class="notification-title">
+          <h4>Notification </h4>
+          <div>
+            <button class="cancelicon" id="close-notificationList">X</button>
+          </div>
         </div>
+        <hr>
+        <?php foreach ($tasks as $key => $value) : ?>
+          <div class="Tasklist">
+            <p><?php echo $value['name'] ?></p>
+            <form method="post" action="/deleteAddedTask">
+              <button class="removetask" name="<?php echo $value['id'] ?>">Remove</button>
+            </form>
+          </div>
+        <?php endforeach; ?>
       </div>
-      <hr>
-      <?php foreach ($tasks as $key => $value) : ?>
-        <div class="Tasklist">
-          <p><?php echo $value['name'] ?></p>
-          <form method="post" action="/deleteAddedTask">
-            <button class="removetask" name="<?php echo $value['id'] ?>">Remove</button>
-          </form>
-        </div>
-      <?php endforeach; ?>
-    </div>
       <!-- this below section is for add button -->
 
       <div class="taskDetailBox">
@@ -136,10 +136,10 @@
           <div class="card">
             <div class="content">
               <h2 class="title">DELEGATE</h2>
-              
+
               <?php foreach ($fetchAllDataDelegate as $Delegate) : ?>
                 <?php if ($key < 5) : ?>
-                <p class="copy"> <?php echo $Delegate->task_name ?><span class="date"><?php echo $Delegate ->dates; ?></span></p>
+                  <p class="copy"> <?php echo $Delegate->task_name ?><span class="date"><?php echo $Delegate->dates; ?></span></p>
                 <?php endif; ?>
               <?php endforeach; ?>
             </div>
@@ -153,7 +153,7 @@
               <?php foreach ($fetchAllDataDelete as $delete) : ?>
                 <?php if ($key < 5) : ?>
 
-                <p class="copy"> <?php echo $delete->task_name ?><span class="date"><?php echo $delete ->dates; ?></span></p>
+                  <p class="copy"> <?php echo $delete->task_name ?><span class="date"><?php echo $delete->dates; ?></span></p>
                 <?php endif; ?>
               <?php endforeach; ?>
             </div>
@@ -183,7 +183,7 @@
                           <div class="task-info">
                             <div class="list-name">
                               <h5 id="Task-Name" class="text-sm text-gray-500">
-                                <?php echo $do->task_name; ?>
+                              <?php echo $key + 1; ?> <?php echo $do->task_name; ?>
                               </h5>
                               <p id="due-date"> <?php echo $do->dates; ?></p>
                             </div>

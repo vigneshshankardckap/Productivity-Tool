@@ -303,7 +303,7 @@ body {
 .Task_Type {
   display: flex;
   gap: 10px;
-  margin-left: 24rem;
+  margin-left: 6rem;
   align-items: center;
 }
 .switchCat{
@@ -313,6 +313,10 @@ body {
 .switchBall{
   background-color: #fbfbfb;
   border: 1px solid var(--primary-color);
+}
+.on{
+  color: var(--primary-color);
+  text-decoration: underline;
 }
 .after\:content-\[\'\'\]::after {
   --tw-content: '';
@@ -823,20 +827,16 @@ button.removetask {
 }
 
 .task-info {
-  width: 1200px;
-  height: 59px;
-  border-radius: 10px;
-  margin: 12px 40px;
-  background-color: var(--input-type-hover);
   display: flex;
-
+  justify-content: space-around;
+  align-items: center;
+  gap: 35px;
 }
 
 .task-info .list-name {
   display: flex;
-  padding: 0px 0px 0px 0px;
   gap: 39px;
-  font-size: 20px;
+  font-size: 18px;
   color: #7F808A;
   align-items: center;
 }
@@ -855,7 +855,7 @@ button.removetask {
 }
 
 .add-Cmt {
-  padding: 8px 0px;
+  padding: 10px 20px;
      
 }
 
@@ -882,14 +882,9 @@ button.removetask {
   border: 2px solid var(--primary-color);
 }
 
-.Task-progress {
-  padding: 20px 0px 20px 89px;
-}
-
 .make-changes {
   display: flex;
   gap: 20px;
-  padding: 15px 0px;
 }
 
 .make-changes button {
@@ -904,6 +899,7 @@ button.removetask {
 .change {
   display: flex;
   gap: 50px;
+  align-items: center;
 }
 
 .round {
