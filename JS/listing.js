@@ -193,80 +193,80 @@ DateField.addEventListener("click", () => {
 
 
 
-let projectField = document.querySelector(".projectName")
+  // let projectField = document.querySelector(".projectName")
 
 
-// let urgentPri = $('.urgent-yes').val();
-// let urgentno = $('.urgent-no').val();
-// let importantyes = $('.important-yes').val();
-// let importantno = $('.important-no').val();
+  // // let urgentPri = $('.urgent-yes').val();
+  // // let urgentno = $('.urgent-no').val();
+  // // let importantyes = $('.important-yes').val();
+  // // let importantno = $('.important-no').val();
 
-let allInput = document.querySelectorAll('.data')
-// console.log(allInput,"ll");
-let allInputs = document.querySelectorAll('.datas')
-// console.log(allInputs,"kk");
+  // let allInput = document.querySelectorAll('.data')
+  // // console.log(allInput,"ll");
+  // let allInputs = document.querySelectorAll('.datas')
+  // // console.log(allInputs,"kk");
 
-let category_id;
-let category = document.querySelectorAll('.category')
+  // let category_id;
+  // let category = document.querySelectorAll('.category')
 
-for (let i = 0; i < category.length; i++) {
-  category[i].addEventListener('click', (event) => {
-    category_id = event.target.id
-  })
-}
-
-
-let data;
-let urgent;
-let important;
-for (let i = 0; i < allInput.length; i++) {
-  allInput[i].addEventListener('click', (e) => {
-    urgent = allInputs[i].value
-  })
-  allInputs[i].addEventListener('click', (e) => {
-    important = allInputs[i].value
-  })
-}
-function store() {
+  // for (let i = 0; i < category.length; i++) {
+  //   category[i].addEventListener('click', (event) => {
+  //     category_id = event.target.id
+  //   })
+  // }
 
 
-  if (urgent == 1 && important == 1) {
-    data = 1
-  }
-  else if (urgent == 0 && important == 1) {
-    data = 2
-  }
-  else if (urgent == 1 && important == 0) {
-    data = 3
-  }
-  else if (urgent == 0 && important == 0) {
-    data = 4
-  }
-
-  let projectName = $(".projectName").val();
-  let dateTime = $(".dateTime").val();
-  let priority = data;
-  let pickCateid = category_id;
-
-  let FrontendObj = {
-    "category_id": pickCateid,
-    "task_name": projectName,
-    "dates": dateTime,
-    "user_id": 1,
-    "matrix_id": priority
-  }
+  // let data;
+  // let urgent;
+  // let important;
+  // for (let i = 0; i < allInput.length; i++) {
+  //   allInput[i].addEventListener('click', (e) => {
+  //     urgent = allInputs[i].value
+  //   })
+  //   allInputs[i].addEventListener('click', (e) => {
+  //     important = allInputs[i].value
+  //   })
+  // }
+  // function store() {
 
 
-  $.ajax({
-    method: 'POST',
-    url: '/store',
-    data: FrontendObj,
-    success: function (response) {
-      console.log(response);
+  //   if (urgent == 1 && important == 1) {
+  //     data = 1
+  //   }
+  //   else if (urgent == 0 && important == 1) {
+  //     data = 2
+  //   }
+  //   else if (urgent == 1 && important == 0) {
+  //     data = 3
+  //   }
+  //   else if (urgent == 0 && important == 0) {
+  //     data = 4
+  //   }
 
-    }
-  })
-}
+  //   let projectName = $(".projectName").val();
+  //   let dateTime = $(".dateTime").val();
+  //   let priority = data;
+  //   let pickCateid = category_id;
+
+  //   let FrontendObj = {
+  //     "category_id": pickCateid,
+  //     "task_name": projectName,
+  //     "dates": dateTime,
+  //     "user_id": 1,
+  //     "matrix_id": priority
+  //   }
+
+
+  //   $.ajax({
+  //     method: 'POST',
+  //     url: '/store',
+  //     data: FrontendObj,
+  //     success: function (response) {
+  //       console.log(response);
+
+  //     }
+  //   })
+  // }
 
 // ==================================================================================
 
