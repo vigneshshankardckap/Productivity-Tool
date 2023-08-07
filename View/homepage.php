@@ -21,7 +21,9 @@
     <div class="Habitsdiv">
       <div class="notification-title">
         <h4>Notification </h4>
-        <button class="cancelicon" id="close-notificationList">X</button>
+        <div>
+          <button class="cancelicon" id="close-notificationList">X</button>
+        </div>
       </div>
       <hr>
       <?php foreach ($tasks as $key => $value) : ?>
@@ -133,7 +135,7 @@
     <div class="single-input-form">
       <form action="/store" method="post">
         <div class="close-btn">
-         <span>x</span>
+          <span>x</span>
         </div>
         <p>Pick Category</p>
         <div class="Task_Type">
@@ -191,7 +193,7 @@
         </div>
       </form>
     </div>
-  </div>  
+  </div>
   <script src="../JS/homepage.js"></script>
 </body>
 

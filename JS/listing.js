@@ -337,18 +337,37 @@ popUpclose.addEventListener("click", () => {
 
 // ==============================================================
 
-// let commentBtn = document.querySelector(".add-comment-btn");
-// let commentInput = document.querySelector(".add-Cmt");
-// let TaskCompleted = document.querySelector("#checkbox");
-// let task_name = document.querySelector("#Task-Name");
-// let task_due = document.querySelector("#due-date");
+let commentBtn = document.querySelectorAll(".add-comment-btn");
+let commentInput = document.querySelectorAll(".add-Cmt");
+let TaskCompleted = document.querySelectorAll("#checkbox");
+let task_name = document.querySelectorAll("#Task-Name");
+let task_due = document.querySelectorAll("#due-date");
 
-// commentBtn.addEventListener("click", () => {
-//   commentInput.classList.toggle("addvisibility")
+for (let j = 0; j < commentBtn.length; j++) {
+  commentInput[j].classList.add("addvisibility")
+  commentBtn[j].addEventListener("click", () => {
+    commentInput[j].classList.toggle("addvisibility")
+  })
+  // console.log(TaskCompleted[j]);
+  // console.log(task_name[j],task_due[j]);
+}
+// TaskCompleted[j].addEventListener("click", () => {
+//   task_name[j].classList.add("completedTask")
+//   task_due[j].classList.add("completedTask")
 // })
 
-// TaskCompleted.addEventListener("click", () => {
-//   task_name.classList.toggle("completedTask");
-//   task_due.classList.toggle("completedTask")
+for (let i = 0; i < TaskCompleted.length; i++) {
 
-// })
+  TaskCompleted[i].addEventListener("click", () => {
+    // task_name.classList.add("completedTask")
+    // task_due.classList.add("completedTask")
+  })
+  // console.log(TaskCompleted[i]);
+
+}
+
+
+
+
+  
+
