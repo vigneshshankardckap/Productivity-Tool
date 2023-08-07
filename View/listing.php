@@ -82,24 +82,23 @@
           </div>
         </div>
       </header>
-
       <div class="Habitsdiv">
-        <div class="notification-title">
-          <h4>Notification </h4>
+      <div class="notification-title">
+        <h4>Notification </h4>
+        <div>
           <button class="cancelicon" id="close-notificationList">X</button>
         </div>
-        <hr>
-        <?php foreach ($tasks as $key => $value) : ?>
-          <div class="Tasklist">
-            <p>
-              <?php echo $value['name'] ?>
-            </p>
-            <form method="post" action="/deleteAddedTask">
-              <button class="removetask" name="<?php echo $value['id'] ?>">Remove</button>
-            </form>
-          </div>
-        <?php endforeach; ?>
       </div>
+      <hr>
+      <?php foreach ($tasks as $key => $value) : ?>
+        <div class="Tasklist">
+          <p><?php echo $value['name'] ?></p>
+          <form method="post" action="/deleteAddedTask">
+            <button class="removetask" name="<?php echo $value['id'] ?>">Remove</button>
+          </form>
+        </div>
+      <?php endforeach; ?>
+    </div>
       <!-- this below section is for add button -->
 
       <div class="taskDetailBox">
@@ -109,7 +108,9 @@
               <h2 class="title">DO FIRST</h2>
               <?php foreach ($fetchAllDataDo as $key => $do) : ?>
                 <?php if ($key < 5) : ?>
-                  <p class="copy"> <?php echo $do->task_name; ?></p>
+                  <p class="copy"> <?php echo $do->task_name; ?> <span class="date"><?php echo $do->dates; ?></span></p>
+                  
+                  
                 <?php endif; ?>
               <?php endforeach; ?>
             </div>
@@ -122,7 +123,7 @@
               <h2 class="title">DEFER</h2>
               <?php foreach ($fetchAllDataDefer as $defer) : ?>
                 <?php if ($key < 5) : ?>
-                  <p class="copy"> <?php echo $defer->task_name ?></p>
+                  <p class="copy"> <?php echo $defer->task_name ?><span class="date"><?php echo $defer->dates; ?></span></p>
                 <?php endif; ?>
               <?php endforeach; ?>
             </div>
@@ -133,8 +134,11 @@
           <div class="card">
             <div class="content">
               <h2 class="title">DELEGATE</h2>
+              
               <?php foreach ($fetchAllDataDelegate as $Delegate) : ?>
-                <p class="copy"> <?php echo $Delegate->task_name ?></p>
+                <?php if ($key < 5) : ?>
+                <p class="copy"> <?php echo $Delegate->task_name ?><span class="date"><?php echo $Delegate ->dates; ?></span></p>
+                <?php endif; ?>
               <?php endforeach; ?>
             </div>
             <div>
@@ -145,7 +149,10 @@
             <div class="content">
               <h2 class="title">DELETE</h2>
               <?php foreach ($fetchAllDataDelete as $delete) : ?>
-                <p class="copy"> <?php echo $delete->task_name ?></p>
+                <?php if ($key < 5) : ?>
+
+                <p class="copy"> <?php echo $delete->task_name ?><span class="date"><?php echo $delete ->dates; ?></span></p>
+                <?php endif; ?>
               <?php endforeach; ?>
             </div>
             <div>
