@@ -83,7 +83,7 @@ body {
   border-radius: 5px;
   color: var(--font-color);
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 5px;
-      background-color: var(--thresary-color);
+  background-color: var(--thresary-color);
   padding: 0px 10px 0px 45px;
   border: 1px solid white;
 }
@@ -142,7 +142,7 @@ body {
   display: flex;
   gap: 30px;
   justify-content: flex-end;
-  padding: 25px 0px;
+  padding: 15px 0px;
 }
 
 .add-btn {
@@ -291,25 +291,25 @@ body {
   display: none;
   position: absolute;
   height: 27rem;
-  width: 770px;
+  width: 35rem;
   background-color: var(--thresary-color);
   border-radius: var(--single-border-radius);
-  right: 18rem;
-  top: 163px;
-  padding: 25px 25px;
-  box-shadow: #00000029 0px 10px 36px 0px,
-    #0000000f 0px 0px 0px 1px;
+  right: 22rem;
+  top: 182px;
+  padding: 5px 24px;
+  box-shadow: #00000029 0px 10px 36px 0px, #0000000f 0px 0px 0px 1px;
 }
 
 .single-input-form p {
-  padding-left: 200px;
+  padding-left: 120px;
   color: var(--font-color);
+  font-weight: bold;
 }
 
 .single-input-form label {
   color: var(--font-color);
+  font-weight: 600;
 }
-
 /* ---------close button for form---------------- */
 .close-btn {
   cursor: pointer;
@@ -320,7 +320,7 @@ body {
   justify-content: center;
   align-items: center;
   border: 1px solid var(--primary-color);
-  margin-left: 690px;
+  margin-left: 496px;
   font-weight: bold;
 }
 
@@ -347,9 +347,10 @@ body {
 
 /* -----below style for task type(personal or professional)---------------- */
 .Task_Type {
-  padding: 10px 0px 0px 200px;
   display: flex;
   gap: 10px;
+  margin-left: 6rem;
+  align-items: center;
 }
 
 .Task_Type input {
@@ -373,11 +374,10 @@ body {
 
 /* --------this below style is for inputs (todo input and date)------------ */
 .inputdiv div {
-  padding: 12px 0px 0px 198px;
+  padding: 12px 0px 0px 120px;
   gap: 10px;
   display: grid;
 }
-
 .inputdiv input {
   height: 35px;
   width: 275px;
@@ -397,18 +397,20 @@ body {
   background-color: var(--focus-color);
 } */
 
+
 /* button.addTodo {
   height: 35px;
 } */
 /* ------------below style is for our priority buttons-------------- */
 .matix {
   display: flex;
-  padding: 12px 0px 0px 200px;
+  padding: 24 px 0px 0px 120px;
   gap: 35px;
+  padding: 25px 0px 0px 120px;
 }
 
 .matix div input {
-  height: 31px;
+  height: 20px;
   width: 38px;
   border-radius: var(--single-border-radius);
   border: 1px solid var(--primary-color);
@@ -419,13 +421,13 @@ body {
   color: #656664;
   cursor: pointer;
   transition: 0.3s;
-
 }
-
 .matix div input:hover {
   background-color: var(--focus-color);
 }
-
+input[type='radio'] {
+  accent-color: var(--primary-color);
+}
 button {
   border-radius: var(--single-border-radius);
 }
@@ -450,6 +452,59 @@ button {
 .single-input-form .submit-btn:hover {
   transition: 0.2s;
   box-shadow: #9b9c9a 0px 5px 15px;
+}
+
+.wrapper{
+  display: inline-flex;
+  
+  height: 70px;
+  /* width: 400px; */
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 5px;
+  padding: 15px 15px;
+  /* box-shadow: 5px 5px 30px rgba(0,0,0,0.2); */
+}
+.wrapper .option{
+  background: #fff;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 0 10px;
+  border: 2px solid lightgrey;
+  transition: all 0.3s ease;
+}
+
+.wrapper >input[type="radio"]{
+  display: none;
+}
+#option-1:checked:checked ~ .option-1,
+#option-2:checked:checked ~ .option-2{
+  border-color: #5fb32e;
+  background:#5fb32e;
+}
+#option-1:checked:checked ~ .option-1 .dot,
+#option-2:checked:checked ~ .option-2 .dot{
+  background: #fff;
+}
+#option-1:checked:checked ~ .option-1 .dot::before,
+#option-2:checked:checked ~ .option-2 .dot::before{
+  opacity: 1;
+  transform: scale(1);
+}
+.wrapper .option span{
+  font-size: 20px;
+  color: #808080;
+}
+#option-1:checked:checked ~ .option-1 span,
+#option-2:checked:checked ~ .option-2 span{
+  color: #fff;
+
 }
 
 /* =====================below style for multi form section================= */
@@ -685,9 +740,9 @@ button {
   display: none;
   border: 2px solid black;
   position: absolute;
-  min-height: 550px;
+  min-height: 529px;
   top: 85px;
-  left: 1000px;
+  left: 920px;
   border-radius: 10px;
   background-color: #FFFFFF;
   z-index: 1;
