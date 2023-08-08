@@ -75,9 +75,21 @@ class UserController {
 
     }
 
+    // public function editTask(){
+    //     var_dump($_POST);
+    //     $this->userModel->editTask($_POST);
+    // }
+
+    
+    public function addComment(){
+        // var_dump($_POST);
+        $this->userModel->addComment($_POST);
+    }
+
     public function deleteTask(){
 
         $this->userModel->DeleteTask($_POST);
     }
+
 
 }

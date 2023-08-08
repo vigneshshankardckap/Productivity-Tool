@@ -148,6 +148,21 @@ class UserModule extends Database
         return $this->db->query("SELECT * FROM tasks WHERE user_id =$userId AND matrix_id = 4 AND deleted_at is NULL")->fetchAll(PDO::FETCH_OBJ);
 
     }
+
+
+    public function editTask($id) {
+        // var_dump($id);
+        $userId = $id;
+        $fetchUserAddedTask = $this->db->query("SELECT * FROM tasks WHERE userId = '$userId'");
+    }
+
+    public function addComment($value){
+        $userId = $value['id'];
+        $comment = $value['comments'];
+        $insertComment = $this->db->query("UPDATE tasks SET comments='$comment' WHERE id='$userId'");
+        header('location:/list');
+    }
+
     public function DeleteTask($data){
         $id=$data['task_id'];
         $this->db->query("UPDATE tasks SET deleted_at =now() WHERE id='$id'");
@@ -155,5 +170,5 @@ class UserModule extends Database
 
     }
 
-    
+
 }

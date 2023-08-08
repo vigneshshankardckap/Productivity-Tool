@@ -188,10 +188,13 @@
                               </h5>
                               <p id="due-date"> <?php echo $do->dates; ?></p>
                             </div>
-                            <div class="add-Cmt">
-                              <input type="text" placeholder="comment here ">
-                              <button><i class="fa-solid fa-upload"></i></button>
-                            </div>
+                            <form action="/addComment" method="post">
+                              <div class="add-Cmt">
+                                <input hidden value="<?php echo $do->id ?>" name="id">
+                                <input type="text" placeholder="comment here" name="comments">
+                                <button><i class="fa-solid fa-upload"></i></button>
+                              </div>
+                            </form>
                             <div>
                               <div class="change">
                                 <div class="Task-progress">
@@ -205,8 +208,11 @@
                                   <form action="/deleteTask" method="post" >
                                     <input type="text" hidden name=task_id value ="<?php echo $do->id ?>"/> 
                                   <button><i class="fa-solid fa-trash-can"></i></button>
+
+                                  <button class="add-comment-btn" name="comment"><i class="fa-solid fa-comment"></i></button>
+
                                   </form>
-                                  <button class="add-comment-btn"><i class="fa-solid fa-comment"></i></button>
+
                                 </div>
                               </div>
                             </div>
