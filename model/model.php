@@ -148,4 +148,17 @@ class UserModule extends Database
         return $this->db->query("SELECT * from tasks where user_id =$userId AND matrix_id = 4")->fetchAll(PDO::FETCH_OBJ);
 
     }
+
+    public function editTask($id) {
+        // var_dump($id);
+        $userId = $id;
+        $fetchUserAddedTask = $this->db->query("SELECT * FROM tasks WHERE userId = '$userId'");
+    }
+
+    public function addComment($value){
+        $userId = $value['id'];
+        $comment = $value['comments'];
+        $insertComment = $this->db->query("UPDATE tasks SET comments='$comment' WHERE id='$userId'");
+        header('location:/list');
+    }
 }

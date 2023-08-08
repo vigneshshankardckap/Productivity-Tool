@@ -66,6 +66,14 @@ FOREIGN KEY (addTask_id) REFERENCES addTask(id)
     );
 
 
+create table comments(
+id int not null AUTO_INCREMENT PRIMARY KEY,
+name varchar(250),
+user_id int,
+created_at timestamp,
+updated_at timestamp,
+FOREIGN KEY(user_id) REFERENCES users(id)
+);
 
 INSERT INTO `categorys` (`id`, `category_name`, `created_at`, `updated_at`) VALUES (NULL, 'professional', current_timestamp(), '0000-00-00 00:00:00.000000'), (NULL, 'Personal', current_timestamp(), '0000-00-00 00:00:00.000000');
 

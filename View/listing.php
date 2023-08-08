@@ -87,22 +87,22 @@
         </div>
       </header>
       <div class="Habitsdiv">
-      <div class="notification-title">
-        <h4>Notification </h4>
-        <div>
-          <button class="cancelicon" id="close-notificationList">X</button>
+        <div class="notification-title">
+          <h4>Notification </h4>
+          <div>
+            <button class="cancelicon" id="close-notificationList">X</button>
+          </div>
         </div>
+        <hr>
+        <?php foreach ($tasks as $key => $value) : ?>
+          <div class="Tasklist">
+            <p><?php echo $value['name'] ?></p>
+            <form method="post" action="/deleteAddedTask">
+              <button class="removetask" name="<?php echo $value['id'] ?>">Remove</button>
+            </form>
+          </div>
+        <?php endforeach; ?>
       </div>
-      <hr>
-      <?php foreach ($tasks as $key => $value) : ?>
-        <div class="Tasklist">
-          <p><?php echo $value['name'] ?></p>
-          <form method="post" action="/deleteAddedTask">
-            <button class="removetask" name="<?php echo $value['id'] ?>">Remove</button>
-          </form>
-        </div>
-      <?php endforeach; ?>
-    </div>
       <!-- this below section is for add button -->
 
       <div class="taskDetailBox">
@@ -136,10 +136,10 @@
           <div class="card">
             <div class="content">
               <h2 class="title">DELEGATE</h2>
-              
+
               <?php foreach ($fetchAllDataDelegate as $Delegate) : ?>
                 <?php if ($key < 5) : ?>
-                <p class="copy"> <?php echo $Delegate->task_name ?><span class="date"><?php echo $Delegate ->dates; ?></span></p>
+                  <p class="copy"> <?php echo $Delegate->task_name ?><span class="date"><?php echo $Delegate->dates; ?></span></p>
                 <?php endif; ?>
               <?php endforeach; ?>
             </div>
@@ -153,7 +153,7 @@
               <?php foreach ($fetchAllDataDelete as $delete) : ?>
                 <?php if ($key < 5) : ?>
 
-                <p class="copy"> <?php echo $delete->task_name ?><span class="date"><?php echo $delete ->dates; ?></span></p>
+                  <p class="copy"> <?php echo $delete->task_name ?><span class="date"><?php echo $delete->dates; ?></span></p>
                 <?php endif; ?>
               <?php endforeach; ?>
             </div>
@@ -187,10 +187,13 @@
                               </h5>
                               <p id="due-date"> <?php echo $do->dates; ?></p>
                             </div>
-                            <div class="add-Cmt">
-                              <input type="text" placeholder="comment here ">
-                              <button><i class="fa-solid fa-upload"></i></button>
-                            </div>
+                            <form action="/addComment" method="post">
+                              <div class="add-Cmt">
+                                <input hidden value="<?php echo $do->id ?>" name="id">
+                                <input type="text" placeholder="comment here" name="comments">
+                                <button><i class="fa-solid fa-upload"></i></button>
+                              </div>
+                            </form>
                             <div>
                               <div class="change">
                                 <div class="Task-progress">
@@ -202,7 +205,7 @@
                                 <div class="make-changes">
                                   <button><i class="fa-solid fa-pen"></i></button>
                                   <button><i class="fa-solid fa-trash-can"></i></button>
-                                  <button class="add-comment-btn"><i class="fa-solid fa-comment"></i></button>
+                                  <button class="add-comment-btn" name="comment"><i class="fa-solid fa-comment"></i></button>
                                 </div>
                               </div>
                             </div>

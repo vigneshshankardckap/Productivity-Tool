@@ -43,4 +43,8 @@ $router->post('/deleteAddedTask','deleteAddedTask');
 
 //$router->post('/storeValue','storeValue');
 
+// $router->post('/editTask','editTask');
+
+$router->post('/addComment','addComment');
+
 $router->routing();

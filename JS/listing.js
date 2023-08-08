@@ -372,3 +372,7 @@ for (let i = 0; i < TaskCompleted.length; i++) {
 }
 
 // ========================================================================
+let editBtn = document.querySelector(".editBtn");
+editBtn.addEventListener("click",()=>{
+  alert("welcome");
+})
