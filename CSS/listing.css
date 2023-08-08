@@ -306,7 +306,6 @@ body {
   gap: 10px;
   margin-left: 6rem;
   align-items: center;
-  padding-top: 20px;
 }
 
 .switchDiv {
@@ -346,7 +345,7 @@ body {
 
 /* --------this below style is for inputs (todo input and date)------------ */
 .inputdiv div {
-  padding: 12px 0px 0px 120px;
+  padding: 0px 0px 0px 120px;
   gap: 10px;
   display: grid;
 }

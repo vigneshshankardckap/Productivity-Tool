@@ -244,7 +244,7 @@ popUpclose.addEventListener("click", () => {
 
 let commentBtn = document.querySelectorAll(".add-comment-btn");
 let commentInput = document.querySelectorAll(".add-Cmt");
-let TaskCompleted = document.querySelector("#checkBox");
+let TaskCompleted = document.querySelectorAll("#checkBox");
 
 let task_name = document.querySelectorAll(".list-name");
 
@@ -254,7 +254,7 @@ for (let j = 0; j < commentBtn.length; j++) {
   commentInput[j].classList.toggle("addvisibility")
   })
 
-  TaskCompleted.addEventListener("click", () => {
+  TaskCompleted[j].addEventListener("click", () => {
     task_name[j].classList.toggle("completedTask")
   })
 }
