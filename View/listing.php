@@ -209,9 +209,10 @@
                                     <input type="text" hidden name=task_id value ="<?php echo $do->id ?>"/> 
                                   <button><i class="fa-solid fa-trash-can"></i></button>
 
-                                  <button class="add-comment-btn" name="comment"><i class="fa-solid fa-comment"></i></button>
 
                                   </form>
+                                  <button class="add-comment-btn" name="comment"><i class="fa-solid fa-comment"></i></button>
+
 
                                 </div>
                               </div>

@@ -151,7 +151,7 @@ class UserModule extends Database
 
 
     public function editTask($id) {
-        // var_dump($id);
+        
         $userId = $id;
         $fetchUserAddedTask = $this->db->query("SELECT * FROM tasks WHERE userId = '$userId'");
     }
