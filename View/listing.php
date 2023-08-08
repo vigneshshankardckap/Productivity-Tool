@@ -205,13 +205,14 @@
                                 </div>
                                 <div class="make-changes">
                                   <button><i class="fa-solid fa-pen"></i></button>
+                                  
                                   <form action="/deleteTask" method="post" >
                                     <input type="text" hidden name=task_id value ="<?php echo $do->id ?>"/> 
                                   <button><i class="fa-solid fa-trash-can"></i></button>
+                                  </form>
 
                                   <button class="add-comment-btn" name="comment"><i class="fa-solid fa-comment"></i></button>
 
-                                  </form>
 
                                 </div>
                               </div>
