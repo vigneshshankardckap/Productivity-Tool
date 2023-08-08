@@ -251,11 +251,11 @@ body {
 .single-input-form {
   display: none;
   position: absolute;
-  height: 27rem;
+  height: 28rem;
   width: 35rem;
   background-color: var(--thresary-color);
   border-radius: var(--single-border-radius);
-  right: 18rem;
+  right: 22rem;
   top: 163px;
   padding: 5px 24px;
   box-shadow: #00000029 0px 10px 36px 0px,
@@ -447,7 +447,6 @@ button {
 .multiple-input-form .multiple-forms-div {
   width: 1000px;
   background-color: var(--background-color);
-
   padding: 30px 43px;
   border-radius: var(--multi-border-radius);
   margin-top: 20px;
@@ -747,9 +746,9 @@ button {
   display: none;
   border: 2px solid black;
   position: absolute;
-  min-height: 550px;
-  top: 75px;
-  left: 990px;
+  min-height: 555px;
+    top: 75px;
+    left: 920px;
   border-radius: 10px;
   background-color: #FFFFFF;
   z-index: 1;
