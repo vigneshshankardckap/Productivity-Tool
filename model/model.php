@@ -119,7 +119,6 @@ class UserModule extends Database
     public function fetchDataFromDo(){
        $userId=$_SESSION['userid'];
         return $this->db->query("SELECT * from tasks where user_id =$userId AND matrix_id = 1 AND deleted_at is NULL " )->fetchAll(PDO::FETCH_OBJ);
-
     }
     public function fetchDataFromdefer()
     {
@@ -138,7 +137,6 @@ class UserModule extends Database
 
     public function fetchDataFromdelete()
     {
-
        $userId=$_SESSION['userid'];
         return $this->db->query("SELECT * from tasks where user_id =$userId AND matrix_id = 4")->fetchAll(PDO::FETCH_OBJ);
 

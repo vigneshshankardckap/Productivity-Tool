@@ -126,7 +126,7 @@
     </div>
     <!-- this section is our single input form ----------- (it is separated from the inner container div for background blur)-->
     <div class="single-input-form">
-      <form action="/store" method="post">
+      <!-- <form action="/store" method="post">
         <div class="close-btn">
           <span>x</span>
         </div>
@@ -166,6 +166,67 @@
               <label for="css">No</label>
               <input type="radio" class="important-priority-btn" id="2" value="1" name="important">
             </div>
+          </div>
+        </div>
+        <button type="submit" onclick="store()" class="submit-btn">Submit</button>
+      </form> -->
+      <form action="/store" method="post">
+        <div class="close-btn">
+          <div>
+            <span>X</span>
+          </div>
+        </div>
+        <p>Pick Category</p>
+        <div class="Task_Type">
+          <div class="wrapper">
+            <input name="user_id" class="user_id" value="<?= $_SESSION['userid'] ?>" type="hidden">
+
+            <input type="radio" name="task_type" id="option-1" value="1" class="category" checked>
+            <input type="radio" name="task_type" id="option-2" value="2" class="category">
+
+            <label for="option-1" class="option option-1">
+              <div class="dot"></div>
+              <span>Professional</span>
+            </label>
+
+            <label for="option-2" class="option option-2">
+              <div class="dot"></div>
+              <span>Personal</span>
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <div class="inputdiv">
+            <div>
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+                What is on your Task
+              </label>
+              <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-black focus:bg-white" id="grid-first-name" type="text" placeholder="projectName" name="Task_name">
+
+            </div>
+            <div>
+
+              <label for="project" placeholder="Get Date/Time">What on your due?</label>
+              <input type="datetime-local" placeholder="Get Date/Time" class="dateTime" value="" name="dateTime" />
+            </div>
+          </div>
+        </div>
+        <div class="matix">
+          <div class="urgentDiv">
+            <label for="project">Urgent</label>
+            <br>
+            <label for="css">Yes</label>
+            <input type="radio" class="urgent-priority-btn data" id="1" value="1" name="urgent">
+            <label for="css">No</label>
+            <input type="radio" class="urgent-priority-btn data" id="2" value="0" name="urgent">
+          </div>
+          <div class="ImportantDiv">
+            <label for="project">Important</label><br>
+            <label for="css">Yes</label>
+            <input type="radio" class="important-priority-btn datas" id="1" value="1" name="important">
+            <label for="css">No</label>
+            <input type="radio" class="important-priority-btn datas" id="2" value="0" name="important">
           </div>
         </div>
         <button type="submit" onclick="store()" class="submit-btn">Submit</button>
