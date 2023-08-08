@@ -139,7 +139,7 @@
               <h2 class="title">DELEGATE</h2>
 
               <?php foreach ($fetchAllDataDelegate as $Delegate) : ?>
-                <?php if ($key < 5) : ?>
+                <?php if ($key < 4) : ?>
                   <p class="copy"> <?php echo $Delegate->task_name ?><span class="date"><?php echo $Delegate->dates; ?></span></p>
                 <?php endif; ?>
               <?php endforeach; ?>
@@ -152,7 +152,7 @@
             <div class="content">
               <h2 class="title">DELETE</h2>
               <?php foreach ($fetchAllDataDelete as $delete) : ?>
-                <?php if ($key < 5) : ?>
+                <?php if ($key < 4) : ?>
                   <p class="copy"> <?php echo $delete->task_name ?><span class="date"><?php echo $delete->dates; ?></span></p>
                 <?php endif; ?>
               <?php endforeach; ?>
@@ -198,7 +198,7 @@
                             <div>
                               <div class="change">
                                 <div class="Task-progress">
-                                  <input type="checkbox" class="taskCheckBox" id="checkBox"/>
+                                  <input type="checkbox" class="taskCheckBox" id="checkBox" />
                                 </div>
                                 <div class="make-changes">
                                   <button><i class="fa-solid fa-pen"></i></button>

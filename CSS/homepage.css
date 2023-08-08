@@ -37,6 +37,7 @@ body {
 .container {
   position: relative;
   padding: 35px 80px;
+  max-width: 1024px;
 }
 
 .active {
