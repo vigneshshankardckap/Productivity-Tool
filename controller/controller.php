@@ -62,7 +62,7 @@ class UserController
     public function addTask($tasks)
     {
 
-        $this->userModel->addTask($tasks);
+        $this->userModel->addTask($_POST);
     }
 
     public function addedTaskDetails()
