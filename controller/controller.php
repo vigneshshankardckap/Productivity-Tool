@@ -51,9 +51,9 @@ class UserController {
         $this->userModel->store($_REQUEST);
     }
 
-    public function addTask($tasks){
+    public function addTask(){
 
-        $this->userModel->addTask($tasks);
+        $this->userModel->addTask($_POST);
     }
 
     public function addedTaskDetails(){
@@ -83,7 +83,7 @@ class UserController {
     
     public function addComment(){
         // var_dump($_POST);
-        $this->userModel->addComment($_POST);
+        // $this->userModel->addComment($_POST);
     }
 
     public function deleteTask(){
