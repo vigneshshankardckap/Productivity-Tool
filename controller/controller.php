@@ -33,7 +33,6 @@ class UserController {
     public function list(){
 
         $fetchAllDataDo = $this->userModel->fetchDataFromDo();
-        // var_dump($fetchAllDataDo);
         $fetchAllDataDefer=$this->userModel->fetchDataFromdefer();
         $fetchAllDataDelegate=$this->userModel->fetchDataFromdelegate();
         $fetchAllDataDelete=$this->userModel->fetchDataFromdelete();
@@ -86,4 +85,11 @@ class UserController {
         // var_dump($_POST);
         $this->userModel->addComment($_POST);
     }
+
+    public function deleteTask(){
+
+        $this->userModel->DeleteTask($_POST);
+    }
+
+
 }

@@ -38,7 +38,8 @@
           <div class="left-section">
             <img src="../Images/logo.png">
             <h1>What's Up<span class="username">
-                <!-- <?php echo $_SESSION['username']; ?> -->
+                <?php echo $_SESSION['username']; ?> 
+               
               </span></h1>
           </div>
           <!-- this is our right side contents -->
@@ -52,7 +53,7 @@
                 <i class="fa-regular fa-bell notification" onclick="openNotofy()"></i>
               </li>
               <li class="right-icon">
-                <i class="fa-regular fa-moon darkmode"></i>
+                <i class="fa-regular fa-moon theme-btn"></i>
               </li>
               <li class="right-icon">
                 <a href="/logout">
@@ -64,7 +65,7 @@
         </div>
         <div>
           <div class="Task_Type">
-            <span class="ml-3 font-medium switchCat">PROFESSIONAL</span>
+            <span class="ml-3 font-medium switchCat on">PROFESSIONAL</span>
             <label class="relative inline-flex items-center cursor-pointer">
               <input type="checkbox" value="" class="sr-only peer">
               <div class="w-14 h-7  peer-focus:outline-none peer -focus:ring-4  rounded-full peer  peer-checked:after:translate-x-full  after:content-[''] after:absolute after:top-0.5 after:left-[4px]   after:border after:rounded-full after:h-6 after:w-6 after:transition-all   switchBall"></div>
@@ -183,7 +184,7 @@
                           <div class="task-info">
                             <div class="list-name">
                               <h5 id="Task-Name" class="text-sm text-gray-500">
-                                <?php echo $do->task_name; ?>
+                              <?php echo $key + 1; ?> <?php echo $do->task_name; ?>
                               </h5>
                               <p id="due-date"> <?php echo $do->dates; ?></p>
                             </div>
@@ -204,8 +205,14 @@
                                 </div>
                                 <div class="make-changes">
                                   <button><i class="fa-solid fa-pen"></i></button>
+                                  <form action="/deleteTask" method="post" >
+                                    <input type="text" hidden name=task_id value ="<?php echo $do->id ?>"/> 
                                   <button><i class="fa-solid fa-trash-can"></i></button>
+
                                   <button class="add-comment-btn" name="comment"><i class="fa-solid fa-comment"></i></button>
+
+                                  </form>
+
                                 </div>
                               </div>
                             </div>
@@ -229,8 +236,6 @@
           </div>
         </div>
         <p>Pick Category</p>
-
-
         <div class="Task_Type">
           <div class="wrapper">
             <input name="user_id" class="user_id" value="<?= $_SESSION['userid'] ?>" type="hidden">
@@ -248,15 +253,7 @@
               <span>Personal</span>
             </label>
           </div>
-          <!-- <label for="css">Professional</label><br>
-            <input type="radio" class="typeBtn firstFrom category" id="1" value="1" name="task_type">
-            <label for="css">Personal</label><br>
-            <input type="radio" class="typeBtn firstFrom category" id="2" value="2" name="task_type"> -->
         </div>
-
-
-
-
 
         <div>
           <div class="inputdiv">
@@ -292,6 +289,21 @@
           </div>
         </div>
         <button type="submit" onclick="store()" class="submit-btn">Submit</button>
+      </form>
+    </div>
+    <!-- this is multiple-input-form  -->
+    <div class="multiple-input-form">`
+      <form action="" method="post" class="multiple-form">
+        <div class="forms-inner-div">
+          <!-- multiple forms injected here  -->
+        </div>
+        <div class="addOneMoreTodo">
+          <span class="addDivBtn" onclick="AddOneMoreForm()">+</span>
+        </div>
+        <div class="multiForm-btn-div">
+          <!-- <button type="button" class="cancel-btn">Cancel</button> -->
+          <button type="button" class="submit-btn">Submit</button>
+        </div>
       </form>
     </div>
   </div>

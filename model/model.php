@@ -126,28 +126,29 @@ class UserModule extends Database
 
     public function fetchDataFromDo(){
        $userId=$_SESSION['userid'];
-        return $this->db->query("SELECT * from tasks where user_id =$userId AND matrix_id = 1")->fetchAll(PDO::FETCH_OBJ);
+        return $this->db->query("SELECT * FROM tasks WHERE user_id =$userId AND matrix_id = 1 AND deleted_at is NULL" )->fetchAll(PDO::FETCH_OBJ);
 
     }
     public function fetchDataFromdefer(){
        $userId=$_SESSION['userid'];
 
-        return $this->db->query("SELECT * from tasks where user_id =$userId AND matrix_id = 2")->fetchAll(PDO::FETCH_OBJ);
+        return $this->db->query("SELECT * FROM tasks WHERE user_id =$userId AND matrix_id = 2 AND deleted_at is NULL")->fetchAll(PDO::FETCH_OBJ);
 
     }
     public function fetchDataFromdelegate(){
        $userId=$_SESSION['userid'];
 
-        return $this->db->query("SELECT * from tasks where user_id =$userId AND matrix_id = 3")->fetchAll(PDO::FETCH_OBJ);
+        return $this->db->query("SELECT * FROM tasks WHERE user_id =$userId AND matrix_id = 3 AND deleted_at is NULL")->fetchAll(PDO::FETCH_OBJ);
 
     }
     
     public function fetchDataFromdelete(){
 
        $userId=$_SESSION['userid'];
-        return $this->db->query("SELECT * from tasks where user_id =$userId AND matrix_id = 4")->fetchAll(PDO::FETCH_OBJ);
+        return $this->db->query("SELECT * FROM tasks WHERE user_id =$userId AND matrix_id = 4 AND deleted_at is NULL")->fetchAll(PDO::FETCH_OBJ);
 
     }
+
 
     public function editTask($id) {
         // var_dump($id);
@@ -161,4 +162,13 @@ class UserModule extends Database
         $insertComment = $this->db->query("UPDATE tasks SET comments='$comment' WHERE id='$userId'");
         header('location:/list');
     }
+
+    public function DeleteTask($data){
+        $id=$data['task_id'];
+        $this->db->query("UPDATE tasks SET deleted_at =now() WHERE id='$id'");
+         header('location:/list');
+
+    }
+
+
 }
