@@ -22,10 +22,7 @@ for (let i = 0; i < inputBtn.length; i++) {
     }
   })
 }
-let addDivBtn = document.querySelector('.addDivBtn');
-addDivBtn.addEventListener("click", () => {
-  textAreaCreation()
-})
+
 //========================================single form functionality================================/
 
 function openSingleForm(params) {
@@ -208,16 +205,16 @@ closelist.addEventListener("click", (e) => {
 // ==========================This below function is for dark mode functionality==============================
 let darkBtn = document.querySelector(".theme-btn")
 
-  darkBtn.addEventListener("click",()=>{
-    if(darkBtn.classList.contains("fa-moon")){
-        document.querySelector(":root").classList.add("darkmode")
-        darkBtn.classList.remove("fa-moon")
-        darkBtn.classList.add("fa-sun")
+darkBtn.addEventListener("click", () => {
+  if (darkBtn.classList.contains("fa-moon")) {
+    document.querySelector(":root").classList.add("darkmode")
+    darkBtn.classList.remove("fa-moon")
+    darkBtn.classList.add("fa-sun")
 
-    }
-    else{
-      document.querySelector(":root").classList.remove("darkmode")
-      darkBtn.classList.remove("fa-sun")
-      darkBtn.classList.add("fa-moon")
-    }
-  })
+  }
+  else {
+    document.querySelector(":root").classList.remove("darkmode")
+    darkBtn.classList.remove("fa-sun")
+    darkBtn.classList.add("fa-moon")
+  }
+})

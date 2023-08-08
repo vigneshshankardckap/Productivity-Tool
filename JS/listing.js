@@ -1,5 +1,4 @@
 let form = document.querySelector(".multiple-form")
-// ---------------below code for form open a form by clicking the type button(sinle btn and multiple btn)------------------
 let inputBtn = document.querySelectorAll(".input-type-btn");
 let singleForm = document.querySelector(".single-input-form");
 let multiFormDiv = document.querySelector(".multiple-input-form");
@@ -25,7 +24,7 @@ for (let i = 0; i < inputBtn.length; i++) {
 
 }
 
-// ============================================
+// ================================Below code is for switch the type button (personal or profession)============
 let switchs = document.querySelector(".switchBall")
 let taskType = document.querySelectorAll('.switchCat')
 
@@ -52,7 +51,6 @@ function openSingleForm(params) {
 
   function classListAdd(getBtns, getBtn) {
     getBtns.addEventListener("click", (e) => {
-
       let targetClass = e.target.classList.value;
       for (let j = 0; j < getBtn.length; j++) {
         if (getBtn[j].getAttribute("class") == targetClass) {
@@ -119,15 +117,19 @@ function AddOneMoreForm() {
       <div class="urgentDiv">
         <label>Urgent</label>
         <div>
-          <input type="button" value="Yes" id=${multiformCnt} class="urgent-priority-btn" />
-          <input type="button" value="No" id=${multiformCnt} class="urgent-priority-btn" />
+          <label for="css">Yes</label>
+          <input type="radio" value="1" id=${multiformCnt} class="urgent-priority-btn" name="urgent"/>
+          <label for="css">No</label>
+          <input type="radio" value="0" id=${multiformCnt} class="urgent-priority-btn" name="urgent"/>
         </div>
       </div>
       <div class="ImportantDiv">
         <label>Important</label>
-        <div class="">
-          <input type="button" value="Yes" id=${multiformCnt} class="important-priority-btn" />
-          <input type="button" value="No" id=${multiformCnt} class="important-priority-btn" />
+        <div>
+          <label for="css">Yes</label>
+          <input type="radio" value="1" id=${multiformCnt} class="important-priority-btn" name="important"/>
+          <label for="css">No</label>
+          <input type="radio" value="0" id=${multiformCnt} class="important-priority-btn" name="important"/>
         </div>
       </div>
     </div>
@@ -139,9 +141,9 @@ function AddOneMoreForm() {
   let taskType = document.querySelectorAll(".typeBtn");
   let urgentBtn = document.querySelectorAll(".urgent-priority-btn");
   let importantBtn = document.querySelectorAll(".important-priority-btn");
-  console.log(taskType);
 
   for (let i = 0; i < taskType.length; i++) {
+    console.log(urgentBtn[i])
     classListAdd(taskType[i], taskType);
     classListAdd(urgentBtn[i], urgentBtn);
     classListAdd(importantBtn[i], importantBtn);
@@ -149,12 +151,11 @@ function AddOneMoreForm() {
 
   function classListAdd(getBtns, getBtn) {
     getBtns.addEventListener("click", (e) => {
-      // console.log(getBtns)
       let targetId = e.target.id;
       for (let j = 0; j < getBtn.length; j++) {
         if (getBtn[j].getAttribute("id") == targetId) {
-          getBtn[j].style.backgroundColor = ""
-          getBtn[j].style.color = ""
+          getBtn[j].style.backgroundColor = "";
+          getBtn[j].style.color = "";
           getBtn[j].style.border = "";
         }
       }
@@ -208,19 +209,19 @@ closelist.addEventListener("click", (e) => {
 // ==========================This below function is for dark mode functionality==============================
 let darkBtn = document.querySelector(".theme-btn")
 
-  darkBtn.addEventListener("click",()=>{
-    if(darkBtn.classList.contains("fa-moon")){
-        document.querySelector(":root").classList.add("darkmode")
-        darkBtn.classList.remove("fa-moon")
-        darkBtn.classList.add("fa-sun")
+darkBtn.addEventListener("click", () => {
+  if (darkBtn.classList.contains("fa-moon")) {
+    document.querySelector(":root").classList.add("darkmode")
+    darkBtn.classList.remove("fa-moon")
+    darkBtn.classList.add("fa-sun")
 
-    }
-    else{
-      document.querySelector(":root").classList.remove("darkmode")
-      darkBtn.classList.remove("fa-sun")
-      darkBtn.classList.add("fa-moon")
-    }
-  })
+  }
+  else {
+    document.querySelector(":root").classList.remove("darkmode")
+    darkBtn.classList.remove("fa-sun")
+    darkBtn.classList.add("fa-moon")
+  }
+})
 
 // =================================================================================================
 // ---------------show more button functionality code here--------------
@@ -235,7 +236,7 @@ for (let i = 0; i < showMoreBtn.length; i++) {
 }
 
 let popUpclose = document.querySelector('#popUpCloseBtn');
-  popUpclose.addEventListener("click", () => {
+popUpclose.addEventListener("click", () => {
   popUpWnd.classList.toggle('invisible');
 });
 
@@ -252,21 +253,15 @@ for (let j = 0; j < commentBtn.length; j++) {
   commentBtn[j].addEventListener("click", () => {
     commentInput[j].classList.toggle("addvisibility")
   })
-  // console.log(TaskCompleted[j]);
-  // console.log(task_name[j],task_due[j]);
 }
-// TaskCompleted[j].addEventListener("click", () => {
-//   task_name[j].classList.add("completedTask")
-//   task_due[j].classList.add("completedTask")
-// })
+
 
 for (let i = 0; i < TaskCompleted.length; i++) {
 
   TaskCompleted[i].addEventListener("click", () => {
     task_name.classList.toggle("completedTask")
-    // task_due.classList.add("completedTask")
+    task_due.classList.add("completedTask") 
   })
-  // console.log(TaskCompleted[i]);
 
 }
 
