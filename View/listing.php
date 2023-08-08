@@ -113,7 +113,7 @@
               <h2 class="title">DO FIRST</h2>
               <?php foreach ($fetchAllDataDo as $key => $do) : ?>
                 <?php if ($key < 4) : ?>
-                  <p class="copy"> <?php echo $do->task_name; ?></p>
+                  <p class="copy"> <?php echo $do->task_name; ?><span class="date"><?php echo $do->dates; ?></span></p>
                 <?php endif; ?>
               <?php endforeach; ?>
             </div>
@@ -124,9 +124,9 @@
           <div class="card">
             <div class="content">
               <h2 class="title">DEFER</h2>
-              <?php foreach ($fetchAllDataDefer as $defer) : ?>
+              <?php foreach ($fetchAllDataDefer as $defer[0]) : ?>
                 <?php if ($key < 4) : ?>
-                  <p class="copy"> <?php echo $defer->task_name ?></p>
+                  <p class="copy"> <?php echo $defer[0]->task_name ?><span class="date"><?php echo $defer[0]->dates; ?></span></p>
                 <?php endif; ?>
               <?php endforeach; ?>
             </div>
@@ -195,7 +195,7 @@
                             <div>
                               <div class="change">
                                 <div class="Task-progress">
-                                  <input type="checkbox" class="taskCheckBox"/>
+                                  <input type="checkbox" class="taskCheckBox" id="checkBox"/>
                                 </div>
                                 <div class="make-changes">
                                   <button><i class="fa-solid fa-pen"></i></button>

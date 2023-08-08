@@ -244,25 +244,21 @@ popUpclose.addEventListener("click", () => {
 
 let commentBtn = document.querySelectorAll(".add-comment-btn");
 let commentInput = document.querySelectorAll(".add-Cmt");
-let TaskCompleted = document.querySelectorAll("#checkbox");
-let task_name = document.querySelectorAll("#Task-Name");
-let task_due = document.querySelectorAll("#due-date");
+let TaskCompleted = document.querySelector("#checkBox");
+
+let task_name = document.querySelectorAll(".list-name");
 
 for (let j = 0; j < commentBtn.length; j++) {
   commentInput[j].classList.add("addvisibility")
   commentBtn[j].addEventListener("click", () => {
-    commentInput[j].classList.toggle("addvisibility")
+  commentInput[j].classList.toggle("addvisibility")
+  })
+
+  TaskCompleted.addEventListener("click", () => {
+    task_name[j].classList.toggle("completedTask")
   })
 }
 
 
-for (let i = 0; i < TaskCompleted.length; i++) {
-
-  TaskCompleted[i].addEventListener("click", () => {
-    task_name.classList.toggle("completedTask")
-    task_due.classList.add("completedTask") 
-  })
-
-}
 
 // ========================================================================

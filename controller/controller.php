@@ -2,82 +2,94 @@
 
 require 'model/model.php';
 
-class UserController {
+class UserController
+{
 
     private $userModel;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->userModel = new UserModule();
     }
-    
-     public function LandingPage(){
-         $tasks = $this->userModel->addedTaskDetails();
-         require "View/homepage.php";
-      
+
+    public function LandingPage()
+    {
+        $tasks = $this->userModel->addedTaskDetails();
+        require "View/homepage.php";
     }
 
 
-    public function login(){
+    public function login()
+    {
         require "index.html";
     }
 
-    public function loginLogic(){
+    public function loginLogic()
+    {
         $this->userModel->logincheck($_POST);
     }
 
-    public function signUp(){
+    public function signUp()
+    {
         require "index.html";
     }
 
 
-    public function list(){
+    public function list()
+    {
 
         $fetchAllDataDo = $this->userModel->fetchDataFromDo();
-        $fetchAllDataDefer=$this->userModel->fetchDataFromdefer();
-        $fetchAllDataDelegate=$this->userModel->fetchDataFromdelegate();
-        $fetchAllDataDelete=$this->userModel->fetchDataFromdelete();
+        $fetchAllDataDefer = $this->userModel->fetchDataFromdefer();
+        // var_dump($fetchAllDataDefer[0]->task_name);
+        $fetchAllDataDelegate = $this->userModel->fetchDataFromdelegate();
+        $fetchAllDataDelete = $this->userModel->fetchDataFromdelete();
         $tasks = $this->userModel->addedTaskDetails();
 
         require "View/listing.php";
-
     }
-    public function signupLogic(){
+    public function signupLogic()
+    {
         $this->userModel->signUp($_POST);
     }
-    
 
-    public function store(){
+
+    public function store()
+    {
 
         $this->userModel->store($_REQUEST);
     }
 
-    public function addTask($tasks){
+    public function addTask($tasks)
+    {
 
         $this->userModel->addTask($tasks);
     }
 
-    public function addedTaskDetails(){
+    public function addedTaskDetails()
+    {
         require "View/homepage.php";
     }
-       
-    public function logout(){
+
+    public function logout()
+    {
         session_destroy();
         header("location:/login");
     }
 
-    public function deleteAddedTask(){
+    public function deleteAddedTask()
+    {
         $this->userModel->deleteAddedTask($_POST);
     }
 
 
-    public function fetchData(){
+    public function fetchData()
+    {
         $this->userModel->fetchDataFromDo();
-
     }
 
-    public function deleteTask(){
+    public function deleteTask()
+    {
 
         $this->userModel->DeleteTask($_POST);
     }
-
 }
