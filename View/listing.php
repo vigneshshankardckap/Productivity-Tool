@@ -64,13 +64,13 @@
           </div>
         </div>
         <div>
-          <div class="Task_Type">
-            <span class="ml-3 font-medium switchCat on">PROFESSIONAL</span>
+          <div class="switchDiv">
+            <span class="font-medium switchCat on" type="">PROFESSIONAL</span>
             <label class="relative inline-flex items-center cursor-pointer">
               <input type="checkbox" value="" class="sr-only peer">
               <div class="w-14 h-7  peer-focus:outline-none peer -focus:ring-4  rounded-full peer  peer-checked:after:translate-x-full  after:content-[''] after:absolute after:top-0.5 after:left-[4px]   after:border after:rounded-full after:h-6 after:w-6 after:transition-all   switchBall"></div>
-              <span class="ml-3 font-medium switchCat">PERSONAL</span>
             </label>
+            <span class="ml-3 font-medium switchCat" type="">PERSONAL</span>
           </div>
           <div class="add-todo-btn-section">
             <div class="add-todo-inner-section">
@@ -113,7 +113,7 @@
               <h2 class="title">DO FIRST</h2>
               <?php foreach ($fetchAllDataDo as $key => $do) : ?>
                 <?php if ($key < 4) : ?>
-                  <p class="copy"> <?php echo $do->task_name; ?></p>
+                  <p class="copy"> <?php echo $do->task_name; ?><span class="date"><?php echo $do->dates; ?></span></p>
                 <?php endif; ?>
               <?php endforeach; ?>
             </div>
@@ -124,9 +124,9 @@
           <div class="card">
             <div class="content">
               <h2 class="title">DEFER</h2>
-              <?php foreach ($fetchAllDataDefer as $defer) : ?>
+              <?php foreach ($fetchAllDataDefer as $defer[0]) : ?>
                 <?php if ($key < 4) : ?>
-                  <p class="copy"> <?php echo $defer->task_name ?></p>
+                  <p class="copy"> <?php echo $defer[0]->task_name ?><span class="date"><?php echo $defer[0]->dates; ?></span></p>
                 <?php endif; ?>
               <?php endforeach; ?>
             </div>
@@ -153,7 +153,6 @@
               <h2 class="title">DELETE</h2>
               <?php foreach ($fetchAllDataDelete as $delete) : ?>
                 <?php if ($key < 5) : ?>
-
                   <p class="copy"> <?php echo $delete->task_name ?><span class="date"><?php echo $delete->dates; ?></span></p>
                 <?php endif; ?>
               <?php endforeach; ?>
@@ -181,10 +180,11 @@
                     <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
                       <div class="mt-2">
                         <?php foreach ($fetchAllDataDo as $key => $do) : ?>
+
                           <div class="task-info">
                             <div class="list-name">
                               <h5 id="Task-Name" class="text-sm text-gray-500">
-                                <?php echo $key + 1; ?> <?php echo $do->task_name; ?>
+                                <span><?php echo $key + 1; ?></span><?php echo $do->task_name; ?>
                               </h5>
                               <p id="due-date"> <?php echo $do->dates; ?></p>
                             </div>
@@ -198,10 +198,7 @@
                             <div>
                               <div class="change">
                                 <div class="Task-progress">
-                                  <div class="round">
-                                    <input type="checkbox" id="checkbox" />
-                                    <label for="checkbox"></label>
-                                  </div>
+                                  <input type="checkbox" class="taskCheckBox" id="checkBox"/>
                                 </div>
                                 <div class="make-changes">
                                   <button><i class="fa-solid fa-pen"></i></button>
@@ -209,10 +206,10 @@
                                   <form action="/deleteTask" method="post" >
                                     <input type="text" hidden name=task_id value ="<?php echo $do->id ?>"/> 
                                   <button><i class="fa-solid fa-trash-can"></i></button>
+                                  </form>
 
                                   <button class="add-comment-btn" name="comment"><i class="fa-solid fa-comment"></i></button>
 
-                                  </form>
 
                                 </div>
                               </div>
@@ -241,8 +238,8 @@
           <div class="wrapper">
             <input name="user_id" class="user_id" value="<?= $_SESSION['userid'] ?>" type="hidden">
 
-            <input type="radio" name="task_type" id="option-1" value="1" class="category" checked>
-            <input type="radio" name="task_type" id="option-2" value="2" class="category">
+            <input type="radio" name="task_type" id="option-1" value="1" class=".typeBtn" checked>
+            <input type="radio" name="task_type" id="option-2" value="2" class=".typeBtn">
 
             <label for="option-1" class="option option-1">
               <div class="dot"></div>
@@ -277,16 +274,16 @@
             <label for="project">Urgent</label>
             <br>
             <label for="css">Yes</label>
-            <input type="radio" class="urgent-priority-btn data" id="1" value="1" name="urgent">
+            <input type="radio" class="urgent-priority-btn " id="1" value="1" name="urgent">
             <label for="css">No</label>
-            <input type="radio" class="urgent-priority-btn data" id="2" value="0" name="urgent">
+            <input type="radio" class="urgent-priority-btn " id="1" value="0" name="urgent">
           </div>
           <div class="ImportantDiv">
             <label for="project">Important</label><br>
             <label for="css">Yes</label>
             <input type="radio" class="important-priority-btn datas" id="1" value="1" name="important">
             <label for="css">No</label>
-            <input type="radio" class="important-priority-btn datas" id="2" value="0" name="important">
+            <input type="radio" class="important-priority-btn datas" id="1" value="0" name="important">
           </div>
         </div>
         <button type="submit" onclick="store()" class="submit-btn">Submit</button>

@@ -53,7 +53,7 @@
               <i class="fa-regular fa-bell notification"></i>
             </li>
             <li class="right-icon">
-            <i class="fa-regular fa-moon theme-btn"></i>
+              <i class="fa-regular fa-moon theme-btn"></i>
             </li>
             <li class="right-icon">
               <a href="/logout">
@@ -63,7 +63,6 @@
           </ul>
         </div>
       </header>
-
       <!-- this below section is for add button -->
       <div class="add-todo-btn-section">
         <div class="add-todo-inner-section">
@@ -78,9 +77,6 @@
           </div>
         </div>
       </div>
-      <!--      <form method="post" action="/addedTaskDetails">-->
-      <!--                <button name="addedTask">AddedTask</button>-->
-      <!--            </form>-->
       <!-- this is the body content (suggesed todo) -->
       <form action="/addTask" method="post">
         <div class="body-mainDiv">
@@ -128,10 +124,7 @@
         </div>
       </form>
     </div>
-
-
     <!-- this section is our single input form ----------- (it is separated from the inner container div for background blur)-->
-
     <div class="single-input-form">
       <!-- <form action="/store" method="post">
         <div class="close-btn">
