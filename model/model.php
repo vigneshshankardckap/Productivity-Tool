@@ -147,11 +147,9 @@ class UserModule extends Database
         $userId = $id;
         $fetchUserAddedTask = $this->db->query("SELECT * FROM tasks WHERE userId = '$userId'");
     }
-    public function DeleteTask($data){
-        $id=$data['task_id'];
+    public function DeleteTask($id){
         $this->db->query("UPDATE tasks SET deleted_at =now() Where id='$id'");
-         header('location:/list');
-
+         header('location:/viewAllTask');
     }
 
     public function viewAllTask($data)
