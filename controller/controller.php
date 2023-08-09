@@ -101,9 +101,12 @@ class UserController
     {
 
         $this->userModel->DeleteTask($_POST);
+
+        require 'View/taskDetails.php';
     }
 
     public function viewAllTask(){
+
         $allTask = $this->userModel->viewAllTask($_POST);
         require "View/taskDetails.php";
         
