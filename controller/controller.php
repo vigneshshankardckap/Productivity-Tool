@@ -40,7 +40,6 @@ class UserController
 
         $fetchAllDataDo = $this->userModel->fetchDataFromDo();
         $fetchAllDataDefer = $this->userModel->fetchDataFromdefer();
-        // var_dump($fetchAllDataDefer[0]->task_name);
         $fetchAllDataDelegate = $this->userModel->fetchDataFromdelegate();
         $fetchAllDataDelete = $this->userModel->fetchDataFromdelete();
         $tasks = $this->userModel->addedTaskDetails();

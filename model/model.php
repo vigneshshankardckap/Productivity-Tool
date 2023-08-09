@@ -154,5 +154,13 @@ class UserModule extends Database
 
     }
 
-    
-}
+    public function viewAllTask($data)
+    {
+        // print_r($data);
+        $userId = $_SESSION['userid'];
+        $matrix_id = $data['matrixId'];
+        // echo $matrix_id;
+        // echo $userId;
+        return $this->db->query("SELECT * from tasks where user_id = $userId AND matrix_id = $matrix_id ")->fetchAll(PDO::FETCH_OBJ);
+    }
+

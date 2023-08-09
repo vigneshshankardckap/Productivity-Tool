@@ -39,10 +39,12 @@
       <header class="header">
         <div class="left-section">
           <img src="../Images/logo.png">
-          <h1>What's Up<span class="username"><?php echo $_SESSION['username']; ?></span></h1>
+          <h1>What's Up<span class="username">
+              <?php echo $_SESSION['username']; ?>
+            </span>
+          </h1>
         </div>
-        <!-- <?php echo $_SESSION['name']; ?> -->
-        <!-- this is our right side contents -->
+
         <div class="right-section">
           <div class="search-icon-div">
             <i class="fa-solid fa-magnifying-glass"></i>
