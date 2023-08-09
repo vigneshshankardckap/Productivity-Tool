@@ -164,3 +164,4 @@ class UserModule extends Database
         return $this->db->query("SELECT * from tasks where user_id = $userId AND matrix_id = $matrix_id ")->fetchAll(PDO::FETCH_OBJ);
     }
 
+}
