@@ -37,7 +37,7 @@ body {
 .container {
   position: relative;
   padding: 35px 80px;
-  max-width: 1024px;
+  /* max-width: fit-content; */
 }
 
 .active {
@@ -104,12 +104,14 @@ body {
 .left-section h1 {
   font-size: 22px;
   color: var(--font-color);
+  font-weight: 200;
 }
 
 .left-section .username {
   font-size: 22px;
   padding: 0px 6px;
-  font-weight: 100;
+  font-weight: 400;
+  text-transform: capitalize;
 }
 
 .left-section p {
