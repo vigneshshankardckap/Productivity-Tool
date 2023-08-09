@@ -63,14 +63,14 @@
           </div>
         </div>
         <div>
-          <div class="switchDiv">
+          <!-- <div class="switchDiv">
             <span class="font-medium switchCat on" type="">PROFESSIONAL</span>
             <label class="relative inline-flex items-center cursor-pointer">
               <input type="checkbox" value="" class="sr-only peer">
               <div class="w-14 h-7  peer-focus:outline-none peer -focus:ring-4  rounded-full peer  peer-checked:after:translate-x-full  after:content-[''] after:absolute after:top-0.5 after:left-[4px]   after:border after:rounded-full after:h-6 after:w-6 after:transition-all   switchBall"></div>
             </label>
             <span class=" font-medium switchCat" type="">PERSONAL</span>
-          </div>
+          </div> -->
           <div class="add-todo-btn-section">
             <div class="add-todo-inner-section">
               <h2 class="add-btn">ADD TASK</h2>
