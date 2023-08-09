@@ -262,3 +262,7 @@ for (let j = 0; j < commentBtn.length; j++) {
 
 
 // ========================================================================
+let editBtn = document.querySelector(".editBtn");
+editBtn.addEventListener("click",()=>{
+  alert("welcome");
+})

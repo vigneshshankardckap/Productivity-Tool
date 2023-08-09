@@ -46,7 +46,6 @@ $router->post('/addedTaskDetails','addedTaskDetails');
 
 $router->post('/deleteAddedTask','deleteAddedTask');
 
-
-
+$router->post('/addComment','addComment');
 
 $router->routing();

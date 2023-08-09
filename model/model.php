@@ -116,37 +116,42 @@ class UserModule extends Database
         header('location:/LandingPage');
     }
 
-    public function fetchDataFromDo()
-    {
-        $userId = $_SESSION['userid'];
-        return $this->db->query("SELECT * from tasks where user_id =$userId AND matrix_id = 1 AND deleted_at is NULL ")->fetchAll(PDO::FETCH_OBJ);
-        
+    public function fetchDataFromDo(){
+       $userId=$_SESSION['userid'];
+        return $this->db->query("SELECT * from tasks where user_id =$userId AND matrix_id = 1 AND deleted_at is NULL " )->fetchAll(PDO::FETCH_OBJ);
     }
     public function fetchDataFromdefer()
     {
         $userId = $_SESSION['userid'];
 
         return $this->db->query("SELECT * from tasks where user_id =$userId AND matrix_id = 2")->fetchAll(PDO::FETCH_OBJ);
-        
+
     }
     public function fetchDataFromdelegate()
     {
         $userId = $_SESSION['userid'];
 
         return $this->db->query("SELECT * from tasks where user_id =$userId AND matrix_id = 3")->fetchAll(PDO::FETCH_OBJ);
+
     }
 
     public function fetchDataFromdelete()
     {
-
-        $userId = $_SESSION['userid'];
+       $userId=$_SESSION['userid'];
         return $this->db->query("SELECT * from tasks where user_id =$userId AND matrix_id = 4")->fetchAll(PDO::FETCH_OBJ);
+
     }
-    public function DeleteTask($data)
-    {
-        $id = $data['task_id'];
+
+    public function editTask($id) {
+        
+        $userId = $id;
+        $fetchUserAddedTask = $this->db->query("SELECT * FROM tasks WHERE userId = '$userId'");
+    }
+    public function DeleteTask($data){
+        $id=$data['task_id'];
         $this->db->query("UPDATE tasks SET deleted_at =now() Where id='$id'");
-        header('location:/list');
+         header('location:/list');
+
     }
 
     public function viewAllTask($data)
@@ -158,4 +163,4 @@ class UserModule extends Database
         // echo $userId;
         return $this->db->query("SELECT * from tasks where user_id = $userId AND matrix_id = $matrix_id ")->fetchAll(PDO::FETCH_OBJ);
     }
-}
+

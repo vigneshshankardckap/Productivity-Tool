@@ -61,7 +61,7 @@ class UserController
     public function addTask($tasks)
     {
 
-        $this->userModel->addTask($tasks);
+        $this->userModel->addTask($_POST);
     }
 
     public function addedTaskDetails()
@@ -84,6 +84,17 @@ class UserController
     public function fetchData()
     {
         $this->userModel->fetchDataFromDo();
+    }
+
+    // public function editTask(){
+    //     var_dump($_POST);
+    //     $this->userModel->editTask($_POST);
+    // }
+
+    
+    public function addComment(){
+        // var_dump($_POST);
+        // $this->userModel->addComment($_POST);
     }
 
     public function deleteTask()
