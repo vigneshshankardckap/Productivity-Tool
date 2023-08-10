@@ -100,13 +100,12 @@ class UserController
 
     public function deleteTask()
     {
-        $id = $_POST["id"];
 
-        $this->userModel->DeleteTask($id);
-        require "View/taskDetails.php";
+        $this->userModel->DeleteTask($_POST);
     }
 
-    public function viewAllTask(){
+    public function viewAllTask()
+    {
         $allTask = $this->userModel->viewAllTask($_POST);
         require "View/taskDetails.php";
     }
