@@ -9,6 +9,12 @@
     <link rel="stylesheet" href="">
     <script src="https://kit.fontawesome.com/52d2b40c3f.js" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <style>
+
+
 </head>
 
 <body>
@@ -50,7 +56,9 @@
                         <span class="font-medium switchCat on" type="">PROFESSIONAL</span>
                         <label class="relative inline-flex items-center cursor-pointer">
                             <input type="checkbox" value="" class="sr-only peer">
+
                             <div class="w-14 h-7  peer-focus:outline-none peer -focus:ring-4  rounded-full peer  peer-checked:after:translate-x-full  after:content-[''] after:absolute after:top-0.5 after:left-[4px]   after:border after:rounded-full after:h-6 after:w-6 after:transition-all   switchBall"></div>
+
                         </label>
                         <span class="ml-3 font-medium switchCat" type="">PERSONAL</span>
                     </div>
@@ -81,7 +89,9 @@
                     <div class="Tasklist">
                         <p><?php echo $value['name'] ?></p>
                         <form method="post" action="/deleteAddedTask">
+
                             <button class="removetask" name="<?php echo $value['id'] ?>">Remove</button>
+
                         </form>
                     </div>
                 <?php endforeach; ?>
@@ -160,7 +170,9 @@
                         <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
                             <div class="relative  overflow-hidden rounded-lg bg-white text-left shadow-xl sm:my-8 w-11/12 m-auto">
                                 <div class="bg-gray-50 px-4 py-3 sm:flex justify-between items-center px-3	">
+
                                     <h3 class="text-base font-semibold leading-6 text-gray-900 " id="modal-title">DO FIRST</h3>
+
                                     <h3 class="text-base font-semibold leading-6 text-gray-900 no-underline md:underline" id="modal-title">ALL TASK</h3>
                                     <form action="/list" method="get">
                                         <button type="submit" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto" id='popUpCloseBtn'>X</button>
@@ -171,38 +183,47 @@
                                         <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
                                             <div class="mt-2">
                                                 <?php foreach ($allTask as $key => $tasks) : ?>
-                                                    <?php if (isset($tasks)) : ?>
-                                                        <div class="task-info">
-                                                            <div class="list-name">
-                                                                <h5 id="Task-Name" class="text-sm text-gray-500">
-                                                                    <span><?php echo $key + 1; ?></span><?php echo $tasks->task_name; ?>
-                                                                </h5>
-                                                                <p id="due-date"> <?php echo $tasks->dates; ?></p>
-                                                            </div>
-                                                            <div class="add-Cmt">
-                                                                <input type="text" placeholder="comment here ">
-                                                                <button><i class="fa-solid fa-upload"></i></button>
-                                                            </div>
-                                                            <div>
-                                                                <div class="change">
-                                                                    <div class="Task-progress">
-                                                                        <input type="checkbox" class="taskCheckBox" id="checkBox" />
-                                                                    </div>
-                                                                    <div class="make-changes">
-                                                                        <button><i class="fa-solid fa-pen"></i></button>
-                                                                        <form action="/deleteTask" method="post">
-                                                                            <input type="text" hidden name=task_id value="<?php echo $tasks->id ?>" />
-                                                                            <button><i class="fa-solid fa-trash-can"></i></button>
-                                                                        </form>
-                                                                        <button class="add-comment-btn"><i class="fa-solid fa-comment"></i></button>
-                                                                    </div>
+                                                    <!-- <?php var_dump($tasks); ?> -->
+                                                    <!-- <?php if (isset($tasks)) : ?> -->
+                                                    <div class="task-info" id="rowdiv<?= $tasks->id ?>">
+                                                        <input type="hidden" id="rowid" value="<?= $tasks->id ?>">
+                                                        <div class="list-name">
+                                                            <h5 id="Task-Name" class="text-sm text-gray-500">
+                                                                <span><?php echo $key + 1; ?></span><?php echo $tasks->task_name; ?>
+                                                            </h5>
+                                                            <p id="due-date"> <?php echo $tasks->dates; ?></p>
+                                                        </div>
+                                                        <div class="add-Cmt">
+                                                            <form action="/addComment" method="post">
+                                                                <input type="text" value="<?php echo $tasks->id ?>" name="commentId" id="commentId" hidden>
+                                                                <input type="text" placeholder="comment here " id="comment" name="comment" >
+                                                                <button id="addComment" type="button"><i class="fa-solid fa-upload"></i></button>
+                                                            </form>
+                                                        </div>
+                                                        <div>
+                                                            <div class="change">
+                                                                <div class="Task-progress">
+                                                                    <input type="checkbox" class="taskCheckBox" id="checkBox" />
+                                                                </div>
+                                                                <div class="make-changes">
+                                                                    <button><i class="fa-solid fa-pen"></i></button>
+
+
+                                                                    <form action="/deleteTask" method="post">
+
+                                                                        <input type="text" hidden name=task_id value="<?php echo $do->id ?>" />
+                                                                        <!-- <i value ="<?php echo $do->id ?>" class="fa-solid fa-trash-can"></i> -->
+                                                                        <button type="button" id="btnDelete"><i class="fa-solid fa-trash-can"></i></button>
+                                                                    </form>
+                                                                    <button class="add-comment-btn"><i class="fa-solid fa-comment"></i></button>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    <?php else : ?>
-                                                        <p>Empty</p>
-                                                    <?php endif; ?>
-                                                <?php endforeach; ?>
+                                                    </div>
+                                                <?php else : ?>
+                                                    <p>Empty</p>
+                                                <?php endif; ?>
+                                            <?php endforeach; ?>
                                             </div>
                                         </div>
                                     </div>
