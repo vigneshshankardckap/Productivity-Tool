@@ -9,25 +9,23 @@
     <link rel="stylesheet" href="">
     <script src="https://kit.fontawesome.com/52d2b40c3f.js" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
     <style>
-    .fetchdata {
-        margin-left: 20px;
-        padding: 10px;
-        color: black;
-    }
+        .fetchdata {
+            margin-left: 20px;
+            padding: 10px;
+            color: black;
+        }
 
-    li>span {
-        margin-left: 10px;
-    }
+        li>span {
+            margin-left: 10px;
+        }
 
-    .contents {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 70px;
-    }
+        .contents {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 70px;
+        }
     </style>
 </head>
 
@@ -208,46 +206,37 @@
                                         <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
                                             <div class="mt-2">
                                                 <?php foreach ($allTask as $key => $tasks) : ?>
-                                                    <!-- <?php var_dump($tasks); ?> -->
-                                                <!-- <?php if(isset($tasks)):?> -->
-                                                <div class="task-info" id="rowdiv<?=$tasks->id?>">
-                                                    <input type="hidden" id="rowid" value="<?=$tasks->id?>">
-                                                    <div class="list-name">
-                                                        <h5 id="Task-Name" class="text-sm text-gray-500">
-                                                            <span><?php echo $key + 1; ?></span><?php echo $tasks->task_name; ?>
-                                                        </h5>
-                                                        <p id="due-date"> <?php echo $tasks->dates; ?></p>
-                                                    </div>
-                                                    <div class="add-Cmt">
-                                                        <input type="text" placeholder="comment here ">
-                                                        <button><i class="fa-solid fa-upload"></i></button>
-                                                    </div>
-                                                    <div>
-                                                        <div class="change">
-                                                            <div class="Task-progress">
-                                                                <input type="checkbox" class="taskCheckBox"
-                                                                    id="checkBox" />
-                                                            </div>
-                                                            <div class="make-changes">
-                                                                <button><i class="fa-solid fa-pen"></i></button>
-
-
-                                                                <form action="/deleteTask" method="post">
-                
-                                                                    <input type="text" hidden name=task_id
-                                                                        value="<?php echo $do->id ?>" />
-                                                                    <!-- <i value ="<?php echo $do->id ?>" class="fa-solid fa-trash-can"></i> -->
-                                                                    <button type="button" id="btnDelete"><i class="fa-solid fa-trash-can"></i></button>
-                                                                </form>
-                                                                <button class="add-comment-btn"><i
-                                                                        class="fa-solid fa-comment"></i></button>
+                                                    <?php if(isset($tasks)):?>
+                                                    <div class="task-info">
+                                                        <div class="list-name">
+                                                            <h5 id="Task-Name" class="text-sm text-gray-500">
+                                                                <span><?php echo $key + 1; ?></span><?php echo $tasks->task_name; ?>
+                                                            </h5>
+                                                            <p id="due-date"> <?php echo $tasks->dates; ?></p>
+                                                        </div>
+                                                        <div class="add-Cmt">
+                                                            <input type="text" placeholder="comment here ">
+                                                            <button><i class="fa-solid fa-upload"></i></button>
+                                                        </div>
+                                                        <div>
+                                                            <div class="change">
+                                                                <div class="Task-progress">
+                                                                    <input type="checkbox" class="taskCheckBox" id="checkBox" />
+                                                                </div>
+                                                                <div class="make-changes">
+                                                                    <button><i class="fa-solid fa-pen"></i></button>
+                                                                    <form action="/deleteTask" method="post">
+                                                                        <input type="text" hidden name=task_id value="<?php echo $tasks->id ?>" />
+                                                                        <button><i class="fa-solid fa-trash-can"></i></button>
+                                                                    </form>
+                                                                    <button class="add-comment-btn"><i class="fa-solid fa-comment"></i></button>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <?php else:?>
-                                                <p>Empty</p>
-                                                <?php endif; ?>
+                                                    <?php else:?>
+                                                        <p>Empty</p>
+                                                    <?php endif; ?>    
                                                 <?php endforeach; ?>
                                             </div>
                                         </div>

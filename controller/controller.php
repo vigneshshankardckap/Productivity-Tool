@@ -91,8 +91,9 @@ class UserController
     //     $this->userModel->editTask($_POST);
     // }
 
-    
-    public function addComment(){
+
+    public function addComment()
+    {
         // var_dump($_POST);
         // $this->userModel->addComment($_POST);
     }
@@ -106,9 +107,7 @@ class UserController
     }
 
     public function viewAllTask(){
-
         $allTask = $this->userModel->viewAllTask($_POST);
         require "View/taskDetails.php";
-        
     }
 }
