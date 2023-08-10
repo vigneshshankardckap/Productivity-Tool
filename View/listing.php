@@ -180,7 +180,7 @@
                     <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
                       <div class="mt-2">
                         <?php foreach ($fetchAllDataDo as $key => $do) : ?>
-
+                          
                           <div class="task-info">
                             <div class="list-name">
                               <h5 id="Task-Name" class="text-sm text-gray-500">
