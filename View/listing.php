@@ -163,6 +163,64 @@
           </div>
         </main>
       </div>
+      <!-- pop up window code here -->
+      <div class="testing-window invisible">
+        <div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+          <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+          <div class="fixed inset-0 z-10 overflow-y-auto">
+            <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <div class="relative  overflow-hidden rounded-lg bg-white text-left shadow-xl sm:my-8 w-11/12 m-auto">
+                <div class="bg-gray-50 px-4 py-3 sm:flex justify-between items-center px-3	">
+                  <h3 class="text-base font-semibold leading-6 text-gray-900 " id="modal-title">DO FIRST</h3>
+                  <h3 class="text-base font-semibold leading-6 text-gray-900 no-underline md:underline" id="modal-title">ALL TASK</h3>
+                  <button type="button" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto" id='popUpCloseBtn'>X</button>
+                </div>
+                <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                  <div class="sm:flex sm:items-start">
+                    <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+                      <div class="mt-2">
+                        <?php foreach ($fetchAllDataDo as $key => $do) : ?>
+
+                          <div class="task-info">
+                            <div class="list-name">
+                              <h5 id="Task-Name" class="text-sm text-gray-500">
+                                <span><?php echo $key + 1; ?></span><?php echo $do->task_name; ?>
+                              </h5>
+                              <p id="due-date"> <?php echo $do->dates; ?></p>
+                            </div>
+                            <form action="/addComment" method="post">
+                              <div class="add-Cmt">
+                                <input hidden value="<?php echo $do->id ?>" name="id">
+                                <input type="text" placeholder="comment here" name="comments">
+                                <button><i class="fa-solid fa-upload"></i></button>
+                              </div>
+                            </form>
+                            <div>
+                              <div class="change">
+                                <div class="Task-progress">
+                                  <input type="checkbox" class="taskCheckBox" id="checkBox" />
+                                </div>
+                                <div class="make-changes">
+                                  <button><i class="fa-solid fa-pen"></i></button>
+                                  <form action="/deleteTask" method="post" >
+                                    <input type="text" hidden name=task_id value ="<?php echo $do->id ?>"/> 
+                                  <button><i class="fa-solid fa-trash-can"></i></button>
+                                  </form>
+                                  <button class="add-comment-btn" name="comment"><i class="fa-solid fa-comment"></i></button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        <?php endforeach; ?>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="single-input-form">
       <form action="/store" method="post">
