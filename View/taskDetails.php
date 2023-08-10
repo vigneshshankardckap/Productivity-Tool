@@ -9,12 +9,8 @@
     <link rel="stylesheet" href="">
     <script src="https://kit.fontawesome.com/52d2b40c3f.js" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-    <style>
-
-
+    
 </head>
 
 <body>
@@ -183,8 +179,7 @@
                                         <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
                                             <div class="mt-2">
                                                 <?php foreach ($allTask as $key => $tasks) : ?>
-                                                    <!-- <?php var_dump($tasks); ?> -->
-                                                    <!-- <?php if (isset($tasks)) : ?> -->
+                                                    <?php if (isset($tasks)) : ?> 
                                                     <div class="task-info" id="rowdiv<?= $tasks->id ?>">
                                                         <input type="hidden" id="rowid" value="<?= $tasks->id ?>">
                                                         <div class="list-name">
