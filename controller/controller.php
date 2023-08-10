@@ -95,7 +95,7 @@ class UserController
 
     
     public function addComment(){
-        // var_dump($_REQUEST);
+       
         $this->userModel->addComment($_REQUEST);
 
     }
@@ -109,6 +109,7 @@ class UserController
     public function viewAllTask()
     {
         $allTask = $this->userModel->viewAllTask($_POST);
+        // print_r($allTask);
         require "View/taskDetails.php";
     }
 }
