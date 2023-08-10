@@ -686,14 +686,13 @@ button {
 .card {
   position: relative;
   width: 400px;
-  height: 240px;
   padding: 10px;
 }
 
 .card> :last-child {
   position: absolute;
-  bottom: 3px;
-  right: 20px;
+  bottom: 5px;
+  right: 15px;
 }
 
 @media (min-width: 600px) {
@@ -728,9 +727,7 @@ button {
   display: flex;
   justify-content: space-between;
   background-color: rgba(255, 255, 255, 0.8);
-  /* box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px; */
-
-
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
 }
 
 .showMoreBtn {
