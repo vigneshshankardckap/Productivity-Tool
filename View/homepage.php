@@ -18,23 +18,6 @@
 <body>
   <!-- this is the main container of the application -->
   <div class="container">
-    <div class="Habitsdiv">
-      <div class="notification-title">
-        <h4>Notification </h4>
-        <div>
-          <button class="cancelicon" id="close-notificationList">X</button>
-        </div>
-      </div>
-      <hr>
-      <?php foreach ($tasks as $key => $value) : ?>
-        <div class="Tasklist">
-          <p><?php echo $value['name'] ?></p>
-          <form method="post" action="/deleteAddedTask">
-            <button class="removetask" name="<?php echo $value['id'] ?>">Remove</button>
-          </form>
-        </div>
-      <?php endforeach; ?>
-    </div>
     <div class="inner-container">
       <header class="header">
         <div class="left-section">
@@ -65,6 +48,24 @@
           </ul>
         </div>
       </header>
+      <!-- -----------habits div -------------------- -->
+      <div class="Habitsdiv">
+        <div class="notification-title">
+          <h4>Notification </h4>
+          <div>
+            <button class="cancelicon" id="close-notificationList">X</button>
+          </div>
+        </div>
+        <hr>
+        <?php foreach ($tasks as $key => $value) : ?>
+          <div class="Tasklist">
+            <p><?php echo $value['name'] ?></p>
+            <form method="post" action="/deleteAddedTask">
+              <button class="removetask" name="<?php echo $value['id'] ?>">Remove</button>
+            </form>
+          </div>
+        <?php endforeach; ?>
+      </div>
       <!-- this below section is for add button -->
       <div class="add-todo-btn-section">
         <div class="add-todo-inner-section">
@@ -128,50 +129,6 @@
     </div>
     <!-- this section is our single input form ----------- (it is separated from the inner container div for background blur)-->
     <div class="single-input-form">
-      <!-- <form action="/store" method="post">
-        <div class="close-btn">
-          <span>x</span>
-        </div>
-        <p>Pick Category</p>
-        <div class="Task_Type">
-          <input name="user_id" class="user_id" value="<?= $_SESSION['userid'] ?>" type="hidden">
-          <label for="css">Professional</label><br>
-          <input type="radio" class="typeBtn firstFrom category" id="1" value="1" name="task_type">
-          <label for="css">Personal</label><br>
-          <input type="radio" class="typeBtn firstFrom category" id="2" value="2" name="task_type">
-        </div>
-        <div>
-          <div class="inputdiv">
-            <div>
-              <label for="project">What is on your task?</label>
-              <input type="text" placeholder="E.g Make Task " name="Task_name" class="projectName" />
-            </div>
-            <div>
-
-              <label for="project" placeholder="Get Date/Time">What on your due?</label>
-              <input type="datetime-local" placeholder="Get Date/Time" class="dateTime" value="" name="dateTime" />
-            </div>
-          </div>
-          <div class="matix">
-            <div class="urgentDiv">
-              <label for="project">Urgent</label>
-              <br>
-              <label for="css">Yes</label>
-              <input type="radio" class="urgent-priority-btn data" id="1" value="0" name="urgent">
-              <label for="css">No</label>
-              <input type="radio" class="urgent-priority-btn data" id="2" value="1" name="urgent">
-            </div>
-            <div class="ImportantDiv">
-              <label for="project">Important</label>
-              <label for="css">Yes</label>
-              <input type="radio" class="important-priority-btn" id="1" value="0" name="important">
-              <label for="css">No</label>
-              <input type="radio" class="important-priority-btn" id="2" value="1" name="important">
-            </div>
-          </div>
-        </div>
-        <button type="submit" onclick="store()" class="submit-btn">Submit</button>
-      </form> -->
       <form action="/store" method="post">
         <div class="close-btn">
           <div>
@@ -182,7 +139,7 @@
         <div class="Task_Type">
           <div class="wrapper">
             <input name="user_id" class="user_id" value="<?= $_SESSION['userid'] ?>" type="hidden">
-
+            
             <input type="radio" name="task_type" id="option-1" value="1" class="category" checked>
             <input type="radio" name="task_type" id="option-2" value="2" class="category">
 
@@ -197,7 +154,6 @@
             </label>
           </div>
         </div>
-
         <div>
           <div class="inputdiv">
             <div>
@@ -205,10 +161,8 @@
                 What is on your Task
               </label>
               <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-black focus:bg-white" id="grid-first-name" type="text" placeholder="projectName" name="Task_name">
-
             </div>
             <div>
-
               <label for="project" placeholder="Get Date/Time">What on your due?</label>
               <input type="datetime-local" placeholder="Get Date/Time" class="dateTime" value="" name="dateTime" />
             </div>

@@ -262,40 +262,7 @@ for (let j = 0; j < commentBtn.length; j++) {
 
 
 // ========================================================================
-// let editBtn = document.querySelector(".editBtn");
-// editBtn.addEventListener("click",()=>{
-//   alert("welcome");
-// })
-
-$(document).ready(function () {
-
-  // selecting btn to delete
-  var btnDelete = $("#btnDelete");
-  // console.log(btnDelete);
-
-
-  // adding click function for delete btn
-  btnDelete.click(function () {
-
-    // getting taskid 
-    var rowdiv = $('#rowdiv');
-    var taskid= $('#rowid').val();
-
-    // sending task id to backend
-    $.ajax({
-      url: "/deleteTask",
-      data: { id:taskid },
-      type: "POST",
-      success: function(response) {
-        $("#rowdiv" + taskid).remove();
-        
-        // If the request is successful, update the HTML table
-
-      }
-    });
-
-  })
-
-
-
-});
+let editBtn = document.querySelector(".editBtn");
+editBtn.addEventListener("click",()=>{
+  alert("welcome");
+})

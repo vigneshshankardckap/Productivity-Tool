@@ -116,49 +116,50 @@ class UserModule extends Database
         header('location:/LandingPage');
     }
 
-    public function fetchDataFromDo(){
-       $userId=$_SESSION['userid'];
-        return $this->db->query("SELECT * from tasks where user_id =$userId AND matrix_id = 1 And deleted_at IS NULl " )->fetchAll(PDO::FETCH_OBJ);
+    public function fetchDataFromDo()
+    {
+        $userId = $_SESSION['userid'];
+        return $this->db->query("SELECT * from tasks where user_id =$userId AND matrix_id = 1 AND deleted_at is NULL ")->fetchAll(PDO::FETCH_OBJ);
     }
     public function fetchDataFromdefer()
     {
         $userId = $_SESSION['userid'];
 
-        return $this->db->query("SELECT * from tasks where user_id =$userId AND matrix_id = 2 and deleted_at Is null")->fetchAll(PDO::FETCH_OBJ);
-
+        return $this->db->query("SELECT * from tasks where user_id =$userId AND matrix_id = 2")->fetchAll(PDO::FETCH_OBJ);
     }
     public function fetchDataFromdelegate()
     {
         $userId = $_SESSION['userid'];
 
-        return $this->db->query("SELECT * from tasks where user_id =$userId AND matrix_id = 3 and  deleted_at Is null ")->fetchAll(PDO::FETCH_OBJ);
-
+        return $this->db->query("SELECT * from tasks where user_id =$userId AND matrix_id = 3")->fetchAll(PDO::FETCH_OBJ);
     }
 
     public function fetchDataFromdelete()
     {
-       $userId=$_SESSION['userid'];
-        return $this->db->query("SELECT * from tasks where user_id =$userId AND  matrix_id = 4 and   deleted_at Is null")->fetchAll(PDO::FETCH_OBJ);
-
+        $userId = $_SESSION['userid'];
+        return $this->db->query("SELECT * from tasks where user_id =$userId AND matrix_id = 4")->fetchAll(PDO::FETCH_OBJ);
     }
 
-    public function editTask($id) {
-        
+    public function editTask($id)
+    {
+
         $userId = $id;
         $fetchUserAddedTask = $this->db->query("SELECT * FROM tasks WHERE userId = '$userId'");
     }
-    public function DeleteTask($id){
+    public function DeleteTask($data)
+    {
+        $id = $data['task_id'];
         $this->db->query("UPDATE tasks SET deleted_at =now() Where id='$id'");
-         header('location:/viewAllTask');
+        header('location:/list');
     }
 
     public function viewAllTask($data)
     {
-
+        // print_r($data);
         $userId = $_SESSION['userid'];
         $matrix_id = $data['matrixId'];
-
-        return $this->db->query("SELECT * from tasks where user_id = $userId AND matrix_id = $matrix_id AND deleted_at is NULL ")->fetchAll(PDO::FETCH_OBJ);
+        // echo $matrix_id;
+        // echo $userId;
+        return $this->db->query("SELECT * from tasks where user_id = $userId AND matrix_id = $matrix_id ")->fetchAll(PDO::FETCH_OBJ);
     }
-
 }
