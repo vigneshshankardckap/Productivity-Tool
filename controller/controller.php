@@ -40,7 +40,7 @@ class UserController
 
         $fetchAllDataDo = $this->userModel->fetchDataFromDo();
         $fetchAllDataDefer = $this->userModel->fetchDataFromdefer();
-   
+        // var_dump($fetchAllDataDefer[0]->task_name);
         $fetchAllDataDelegate = $this->userModel->fetchDataFromdelegate();
         $fetchAllDataDelete = $this->userModel->fetchDataFromdelete();
         $tasks = $this->userModel->addedTaskDetails();
@@ -100,8 +100,16 @@ class UserController
 
     public function deleteTask()
     {
+        $id = $_POST["id"];
 
-        $this->userModel->DeleteTask($_POST);
+        $this->userModel->DeleteTask($id);
+        require "View/taskDetails.php";
     }
 
+    public function viewAllTask(){
+
+        $allTask = $this->userModel->viewAllTask($_POST);
+        require "View/taskDetails.php";
+        
+    }
 }

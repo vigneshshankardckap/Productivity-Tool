@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="">
   <script src="https://kit.fontawesome.com/52d2b40c3f.js" crossorigin="anonymous"></script>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
   <style>
     .fetchdata {
       margin-left: 20px;
@@ -39,7 +41,6 @@
             <img src="../Images/logo.png">
             <h1>What's Up<span class="username">
                 <?php echo $_SESSION['username']; ?>
-
               </span></h1>
           </div>
           <!-- this is our right side contents -->
@@ -64,14 +65,14 @@
           </div>
         </div>
         <div>
-          <div class="switchDiv">
+          <!-- <div class="switchDiv">
             <span class="font-medium switchCat on" type="">PROFESSIONAL</span>
             <label class="relative inline-flex items-center cursor-pointer">
               <input type="checkbox" value="" class="sr-only peer">
               <div class="w-14 h-7  peer-focus:outline-none peer -focus:ring-4  rounded-full peer  peer-checked:after:translate-x-full  after:content-[''] after:absolute after:top-0.5 after:left-[4px]   after:border after:rounded-full after:h-6 after:w-6 after:transition-all   switchBall"></div>
             </label>
-            <span class="ml-3 font-medium switchCat" type="">PERSONAL</span>
-          </div>
+            <span class=" font-medium switchCat" type="">PERSONAL</span>
+          </div> -->
           <div class="add-todo-btn-section">
             <div class="add-todo-inner-section">
               <h2 class="add-btn">ADD TASK</h2>
@@ -108,57 +109,76 @@
 
       <div class="taskDetailBox">
         <main class="page-content">
-          <div class="card">
-            <div class="content">
-              <h2 class="title">DO FIRST</h2>
-              <?php foreach ($fetchAllDataDo as $key => $do) : ?>
-                <?php if ($key < 4) : ?>
-                  <p class="copy"> <?php echo $do->task_name; ?><span class="date"><?php echo $do->dates; ?></span></p>
-                <?php endif; ?>
-              <?php endforeach; ?>
-            </div>
-            <div>
-              <button class="showMoreBtn">View Task..</button>
-            </div>
-          </div>
-          <div class="card">
-            <div class="content">
-              <h2 class="title">DEFER</h2>
-              <?php foreach ($fetchAllDataDefer as $defer[0]) : ?>
-                <?php if ($key < 4) : ?>
-                  <p class="copy"> <?php echo $defer[0]->task_name ?><span class="date"><?php echo $defer[0]->dates; ?></span></p>
-                <?php endif; ?>
-              <?php endforeach; ?>
-            </div>
-            <div>
-              <button class="showMoreBtn">View Task..</button>
+          <div class="main-card">
+            <div class="card-color"></div>
+            <div class="card">
+              <div class="content">
+                <h2 class="title">DO FIRST</h2>
+                <?php foreach ($fetchAllDataDo as $key => $do) : ?>
+                  <?php if ($key < 4) : ?>
+                    <p class="copy"><?php echo $key + 1; ?> <?php echo $do->task_name; ?><span class="date"><?php echo $do->dates; ?></span></p>
+                  <?php endif; ?>
+                <?php endforeach; ?>
+              </div>
+              <div>
+                <form action="/viewAllTask" method="post">
+                  <button class="showMoreBtn" name="matrixId" value="<?php echo $do->matrix_id ?>">View Task..</button>
+                </form>
+              </div>
             </div>
           </div>
-          <div class="card">
-            <div class="content">
-              <h2 class="title">DELEGATE</h2>
-
-              <?php foreach ($fetchAllDataDelegate as $Delegate) : ?>
-                <?php if ($key < 4) : ?>
-                  <p class="copy"> <?php echo $Delegate->task_name ?><span class="date"><?php echo $Delegate->dates; ?></span></p>
-                <?php endif; ?>
-              <?php endforeach; ?>
-            </div>
-            <div>
-              <button class="showMoreBtn">View Task..</button>
+          <div class="main-card">
+            <div class="card-color"></div>
+            <div class="card">
+              <div class="content">
+                <h2 class="title">DEFER</h2>
+                <?php foreach ($fetchAllDataDefer as $key => $defer[0]) : ?>
+                  <?php if ($key < 4) : ?>
+                    <p class="copy"><?php echo $key + 1; ?> <?php echo $defer[0]->task_name ?><span class="date"><?php echo $defer[0]->dates; ?></span></p>
+                  <?php endif; ?>
+                <?php endforeach; ?>
+              </div>
+              <div>
+                <form action="/viewAllTask" method="post">
+                  <button class="showMoreBtn" name="matrixId" value="<?php echo "2"; ?>">View Task..</button>
+                </form>
+              </div>
             </div>
           </div>
-          <div class="card">
-            <div class="content">
-              <h2 class="title">DELETE</h2>
-              <?php foreach ($fetchAllDataDelete as $delete) : ?>
-                <?php if ($key < 4) : ?>
-                  <p class="copy"> <?php echo $delete->task_name ?><span class="date"><?php echo $delete->dates; ?></span></p>
-                <?php endif; ?>
-              <?php endforeach; ?>
+          <div class="main-card">
+            <div class="card-color"></div>
+            <div class="card">
+              <div class="content">
+                <h2 class="title">DELEGATE</h2>
+                <?php foreach ($fetchAllDataDelegate as $key => $Delegate) : ?>
+                  <?php if ($key < 4) : ?>
+                    <p class="copy"><?php echo $key + 1; ?> <?php echo $Delegate->task_name ?><span class="date"><?php echo $Delegate->dates; ?></span></p>
+                  <?php endif; ?>
+                <?php endforeach; ?>
+              </div>
+              <div>
+                <form action="/viewAllTask" method="post">
+                  <button class="showMoreBtn" name="matrixId" value="<?php echo $Delegate->matrix_id ?>">View Task..</button>
+                </form>
+              </div>
             </div>
-            <div>
-              <button class="showMoreBtn">View Task..</button>
+          </div>
+          <div class="main-card">
+            <div class="card-color"></div>
+            <div class="card">
+              <div class="content">
+                <h2 class="title">DELETE</h2>
+                <?php foreach ($fetchAllDataDelete as $key => $delete) : ?>
+                  <?php if ($key < 4) : ?>
+                    <p class="copy"><?php echo $key + 1; ?> <?php echo $delete->task_name ?><span class="date"><?php echo $delete->dates; ?></span></p>
+                  <?php endif; ?>
+                <?php endforeach; ?>
+              </div>
+              <div>
+                <form action="/viewAllTask" method="post">
+                  <button class="showMoreBtn" name="matrixId" value="<?php echo $delete->matrix_id ?>">View Task..</button>
+                </form>
+              </div>
             </div>
           </div>
         </main>
@@ -180,7 +200,7 @@
                     <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
                       <div class="mt-2">
                         <?php foreach ($fetchAllDataDo as $key => $do) : ?>
-                          
+
                           <div class="task-info">
                             <div class="list-name">
                               <h5 id="Task-Name" class="text-sm text-gray-500">
@@ -252,14 +272,12 @@
         <div>
           <div class="inputdiv">
             <div>
-              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+              <label for="grid-first-name">
                 What is on your Task
               </label>
               <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-black focus:bg-white" id="grid-first-name" type="text" placeholder="projectName" name="Task_name">
-
             </div>
             <div>
-
               <label for="project" placeholder="Get Date/Time">What on your due?</label>
               <input type="datetime-local" placeholder="Get Date/Time" class="dateTime" value="" name="dateTime" />
             </div>
