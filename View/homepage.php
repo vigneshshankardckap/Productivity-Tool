@@ -34,9 +34,11 @@
           </div>
           <input placeholder="search" type="search" class="input-box" />
           <ul class="icons">
-            <li class="right-icon" onclick="openNotofy()">
+            <!-- <form action="/addedTaskDetails" method="post"> -->
+            <li class="right-icon" onclick="openNotofy()" id="notification" value="<?php echo $_SESSION['userid'] ?>">
               <i class="fa-regular fa-bell notification"></i>
             </li>
+            <!-- </form> -->
             <li class="right-icon">
               <i class="fa-regular fa-moon theme-btn"></i>
             </li>
@@ -57,15 +59,16 @@
           </div>
         </div>
         <hr>
-        <?php foreach ($tasks as $key => $value) : ?>
-          <div class="Tasklist">
-            <p><?php echo $value['name'] ?></p>
-            <form method="post" action="/deleteAddedTask">
-              <button class="removetask" name="<?php echo $value['id'] ?>">Remove</button>
-            </form>
-          </div>
-        <?php endforeach; ?>
+        <form method="post" action="/deleteAddedTask">
+          <?php foreach ($tasks as $key => $value) : ?>
+            <div class="Tasklist">
+              <p><?php echo $value['name'] ?></p>
+              <button class="removetask" name="<?php echo $value['id'] ?>" type="button">Remove</button>
+            </div>
+          <?php endforeach; ?>
+        </form>
       </div>
+
       <!-- this below section is for add button -->
       <div class="add-todo-btn-section">
         <div class="add-todo-inner-section">
@@ -92,7 +95,7 @@
                 </div>
                 <p>Drink Water, Keep Healthy</p>
                 <div>
-                  <button class="add" name="1">ADD</button>
+                  <button class="add" name="1" type="button">ADD</button>
                 </div>
               </div>
               <div class="contents">
@@ -101,7 +104,7 @@
                 </div>
                 <p>Go Exercising</p>
                 <div>
-                  <button class="add" name="2">ADD</button>
+                  <button class="add" name="2" type="button">ADD</button>
                 </div>
               </div>
               <div class="contents">
@@ -110,7 +113,7 @@
                 </div>
                 <p>Go To Bed Early</p>
                 <div>
-                  <button class="add" name="3">ADD</button>
+                  <button class="add" name="3" type="button">ADD</button>
                 </div>
               </div>
               <div class="contents">
@@ -119,7 +122,7 @@
                 </div>
                 <p>Keep Reading</p>
                 <div>
-                  <button class="add" name="4">ADD</button>
+                  <button class="add" name="4" type="button">ADD</button>
                 </div>
               </div>
             </div>
@@ -139,7 +142,7 @@
         <div class="Task_Type">
           <div class="wrapper">
             <input name="user_id" class="user_id" value="<?= $_SESSION['userid'] ?>" type="hidden">
-            
+
             <input type="radio" name="task_type" id="option-1" value="1" class="category" checked>
             <input type="radio" name="task_type" id="option-2" value="2" class="category">
 

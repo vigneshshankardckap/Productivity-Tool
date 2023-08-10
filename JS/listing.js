@@ -323,4 +323,56 @@ $(document).ready(function () {
 
 });
 
-// =========================================================================================================
+// ===============================This below function is about the after add the habit change it to added ===
+
+$(function () {
+  $('.add').each(function () {
+    $(this).click(function (e) {
+      var addText = $(e.target).text()
+      var addedValue = $(e.target).attr("name")
+      // console.log(addedValue)
+      if (addText == "ADD") {
+        $(e.target).text("ADDED")
+      }
+      else if (addText == "ADDED") {
+        $(e.target).text("ADD")
+      }
+      $.ajax({
+          url: "/addTask",
+          data: {
+            value: addedValue
+          },
+          type: "POST",
+          success: function (response) {
+            // console.log(response)
+          }
+        });
+    });
+  });
+});
+
+
+
+// =====================REMOVE ADDED HABITS USING JQUERY AND AJAX=================
+
+$(function () {
+  $('.removetask').each(function () {
+    $(this).click(function (e) {
+      var removeBtn = $(e.target).attr("name")
+      // console.log(removeBtn)
+     $.ajax({
+          url: "/deleteAddedTask",
+          data: {
+            value: removeBtn
+          },
+          type: "POST",
+          success: function (response) {
+            // console.log(response)
+          }
+        });
+    });
+  });
+});
+
+
+

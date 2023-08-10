@@ -9,6 +9,9 @@
   <link rel="stylesheet" href="">
   <script src="https://kit.fontawesome.com/52d2b40c3f.js" crossorigin="anonymous"></script>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
 </head>
 
 <body>
@@ -76,14 +79,14 @@
           </div>
         </div>
         <hr>
-        <?php foreach ($tasks as $key => $value) : ?>
-          <div class="Tasklist">
-            <p><?php echo $value['name'] ?></p>
-            <form method="post" action="/deleteAddedTask">
-              <button class="removetask" name="<?php echo $value['id'] ?>">Remove</button>
-            </form>
-          </div>
-        <?php endforeach; ?>
+        <form method="post" action="/deleteAddedTask">
+          <?php foreach ($tasks as $key => $value) : ?>
+            <div class="Tasklist">
+              <p><?php echo $value['name'] ?></p>
+              <button class="removetask" name="<?php echo $value['id'] ?>" type="button">Remove</button>
+            </div>
+          <?php endforeach; ?>
+        </form>
       </div>
       <!-- this below section is for add button -->
 
@@ -203,7 +206,7 @@
                                 <div class="make-changes">
                                   <button><i class="fa-solid fa-pen"></i></button>
                                   <form action="/deleteTask" method="post" >
-                                    <input type="text" hidden name=task_id value ="<?php echo $do->id ?>"/> 
+                                    <input type="text" hidden name="<?php echo $do->id ?>"> 
                                   <button><i class="fa-solid fa-trash-can"></i></button>
                                   </form>
                                   <button class="add-comment-btn" name="comment"><i class="fa-solid fa-comment"></i></button>
