@@ -261,11 +261,9 @@ for (let j = 0; j < commentBtn.length; j++) {
 
 
 
-// ========================================================================
-// let editBtn = document.querySelector(".editBtn");
-// editBtn.addEventListener("click",()=>{
-//   alert("welcome");
-// })
+// ====================deleted function ====================================================
+
+
 
 $(document).ready(function () {
 
@@ -296,6 +294,7 @@ $(document).ready(function () {
 
   })
 
+  ==========================ADD COMMENT FUNCTION ========================
 
   $(document).ready(function () {
 
@@ -323,3 +322,5 @@ $(document).ready(function () {
   })
 
 });
+
+=========================================================================================================

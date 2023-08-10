@@ -1,4 +1,4 @@
-<?php 
+<?php
 require 'controller/controller.php';
 class router
 {
@@ -38,26 +38,22 @@ class router
 
 
 
-    
+
     public function routing()
     {
         $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
         foreach ($this->router as $router) {
 
-            if ($router['uri']== $uri){
+            if ($router['uri'] == $uri) {
 
                 $action = $router['controller'];
-
             }
         }
 
-            if($action){
-                $this->controller->$action();
-            }
-            else{
-                require 'error.php';
-            }
+        if ($action) {
+            $this->controller->$action();
+        } else {
+            require 'error.php';
+        }
     }
-           
-
 }

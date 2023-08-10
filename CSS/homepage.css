@@ -37,7 +37,8 @@ body {
 .container {
   position: relative;
   padding: 35px 80px;
-  /* max-width: fit-content; */
+  width: -webkit-fill-available;
+  /* max-width: 1024px; */
 }
 
 .active {
@@ -91,14 +92,10 @@ body {
 
 .input-box:focus {
   transition: 0.4s;
-  /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
   outline: none;
   border: 1px solid #52a521;
 }
 
-.input-box::placeholder {
-  color: var(--font-color);
-}
 
 /* ---------------styling for left side elements----------- */
 .left-section h1 {
@@ -313,6 +310,7 @@ body {
   color: var(--font-color);
   font-weight: 600;
 }
+
 /* ---------close button for form---------------- */
 .close-btn {
   cursor: pointer;
@@ -344,10 +342,6 @@ body {
   padding: 0px 0px 0px 40px;
 }
 
-/* .single-input-form form {
-  padding-top: 20px;
-} */
-
 /* -----below style for task type(personal or professional)---------------- */
 .Task_Type {
   display: flex;
@@ -361,10 +355,6 @@ body {
   height: 35px;
   width: 135px;
 }
-
-/* .Task_Type input:hover {
-  background-color: var(--focus-color);
-} */
 
 .Task_Type .typeBtn {
   border: 1px solid var(--primary-color);
@@ -381,12 +371,12 @@ body {
   gap: 10px;
   display: grid;
 }
+
 .inputdiv input {
   height: 35px;
   width: 275px;
   border: 1px solid var(--primary-color);
   border-radius: var(--single-border-radius);
-  /* background-color: var(--thresary-color); */
   background-color: var(--input-background-color);
   columns: var(--font-color);
   padding: 0px 10px;
@@ -396,14 +386,6 @@ body {
   cursor: pointer;
 }
 
-/* .inputdiv input:hover {
-  background-color: var(--focus-color);
-} */
-
-
-/* button.addTodo {
-  height: 35px;
-} */
 /* ------------below style is for our priority buttons-------------- */
 .matix {
   display: flex;
@@ -425,18 +407,20 @@ body {
   cursor: pointer;
   transition: 0.3s;
 }
+
 .matix div input:hover {
   background-color: var(--focus-color);
 }
+
 input[type='radio'] {
   accent-color: var(--primary-color);
 }
+
 button {
   border-radius: var(--single-border-radius);
 }
 
 .inputdiv input:focus {
-  /* background-color: var(--focus-color); */
   outline: none;
 }
 
@@ -457,18 +441,16 @@ button {
   box-shadow: #9b9c9a 0px 5px 15px;
 }
 
-.wrapper{
+.wrapper {
   display: inline-flex;
-  
   height: 70px;
-  /* width: 400px; */
   align-items: center;
   justify-content: space-evenly;
   border-radius: 5px;
   padding: 15px 15px;
-  /* box-shadow: 5px 5px 30px rgba(0,0,0,0.2); */
 }
-.wrapper .option{
+
+.wrapper .option {
   background: #fff;
   height: 100%;
   width: 100%;
@@ -483,29 +465,34 @@ button {
   transition: all 0.3s ease;
 }
 
-.wrapper >input[type="radio"]{
+.wrapper>input[type="radio"] {
   display: none;
 }
-#option-1:checked:checked ~ .option-1,
-#option-2:checked:checked ~ .option-2{
+
+#option-1:checked:checked~.option-1,
+#option-2:checked:checked~.option-2 {
   border-color: #5fb32e;
-  background:#5fb32e;
+  background: #5fb32e;
 }
-#option-1:checked:checked ~ .option-1 .dot,
-#option-2:checked:checked ~ .option-2 .dot{
+
+#option-1:checked:checked~.option-1 .dot,
+#option-2:checked:checked~.option-2 .dot {
   background: #fff;
 }
-#option-1:checked:checked ~ .option-1 .dot::before,
-#option-2:checked:checked ~ .option-2 .dot::before{
+
+#option-1:checked:checked~.option-1 .dot::before,
+#option-2:checked:checked~.option-2 .dot::before {
   opacity: 1;
   transform: scale(1);
 }
-.wrapper .option span{
+
+.wrapper .option span {
   font-size: 20px;
   color: #808080;
 }
-#option-1:checked:checked ~ .option-1 span,
-#option-2:checked:checked ~ .option-2 span{
+
+#option-1:checked:checked~.option-1 span,
+#option-2:checked:checked~.option-2 span {
   color: #fff;
 
 }
@@ -518,10 +505,6 @@ button {
   right: 190px;
   display: none;
 }
-
-/* .divCon{
-  display: none;
-} */
 
 /* -------multi input form close button styling--------- */
 
@@ -643,7 +626,6 @@ button {
   border-radius: var(--multi-border-radius);
   border: 1px solid #656664;
   color: var(--font-color);
-  /* background-color: var(--background-color); */
   background-color: var(--input-background-color);
 }
 
@@ -730,8 +712,6 @@ button {
   box-shadow: #abf381 0px 5px 15px;
 
 }
-
-
 
 /* ================================================================================ */
 

@@ -9,26 +9,12 @@
     <link rel="stylesheet" href="">
     <script src="https://kit.fontawesome.com/52d2b40c3f.js" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <style>
-        .fetchdata {
-            margin-left: 20px;
-            padding: 10px;
-            color: black;
-        }
 
-        li>span {
-            margin-left: 10px;
-        }
 
-        .contents {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 70px;
-        }
-    </style>
 </head>
 
 <body>
@@ -70,8 +56,9 @@
                         <span class="font-medium switchCat on" type="">PROFESSIONAL</span>
                         <label class="relative inline-flex items-center cursor-pointer">
                             <input type="checkbox" value="" class="sr-only peer">
-                            <div class="w-14 h-7  peer-focus:outline-none peer -focus:ring-4  rounded-full peer  peer-checked:after:translate-x-full  after:content-[''] after:absolute after:top-0.5 after:left-[4px]   after:border after:rounded-full after:h-6 after:w-6 after:transition-all   switchBall">
-                            </div>
+
+                            <div class="w-14 h-7  peer-focus:outline-none peer -focus:ring-4  rounded-full peer  peer-checked:after:translate-x-full  after:content-[''] after:absolute after:top-0.5 after:left-[4px]   after:border after:rounded-full after:h-6 after:w-6 after:transition-all   switchBall"></div>
+
                         </label>
                         <span class="ml-3 font-medium switchCat" type="">PERSONAL</span>
                     </div>
@@ -124,8 +111,7 @@
                         </div>
                         <div>
                             <form action="/viewAllTask" method="post">
-                                <button class="showMoreBtn" name="matrixId" value="<?php echo $do->matrix_id ?>">View
-                                    Task..</button>
+                                <button class="showMoreBtn" name="matrixId" value="<?php echo $do->matrix_id ?>">View Task..</button>
                             </form>
                         </div>
                     </div>
@@ -184,8 +170,9 @@
                         <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
                             <div class="relative  overflow-hidden rounded-lg bg-white text-left shadow-xl sm:my-8 w-11/12 m-auto">
                                 <div class="bg-gray-50 px-4 py-3 sm:flex justify-between items-center px-3	">
-                                    <h3 class="text-base font-semibold leading-6 text-gray-900 " id="modal-title">DO
-                                        FIRST</h3>
+
+                                    <h3 class="text-base font-semibold leading-6 text-gray-900 " id="modal-title">DO FIRST</h3>
+
                                     <h3 class="text-base font-semibold leading-6 text-gray-900 no-underline md:underline" id="modal-title">ALL TASK</h3>
                                     <form action="/list" method="get">
                                         <button type="submit" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto" id='popUpCloseBtn'>X</button>
