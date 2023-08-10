@@ -161,4 +161,12 @@ class UserModule extends Database
         return $this->db->query("SELECT * from tasks where user_id = $userId AND matrix_id = $matrix_id AND deleted_at is NULL ")->fetchAll(PDO::FETCH_OBJ);
     }
 
+    public function addComment($values){
+        // var_dump($values);
+        $commentId = $values['commentId'];
+        $comment = $values['comment'];
+        $this->db->query("UPDATE tasks SET comments = '$comment' where id='$commentId' ");
+        header('location:/viewAllTask');
+    }
+
 }

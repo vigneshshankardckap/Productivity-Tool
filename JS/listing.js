@@ -251,7 +251,7 @@ let task_name = document.querySelectorAll(".list-name");
 for (let j = 0; j < commentBtn.length; j++) {
   commentInput[j].classList.add("addvisibility")
   commentBtn[j].addEventListener("click", () => {
-  commentInput[j].classList.toggle("addvisibility")
+    commentInput[j].classList.toggle("addvisibility")
   })
 
   TaskCompleted[j].addEventListener("click", () => {
@@ -279,16 +279,16 @@ $(document).ready(function () {
 
     // getting taskid 
     var rowdiv = $('#rowdiv');
-    var taskid= $('#rowid').val();
+    var taskid = $('#rowid').val();
 
     // sending task id to backend
     $.ajax({
       url: "/deleteTask",
-      data: { id:taskid },
+      data: { id: taskid },
       type: "POST",
-      success: function(response) {
+      success: function (response) {
         $("#rowdiv" + taskid).remove();
-        
+
         // If the request is successful, update the HTML table
 
       }
@@ -297,5 +297,29 @@ $(document).ready(function () {
   })
 
 
+  $(document).ready(function () {
+
+    var addComment = $('#addComment')
+    addComment.click(function () {
+      // alert("clicked")
+      var comment = $("#comment").val()
+      // console.log(comment)
+      var commentId = $("#commentId").val()
+      $.ajax({
+        url: "/addComment",
+        data: {
+          comment: comment,
+          commentId: commentId
+        },
+        type: "POST",
+        success: function (response) {
+          // console.log(response);
+        }
+      });
+
+
+    })
+
+  })
 
 });
