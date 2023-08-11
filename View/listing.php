@@ -229,8 +229,8 @@
           </div>
         </div>
       </div>
-    </div>>>>>>>> master
-234
+    </div>
+
 
     <div class="single-input-form">
       <form action="/store" method="post">
