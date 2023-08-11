@@ -271,7 +271,6 @@ $(document).ready(function () {
   var btnDelete = $("#btnDelete");
   // console.log(btnDelete);
 
-
   // adding click function for delete btn
   btnDelete.click(function () {
 
@@ -376,3 +375,53 @@ $(function () {
 
 
 
+// ==================================getId ==================
+
+
+$(document).ready(function () {
+
+  // selecting btn to delete
+  var viewtask = $("#getid");
+
+  let btn = document.querySelectorAll("#getid");
+  // console.log(btn)
+
+  for (let i = 0; i < btn.length; i++) {
+    btn[i].addEventListener("click",(e)=>{
+
+  let matrixid=e.target.dataset.id;
+
+
+   let arr =[];
+      /**  sending task id to backend */
+      
+      $.ajax({
+        url: "/particulartask",
+        data: { id:matrixid },
+        type: "POST",
+        success: function(response) {   
+          // console.log(response);  
+          let obj=JSON.parse(response);
+
+          for (let i = 0; i < obj.length; i++) {
+        
+            arr.push(obj[i])
+          }
+           datas(arr);
+        }
+      });
+
+    })
+  }
+
+});
+
+
+function datas(data){
+
+   
+}
+
+
+
+// =======================================

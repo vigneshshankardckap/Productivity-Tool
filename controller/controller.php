@@ -37,6 +37,7 @@ class UserController
 
     public function list()
     {
+       
         $category_id =  $_POST['category_id'];
         $fetchAllDataDo = $this->userModel->fetchDataFromDo($category_id);
         $fetchAllDataDefer = $this->userModel->fetchDataFromdefer($category_id);
@@ -84,6 +85,7 @@ class UserController
 //         var_dump($_POST);
 //         $this->userModel->editTask($_POST);
 //     }
+
     public function addComment(){
        
         $this->userModel->addComment($_REQUEST);
@@ -96,9 +98,12 @@ class UserController
         $this->userModel->deleteTask($_REQUEST);
     }
 
-    public function viewAllTask()
+    public function particulartask()
     {
-        $allTask = $this->userModel->viewAllTask($_POST);
-        require "View/taskDetails.php";
+    //   var_dump($_REQUEST['id']);
+        $this->userModel->viewAllTask($_REQUEST['id']);
+       
+        
+        // require "View/listing.php";
     }
 }
