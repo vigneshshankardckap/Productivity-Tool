@@ -103,7 +103,10 @@
                 <?php endforeach; ?>
               </div>
               <div>
-                  <button class="showMoreBtn" name="matrixId" value="<?php echo $do->matrix_id ?>">View Task..</button>
+
+                <!-- <form action="/viewAllTask" method="post"> -->
+                  <button class="showMoreBtn" id="getid" data-id="<?php echo "1"?>" name="matrixId" >View Task..</button>
+                <!-- </form> -->
               </div>
             </div>
           </div>
@@ -119,7 +122,10 @@
                 <?php endforeach; ?>
               </div>
               <div>
-                  <button class="showMoreBtn" name="matrixId" value="<?php echo "2"; ?>">View Task..</button>
+                
+                <!-- <form action="/viewAllTask" method="post"> -->
+                  <button class="showMoreBtn" id="getid" name="matrixId" data-id="<?php echo "2" ?>">View Task..</button>
+                <!-- </form> -->
               </div>
             </div>
           </div>
@@ -135,7 +141,9 @@
                 <?php endforeach; ?>
               </div>
               <div>
-                  <button class="showMoreBtn" name="matrixId" value="<?php echo $Delegate->matrix_id ?>">View Task..</button>
+                <!-- <form action="/viewAllTask" method="post"> -->
+                  <button class="showMoreBtn"id="getid" name="matrixId" data-id="<?php echo "3" ?> ?>">View Task..</button>
+                <!-- </form> -->
               </div>
             </div>
           </div>
@@ -151,7 +159,9 @@
                 <?php endforeach; ?>
               </div>
               <div>
-                  <button class="showMoreBtn" name="matrixId" value="<?php echo $delete->matrix_id ?>">View Task..</button>
+                <!-- <form action="/viewAllTask" method="post"> -->
+                  <button class="showMoreBtn"  id="getid" name="matrixId" data-id="<?php echo "4" ?>">View Task..</button>
+                <!-- </form> -->
               </div>
             </div>
           </div>

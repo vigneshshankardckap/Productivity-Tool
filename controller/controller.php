@@ -37,14 +37,14 @@ class UserController
 
     public function list()
     {
-        // var_dump($_POST);
+       
+        $category_id =  $_POST['category_id'];
+        $fetchAllDataDo = $this->userModel->fetchDataFromDo($category_id);
+        $fetchAllDataDefer = $this->userModel->fetchDataFromdefer($category_id);
+        $fetchAllDataDelegate = $this->userModel->fetchDataFromdelegate($category_id);
+        $fetchAllDataDelete = $this->userModel->fetchDataFromdelete($category_id);
 
-        $fetchAllDataDo = $this->userModel->fetchDataFromDo();
-        $fetchAllDataDefer = $this->userModel->fetchDataFromdefer();
-        // var_dump($fetchAllDataDefer[0]->task_name);
-        $fetchAllDataDelegate = $this->userModel->fetchDataFromdelegate();
-        $fetchAllDataDelete = $this->userModel->fetchDataFromdelete();
-        $tasks = $this->userModel->addedTaskDetails();
+      $tasks = $this->userModel->addedTaskDetails();
 
         require "View/listing.php";
     }
@@ -52,8 +52,6 @@ class UserController
     {
         $this->userModel->signUp($_POST);
     }
-
-
     public function store()
     {
 
@@ -62,7 +60,7 @@ class UserController
 
     public function addTask()
     {
-        // var_dump($_REQUEST);
+        
 
         $this->userModel->addTask($_REQUEST);
     }
@@ -80,23 +78,15 @@ class UserController
 
     public function deleteAddedTask()
     {
-        // var_dump($_REQUEST);
+
         $this->userModel->deleteAddedTask($_REQUEST);
     }
 
+//     public function editTask(){
+//         var_dump($_POST);
+//         $this->userModel->editTask($_POST);
+//     }
 
-    public function fetchData()
-    {
-        $this->userModel->fetchDataFromDo();
-    }
-
-    // public function editTask(){
-    //     var_dump($_POST);
-    //     $this->userModel->editTask($_POST);
-    // }
-
-
-    
     public function addComment(){
        
         $this->userModel->addComment($_REQUEST);
@@ -109,10 +99,12 @@ class UserController
         $this->userModel->deleteTask($_REQUEST);
     }
 
-    public function viewAllTask()
+    public function particulartask()
     {
-        $allTask = $this->userModel->viewAllTask($_POST);
-        // print_r($allTask);
-        require "View/taskDetails.php";
+    //   var_dump($_REQUEST['id']);
+        $this->userModel->viewAllTask($_REQUEST['id']);
+       
+        
+        // require "View/listing.php";
     }
 }
