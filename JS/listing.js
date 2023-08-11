@@ -5,6 +5,7 @@ let multiFormDiv = document.querySelector(".multiple-input-form");
 let innerContainer = document.querySelector(".inner-container")
 let cancelBtn = document.querySelector(".cancel-btn");
 let empty = document.querySelector(".forms-inner-div")
+let userContents = document.querySelectorAll(".user-content")
 
 // ======================below code is for open single form and multi form ===============================
 for (let i = 0; i < inputBtn.length; i++) {

@@ -9,7 +9,6 @@ class UserModule extends Database
         $username = $data['email'];
         $userpassword = $data['password'];
 
-
         $fetch = $this->db->query("SELECT * from users where email_id ='$username' and  password='$userpassword'");
         $datas = $fetch->fetchall();
 
@@ -57,7 +56,7 @@ class UserModule extends Database
     public function store($data)
     {
 
-        var_dump($data);
+        // var_dump($data);
         $taskName = $data['Task_name'];
         $dueDate = $data['dateTime'];
         $userId = $data['user_id'];
@@ -141,7 +140,6 @@ class UserModule extends Database
         return $this->db->query("SELECT * from tasks where user_id =$userId AND matrix_id = 4 and category_id = 1 ")->fetchAll(PDO::FETCH_OBJ);
     }
 
-    }
 
     public function editTask($id) {
         

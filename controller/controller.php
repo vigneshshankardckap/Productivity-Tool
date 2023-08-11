@@ -37,7 +37,7 @@ class UserController
 
     public function list()
     {
-        var_dump($_POST);
+        // var_dump($_POST);
 
         $fetchAllDataDo = $this->userModel->fetchDataFromDo();
         $fetchAllDataDefer = $this->userModel->fetchDataFromdefer();
