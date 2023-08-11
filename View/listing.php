@@ -109,9 +109,10 @@
                 <?php endforeach; ?>
               </div>
               <div>
-                <form action="/viewAllTask" method="post">
-                  <button class="showMoreBtn" name="matrixId" value="<?php echo $do->matrix_id ?>">View Task..</button>
-                </form>
+
+                <!-- <form action="/viewAllTask" method="post"> -->
+                  <button class="showMoreBtn" id="getid" data-id="<?php echo "1"?>" name="matrixId" >View Task..</button>
+                <!-- </form> -->
               </div>
             </div>
           </div>
@@ -127,9 +128,10 @@
                 <?php endforeach; ?>
               </div>
               <div>
-                <form action="/viewAllTask" method="post">
-                  <button class="showMoreBtn" name="matrixId" value="<?php echo "2"; ?>">View Task..</button>
-                </form>
+                
+                <!-- <form action="/viewAllTask" method="post"> -->
+                  <button class="showMoreBtn" id="getid" name="matrixId" data-id="<?php echo "2" ?>">View Task..</button>
+                <!-- </form> -->
               </div>
             </div>
           </div>
@@ -145,9 +147,9 @@
                 <?php endforeach; ?>
               </div>
               <div>
-                <form action="/viewAllTask" method="post">
-                  <button class="showMoreBtn" name="matrixId" value="<?php echo $Delegate->matrix_id ?>">View Task..</button>
-                </form>
+                <!-- <form action="/viewAllTask" method="post"> -->
+                  <button class="showMoreBtn"id="getid" name="matrixId" data-id="<?php echo "3" ?> ?>">View Task..</button>
+                <!-- </form> -->
               </div>
             </div>
           </div>
@@ -163,9 +165,9 @@
                 <?php endforeach; ?>
               </div>
               <div>
-                <form action="/viewAllTask" method="post">
-                  <button class="showMoreBtn" name="matrixId" value="<?php echo $delete->matrix_id ?>">View Task..</button>
-                </form>
+                <!-- <form action="/viewAllTask" method="post"> -->
+                  <button class="showMoreBtn"  id="getid" name="matrixId" data-id="<?php echo "4" ?>">View Task..</button>
+                <!-- </form> -->
               </div>
             </div>
           </div>
@@ -192,9 +194,9 @@
                           <div class="task-info">
                             <div class="list-name">
                               <h5 id="Task-Name" class="text-sm text-gray-500">
-                                <span><?php echo $key + 1; ?></span><?php echo $do->task_name; ?>
+                                <!-- <span><?php echo $key + 1; ?></span><?php echo $do->task_name; ?> -->
                               </h5>
-                              <p id="due-date"> <?php echo $do->dates; ?></p>
+                              <!-- <p id="due-date"> <?php echo $do->dates; ?></p> -->
                             </div>
                             <form action="/addComment" method="post">
                               <div class="add-Cmt">

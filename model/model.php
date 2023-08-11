@@ -172,9 +172,15 @@ class UserModule extends Database
     {
 
         $userId = $_SESSION['userid'];
-        $matrix_id = $data['matrixId'];
+        $matrix_id = $data;
+       
 
-        return $this->db->query("SELECT * from tasks where user_id = $userId AND matrix_id = $matrix_id AND deleted_at is NULL ")->fetchAll(PDO::FETCH_OBJ);
+        $datas = $this->db->query("SELECT * from tasks where user_id = $userId AND matrix_id = $matrix_id AND deleted_at is NULL ")->fetchAll(PDO::FETCH_OBJ);
+        echo json_encode($datas);
+
+         
+
+
     }
 
     public function addComment($values){

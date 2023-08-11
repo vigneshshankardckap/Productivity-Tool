@@ -9,9 +9,6 @@ session_start();
 
 require 'router.php';
 
-
-// $controller = new UserController();
-
 $router = new router();
 
 
@@ -22,7 +19,6 @@ $router->get('/', 'login');
 $router->get('/login', "login");
 
 $router->post('/loginLogic', "loginLogic");
-
 
 $router->get('/signup', "signUp");
 
@@ -36,16 +32,17 @@ $router->get('/logout', "logout");
 
 $router->post('/viewAllTask', 'viewAllTask');
 
-
 $router->post('/addTask', 'addTask');
+
 $router->post('/deleteTask', 'deleteTask');
-
-
 
 $router->post('/addedTaskDetails', 'addedTaskDetails');
 
 $router->post('/deleteAddedTask', 'deleteAddedTask');
 
 $router->post('/addComment', 'addComment');
+
+$router->post('/particulartask','particulartask');
+
 
 $router->routing();
