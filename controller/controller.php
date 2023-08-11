@@ -60,10 +60,11 @@ class UserController
         $this->userModel->store($_REQUEST);
     }
 
-    public function addTask($tasks)
+    public function addTask()
     {
+        // var_dump($_REQUEST);
 
-        $this->userModel->addTask($_POST);
+        $this->userModel->addTask($_REQUEST);
     }
 
     public function addedTaskDetails()
@@ -79,7 +80,8 @@ class UserController
 
     public function deleteAddedTask()
     {
-        $this->userModel->deleteAddedTask($_POST);
+        // var_dump($_REQUEST);
+        $this->userModel->deleteAddedTask($_REQUEST);
     }
 
 
@@ -94,21 +96,23 @@ class UserController
     // }
 
 
-    public function addComment()
-    {
-        // var_dump($_POST);
-        // $this->userModel->addComment($_POST);
+    
+    public function addComment(){
+       
+        $this->userModel->addComment($_REQUEST);
+
     }
 
     public function deleteTask()
     {
 
-        $this->userModel->DeleteTask($_POST);
+        $this->userModel->deleteTask($_REQUEST);
     }
 
     public function viewAllTask()
     {
         $allTask = $this->userModel->viewAllTask($_POST);
+        // print_r($allTask);
         require "View/taskDetails.php";
     }
 }

@@ -218,3 +218,76 @@ darkBtn.addEventListener("click", () => {
     darkBtn.classList.add("fa-moon")
   }
 })
+
+
+// ===============================This below function is about the after add the habit change it to added ===
+
+$(function () {
+  $('.add').each(function () {
+    $(this).click(function (e) {
+      var addText = $(e.target).text()
+      var addedValue = $(e.target).attr("name")
+      // console.log(addedValue)
+      if (addText == "ADD") {
+        $(e.target).text("ADDED")
+      }
+      else if (addText == "ADDED") {
+        $(e.target).text("ADD")
+      }
+      $.ajax({
+          url: "/addTask",
+          data: {
+            value: addedValue
+          },
+          type: "POST",
+          success: function (response) {
+            // console.log(response)
+          }
+        });
+    });
+  });
+});
+
+
+// =====================REMOVE ADDED HABITS USING JQUERY AND AJAX=================
+
+$(function () {
+  $('.removetask').each(function () {
+    $(this).click(function (e) {
+      var removeBtn = $(e.target).attr("name")
+      console.log(removeBtn)
+     $.ajax({
+          url: "/deleteAddedTask",
+          data: {
+            value: removeBtn
+          },
+          type: "POST",
+          success: function (response) {
+            console.log(response)
+          }
+        });
+    });
+  });
+});
+
+// =======================fetching user added habits using jquery and ajax===========================
+
+// $(document).ready(function () {
+
+//   var notification = $("#notification");
+//   console.log(notification);
+//   notification.click(function () {
+//     var id = $("#notification").attr("value");
+//     console.log(id)
+//     $.ajax({
+//       url: "/addedTaskDetails",
+//       data: {id: id},
+//       type: "POST",
+//       success: function (response) {
+//         console.log(response)
+//       }
+//     });
+//   })
+
+//   })
+
