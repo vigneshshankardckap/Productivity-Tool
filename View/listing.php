@@ -105,7 +105,7 @@
               <div>
 
                 <!-- <form action="/viewAllTask" method="post"> -->
-                  <button class="showMoreBtn" id="getid" data-id="<?php echo "1"?>" name="matrixId" >View Task..</button>
+                <button class="showMoreBtn" id="getid" data-id="<?php echo "1" ?>" name="matrixId">View Task..</button>
                 <!-- </form> -->
               </div>
             </div>
@@ -122,9 +122,9 @@
                 <?php endforeach; ?>
               </div>
               <div>
-                
+
                 <!-- <form action="/viewAllTask" method="post"> -->
-                  <button class="showMoreBtn" id="getid" name="matrixId" data-id="<?php echo "2" ?>">View Task..</button>
+                <button class="showMoreBtn" id="getid" name="matrixId" data-id="<?php echo "2" ?>">View Task..</button>
                 <!-- </form> -->
               </div>
             </div>
@@ -142,7 +142,7 @@
               </div>
               <div>
                 <!-- <form action="/viewAllTask" method="post"> -->
-                  <button class="showMoreBtn"id="getid" name="matrixId" data-id="<?php echo "3" ?> ?>">View Task..</button>
+                <button class="showMoreBtn" id="getid" name="matrixId" data-id="<?php echo "3" ?> ?>">View Task..</button>
                 <!-- </form> -->
               </div>
             </div>
@@ -160,7 +160,7 @@
               </div>
               <div>
                 <!-- <form action="/viewAllTask" method="post"> -->
-                  <button class="showMoreBtn"  id="getid" name="matrixId" data-id="<?php echo "4" ?>">View Task..</button>
+                <button class="showMoreBtn" id="getid" name="matrixId" data-id="<?php echo "4" ?>">View Task..</button>
                 <!-- </form> -->
               </div>
             </div>
@@ -175,10 +175,11 @@
             <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <div class="relative  overflow-hidden rounded-lg bg-white text-left shadow-xl sm:my-8 w-11/12 m-auto">
                 <div class=" px-4 py-3 sm:flex justify-between items-center px-3	">
-                  <h3 class="text-base font-semibold font-size: 1.25rem; leading-6 text-gray-900 " id="modal-title">DO FIRST</h3>
-                  <form action="/list" method="get">
-                    <button type="submit" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300  sm:mt-0 sm:w-auto" id='popUpCloseBtn'>X</button>
-                  </form>
+                  <h3 class="text-base font-semibold leading-6 text-gray-900 text-xl" id="modal-title">DO FIRST</h3>
+                  <div class="flex gap-32">
+                    <button type="submit" class="completedBtn focus:outline-none text-white font-medium rounded-lg text-sm px-5 py-2.5 bg-green-500">COMPLETED TASK 1</button>
+                    <button type="button" class="rounded-md bg-white h-8 w-8	text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 text-red-600" id='popUpCloseBtn'>X</button>
+                  </div>
                 </div>
                 <hr>
                 <div class="task-heading-2  sm:flex justify-between task-box-heading ">
@@ -188,49 +189,9 @@
                 </div>
                 <hr>
                 <div class="bg-white ">
-                  <div class=" px-4 py-3 sm:flex justify-between items-center px-3	">
+                  <div class="px-4 py-3 sm:flex justify-center items-center px-3">
                     <div class="taskListDiv text-base leading-6 text-gray-900 no-underline " id="modal-title">
-                      <div class="task-inner-div">
-                        <div class="task-info" id="rowdiv">
-                          <input type="hidden" id="rowid" value="">
-                          <div class="list-name">
-                            <h5 id="Task-Name" class="text-sm text-gray-500">
-                              <p class="user-content">Yuvaraj</p>
-                            </h5>
-                          </div>
-                        </div>
-                        <div class="text-base  leading-6 text-gray-900 no-underline " id="modal-title">
-                          <p id="due-date">10.20.2002</p>
-                        </div>
-                      </div>
-                      <div class="second-div">
-                        <div class="text-base leading-6 text-gray-900 no-underline " id="modal-title">
-                          <div class="add-Cmt">
-                            <form action="/addComment" method="post">
-                              <input type="text" value="" name="commentId" id="commentId" hidden>
-                              <input type="text" placeholder="comment here " id="comment" name="comment">
-                              <button id="addComment" type="button"><i class="fa-solid fa-upload"></i></button>
-                            </form>
-                          </div>
-                        </div>
-                        <div class="text-base leading-6 text-gray-900 no-underline " id="modal-title">
-                          <div>
-                            <div class="change">
-                              <div class="Task-progress">
-                                <input type="checkbox" class="taskCheckBox" id="checkBox" />
-                              </div>
-                              <div class="make-changes">
-                                <button><i class="fa-solid fa-pen"></i></button>
-                                <form action="/deleteTask" method="post">
-                                  <input type="text" hidden name=task_id value="" />
-                                  <button type="button" id="btnDelete"><i class="fa-solid fa-trash-can"></i></button>
-                                </form>
-                                <button class="add-comment-btn"><i class="fa-solid fa-comment"></i></button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                      <!-- fetched tasks and other functionality buttons injected here -->
                     </div>
                   </div>
                 </div>
@@ -320,5 +281,8 @@
   </div>
   <script src="../JS/listing.js"></script>
 </body>
+
+</div>
+
 
 </html>

@@ -232,35 +232,10 @@ let popUpWnd = document.querySelector('.testing-window');
 for (let i = 0; i < showMoreBtn.length; i++) {
   showMoreBtn[i].addEventListener("click", () => {
     popUpWnd.classList.toggle('invisible');
+    // datas()
   });
 
 }
-
-let popUpclose = document.querySelector('#popUpCloseBtn');
-popUpclose.addEventListener("click", () => {
-  popUpWnd.classList.toggle('invisible');
-});
-
-// ==============================================================
-
-let commentBtn = document.querySelectorAll(".add-comment-btn");
-let commentInput = document.querySelectorAll(".add-Cmt");
-let TaskCompleted = document.querySelectorAll("#checkBox");
-
-let task_name = document.querySelectorAll(".list-name");
-
-for (let j = 0; j < commentBtn.length; j++) {
-  commentInput[j].classList.add("addvisibility")
-  commentBtn[j].addEventListener("click", () => {
-    commentInput[j].classList.toggle("addvisibility")
-  })
-
-  TaskCompleted[j].addEventListener("click", () => {
-    task_name[j].classList.toggle("completedTask")
-  })
-}
-
-
 
 // ====================deleted function ====================================================
 
@@ -338,15 +313,15 @@ $(function () {
         $(e.target).text("ADD")
       }
       $.ajax({
-          url: "/addTask",
-          data: {
-            value: addedValue
-          },
-          type: "POST",
-          success: function (response) {
-            // console.log(response)
-          }
-        });
+        url: "/addTask",
+        data: {
+          value: addedValue
+        },
+        type: "POST",
+        success: function (response) {
+          // console.log(response)
+        }
+      });
     });
   });
 });
@@ -360,16 +335,16 @@ $(function () {
     $(this).click(function (e) {
       var removeBtn = $(e.target).attr("name")
       // console.log(removeBtn)
-     $.ajax({
-          url: "/deleteAddedTask",
-          data: {
-            value: removeBtn
-          },
-          type: "POST",
-          success: function (response) {
-            // console.log(response)
-          }
-        });
+      $.ajax({
+        url: "/deleteAddedTask",
+        data: {
+          value: removeBtn
+        },
+        type: "POST",
+        success: function (response) {
+          // console.log(response)
+        }
+      });
     });
   });
 });
@@ -388,27 +363,27 @@ $(document).ready(function () {
   // console.log(btn)
 
   for (let i = 0; i < btn.length; i++) {
-    btn[i].addEventListener("click",(e)=>{
+    btn[i].addEventListener("click", (e) => {
 
-  let matrixid=e.target.dataset.id;
+      let matrixid = e.target.dataset.id;
 
 
-   let arr =[];
+      let arr = [];
       /**  sending task id to backend */
-      
+
       $.ajax({
         url: "/particulartask",
-        data: { id:matrixid },
+        data: { id: matrixid },
         type: "POST",
-        success: function(response) {   
+        success: function (response) {
           // console.log(response);  
-          let obj=JSON.parse(response);
+          let obj = JSON.parse(response);
 
           for (let i = 0; i < obj.length; i++) {
-        
+
             arr.push(obj[i])
           }
-           datas(arr);
+          datas(arr);
         }
       });
 
@@ -417,12 +392,116 @@ $(document).ready(function () {
 
 });
 
+let taskDiv = document.querySelector('.taskListDiv')
 
-function datas(data){
 
-   
+function datas(data) {
+  console.log(data);
+  if (data.length > 0) {
+    let datas = data.map((element) => {
+
+      return `
+      <div class="tasks-lists bg-zinc-200 my-1	h-14	py-3 px-1.5	cursor-pointer flex gap-8 pb-5 rounded">
+        <div class="task-inner-div">
+          <div class="task-info" id="rowdiv">
+            <input type="hidden" id="rowid" value="">
+            <div class="list-name">
+              <h5 id="Task-Name" class="text-sm text-gray-500">
+                <p class="user-content">${element.task_name}</p>
+              </h5>
+            </div>
+          </div>
+          <div class="text-base  leading-6 text-gray-900 no-underline " id="modal-title">
+            <p id="due-date">${element.dates}</p>
+          </div>
+        </div>
+        <div class="second-div">
+          <div class="text-base leading-6 text-gray-900 no-underline model-title " id="modal-title">
+            <div class="add-Cmt">
+              <form action="/addComment" method="post" class="relative">
+                <input type="text" value="" name="commentId" id="commentId" hidden>
+                <input type="text" placeholder="comment here " id="comment" name="comment" class="add-Cmt">
+                <button id="addComment" class="absolute right-0 type="button"><i class="fa-solid fa-upload"></i></button>
+              </form>
+            </div>
+          </div>
+          <div class="text-base leading-6 text-gray-900 no-underline " id="modal-title">
+            <div class="change">
+              <div class="Task-progress pt-px	">
+                <input type="checkbox" class="taskCheckBox" id="checkBox" />
+              </div>
+              <div class="make-changes">
+                <button><i class="fa-solid fa-pen"></i></button>
+                <form action="/deleteTask" method="post">
+                  <input type="text" hidden name=task_id value="" />
+                  <button type="button" id="btnDelete"><i class="fa-solid fa-trash-can"></i></button>
+                </form>
+                <button class="add-comment-btn"><i class="fa-solid fa-comment"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      `
+    }).join("")
+
+    taskDiv.innerHTML = datas
+  }
+  else {
+    let emptyMsg = `
+    <div>
+    <p>Please Add Task</p>
+    </div>
+    `.join("")
+    taskDiv.innerHTML = emptyMsg;
+  }
+
+
+  // ======================================
+  closeWindow()
+  // ==============================================================
+
+  let commentBtn = document.querySelectorAll(".add-comment-btn");
+  let commentInput = document.querySelectorAll(".model-title ");
+  let TaskCompleted = document.querySelectorAll("#checkBox");
+  let task_name = document.querySelectorAll(".task-inner-div");
+
+  for (let j = 0; j < commentBtn.length; j++) {
+
+    commentBtn[j].addEventListener("click", () => {
+      commentInput[j].classList.toggle("addvisibility")
+    })
+
+    TaskCompleted[j].addEventListener("click", () => {
+      task_name[j].classList.toggle("completedTask")
+
+
+    })
+  }
+
+  // ======================================
+
+  let tasks_list = document.querySelectorAll('.tasks-lists')
+  let btnDiv = document.querySelectorAll('.make-changes')
+
+
+  $(document).ready(function () {
+    for (let i = 0; i < tasks_list.length; i++) {
+      $(tasks_list[i]).hover(function () {
+        $(btnDiv[i]).addClass('show')
+      }, function () {
+        $(btnDiv[i]).removeClass('show'),
+          $(commentInput[i]).removeClass('addvisibility')
+      });
+    }
+  });
+
 }
 
 
-
-// =======================================
+function closeWindow(params) {
+  let popUpclose = document.querySelector('#popUpCloseBtn');
+  popUpclose.addEventListener("click", () => {
+    popUpWnd.classList.toggle('invisible');
+  });
+}
