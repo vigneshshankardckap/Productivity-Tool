@@ -828,38 +828,12 @@ button.removetask {
 
 /* ============================= this  block for the added todoinfo =========================*/
 
-/* .Task-list {
-  display: flex;
-  gap: 300px;
-  margin-left: 80px;
-} */
 
-/* .Task-Details hr {
-  margin: 20px 0px;
-} */
-
-/* .task-info {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  gap: 35px;
-} */
-
-/* .task-info .list-name {
-  display: flex;
-  gap: 39px;
-  font-size: 18px;
-  color: #7F808A;
-  align-items: center;
-} */
 .task-heading-2{
   padding: 10px 180px 10px 150px;
 
 }
-.taskListDiv{
-  display: flex;
-  gap: 60px;
-}
+
 .task-inner-div{
   display: flex;
   align-items: center;
@@ -870,32 +844,32 @@ button.removetask {
 .second-div{
   display: flex;
   align-items: center;
-  gap: 50px;
+  gap: 60px;
+  padding: 17px 0px;
 }
+
 .list-name h5 {
-  /* width: 350px; */
   font-size: 20px;
-  color: var(--font-color);
   width: 21rem;
 }
-.user-content p{
-  padding: 2px;
+#due-date{
+  color: var(--primary-color);  
 }
-/* .list-name span {
-  color: #83808A;
-  padding-right: 20px;
-} */
-
-/* #due-date {
-  font-size: 16px;
-} */
+.user-content{
+  padding: 2px;
+  color: var(--primary-color);
+}
 
 .completedTask {
   text-decoration: line-through;
+  text-decoration-color: var(--primary-color);
 }
 
+.cmt-section{
+  visibility: hidden;
+}
 
-.add-Cmt input {
+.add-Cmt input{
   position: relative;
   width: 250px;
   height: 43px;
@@ -908,20 +882,24 @@ button.removetask {
 }
 
 
-.add-Cmt button {
-  position: absolute;
-  margin: 12px -31px;
+.add-Cmt #addComment {
   border-radius: 11px;
-  padding: 5px;
+  padding: 8px;
   font-size: 9px;
   color: var(--primary-color);
   border: 2px solid var(--primary-color);
-  top:7rem;
+}
+.model-title{
+  visibility: hidden;
 }
 
 .make-changes {
   display: flex;
   gap: 25px;
+  visibility: hidden;
+}
+.show{
+  visibility: visible;
 }
 
 .make-changes button {
@@ -935,8 +913,8 @@ button.removetask {
 
 .change {
   display: flex;
-  align-items: center;
   gap: 58px;
+  align-items: flex-start;
 }
 
 .taskCheckBox {
@@ -947,7 +925,7 @@ button.removetask {
 }
 
 .addvisibility {
-  visibility: hidden;
+  visibility: visible;
 }
 
 /* ====================radio button style==================================== */
