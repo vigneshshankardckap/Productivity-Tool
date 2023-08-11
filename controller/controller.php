@@ -43,7 +43,8 @@ class UserController
         $fetchAllDataDefer = $this->userModel->fetchDataFromdefer($category_id);
         $fetchAllDataDelegate = $this->userModel->fetchDataFromdelegate($category_id);
         $fetchAllDataDelete = $this->userModel->fetchDataFromdelete($category_id);
-        $tasks = $this->userModel->addedTaskDetails();
+
+      $tasks = $this->userModel->addedTaskDetails();
 
         require "View/listing.php";
     }
