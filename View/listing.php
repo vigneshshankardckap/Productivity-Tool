@@ -49,12 +49,17 @@
         </div>
         <div>
           <div class="switchDiv">
-            <span class="font-medium switchCat on" type="">PROFESSIONAL</span>
+            <form action="\list" method="post">
+            <button value="1" name="category_id" class="font-medium" >PROFESSIONAL</button>
+            <!-- <span class="font-medium switchCat on" type="">PROFESSIONAL</span>
             <label class="relative inline-flex items-center cursor-pointer">
               <input type="checkbox" value="" class="sr-only peer">
               <div class="w-14 h-7  peer-focus:outline-none peer -focus:ring-4  rounded-full peer  peer-checked:after:translate-x-full  after:content-[''] after:absolute after:top-0.5 after:left-[4px]   after:border after:rounded-full after:h-6 after:w-6 after:transition-all   switchBall"></div>
-            </label>
-            <span class=" font-medium switchCat" type="">PERSONAL</span>
+            </label> -->
+            <!-- <span class=" font-medium switchCat" type="">PERSONAL</span> -->
+            <button value="2"  class="font-medium"  name="category_id" >Personl</button>
+            </form>
+
           </div>
           <div class="add-todo-btn-section">
             <div class="add-todo-inner-section">
@@ -105,7 +110,7 @@
               </div>
               <div>
                 <form action="/viewAllTask" method="post">
-                  <button class="showMoreBtn" name="matrixId" value="<?php echo "1"; ?>">View Task..</button>
+                  <button class="showMoreBtn" name="matrixId" value="<?php echo $do->matrix_id ?>">View Task..</button>
                 </form>
               </div>
             </div>
@@ -141,7 +146,7 @@
               </div>
               <div>
                 <form action="/viewAllTask" method="post">
-                  <button class="showMoreBtn" name="matrixId" value="<?php echo "3"; ?>">View Task..</button>
+                  <button class="showMoreBtn" name="matrixId" value="<?php echo $Delegate->matrix_id ?>">View Task..</button>
                 </form>
               </div>
             </div>
@@ -159,7 +164,7 @@
               </div>
               <div>
                 <form action="/viewAllTask" method="post">
-                  <button class="showMoreBtn" name="matrixId" value="<?php echo "4"; ?>">View Task..</button>
+                  <button class="showMoreBtn" name="matrixId" value="<?php echo $delete->matrix_id ?>">View Task..</button>
                 </form>
               </div>
             </div>
@@ -224,7 +229,9 @@
           </div>
         </div>
       </div>
-    </div>
+    </div>>>>>>>> master
+234
+
     <div class="single-input-form">
       <form action="/store" method="post">
         <div class="close-btn">
