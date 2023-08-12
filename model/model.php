@@ -182,10 +182,11 @@ class UserModule extends Database
     }
 
     public function addComment($values){
+        // var_dump($values["id"]);
 
-        $commentId = $values['commentId'];
-        $comment = $values['comment'];
-        $this->db->query("UPDATE tasks SET comments = '$comment' where id='$commentId' ");
-        header('location:/viewAllTask');
+        $commentId = $values['id'];
+        // $comment = $values['comment'];
+        $this->db->query("UPDATE tasks SET comments = 'we' where id='$commentId' ");
+        // header('location:/viewAllTask');
     }
 }
