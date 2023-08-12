@@ -214,8 +214,8 @@
           <div class="wrapper">
             <input name="user_id" class="user_id" value="<?= $_SESSION['userid'] ?>" type="hidden">
 
-            <input type="radio" name="task_type" id="option-1" value="1" class=".typeBtn" checked>
-            <input type="radio" name="task_type" id="option-2" value="2" class=".typeBtn">
+            <input type="radio" name="task_type" id="option-1" value="1" required class=".typeBtn" checked>
+            <input type="radio" name="task_type" id="option-2" value="2" required class=".typeBtn">
 
             <label for="option-1" class="option option-1">
               <div class="dot"></div>
@@ -235,11 +235,11 @@
               <label for="grid-first-name">
                 What is on your Task
               </label>
-              <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-black focus:bg-white" id="grid-first-name" type="text" placeholder="projectName" name="Task_name">
+              <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-black focus:bg-white" id="grid-first-name" type="text" required placeholder="projectName" name="Task_name">
             </div>
             <div>
               <label for="project" placeholder="Get Date/Time">What on your due?</label>
-              <input type="datetime-local" placeholder="Get Date/Time" class="dateTime" value="" name="dateTime" />
+              <input type="datetime-local" placeholder="Get Date/Time" required class="dateTime" value="" name="dateTime" />
             </div>
           </div>
         </div>
@@ -248,16 +248,16 @@
             <label for="project">Urgent</label>
             <br>
             <label for="css">Yes</label>
-            <input type="radio" class="urgent-priority-btn " id="1" value="1" name="urgent">
+            <input type="radio" class="urgent-priority-btn " required id="1" value="1" name="urgent">
             <label for="css">No</label>
-            <input type="radio" class="urgent-priority-btn " id="1" value="0" name="urgent">
+            <input type="radio" class="urgent-priority-btn " required id="1" value="0" name="urgent">
           </div>
           <div class="ImportantDiv">
             <label for="project">Important</label><br>
             <label for="css">Yes</label>
-            <input type="radio" class="important-priority-btn datas" id="1" value="1" name="important">
+            <input type="radio" class="important-priority-btn datas" id="1" required value="1" name="important">
             <label for="css">No</label>
-            <input type="radio" class="important-priority-btn datas" id="1" value="0" name="important">
+            <input type="radio" class="important-priority-btn datas" required id="1" value="0" name="important">
           </div>
         </div>
         <button type="submit" onclick="store()" class="submit-btn">Submit</button>
