@@ -94,9 +94,11 @@ class UserController
     }
 
     public function deleteTask()
-    {
+    {  
 
-        $this->userModel->deleteTask($_REQUEST);
+        // var_dump($_REQUEST);
+
+        $this->userModel->deleteTask($_REQUEST['id']);
     }
 
     public function particulartask()
