@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Alkatra:wght@500&family=Montserrat:wght@100;200;300;400;500;600;700&display=swap');
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -98,7 +98,7 @@ body {
 .search-icon-div {
   color: var(--icon-color);
   position: absolute;
-  right: 380px;
+  right: 416px;
   top: 16px;
   font-size: 18px;
 }
@@ -293,6 +293,11 @@ body {
   font-weight: bold;
 }
 
+.close-habit-div {
+  margin-left: 836px;
+  border-radius: 0px 10px 0px 9px;
+}
+
 .close-btn:hover {
   transition: 0.3s;
   border-radius: var(--single-border-radius);
@@ -317,9 +322,50 @@ body {
 .switchDiv {
   display: flex;
   gap: 10px;
-  margin-left: 11rem;
   align-items: center;
-  padding-top: 20px;
+  padding-left: 143px;
+}
+
+.switchDiv form {
+  display: flex;
+
+}
+
+.font-menu {
+  color: gray;
+  border-bottom: 4px solid var(--background-color);
+  border-radius: 0px;
+  padding: 0px 5px;
+}
+
+.selectedCatagory {
+  border-bottom: 4px solid var(--primary-color);
+  border-radius: 0px;
+  color: green;
+  animation: border_anim 1s linear forwards;
+}
+
+
+@keyframes border_anim {
+  0% {
+    width: 0%;
+  }
+
+  25% {
+    width: 100%;
+  }
+
+  50% {
+    width: 100%;
+  }
+
+  75% {
+    width: 100%;
+  }
+
+  100% {
+    width: 100%;
+  }
 }
 
 .switchCat {
@@ -653,6 +699,7 @@ button {
   margin: 0 auto;
   font-family: var(--font-sans);
   padding: 20px;
+  z-index: 1;
 }
 
 .main-card {
@@ -761,7 +808,6 @@ button {
 /* notification list div */
 
 .Habitsdiv {
-
   width: 343px;
   display: none;
   border: 2px solid black;
@@ -771,7 +817,7 @@ button {
   left: 920px;
   border-radius: 10px;
   background-color: #FFFFFF;
-  z-index: 1;
+  /* z-index: 1; */
   border: none;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
@@ -820,6 +866,7 @@ button.removetask {
 
 .showdiv {
   display: block;
+  z-index: 1;
 }
 
 .activeBtn {
@@ -829,19 +876,20 @@ button.removetask {
 /* ============================= this  block for the added todoinfo =========================*/
 
 
-.task-heading-2{
+.task-heading-2 {
   padding: 10px 180px 10px 150px;
 
 }
 
-.task-inner-div{
+.task-inner-div {
   display: flex;
   align-items: center;
   gap: 13rem;
   width: 40rem;
 
 }
-.second-div{
+
+.second-div {
   display: flex;
   align-items: center;
   gap: 60px;
@@ -852,10 +900,12 @@ button.removetask {
   font-size: 20px;
   width: 21rem;
 }
-#due-date{
-  color: var(--primary-color);  
+
+#due-date {
+  color: var(--primary-color);
 }
-.user-content{
+
+.user-content {
   padding: 2px;
   color: var(--primary-color);
 }
@@ -865,11 +915,11 @@ button.removetask {
   text-decoration-color: var(--primary-color);
 }
 
-.cmt-section{
+.cmt-section {
   visibility: hidden;
 }
 
-.add-Cmt input{
+.add-Cmt input {
   position: relative;
   width: 250px;
   height: 43px;
@@ -889,7 +939,8 @@ button.removetask {
   color: var(--primary-color);
   border: 2px solid var(--primary-color);
 }
-.model-title{
+
+.model-title {
   visibility: hidden;
 }
 
@@ -898,7 +949,8 @@ button.removetask {
   gap: 25px;
   visibility: hidden;
 }
-.show{
+
+.show {
   visibility: visible;
 }
 
@@ -985,4 +1037,94 @@ button.removetask {
 #option-2:checked:checked~.option-2 span {
   color: #fff;
 
+}
+
+
+
+
+/* ------------------styling for our default todo portion (home page body content)--------------- */
+.body-mainDiv {
+  display: flex;
+  justify-content: center;
+
+}
+
+.Habits-div {
+  display: none;
+  position: absolute;
+  top: 139px;
+  right: 206px;
+}
+
+.body-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--thresary-color);
+  height: 500px;
+  width: 867px;
+  border-radius: 10px;
+  box-shadow: #63636333 0px 2px 8px 0px;
+}
+
+
+
+/* -----------styling for header ---------------- */
+.body-content h3 {
+  font-weight: 400;
+  font-size: 24px;
+  padding: 35px 282px 25px 45px;
+}
+
+/* -----------------main div for all the separate div styling------------- */
+.pre-define-todo {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.pre-define-todo>div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ------------inner separate div styling------------------ */
+.contents {
+  height: 62px;
+  width: 606px;
+  border-radius: 5px;
+  background-color: var(--background-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 25px;
+}
+
+/* ------------for inner content p tag------------ */
+.contents p {
+  font-size: 16px;
+  color: var(--font-color);
+}
+
+/* -----------style for add text ----------- */
+.contents .add {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.contents .add:hover {
+  text-shadow: 2px 2px 8px #5fb32e;
+}
+
+.showdiv {
+  display: block;
+}
+
+.hidediv {
+  display: none;
 }
