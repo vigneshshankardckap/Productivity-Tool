@@ -427,7 +427,8 @@ function datas(data) {
     addComment.click(function () {
       var comment = $("#comment").val()
       var commentId = $("#comment").attr("data-id")
-      // console.log(commentId)
+      console.log(commentId)
+      console.log(comment)
       $.ajax({
         url: "/addComment",
         data: {
@@ -443,7 +444,7 @@ function datas(data) {
             $("#succcess").css("display", "none");
           },3000)
 
-          paren.remove()
+          // paren.remove()
 
         }
       });
