@@ -50,6 +50,13 @@
           </ul>
         </div>
       </header>
+      <!-- -----------Notification div -------------------- -->
+      <div id="succcess">
+        <div class="notification-success" style="display: flex;">
+          <img src="/Images/success.gif" alt="" height="20px" width="20px" class="notifyIcon">
+          <p>Succesfully Removed</p>
+        </div>
+      </div>
       <!-- -----------habits div -------------------- -->
       <div class="Habitsdiv">
         <div class="notification-title">
@@ -84,50 +91,64 @@
         </div>
       </div>
       <!-- this is the body content (suggesed todo) -->
-      <form action="/addTask" method="post">
-        <div class="body-mainDiv">
-          <div class="body-content">
-            <h3>Let's Start With Some Good Habits</h3>
-            <div class="pre-define-todo">
-              <div class="contents">
-                <div>
-                  <img src="../Images/glass.png" />
-                </div>
-                <p>Drink Water, Keep Healthy</p>
-                <div>
+      <!-- <form action="/addTask" method="post"> -->
+      <div class="body-mainDiv">
+        <div class="body-content">
+          <h3>Let's Start With Some Good Habits</h3>
+          <div class="pre-define-todo">
+            <div class="contents">
+              <div>
+                <img src="../Images/glass.png" />
+              </div>
+              <p>Drink Water, Keep Healthy</p>
+              <div>
+                <form action="/addTask" method="post">
+                  <input value="1"  hidden>
                   <button class="add" name="1" type="button">ADD</button>
-                </div>
+                </form>
+
               </div>
-              <div class="contents">
-                <div>
-                  <img src="../Images/human.png" />
-                </div>
-                <p>Go Exercising</p>
-                <div>
+            </div>
+            <div class="contents">
+              <div>
+                <img src="../Images/human.png" />
+              </div>
+              <p>Go Exercising</p>
+              <div>
+                <form action="/addTask" method="post">
+                <input value="1"  hidden>
                   <button class="add" name="2" type="button">ADD</button>
-                </div>
+                </form>
               </div>
-              <div class="contents">
-                <div>
-                  <img src="../Images/ph_moon-fill.png" />
-                </div>
-                <p>Go To Bed Early</p>
-                <div>
+            </div>
+            <div class="contents">
+              <div>
+                <img src="../Images/ph_moon-fill.png" />
+              </div>
+              <p>Go To Bed Early</p>
+              <div>
+                <form action="/addTask" method="post">
+                <input value="1"  hidden>
                   <button class="add" name="3" type="button">ADD</button>
-                </div>
+                </form>
               </div>
-              <div class="contents">
-                <div>
-                  <img src="../Images/ph_book-fill.png" />
-                </div>
-                <p>Keep Reading</p>
-                <div>
+            </div>
+            <div class="contents">
+              <div>
+                <img src="../Images/ph_book-fill.png" />
+              </div>
+              <p>Keep Reading</p>
+              <div>
+                <form action="/addTask" method="post">
+                <input value="1" hidden>
                   <button class="add" name="4" type="button">ADD</button>
-                </div>
+                </form>
+
               </div>
             </div>
           </div>
         </div>
+      </div>
       </form>
     </div>
     <!-- this section is our single input form ----------- (it is separated from the inner container div for background blur)-->

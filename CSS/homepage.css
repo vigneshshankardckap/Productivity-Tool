@@ -785,3 +785,27 @@ button.removetask {
 .activeBtn {
   background-color: black;
 }
+
+.notification-success{
+  display: flex;
+  background-color: white;
+  padding: 10px;
+  width: 250px;
+  justify-content: space-around;
+  border-radius: 5px;
+  display: flex;
+  position: relative;
+  bottom: 85px;
+  left: 868px;
+}
+.notifyIcon{
+  height: 30px;
+  width: 30px;
+}
+.notification-success>p{
+  margin-top: 5px;
+}
+
+#succcess{
+  display: none;
+}
