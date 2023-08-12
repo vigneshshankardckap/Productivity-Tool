@@ -232,13 +232,21 @@ let popUpWnd = document.querySelector('.testing-window');
 for (let i = 0; i < showMoreBtn.length; i++) {
   showMoreBtn[i].addEventListener("click", () => {
     popUpWnd.classList.toggle('invisible');
-    // datas()
   });
 
 }
 
+// -------------task pop up window close functionality code here--------------
 
-// ==================================getId ==================
+function closeWindow(params) {
+  let popUpclose = document.querySelector('#popUpCloseBtn');
+  popUpclose.addEventListener("click", () => {
+    popUpWnd.classList.toggle('invisible');
+  });
+}
+
+// ------------------------------------------------------------------------------
+// ==================================getId (we will fetch the tasks using jquery and store it array)==================
 
 
 $(document).ready(function () {
@@ -254,12 +262,8 @@ $(document).ready(function () {
 
       let matrixid = e.target.dataset.id;
 
-
-
       let arr = [];
-
       /**  sending task id to backend */
-
       $.ajax({
         url: "/particulartask",
         data: { id: matrixid },
@@ -280,12 +284,8 @@ $(document).ready(function () {
   }
 
 });
-// -----------------------------------------
-let popUpclose = document.querySelector('#popUpCloseBtn');
-popUpclose.addEventListener("click", () => {
-  popUpWnd.classList.toggle('invisible');
-});
-// -----------------------------
+
+// =========================================below function is for assign the fetched task details===================== 
 
 let taskDiv = document.querySelector('.taskListDiv')
 
@@ -356,7 +356,7 @@ function datas(data) {
   }
 
 
-  // ======================================
+  // ===============================below code is for If the user hover the task div we will show the (edit delete comment butoons)======================================
 
   let tasks_list = document.querySelectorAll('.tasks-lists')
   let btnDiv = document.querySelectorAll('.make-changes')
@@ -373,7 +373,7 @@ function datas(data) {
   });
 
 
-  // ==============================================================
+  // =============================below code is for three functionality (comment div toggling)(task detail strike out)(if user click the check box the div will be hiding)=================================
 
   let commentBtn = document.querySelectorAll(".add-comment-btn");
   let commentInput = document.querySelectorAll(".model-title ");
@@ -381,7 +381,6 @@ function datas(data) {
   let task_name = document.querySelectorAll(".task-inner-div");
 
   for (let j = 0; j < commentBtn.length; j++) {
-
     commentBtn[j].addEventListener("click", () => {
       commentInput[j].classList.toggle("addvisibility")
     })
@@ -397,6 +396,7 @@ function datas(data) {
 
   // ================================delete task=================================
 
+  // ----------backend delete function here--------
   let deleteBtn = document.querySelectorAll('#btnDelete');
 
   $(document).on("click", "#btnDelete", function (e) {
@@ -409,35 +409,19 @@ function datas(data) {
       type: "POST",
       success: function (response) {
         console.log(response);
-        // $(".carts").load(location.href + " .carts")
-        // If the request is successful, update the HTML table            
       }
 
     });
   })
 
+  // UI delete function code here //
   for (let i = 0; i < deleteBtn.length; i++) {
     deleteBtn[i].addEventListener('click', () => {
       tasks_list[i].remove()
     })
   }
-  
+
 }
-
-
-
-// =================================================================
-
-function closeWindow(params) {
-  let popUpclose = document.querySelector('#popUpCloseBtn');
-  popUpclose.addEventListener("click", () => {
-    popUpWnd.classList.toggle('invisible');
-  });
-}
-
-// ================================================
-
-
 
 // ==========================ADD COMMENT FUNCTION ========================
 
