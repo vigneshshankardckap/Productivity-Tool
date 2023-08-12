@@ -167,7 +167,6 @@ function AddOneMoreForm() {
     })
   }
 
-
   // -----------------this below close button for close multi form-----------------
 
   let mainDivCloseBtn = document.querySelectorAll(".main-div-closeBtn");
@@ -253,11 +252,12 @@ $(document).ready(function () {
     btn[i].addEventListener("click", (e) => {
 
       let matrixid = e.target.dataset.id;
+          console.log(matrixid);
+    
       
 
-
+      /** this array is complete all the datas from backend  */
       let arr = [];
-
       /**  sending task id to backend */
 
       $.ajax({
@@ -267,6 +267,8 @@ $(document).ready(function () {
         success: function (response) {
           // console.log(response);  
           let obj = JSON.parse(response);
+
+        
 
           for (let i = 0; i < obj.length; i++) {
 
@@ -397,9 +399,6 @@ function datas(data) {
 
   // =========================== =================================
 
-  let tasks_list = document.querySelectorAll('.tasks-lists')
-  let btnDiv = document.querySelectorAll('.make-changes')
-
 
   $(document).ready(function () {
     for (let i = 0; i < tasks_list.length; i++) {
@@ -430,9 +429,7 @@ function datas(data) {
   $(document).on("click","#btnDelete",function(e){
 
   let taskid=e.target.parentElement.dataset.id;
-  
-    console.log(taskid);
-  
+
   
         /**  sending task id to backend */
         $.ajax({
@@ -519,7 +516,6 @@ $('.add').each(function () {
   });
 });
 });
-
 
 
 // =====================REMOVE ADDED HABITS USING JQUERY AND AJAX=================

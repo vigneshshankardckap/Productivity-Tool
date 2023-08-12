@@ -104,7 +104,7 @@
               </div>
               <div class="viewBtnDiv1">
                 <!-- view task button injected here -->
-                <button class="showMoreBtn" id="getid" name="matrixId" data-id="<?php echo "2" ?>">View Task..</button>
+                <button class="showMoreBtn" id="getid" name="matrixId" data-id="<?php echo "1" ?>">View Task..</button>
               
               </div>
             </div>
