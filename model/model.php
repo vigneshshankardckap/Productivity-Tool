@@ -174,7 +174,7 @@ class UserModule extends Database
        
 
         $datas = $this->db->query("SELECT * from tasks where user_id = $userId AND matrix_id = $matrix_id AND deleted_at is NULL ")->fetchAll(PDO::FETCH_OBJ);
-        echo json_encode($datas);
+        echo json_encode($datas);   
 
          
 
