@@ -161,8 +161,9 @@ class UserModule extends Database
     }
 
     public function DeleteTask($id){
+
         $this->db->query("UPDATE tasks SET deleted_at =now() Where id='$id'");
-         header('location:/viewAllTask');
+       echo json_encode('Sucess');
     }
 
     public function viewAllTask($data)

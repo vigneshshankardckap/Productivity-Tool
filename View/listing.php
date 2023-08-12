@@ -187,10 +187,12 @@
                   <span class="text-base leading-6 text-gray-900 no-underline " id="modal-title">PROGRESS</span>
                 </div>
                 <hr>
-                <div class="bg-white ">
+                <div class="bg-white">
                   <div class="px-4 py-3 sm:flex justify-center items-center px-3">
                     <div class="taskListDiv text-base leading-6 text-gray-900 no-underline " id="modal-title">
-                      <!-- fetched tasks and other functionality buttons injected here -->
+                    <div class="carts tasks-lists bg-zinc-200 my-1	h-14	py-3 px-1.5	cursor-pointer flex gap-8 pb-5 rounded">
+                  </div>
+                      <!-- fetched tasks and other functcartsionality buttons injected here -->
                     </div>
                   </div>
                 </div>

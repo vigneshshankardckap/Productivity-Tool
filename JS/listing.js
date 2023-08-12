@@ -237,120 +237,7 @@ for (let i = 0; i < showMoreBtn.length; i++) {
 
 }
 
-// ====================deleted function ====================================================
-
-
-
-$(document).ready(function () {
-
-  // selecting btn to delete
-  var btnDelete = $("#btnDelete");
-  // console.log(btnDelete);
-
-  // adding click function for delete btn
-  btnDelete.click(function () {
-
-    // getting taskid 
-    var rowdiv = $('#rowdiv');
-    var taskid = $('#rowid').val();
-
-    // sending task id to backend
-    $.ajax({
-      url: "/deleteTask",
-      data: { id: taskid },
-      type: "POST",
-      success: function (response) {
-        $("#rowdiv" + taskid).remove();
-
-        // If the request is successful, update the HTML table
-
-      }
-    });
-
-  })
-
-  // ==========================ADD COMMENT FUNCTION ========================
-
-  $(document).ready(function () {
-
-    var addComment = $('#addComment')
-    addComment.click(function () {
-      // alert("clicked")
-      var comment = $("#comment").val()
-      // console.log(comment)
-      var commentId = $("#commentId").val()
-      $.ajax({
-        url: "/addComment",
-        data: {
-          comment: comment,
-          commentId: commentId
-        },
-        type: "POST",
-        success: function (response) {
-          // console.log(response);
-        }
-      });
-
-
-    })
-
-  })
-
-});
-
-// ===============================This below function is about the after add the habit change it to added ===
-
-$(function () {
-  $('.add').each(function () {
-    $(this).click(function (e) {
-      var addText = $(e.target).text()
-      var addedValue = $(e.target).attr("name")
-      // console.log(addedValue)
-      if (addText == "ADD") {
-        $(e.target).text("ADDED")
-      }
-      else if (addText == "ADDED") {
-        $(e.target).text("ADD")
-      }
-      $.ajax({
-        url: "/addTask",
-        data: {
-          value: addedValue
-        },
-        type: "POST",
-        success: function (response) {
-          // console.log(response)
-        }
-      });
-    });
-  });
-});
-
-
-
-// =====================REMOVE ADDED HABITS USING JQUERY AND AJAX=================
-
-$(function () {
-  $('.removetask').each(function () {
-    $(this).click(function (e) {
-      var removeBtn = $(e.target).attr("name")
-      // console.log(removeBtn)
-      $.ajax({
-        url: "/deleteAddedTask",
-        data: {
-          value: removeBtn
-        },
-        type: "POST",
-        success: function (response) {
-          // console.log(response)
-        }
-      });
-    });
-  });
-});
-
-
-
+ 
 // ==================================getId ==================
 
 
@@ -366,9 +253,11 @@ $(document).ready(function () {
     btn[i].addEventListener("click", (e) => {
 
       let matrixid = e.target.dataset.id;
+      
 
 
       let arr = [];
+
       /**  sending task id to backend */
 
       $.ajax({
@@ -407,9 +296,9 @@ function datas(data) {
     let datas = data.map((element) => {
 
       return `
-      <div class="tasks-lists bg-zinc-200 my-1	h-14	py-3 px-1.5	cursor-pointer flex gap-8 pb-5 rounded">
+      <div class=" tasks-lists bg-zinc-200 my-1	h-14	py-3 px-1.5	cursor-pointer flex gap-8 pb-5 rounded">
         <div class="task-inner-div">
-          <div class="task-info" id="rowdiv">
+          <div class="task-info " id="rowdiv" >
             <input type="hidden" id="rowid" value="">
             <div class="list-name">
               <h5 id="Task-Name" class="text-sm text-gray-500">
@@ -441,10 +330,9 @@ function datas(data) {
               </div>
               <div class="make-changes">
                 <button><i class="fa-solid fa-pen"></i></button>
-                <form action="/deleteTask" method="post">
-                  <input type="text" hidden name=task_id value="" />
-                  <button type="button" id="btnDelete"><i class="fa-solid fa-trash-can"></i></button>
-                </form>
+              <div>
+                  <button type="button" id="btnDelete" data-id="${element.id}"><i class="fa-solid fa-trash-can"></i></button>
+              </div>
                 <button class="add-comment-btn"><i class="fa-solid fa-comment"></i></button>
               </div>
             </div>
@@ -453,7 +341,6 @@ function datas(data) {
       </div>
       `
     }).join("")
-
     taskDiv.innerHTML = datas
 
   }
@@ -461,7 +348,10 @@ function datas(data) {
     let emptyMsg = `
     <div>
     <p>Please Add Task</p>
-    </div>`
+
+    </div>
+    `
+
     taskDiv.innerHTML = emptyMsg;
   }
 
@@ -505,7 +395,24 @@ function datas(data) {
   }
 
 
-}
+  // =========================== =================================
+
+  let tasks_list = document.querySelectorAll('.tasks-lists')
+  let btnDiv = document.querySelectorAll('.make-changes')
+
+
+  $(document).ready(function () {
+    for (let i = 0; i < tasks_list.length; i++) {
+      $(tasks_list[i]).hover(function () {
+        $(btnDiv[i]).addClass('show')
+      }, function () {
+        $(btnDiv[i]).removeClass('show'),
+          $(commentInput[i]).removeClass('addvisibility')
+      });
+    }
+  });
+
+
 
   // ======================================
 
@@ -516,4 +423,124 @@ function datas(data) {
   // console.log(viewDiv1.parentElement)
   
   // viewDiv1.innerHTML = `<button class="showMoreBtn" id="getid" data-id="<?php echo "1" ?>" name="matrixId">View Task..</button>`
+
+
+// ================================delete task=================================
+  
+  $(document).on("click","#btnDelete",function(e){
+
+  let taskid=e.target.parentElement.dataset.id;
+  
+    console.log(taskid);
+  
+  
+        /**  sending task id to backend */
+        $.ajax({
+          url: "/deleteTask",
+          data: { id:taskid },
+          type: "POST",
+          success: function(response) {    
+             console.log(response);
+            // $(".carts").load(location.href + " .carts")
+            // If the request is successful, update the HTML table
+            
+          }
+          
+        });
+        
+
+  
+      })
+    }  
+// =================================================================
+
+function closeWindow(params) {
+  let popUpclose = document.querySelector('#popUpCloseBtn');
+  popUpclose.addEventListener("click", () => {
+    popUpWnd.classList.toggle('invisible');
+  });
+}
+
+// ================================================
+
+
+
+ // ==========================ADD COMMENT FUNCTION ========================
+
+ $(document).ready(function () {
+
+  var addComment = $('#addComment')
+  addComment.click(function () {
+    // alert("clicked")
+    var comment = $("#comment").val()
+    // console.log(comment)
+    var commentId = $("#commentId").val()
+    $.ajax({
+      url: "/addComment",
+      data: {
+        comment: comment,
+        commentId: commentId
+      },
+      type: "POST",
+      success: function (response) {
+        // console.log(response);
+      }
+    });
+
+
+  })
+
+})
+
+// ===============================This below function is about the after add the habit change it to added ===
+
+$(function () {
+$('.add').each(function () {
+  $(this).click(function (e) {
+    var addText = $(e.target).text()
+    var addedValue = $(e.target).attr("name")
+    // console.log(addedValue)
+    if (addText == "ADD") {
+      $(e.target).text("ADDED")
+    }
+    else if (addText == "ADDED") {
+      $(e.target).text("ADD")
+    }
+    $.ajax({
+      url: "/addTask",
+      data: {
+        value: addedValue
+      },
+      type: "POST",
+      success: function (response) {
+        // console.log(response)
+      }
+    });
+  });
+});
+});
+
+
+
+// =====================REMOVE ADDED HABITS USING JQUERY AND AJAX=================
+
+$(function () {
+$('.removetask').each(function () {
+  $(this).click(function (e) {
+    var removeBtn = $(e.target).attr("name")
+    // console.log(removeBtn)
+    $.ajax({
+      url: "/deleteAddedTask",
+      data: {
+        value: removeBtn
+      },
+      type: "POST",
+      success: function (response) {
+        // console.log(response)
+      }
+    });
+  });
+});
+});
+
 
