@@ -87,7 +87,7 @@ class UserModule extends Database
 
         $taskId = $value["value"];
 
-        $insertUserAddedTask = $this->db->query("INSERT INTO userAddedTask(user_id,addTask_id)VALUES ('$userId','$taskId')");
+        $insertUserAddedTask = $this->db->query("INSERT INTO userAddedTask(user_id,addTask_id,is_added)VALUES ('$userId','$taskId',1)");
         header('location:/LandingPage');
     }
 
@@ -161,8 +161,9 @@ class UserModule extends Database
     }
 
     public function DeleteTask($id){
+
         $this->db->query("UPDATE tasks SET deleted_at =now() Where id='$id'");
-         header('location:/viewAllTask');
+       echo json_encode('Sucess');
     }
 
     public function viewAllTask($data)
@@ -173,7 +174,7 @@ class UserModule extends Database
        
 
         $datas = $this->db->query("SELECT * from tasks where user_id = $userId AND matrix_id = $matrix_id AND deleted_at is NULL ")->fetchAll(PDO::FETCH_OBJ);
-        echo json_encode($datas);
+        echo json_encode($datas);   
 
          
 

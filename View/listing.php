@@ -114,11 +114,9 @@
                   <?php endif; ?>
                 <?php endforeach; ?>
               </div>
-              <div>
-
-                <!-- <form action="/viewAllTask" method="post"> -->
-                <button class="showMoreBtn" id="getid" data-id="<?php echo "1" ?>" name="matrixId">View Task..</button>
-                <!-- </form> -->
+              <div class="viewBtnDiv1">
+                <!-- view task button injected here -->
+                <button class="showMoreBtn" id="getid" name="matrixId" data-id="<?php echo "1" ?>">View Task..</button>
               </div>
             </div>
           </div>
@@ -133,8 +131,7 @@
                   <?php endif; ?>
                 <?php endforeach; ?>
               </div>
-              <div>
-
+              <div class="viewBtnDiv2"> 
                 <!-- <form action="/viewAllTask" method="post"> -->
                 <button class="showMoreBtn" id="getid" name="matrixId" data-id="<?php echo "2" ?>">View Task..</button>
                 <!-- </form> -->
@@ -152,9 +149,9 @@
                   <?php endif; ?>
                 <?php endforeach; ?>
               </div>
-              <div>
+              <div class="viewBtnDiv3">
                 <!-- <form action="/viewAllTask" method="post"> -->
-                <button class="showMoreBtn" id="getid" name="matrixId" data-id="<?php echo "3" ?> ?>">View Task..</button>
+                <button class="showMoreBtn" id="getid" name="matrixId" data-id="<?php echo "3"?>">View Task..</button>
                 <!-- </form> -->
               </div>
             </div>
@@ -170,7 +167,7 @@
                   <?php endif; ?>
                 <?php endforeach; ?>
               </div>
-              <div>
+              <div class="viewBtnDiv4">
                 <!-- <form action="/viewAllTask" method="post"> -->
                 <button class="showMoreBtn" id="getid" name="matrixId" data-id="<?php echo "4" ?>">View Task..</button>
                 <!-- </form> -->
@@ -189,8 +186,8 @@
                 <div class=" px-4 py-3 sm:flex justify-between items-center px-3	">
                   <h3 class="text-base font-semibold leading-6 text-gray-900 text-xl" id="modal-title">DO FIRST</h3>
                   <div class="flex gap-32">
-                    <button type="submit" class="completedBtn focus:outline-none text-white font-medium rounded-lg text-sm px-5 py-2.5 bg-green-500">COMPLETED TASK 1</button>
-                    <button type="button" class="rounded-md bg-white h-8 w-8	text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 text-red-600" id='popUpCloseBtn'>X</button>
+                    <button type="submit" class="completedBtn focus:outline-none font-medium rounded-lg text-sm px-5 ">COMPLETED TASK 1</button>
+                    <button type="submit" class="rounded-md bg-white h-8 w-8	text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 text-red-600" id='popUpCloseBtn'>X</button>
                   </div>
                 </div>
                 <hr>
@@ -200,10 +197,12 @@
                   <span class="text-base leading-6 text-gray-900 no-underline " id="modal-title">PROGRESS</span>
                 </div>
                 <hr>
-                <div class="bg-white ">
+                <div class="bg-white">
                   <div class="px-4 py-3 sm:flex justify-center items-center px-3">
                     <div class="taskListDiv text-base leading-6 text-gray-900 no-underline " id="modal-title">
-                      <!-- fetched tasks and other functionality buttons injected here -->
+                    <div class="carts tasks-lists bg-zinc-200 my-1	h-14	py-3 px-1.5	cursor-pointer flex gap-8 pb-5 rounded">
+                  </div>
+                      <!-- fetched tasks and other functcartsionality buttons injected here -->
                     </div>
                   </div>
                 </div>
@@ -280,8 +279,8 @@
           <div class="wrapper">
             <input name="user_id" class="user_id" value="<?= $_SESSION['userid'] ?>" type="hidden">
 
-            <input type="radio" name="task_type" id="option-1" value="1" class=".typeBtn" checked>
-            <input type="radio" name="task_type" id="option-2" value="2" class=".typeBtn">
+            <input type="radio" name="task_type" id="option-1" value="1" required class=".typeBtn" checked>
+            <input type="radio" name="task_type" id="option-2" value="2" required class=".typeBtn">
 
             <label for="option-1" class="option option-1">
               <div class="dot"></div>
@@ -301,11 +300,11 @@
               <label for="grid-first-name">
                 What is on your Task
               </label>
-              <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-black focus:bg-white" id="grid-first-name" type="text" placeholder="projectName" name="Task_name">
+              <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-black focus:bg-white" id="grid-first-name" type="text" required placeholder="projectName" name="Task_name">
             </div>
             <div>
               <label for="project" placeholder="Get Date/Time">What on your due?</label>
-              <input type="datetime-local" placeholder="Get Date/Time" class="dateTime" value="" name="dateTime" />
+              <input type="datetime-local" placeholder="Get Date/Time" required class="dateTime" value="" name="dateTime" />
             </div>
           </div>
         </div>
@@ -314,16 +313,16 @@
             <label for="project">Urgent</label>
             <br>
             <label for="css">Yes</label>
-            <input type="radio" class="urgent-priority-btn " id="1" value="1" name="urgent">
+            <input type="radio" class="urgent-priority-btn " required id="1" value="1" name="urgent">
             <label for="css">No</label>
-            <input type="radio" class="urgent-priority-btn " id="1" value="0" name="urgent">
+            <input type="radio" class="urgent-priority-btn " required id="1" value="0" name="urgent">
           </div>
           <div class="ImportantDiv">
             <label for="project">Important</label><br>
             <label for="css">Yes</label>
-            <input type="radio" class="important-priority-btn datas" id="1" value="1" name="important">
+            <input type="radio" class="important-priority-btn datas" id="1" required value="1" name="important">
             <label for="css">No</label>
-            <input type="radio" class="important-priority-btn datas" id="1" value="0" name="important">
+            <input type="radio" class="important-priority-btn datas" required id="1" value="0" name="important">
           </div>
         </div>
         <button type="submit" onclick="store()" class="submit-btn">Submit</button>
