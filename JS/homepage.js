@@ -227,6 +227,8 @@ $(function () {
     $(this).click(function (e) {
       var addText = $(e.target).text()
       var addedValue = $(e.target).attr("name")
+      var valuee = $(e.target).siblings().attr("value")
+      console.log(valuee)
       // console.log(addedValue)
       if (addText == "ADD") {
         $(e.target).text("ADDED")
@@ -235,39 +237,52 @@ $(function () {
         $(e.target).text("ADD")
       }
       $.ajax({
-          url: "/addTask",
-          data: {
-            value: addedValue
-          },
-          type: "POST",
-          success: function (response) {
-            // console.log(response)
-          }
-        });
+        url: "/addTask",
+        data: {
+          value: addedValue
+        },
+        type: "POST",
+        success: function (response) {
+          console.log(response)
+        }
+      });
     });
   });
 });
 
 
 // =====================REMOVE ADDED HABITS USING JQUERY AND AJAX=================
-
 $(function () {
+  // $(".Tasklist")
   $('.removetask').each(function () {
     $(this).click(function (e) {
       var removeBtn = $(e.target).attr("name")
-      console.log(removeBtn)
-     $.ajax({
-          url: "/deleteAddedTask",
-          data: {
-            value: removeBtn
-          },
-          type: "POST",
-          success: function (response) {
-            console.log(response)
-          }
-        });
+      var paren = $(e.target).parent();
+      console.log(paren)
+      $.ajax({
+        url: "/deleteAddedTask",
+        data: {
+          value: removeBtn
+        },
+        type: "POST",
+        success: function (response) {
+         
+          $("#succcess").css("display", "block");
+
+          setTimeout(() =>{
+            $("#succcess").css("display", "none");
+          },1000)
+
+          paren.remove()
+
+        }
+        
+      });
+
     });
+    
   });
+  
 });
 
 // =======================fetching user added habits using jquery and ajax===========================
@@ -290,4 +305,7 @@ $(function () {
 //   })
 
 //   })
+
+// var succcess = $("#succcess")
+
 

@@ -87,7 +87,7 @@ class UserModule extends Database
 
         $taskId = $value["value"];
 
-        $insertUserAddedTask = $this->db->query("INSERT INTO userAddedTask(user_id,addTask_id)VALUES ('$userId','$taskId')");
+        $insertUserAddedTask = $this->db->query("INSERT INTO userAddedTask(user_id,addTask_id,is_added)VALUES ('$userId','$taskId',1)");
         header('location:/LandingPage');
     }
 
