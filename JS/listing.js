@@ -313,7 +313,7 @@ function datas(data) {
           <div class="text-base leading-6 text-gray-900 no-underline model-title " id="modal-title">
             <div class="add-Cmt">
               <div class="relative" >
-                <input type="text" placeholder="comment here" id="comment" data-id="${element.id}" class="add-Cmt">
+              <input type="text" placeholder="comment here" id="comment" data-id="${element.id}" class="add-Cmt">
                 <button id="addComment" data-id="${element.id}" class="absolute right-0 type="button"><i class="fa-solid fa-upload"></i></button>
               </div>
             </div>
@@ -419,79 +419,39 @@ function datas(data) {
     })
   }
 
-  // let addComment = document.querySelectorAll('#addComment');
-  // let inputVal = document.querySelectorAll('#comment')
-  // console.log(inputVal)
-
-  $(document).on("click", "#addComment", function (e) {
-
-
-    let commentId = e.target.dataset.id
-
-    let comment = e.target.previousSibling
-    // let n = comment.value;
-    // console.log(n)
-    console.log(comment)
-    $.ajax({
-      url: "/addComment",
-      data: { id: commentId },
-      type: "POST",
-      success: function (response) {
-        console.log(response);
-      }
-    });
-  })
-
-
-}
-
 // ==========================ADD COMMENT FUNCTION ========================
-// let addComment = document.querySelectorAll('#addComment');
-// let inputVal = document.querySelectorAll('#comment')
-// console.log(addComment)
 
-// $(document).on("click", "#addComment", function (e) {
+  $(document).ready(function () {
 
+    var addComment = $('#addComment')
+    addComment.click(function () {
+      var comment = $("#comment").val()
+      var commentId = $("#comment").attr("data-id")
+      // console.log(commentId)
+      $.ajax({
+        url: "/addComment",
+        data: {
+          comment: comment,
+          commentId: commentId
+        },
+        type: "POST",
+        success: function (response) {
+          // console.log(response);
+          $("#succcess").css("display", "block");
 
-//   let commentId = e.target.dataset.id
-//   let comment = e.target.previousSibling
-//   let n = comment.value;
-//   console.log(n)
-//   // console.log(commentId)
-//   $.ajax({
-//     url: "/addComment",
-//     data: { id: commentId },
-//     type: "POST",
-//     success: function (response) {
-//       console.log(response);
-//     }
-//   });
-// })
+          setTimeout(() =>{
+            $("#succcess").css("display", "none");
+          },3000)
 
-// $(document).ready(function () {
+          paren.remove()
 
-//   var addComment = $('#addComment')
-//   addComment.click(function () {
-//     // alert("clicked")
-//     var comment = $("#comment").val()
-//     // console.log(comment)
-//     var commentId = $("#commentId").val()
-//     $.ajax({
-//       url: "/addComment",
-//       data: {
-//         comment: comment,
-//         commentId: commentId
-//       },
-//       type: "POST",
-//       success: function (response) {
-//         // console.log(response);
-//       }
-//     });
+        }
+      });
 
+    })
 
-//   })
-
-// })
+  })
+}
 
 // ===============================This below function is about the after add the habit change it to added ===
 
@@ -524,12 +484,13 @@ $(function () {
 
 
 // =====================REMOVE ADDED HABITS USING JQUERY AND AJAX=================
-
 $(function () {
+  // $(".Tasklist")
   $('.removetask').each(function () {
     $(this).click(function (e) {
       var removeBtn = $(e.target).attr("name")
-      // console.log(removeBtn)
+      var paren = $(e.target).parent();
+      console.log(paren)
       $.ajax({
         url: "/deleteAddedTask",
         data: {
@@ -537,15 +498,26 @@ $(function () {
         },
         type: "POST",
         success: function (response) {
-          // console.log(response)
+
+          $("#succcess").css("display", "block");
+
+          setTimeout(() => {
+            $("#succcess").css("display", "none");
+          }, 5000)
+
+          paren.remove()
+
         }
+
       });
+
     });
+
   });
-})
 
+});
 
-/*=========================== personal & professional btns code ===============================*/ 
+/*=========================== personal & professional btns code ===============================*/
 let Task_typeBtn = document.querySelectorAll("#categories");
 
 // console.log(Task_typeBtn);
@@ -561,20 +533,20 @@ for (let i = 0; i < Task_typeBtn.length; i++) {
 
 // =================== habits div ======================
 
-let habiticon = document.querySelector(".Habits-icon") 
+let habiticon = document.querySelector(".Habits-icon")
 let AddHabisDiv = document.querySelector(".Habits-div")
 let matrixdiv = document.querySelector(".page-content")
 let closeHabitdiv = document.querySelector("#close-habit-div");
 console.log(closeHabitdiv);
 // console.log(habiticon);
-habiticon.addEventListener('click',()=>{
+habiticon.addEventListener('click', () => {
   innerContainer.classList.add("active")
-  AddHabisDiv.style.display="block"
+  AddHabisDiv.style.display = "block"
 })
 
-closeHabitdiv.addEventListener("click",()=>{
+closeHabitdiv.addEventListener("click", () => {
   innerContainer.classList.remove("active")
-  AddHabisDiv.style.display="none"
+  AddHabisDiv.style.display = "none"
 })
 
 

@@ -57,7 +57,7 @@
               <button value="1" name="category_id" class="font-menu selectedCatagory" id="categories">PROFESSIONAL</button>
             </div>
 
-            <div> 
+            <div>
               <button value="2" class="font-menu" name="category_id" id="categories">PERSONAL</button>
             </div>
 
@@ -82,6 +82,14 @@
           </div>
         </div>
       </header>
+      <!-- -----------Notification div -------------------- -->
+      <div id="succcess">
+        <div class="notification-success" style="display: flex;">
+          <img src="/Images/success.gif" alt="" height="20px" width="20px" class="notifyIcon">
+          <p>Succesfully Added</p>
+        </div>
+      </div>
+      <!-- -----------habits div -------------------- -->
       <div class="Habitsdiv">
         <div class="notification-title">
           <h4>Notification </h4>
@@ -131,7 +139,7 @@
                   <?php endif; ?>
                 <?php endforeach; ?>
               </div>
-              <div class="viewBtnDiv2"> 
+              <div class="viewBtnDiv2">
                 <!-- <form action="/viewAllTask" method="post"> -->
                 <button class="showMoreBtn" id="getid" name="matrixId" data-id="<?php echo "2" ?>">View Task..</button>
                 <!-- </form> -->
@@ -151,7 +159,7 @@
               </div>
               <div class="viewBtnDiv3">
                 <!-- <form action="/viewAllTask" method="post"> -->
-                <button class="showMoreBtn" id="getid" name="matrixId" data-id="<?php echo "3"?>">View Task..</button>
+                <button class="showMoreBtn" id="getid" name="matrixId" data-id="<?php echo "3" ?>">View Task..</button>
                 <!-- </form> -->
               </div>
             </div>
@@ -200,8 +208,8 @@
                 <div class="bg-white">
                   <div class="px-4 py-3 sm:flex justify-center items-center px-3">
                     <div class="taskListDiv text-base leading-6 text-gray-900 no-underline " id="modal-title">
-                    <div class="carts tasks-lists bg-zinc-200 my-1	h-14	py-3 px-1.5	cursor-pointer flex gap-8 pb-5 rounded">
-                  </div>
+                      <div class="carts tasks-lists bg-zinc-200 my-1	h-14	py-3 px-1.5	cursor-pointer flex gap-8 pb-5 rounded">
+                      </div>
                       <!-- fetched tasks and other functcartsionality buttons injected here -->
                     </div>
                   </div>
@@ -218,11 +226,11 @@
       <form action="/addTask" method="post">
         <div class="body-mainDiv">
           <div class="body-content">
-          <div class="close-btn close-habit-div" id="close-habit-div">
-          <div>
-            <span>X</span>
-          </div>
-        </div>
+            <div class="close-btn close-habit-div" id="close-habit-div">
+              <div>
+                <span>X</span>
+              </div>
+            </div>
             <h3>Let's Start With Some Good Habits</h3>
             <div class="pre-define-todo">
               <div class="contents">
