@@ -238,12 +238,10 @@ for (let i = 0; i < showMoreBtn.length; i++) {
 
 // -------------task pop up window close functionality code here--------------
 
-function closeWindow(params) {
-  let popUpclose = document.querySelector('#popUpCloseBtn');
-  popUpclose.addEventListener("click", () => {
-    popUpWnd.classList.toggle('invisible');
-  });
-}
+let popUpclose = document.querySelector('#popUpCloseBtn');
+popUpclose.addEventListener("click", () => {
+  popUpWnd.classList.toggle('invisible');
+});
 
 // ------------------------------------------------------------------------------
 // ==================================getId (we will fetch the tasks using jquery and store it array)==================

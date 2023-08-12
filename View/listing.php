@@ -104,8 +104,7 @@
               </div>
               <div class="viewBtnDiv1">
                 <!-- view task button injected here -->
-                <button class="showMoreBtn" id="getid" name="matrixId" data-id="<?php echo "2" ?>">View Task..</button>
-              
+                <button class="showMoreBtn" id="getid" name="matrixId" data-id="<?php echo "1" ?>">View Task..</button>
               </div>
             </div>
           </div>
@@ -121,7 +120,6 @@
                 <?php endforeach; ?>
               </div>
               <div class="viewBtnDiv2"> 
-
                 <!-- <form action="/viewAllTask" method="post"> -->
                 <button class="showMoreBtn" id="getid" name="matrixId" data-id="<?php echo "2" ?>">View Task..</button>
                 <!-- </form> -->
@@ -141,7 +139,7 @@
               </div>
               <div class="viewBtnDiv3">
                 <!-- <form action="/viewAllTask" method="post"> -->
-                <button class="showMoreBtn" id="getid" name="matrixId" data-id="<?php echo "3" ?> ?>">View Task..</button>
+                <button class="showMoreBtn" id="getid" name="matrixId" data-id="<?php echo "3"?>">View Task..</button>
                 <!-- </form> -->
               </div>
             </div>
@@ -176,7 +174,7 @@
                 <div class=" px-4 py-3 sm:flex justify-between items-center px-3	">
                   <h3 class="text-base font-semibold leading-6 text-gray-900 text-xl" id="modal-title">DO FIRST</h3>
                   <div class="flex gap-32">
-                    <button type="submit" class="completedBtn focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5">COMPLETED TASK 1</button>
+                    <button type="submit" class="completedBtn focus:outline-none font-medium rounded-lg text-sm px-5 ">COMPLETED TASK 1</button>
                     <button type="submit" class="rounded-md bg-white h-8 w-8	text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 text-red-600" id='popUpCloseBtn'>X</button>
                   </div>
                 </div>
