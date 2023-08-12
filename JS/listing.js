@@ -237,7 +237,7 @@ for (let i = 0; i < showMoreBtn.length; i++) {
 
 }
 
- 
+
 // ==================================getId ==================
 
 
@@ -253,7 +253,7 @@ $(document).ready(function () {
     btn[i].addEventListener("click", (e) => {
 
       let matrixid = e.target.dataset.id;
-      
+
 
 
       let arr = [];
@@ -395,63 +395,37 @@ function datas(data) {
   }
 
 
-  // =========================== =================================
+  // ================================delete task=================================
 
-  let tasks_list = document.querySelectorAll('.tasks-lists')
-  let btnDiv = document.querySelectorAll('.make-changes')
+  let deleteBtn = document.querySelectorAll('#btnDelete');
 
+  $(document).on("click", "#btnDelete", function (e) {
 
-  $(document).ready(function () {
-    for (let i = 0; i < tasks_list.length; i++) {
-      $(tasks_list[i]).hover(function () {
-        $(btnDiv[i]).addClass('show')
-      }, function () {
-        $(btnDiv[i]).removeClass('show'),
-          $(commentInput[i]).removeClass('addvisibility')
-      });
-    }
-  });
+    let taskid = e.target.parentElement.dataset.id;
+    /**  sending task id to backend */
+    $.ajax({
+      url: "/deleteTask",
+      data: { id: taskid },
+      type: "POST",
+      success: function (response) {
+        console.log(response);
+        // $(".carts").load(location.href + " .carts")
+        // If the request is successful, update the HTML table            
+      }
 
+    });
+  })
 
-
-  // ======================================
-
-  // let viewDiv1 = document.querySelector('.viewBtnDiv1');
-  // let viewDiv2 = document.querySelector('.viewBtnDiv2');
-  // let viewDiv3 = document.querySelector('.viewBtnDiv3');
-  // let viewDiv4 = document.querySelector('.viewBtnDiv4');
-  // console.log(viewDiv1.parentElement)
+  for (let i = 0; i < deleteBtn.length; i++) {
+    deleteBtn[i].addEventListener('click', () => {
+      tasks_list[i].remove()
+    })
+  }
   
-  // viewDiv1.innerHTML = `<button class="showMoreBtn" id="getid" data-id="<?php echo "1" ?>" name="matrixId">View Task..</button>`
+}
 
 
-// ================================delete task=================================
-  
-  $(document).on("click","#btnDelete",function(e){
 
-  let taskid=e.target.parentElement.dataset.id;
-  
-    console.log(taskid);
-  
-  
-        /**  sending task id to backend */
-        $.ajax({
-          url: "/deleteTask",
-          data: { id:taskid },
-          type: "POST",
-          success: function(response) {    
-             console.log(response);
-            // $(".carts").load(location.href + " .carts")
-            // If the request is successful, update the HTML table
-            
-          }
-          
-        });
-        
-
-  
-      })
-    }  
 // =================================================================
 
 function closeWindow(params) {
@@ -465,9 +439,9 @@ function closeWindow(params) {
 
 
 
- // ==========================ADD COMMENT FUNCTION ========================
+// ==========================ADD COMMENT FUNCTION ========================
 
- $(document).ready(function () {
+$(document).ready(function () {
 
   var addComment = $('#addComment')
   addComment.click(function () {
@@ -495,29 +469,29 @@ function closeWindow(params) {
 // ===============================This below function is about the after add the habit change it to added ===
 
 $(function () {
-$('.add').each(function () {
-  $(this).click(function (e) {
-    var addText = $(e.target).text()
-    var addedValue = $(e.target).attr("name")
-    // console.log(addedValue)
-    if (addText == "ADD") {
-      $(e.target).text("ADDED")
-    }
-    else if (addText == "ADDED") {
-      $(e.target).text("ADD")
-    }
-    $.ajax({
-      url: "/addTask",
-      data: {
-        value: addedValue
-      },
-      type: "POST",
-      success: function (response) {
-        // console.log(response)
+  $('.add').each(function () {
+    $(this).click(function (e) {
+      var addText = $(e.target).text()
+      var addedValue = $(e.target).attr("name")
+      // console.log(addedValue)
+      if (addText == "ADD") {
+        $(e.target).text("ADDED")
       }
+      else if (addText == "ADDED") {
+        $(e.target).text("ADD")
+      }
+      $.ajax({
+        url: "/addTask",
+        data: {
+          value: addedValue
+        },
+        type: "POST",
+        success: function (response) {
+          // console.log(response)
+        }
+      });
     });
   });
-});
 });
 
 
@@ -525,22 +499,22 @@ $('.add').each(function () {
 // =====================REMOVE ADDED HABITS USING JQUERY AND AJAX=================
 
 $(function () {
-$('.removetask').each(function () {
-  $(this).click(function (e) {
-    var removeBtn = $(e.target).attr("name")
-    // console.log(removeBtn)
-    $.ajax({
-      url: "/deleteAddedTask",
-      data: {
-        value: removeBtn
-      },
-      type: "POST",
-      success: function (response) {
-        // console.log(response)
-      }
+  $('.removetask').each(function () {
+    $(this).click(function (e) {
+      var removeBtn = $(e.target).attr("name")
+      // console.log(removeBtn)
+      $.ajax({
+        url: "/deleteAddedTask",
+        data: {
+          value: removeBtn
+        },
+        type: "POST",
+        success: function (response) {
+          // console.log(response)
+        }
+      });
     });
   });
-});
 });
 
 
