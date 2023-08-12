@@ -261,6 +261,7 @@ $(document).ready(function () {
       let matrixid = e.target.dataset.id;
 
       let arr = [];
+
       /**  sending task id to backend */
       $.ajax({
         url: "/particulartask",
@@ -289,7 +290,7 @@ let taskDiv = document.querySelector('.taskListDiv')
 
 
 function datas(data) {
-  console.log(data);
+  // console.log(data);
   if (data.length > 0) {
     let datas = data.map((element) => {
 
@@ -311,11 +312,10 @@ function datas(data) {
         <div class="second-div">
           <div class="text-base leading-6 text-gray-900 no-underline model-title " id="modal-title">
             <div class="add-Cmt">
-              <form action="/addComment" method="post" class="relative">
-                <input type="text" value="" name="commentId" id="commentId" hidden>
-                <input type="text" placeholder="comment here " id="comment" name="comment" class="add-Cmt">
-                <button id="addComment" class="absolute right-0 type="button"><i class="fa-solid fa-upload"></i></button>
-              </form>
+              <div class="relative" >
+                <input type="text" placeholder="comment here" id="comment" data-id="${element.id}" class="add-Cmt">
+                <button id="addComment" data-id="${element.id}" class="absolute right-0 type="button"><i class="fa-solid fa-upload"></i></button>
+              </div>
             </div>
           </div>
           <div class="text-base leading-6 text-gray-900 no-underline " id="modal-title">
@@ -331,7 +331,7 @@ function datas(data) {
               <div>
                   <button type="button" id="btnDelete" data-id="${element.id}"><i class="fa-solid fa-trash-can"></i></button>
               </div>
-                <button class="add-comment-btn"><i class="fa-solid fa-comment"></i></button>
+                <button class="add-comment-btn" data-id="${element.id}"><i class="fa-solid fa-comment"></i></button>
               </div>
             </div>
           </div>
@@ -406,7 +406,7 @@ function datas(data) {
       data: { id: taskid },
       type: "POST",
       success: function (response) {
-        console.log(response);
+        // console.log(response);
       }
 
     });
@@ -419,34 +419,79 @@ function datas(data) {
     })
   }
 
+  // let addComment = document.querySelectorAll('#addComment');
+  // let inputVal = document.querySelectorAll('#comment')
+  // console.log(inputVal)
+
+  $(document).on("click", "#addComment", function (e) {
+
+
+    let commentId = e.target.dataset.id
+
+    let comment = e.target.previousSibling
+    // let n = comment.value;
+    // console.log(n)
+    console.log(comment)
+    $.ajax({
+      url: "/addComment",
+      data: { id: commentId },
+      type: "POST",
+      success: function (response) {
+        console.log(response);
+      }
+    });
+  })
+
+
 }
 
 // ==========================ADD COMMENT FUNCTION ========================
+// let addComment = document.querySelectorAll('#addComment');
+// let inputVal = document.querySelectorAll('#comment')
+// console.log(addComment)
 
-$(document).ready(function () {
-
-  var addComment = $('#addComment')
-  addComment.click(function () {
-    // alert("clicked")
-    var comment = $("#comment").val()
-    // console.log(comment)
-    var commentId = $("#commentId").val()
-    $.ajax({
-      url: "/addComment",
-      data: {
-        comment: comment,
-        commentId: commentId
-      },
-      type: "POST",
-      success: function (response) {
-        // console.log(response);
-      }
-    });
+// $(document).on("click", "#addComment", function (e) {
 
 
-  })
+//   let commentId = e.target.dataset.id
+//   let comment = e.target.previousSibling
+//   let n = comment.value;
+//   console.log(n)
+//   // console.log(commentId)
+//   $.ajax({
+//     url: "/addComment",
+//     data: { id: commentId },
+//     type: "POST",
+//     success: function (response) {
+//       console.log(response);
+//     }
+//   });
+// })
 
-})
+// $(document).ready(function () {
+
+//   var addComment = $('#addComment')
+//   addComment.click(function () {
+//     // alert("clicked")
+//     var comment = $("#comment").val()
+//     // console.log(comment)
+//     var commentId = $("#commentId").val()
+//     $.ajax({
+//       url: "/addComment",
+//       data: {
+//         comment: comment,
+//         commentId: commentId
+//       },
+//       type: "POST",
+//       success: function (response) {
+//         // console.log(response);
+//       }
+//     });
+
+
+//   })
+
+// })
 
 // ===============================This below function is about the after add the habit change it to added ===
 
