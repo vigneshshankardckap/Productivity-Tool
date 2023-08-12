@@ -1028,8 +1028,6 @@ button.completedBtn {
   background-color: #E5F7EE;
   border: 1px solid var(--primary-color);
   color: var(--primary-color);
-  width: 250px;
-  font-size: 16px;
 }
 button.completedBtn:hover{
   background-color: var(--primary-color);
