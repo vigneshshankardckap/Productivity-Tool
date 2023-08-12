@@ -37,6 +37,9 @@
                 <i class="fa-regular fa-bell notification" onclick="openNotofy()"></i>
               </li>
               <li class="right-icon">
+                <i class="fa-solid fa-pen-to-square Habits-icon"></i>
+              </li>
+              <li class="right-icon">
                 <i class="fa-regular fa-moon theme-btn"></i>
               </li>
               <li class="right-icon">
@@ -49,10 +52,19 @@
         </div>
         <div>
           <div class="switchDiv">
-            <form action="\list" method="post">
-              <button value="1" name="category_id" class="font-medium">PROFESSIONAL</button>
-              <button value="2" class="font-medium" name="category_id">Personl</button>
-            </form>
+            <!-- <form action="\list" method="post"> -->
+            <div>
+              <button value="1" name="category_id" class="font-menu selectedCatagory" id="categories">PROFESSIONAL</button>
+            </div>
+
+            <div> 
+              <button value="2" class="font-menu" name="category_id" id="categories">PERSONAL</button>
+            </div>
+
+
+
+            <!-- </form> -->
+            <!-- <hr class="on-catagory"> -->
 
           </div>
           <div class="add-todo-btn-section">
@@ -201,9 +213,63 @@
       </div>
     </div>
 
+
+    <div class="Habits-div">
+      <form action="/addTask" method="post">
+        <div class="body-mainDiv">
+          <div class="body-content">
+          <div class="close-btn close-habit-div" id="close-habit-div">
+          <div>
+            <span>X</span>
+          </div>
+        </div>
+            <h3>Let's Start With Some Good Habits</h3>
+            <div class="pre-define-todo">
+              <div class="contents">
+                <div>
+                  <img src="../Images/glass.png" />
+                </div>
+                <p>Drink Water, Keep Healthy</p>
+                <div>
+                  <button class="add" name="1" type="button">ADD</button>
+                </div>
+              </div>
+              <div class="contents">
+                <div>
+                  <img src="../Images/human.png" />
+                </div>
+                <p>Go Exercising</p>
+                <div>
+                  <button class="add" name="2" type="button">ADD</button>
+                </div>
+              </div>
+              <div class="contents">
+                <div>
+                  <img src="../Images/ph_moon-fill.png" />
+                </div>
+                <p>Go To Bed Early</p>
+                <div>
+                  <button class="add" name="3" type="button">ADD</button>
+                </div>
+              </div>
+              <div class="contents">
+                <div>
+                  <img src="../Images/ph_book-fill.png" />
+                </div>
+                <p>Keep Reading</p>
+                <div>
+                  <button class="add" name="4" type="button">ADD</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
     <div class="single-input-form">
       <form action="/store" method="post">
-        <div class="close-btn">
+        <div class="close-btn" id="singleCloseBtn">
           <div>
             <span>X</span>
           </div>

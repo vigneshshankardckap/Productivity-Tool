@@ -69,7 +69,7 @@ function openSingleForm(params) {
 
   // ------this below close button for close the single form ----------
 
-  let closeBtn = document.querySelector(".close-btn");
+  let closeBtn = document.querySelector("#singleCloseBtn");
 
   closeBtn.addEventListener("click", () => {
     innerContainer.classList.remove("active")
@@ -497,6 +497,41 @@ $(function () {
       });
     });
   });
-});
+
+}
+
+/*=========================== personal & professional btns code ===============================*/ 
+let Task_typeBtn = document.querySelectorAll("#categories");
+
+// console.log(Task_typeBtn);
+for (let i = 0; i < Task_typeBtn.length; i++) {
+  Task_typeBtn[i].addEventListener("click", (e) => {
+    for (let j = 0; j < Task_typeBtn.length; j++) {
+      Task_typeBtn[j].classList.remove("selectedCatagory");
+    }
+    e.target.classList.add("selectedCatagory");
+  })
+
+}
+
+// =================== habits div ======================
+
+let habiticon = document.querySelector(".Habits-icon") 
+let AddHabisDiv = document.querySelector(".Habits-div")
+let matrixdiv = document.querySelector(".page-content")
+let closeHabitdiv = document.querySelector("#close-habit-div");
+console.log(closeHabitdiv);
+// console.log(habiticon);
+habiticon.addEventListener('click',()=>{
+  innerContainer.classList.add("active")
+  AddHabisDiv.style.display="block"
+})
+
+closeHabitdiv.addEventListener("click",()=>{
+  innerContainer.classList.remove("active")
+  AddHabisDiv.style.display="none"
+})
+
+
 
 
