@@ -20,7 +20,7 @@ button {
   --font-color: #000000;
   --focus-color: #e1f8ec;
   --shadow-color: #479c16ab;
-  --background-color: #F3F7FF;
+  --background-color: #f3f3f5;
   --input-background-color: inherit;
   --input-type-hover: #ffffff;
   --close-btn-color: #ff0000;
@@ -52,7 +52,7 @@ body {
 .container {
   position: relative;
   padding: 20px 65px;
-  max-width: 1240px;
+  max-width: 1024px;
   width: 100%;
 }
 
@@ -318,8 +318,7 @@ body {
 .close-btn:hover {
   transition: 0.3s;
   border-radius: var(--single-border-radius);
-  box-shadow: var(--shadow-color) 0px 0px 8px 0px;
-}
+  box-shadow: #63636333 0px 2px 8px 0px;}
 
 /* --------------this show for open the single form ---------------- */
 .show {
@@ -733,7 +732,7 @@ button {
   gap: 5px;
   border-radius: 5px;
   text-align: center;
-  background-color: #FFFEFF;
+  background-color: var(--thresary-color);
   background-size: cover;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1), 0 4px 4px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.1), 0 16px 16px rgba(0, 0, 0, 0.1);
 }

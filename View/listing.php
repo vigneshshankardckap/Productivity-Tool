@@ -196,8 +196,10 @@
               <div class="relative  overflow-hidden rounded-lg bg-white text-left shadow-xl sm:my-8 w-11/12 m-auto">
                 <div class=" px-4 py-3 sm:flex justify-between items-center px-3	">
                   <h3 class="text-base font-semibold leading-6 text-gray-900 text-xl" id="modal-title">DO FIRST</h3>
-                  <div class="flex gap-32">
-                    <button type="submit" class="completedBtn focus:outline-none font-medium rounded-lg text-sm px-5 ">COMPLETED TASK </button>
+                  <div class="flex gap-32 ">
+                    <div class="popUpHeader">
+                      
+                    </div>
                     <button type="submit" class="rounded-md bg-white h-8 w-8	text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 text-red-600" id='popUpCloseBtn'>X</button>
                   </div>
                 </div>
