@@ -22,10 +22,11 @@
       <header class="header">
         <div class="left-section">
           <img src="../Images/logo.png">
-          <h1>What's Up<span class="username">
-              <?php echo $_SESSION['username']; ?>
-            </span>
-          </h1>
+          <span>What's Up
+            <h1 class="username">
+              <?php echo $_SESSION['username']; ?>...
+            </h1>
+          </span>
         </div>
 
         <div class="right-section">
@@ -103,7 +104,7 @@
               <p>Drink Water, Keep Healthy</p>
               <div>
                 <form action="/addTask" method="post">
-                  <input value="1"  hidden>
+                  <input value="1" hidden>
                   <button class="add" name="1" type="button">ADD</button>
                 </form>
 
@@ -116,7 +117,7 @@
               <p>Go Exercising</p>
               <div>
                 <form action="/addTask" method="post">
-                <input value="1"  hidden>
+                  <input value="1" hidden>
                   <button class="add" name="2" type="button">ADD</button>
                 </form>
               </div>
@@ -128,7 +129,7 @@
               <p>Go To Bed Early</p>
               <div>
                 <form action="/addTask" method="post">
-                <input value="1"  hidden>
+                  <input value="1" hidden>
                   <button class="add" name="3" type="button">ADD</button>
                 </form>
               </div>
@@ -140,7 +141,7 @@
               <p>Keep Reading</p>
               <div>
                 <form action="/addTask" method="post">
-                <input value="1" hidden>
+                  <input value="1" hidden>
                   <button class="add" name="4" type="button">ADD</button>
                 </form>
 

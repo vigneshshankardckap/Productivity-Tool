@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Alkatra:wght@500&family=Montserrat:wght@100;200;300;400;500;600;700&display=swap');
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -56,11 +56,6 @@ body {
 }
 
 /* -----------home page right side element styling----------------- */
-.left-section {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-}
 
 .right-section {
   display: flex;
@@ -101,17 +96,40 @@ body {
 
 
 /* ---------------styling for left side elements----------- */
-.left-section h1 {
-  font-size: 22px;
-  color: var(--font-color);
-  font-weight: 200;
+.left-section {
+  display: flex;
+  gap: 20px;
+  align-items: center;
 }
 
-.left-section .username {
+.left-section span {
+  display: flex;
+  align-items: center;
+  font-size: 26px;
+  font-weight: bold;
+  color: var(--font-color);
+}
+
+.left-section h1 {
   font-size: 22px;
-  padding: 0px 6px;
+  letter-spacing: 0.5px;
+  margin-left: 7px;
   font-weight: 400;
   text-transform: capitalize;
+
+  width: 10ch;
+  overflow: hidden;
+  animation: typing 2.5s steps(10) infinite alternate-reverse;
+}
+
+@keyframes typing {
+  from {
+    width: 0ch;
+  }
+
+  to {
+    width: 10ch;
+  }
 }
 
 .left-section p {
@@ -384,6 +402,7 @@ body {
   columns: var(--font-color);
   padding: 0px 10px;
 }
+
 
 .dateTime {
   cursor: pointer;
@@ -786,7 +805,7 @@ button.removetask {
   background-color: black;
 }
 
-.notification-success{
+.notification-success {
   display: flex;
   background-color: white;
   padding: 10px;
@@ -798,14 +817,16 @@ button.removetask {
   bottom: 85px;
   left: 868px;
 }
-.notifyIcon{
+
+.notifyIcon {
   height: 30px;
   width: 30px;
 }
-.notification-success>p{
+
+.notification-success>p {
   margin-top: 5px;
 }
 
-#succcess{
+#succcess {
   display: none;
 }

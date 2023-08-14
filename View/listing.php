@@ -22,9 +22,11 @@
         <div>
           <div class="left-section">
             <img src="../Images/logo.png">
-            <h1>What's Up<span class="username">
-                <?php echo $_SESSION['username']; ?>
-              </span></h1>
+            <span>What's Up
+              <h1 class="username">
+                <?php echo $_SESSION['username']; ?>...
+              </h1>
+            </span>
           </div>
           <!-- this is our right side contents -->
           <div class="right-section">
@@ -38,6 +40,7 @@
               </li>
               <li class="right-icon">
                 <i class="fa-solid fa-pen-to-square Habits-icon"></i>
+                <!-- <img src="../Icons/line-icon-for-habits-vector-removebg-preview.png" style="height: 30px;" class="Habits-icon"> -->
               </li>
               <li class="right-icon">
                 <i class="fa-regular fa-moon theme-btn"></i>
@@ -194,7 +197,7 @@
                 <div class=" px-4 py-3 sm:flex justify-between items-center px-3	">
                   <h3 class="text-base font-semibold leading-6 text-gray-900 text-xl" id="modal-title">DO FIRST</h3>
                   <div class="flex gap-32">
-                    <button type="submit" class="completedBtn focus:outline-none font-medium rounded-lg text-sm px-5 ">COMPLETED TASK 1</button>
+                    <button type="submit" class="completedBtn focus:outline-none font-medium rounded-lg text-sm px-5 ">COMPLETED TASK </button>
                     <button type="submit" class="rounded-md bg-white h-8 w-8	text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 text-red-600" id='popUpCloseBtn'>X</button>
                   </div>
                 </div>
@@ -220,7 +223,6 @@
         </div>
       </div>
     </div>
-
 
     <div class="Habits-div">
       <form action="/addTask" method="post">
@@ -301,7 +303,6 @@
             </label>
           </div>
         </div>
-
         <div>
           <div class="inputdiv">
             <div>
