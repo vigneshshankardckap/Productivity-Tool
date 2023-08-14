@@ -228,9 +228,11 @@ darkBtn.addEventListener("click", () => {
 // ---------------show more button functionality code here--------------
 let showMoreBtn = document.querySelectorAll(".showMoreBtn");
 let popUpWnd = document.querySelector('.testing-window');
+let check =document.querySelectorAll("#round")
 
 for (let i = 0; i < showMoreBtn.length; i++) {
   showMoreBtn[i].addEventListener("click", () => {
+    console.log(check);
     popUpWnd.classList.toggle('invisible');
   });
 
@@ -289,7 +291,7 @@ let taskDiv = document.querySelector('.taskListDiv')
 
 
 function datas(data) {
-  console.log(data);
+  // console.log(data);
   if (data.length > 0) {
     let datas = data.map((element) => {
 
@@ -321,9 +323,8 @@ function datas(data) {
           <div class="text-base leading-6 text-gray-900 no-underline " id="modal-title">
             <div class="change">
               <div class="Task-progress pt-px	">
-                  <div class="round">
-                    <input type="checkbox" id="checkbox" class="taskCheckBox"/>
-                    <label for="checkbox"></label>
+                  <div class="round" data-id ="${element.id}">
+                    <label for="checkbox" class="roundCheck" id="round"></label>
                   </div>
               </div>
               <div class="make-changes">
@@ -375,20 +376,25 @@ function datas(data) {
 
   let commentBtn = document.querySelectorAll(".add-comment-btn");
   let commentInput = document.querySelectorAll(".model-title ");
-  let TaskCompleted = document.querySelectorAll("#checkbox");
+  let TaskCompleted = document.querySelectorAll(".roundCheck");
   let task_name = document.querySelectorAll(".task-inner-div");
 
   for (let j = 0; j < commentBtn.length; j++) {
     commentBtn[j].addEventListener("click", () => {
       commentInput[j].classList.toggle("addvisibility")
     })
+  }
 
-    TaskCompleted[j].addEventListener("click", () => {
-      task_name[j].classList.toggle("completedTask")
-      setTimeout(() => {
-        tasks_list[j].remove()
-      }, 250);
+  for (let i = 0; i < TaskCompleted.length; i++) {
+    TaskCompleted[i].addEventListener("click", () => {
+      task_name[i].classList.toggle("completedTask")
+      // setTimeout(() => {
+      //   tasks_list[j].remove() 
+      // }, 500);
     })
+    // console.log(TaskCompleted[i])
+    // console.log(task_name[i]);
+    
   }
 
 
@@ -499,4 +505,14 @@ $(function () {
   });
 });
 
+
+
+
+
+for (let i = 0; i < check.length; i++) {
+  check[i].addEventListener("click",(e)=>{
+    console.log(e.target);
+  })
+  
+}
 
