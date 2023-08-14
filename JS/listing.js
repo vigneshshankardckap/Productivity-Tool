@@ -5,7 +5,7 @@ let multiFormDiv = document.querySelector(".multiple-input-form");
 let innerContainer = document.querySelector(".inner-container")
 let cancelBtn = document.querySelector(".cancel-btn");
 let empty = document.querySelector(".forms-inner-div")
-let userContents = document.querySelectorAll(".user-content")
+
 
 // ======================below code is for open single form and multi form ===============================
 for (let i = 0; i < inputBtn.length; i++) {
@@ -69,7 +69,7 @@ function openSingleForm(params) {
 
   // ------this below close button for close the single form ----------
 
-  let closeBtn = document.querySelector(".close-btn");
+  let closeBtn = document.querySelector("#singleCloseBtn");
 
   closeBtn.addEventListener("click", () => {
     innerContainer.classList.remove("active")
@@ -144,7 +144,6 @@ function AddOneMoreForm() {
   let importantBtn = document.querySelectorAll(".important-priority-btn");
 
   for (let i = 0; i < taskType.length; i++) {
-    console.log(urgentBtn[i])
     classListAdd(taskType[i], taskType);
     classListAdd(urgentBtn[i], urgentBtn);
     classListAdd(importantBtn[i], importantBtn);
@@ -243,6 +242,11 @@ for (let i = 0; i < showMoreBtn.length; i++) {
 let popUpclose = document.querySelector('#popUpCloseBtn');
 popUpclose.addEventListener("click", () => {
   popUpWnd.classList.toggle('invisible');
+  for (let i = 0; i < commentInput.length; i++) {
+    if (commentInput[i].classList.contains('addvisibility')) {
+      commentInput[i].classList.remove('addvisibility')
+    }
+  }
 });
 
 // ------------------------------------------------------------------------------
@@ -263,6 +267,7 @@ $(document).ready(function () {
       let matrixid = e.target.dataset.id;
 
       let arr = [];
+
       /**  sending task id to backend */
       $.ajax({
         url: "/particulartask",
@@ -289,19 +294,18 @@ $(document).ready(function () {
 
 let taskDiv = document.querySelector('.taskListDiv')
 
-
 function datas(data) {
   // console.log(data);
   if (data.length > 0) {
     let datas = data.map((element) => {
 
       return `
-      <div class=" tasks-lists bg-zinc-200 my-1	h-14	py-3 px-1.5	cursor-pointer flex gap-8 pb-5 rounded">
+      <div class=" tasks-lists my-1	h-14	py-3 px-1.5	cursor-pointer flex gap-8 pb-5 rounded">
         <div class="task-inner-div">
           <div class="task-info " id="rowdiv" >
             <input type="hidden" id="rowid" value="">
             <div class="list-name">
-              <h5 id="Task-Name" class="text-sm text-gray-500">
+            <h5>
                 <p class="user-content">${element.task_name}</p>
               </h5>
             </div>
@@ -313,11 +317,10 @@ function datas(data) {
         <div class="second-div">
           <div class="text-base leading-6 text-gray-900 no-underline model-title " id="modal-title">
             <div class="add-Cmt">
-              <form action="/addComment" method="post" class="relative">
-                <input type="text" value="" name="commentId" id="commentId" hidden>
-                <input type="text" placeholder="comment here " id="comment" name="comment" class="add-Cmt">
-                <button id="addComment" class="absolute right-0 type="button"><i class="fa-solid fa-upload"></i></button>
-              </form>
+              <div class="relative" >
+              <input type="text" placeholder="comment here" id="comment" data-id="${element.id}" class="add-Cmt">
+                <button id="addComment" data-id="${element.id}" class="absolute right-0 type="button"><i class="fa-solid fa-upload"></i></button>
+              </div>
             </div>
           </div>
           <div class="text-base leading-6 text-gray-900 no-underline " id="modal-title">
@@ -328,11 +331,11 @@ function datas(data) {
                   </div>
               </div>
               <div class="make-changes">
-                <button><i class="fa-solid fa-pen"></i></button>
+                <button id="editBtn"><i class="fa-solid fa-pen"></i></button>
               <div>
                   <button type="button" id="btnDelete" data-id="${element.id}"><i class="fa-solid fa-trash-can"></i></button>
               </div>
-                <button class="add-comment-btn"><i class="fa-solid fa-comment"></i></button>
+                <button class="add-comment-btn" data-id="${element.id}"><i class="fa-solid fa-comment"></i></button>
               </div>
             </div>
           </div>
@@ -341,6 +344,26 @@ function datas(data) {
       `
     }).join("")
     taskDiv.innerHTML = datas
+
+    let changeDiv = document.querySelector(".list-name")
+    let changeBtn = document.querySelector("#editBtn")
+    let userContents = document.querySelectorAll(".user-content")
+    // console.log(changeBtn);
+    changeBtn.addEventListener("click", (e) => {
+      for (let k = 0; k < userContents.length; k++) {
+        let inner = userContents[k].innerText
+        let changeInput = `<input type="text" value="${inner}">`
+        if (changeBtn.innerHTML = `<i class="fa-solid fa-pen"></i>`) {
+          changeBtn.className = `<i class="fa-solid fa-check" style="color: #5fb32e;"></i>`
+          changeDiv.innerHTML = changeInput
+        }
+        if (`<i class="fa-solid fa-check" style="color: #5fb32e;"></i`) {
+          changeBtn.innerHTML = `<i class="fa-solid fa-pen"></i>`;
+          changeDiv.innerHTML = `<p>${inner}</p`;
+        }
+      }
+    })
+
 
   }
   else {
@@ -385,17 +408,18 @@ function datas(data) {
     })
   }
 
-  for (let i = 0; i < TaskCompleted.length; i++) {
-    TaskCompleted[i].addEventListener("click", () => {
-      task_name[i].classList.toggle("completedTask")
-      // setTimeout(() => {
-      //   tasks_list[j].remove() 
-      // }, 500);
+    TaskCompleted[j].addEventListener("click", () => {
+      task_name[j].classList.toggle("completedTask")
+      setTimeout(() => {
+        tasks_list[j].remove()
+      }, 400);
     })
     // console.log(TaskCompleted[i])
     // console.log(task_name[i]);
     
   }
+
+  // ================================================================================
 
 
   // ================================delete task=================================
@@ -412,7 +436,7 @@ function datas(data) {
       data: { id: taskid },
       type: "POST",
       success: function (response) {
-        console.log(response);
+        // console.log(response);
       }
 
     });
@@ -425,34 +449,40 @@ function datas(data) {
     })
   }
 
-}
-
 // ==========================ADD COMMENT FUNCTION ========================
 
-$(document).ready(function () {
+  $(document).ready(function () {
 
-  var addComment = $('#addComment')
-  addComment.click(function () {
-    // alert("clicked")
-    var comment = $("#comment").val()
-    // console.log(comment)
-    var commentId = $("#commentId").val()
-    $.ajax({
-      url: "/addComment",
-      data: {
-        comment: comment,
-        commentId: commentId
-      },
-      type: "POST",
-      success: function (response) {
-        // console.log(response);
-      }
-    });
+    var addComment = $('#addComment')
+    addComment.click(function () {
+      var comment = $("#comment").val()
+      var commentId = $("#comment").attr("data-id")
+      console.log(commentId)
+      console.log(comment)
+      $.ajax({
+        url: "/addComment",
+        data: {
+          comment: comment,
+          commentId: commentId
+        },
+        type: "POST",
+        success: function (response) {
+          // console.log(response);
+          $("#succcess").css("display", "block");
 
+          setTimeout(() =>{
+            $("#succcess").css("display", "none");
+          },3000)
+
+          // paren.remove()
+
+        }
+      });
+
+    })
 
   })
 
-})
 
 // ===============================This below function is about the after add the habit change it to added ===
 
@@ -485,12 +515,13 @@ $(function () {
 
 
 // =====================REMOVE ADDED HABITS USING JQUERY AND AJAX=================
-
 $(function () {
+  // $(".Tasklist")
   $('.removetask').each(function () {
     $(this).click(function (e) {
       var removeBtn = $(e.target).attr("name")
-      // console.log(removeBtn)
+      var paren = $(e.target).parent();
+      console.log(paren)
       $.ajax({
         url: "/deleteAddedTask",
         data: {
@@ -498,12 +529,57 @@ $(function () {
         },
         type: "POST",
         success: function (response) {
-          // console.log(response)
+
+          $("#succcess").css("display", "block");
+
+          setTimeout(() => {
+            $("#succcess").css("display", "none");
+          }, 5000)
+
+          paren.remove()
+
         }
+
       });
+
     });
+
   });
-});
+
+})
+
+/*=========================== personal & professional btns code ===============================*/
+let Task_typeBtn = document.querySelectorAll("#categories");
+
+// console.log(Task_typeBtn);
+for (let i = 0; i < Task_typeBtn.length; i++) {
+  Task_typeBtn[i].addEventListener("click", (e) => {
+    for (let j = 0; j < Task_typeBtn.length; j++) {
+      Task_typeBtn[j].classList.remove("selectedCatagory");
+    }
+    e.target.classList.add("selectedCatagory");
+  })
+
+}
+
+// =================== habits div ======================
+
+let habiticon = document.querySelector(".Habits-icon")
+let AddHabisDiv = document.querySelector(".Habits-div")
+let matrixdiv = document.querySelector(".page-content")
+let closeHabitdiv = document.querySelector("#close-habit-div");
+
+habiticon.addEventListener('click', () => {
+  innerContainer.classList.add("active")
+  AddHabisDiv.style.display = "block"
+})
+
+closeHabitdiv.addEventListener("click", () => {
+  innerContainer.classList.remove("active")
+  AddHabisDiv.style.display = "none"
+})
+
+
 
 
 

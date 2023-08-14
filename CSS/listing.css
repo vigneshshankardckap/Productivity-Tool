@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Alkatra:wght@500&family=Montserrat:wght@100;200;300;400;500;600;700&display=swap');
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -23,10 +23,8 @@ button {
   --background-color: #F3F7FF;
   --input-background-color: inherit;
   --input-type-hover: #ffffff;
-  --do-color: #99CC11;
-  --defer-color: #4588EE;
-  --delegate-color: #F7A821;
-  --delete-color: #CE4317;
+  --close-btn-color: #ff0000;
+  --close-btn-border-color: #d19090;
   --icon-color: #000000;
   --d: 700ms;
   --e: cubic-bezier(0.19, 1, 0.22, 1);
@@ -55,9 +53,7 @@ body {
   position: relative;
   padding: 20px 65px;
   max-width: 1240px;
-  margin: auto;
   width: 100%;
-  /* max-width: 1024px; */
 }
 
 .active {
@@ -80,11 +76,6 @@ body {
 }
 
 /* -----------home page right side element styling----------------- */
-.left-section {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-}
 
 .right-section {
   display: flex;
@@ -98,7 +89,7 @@ body {
 .search-icon-div {
   color: var(--icon-color);
   position: absolute;
-  right: 380px;
+  right: 416px;
   top: 16px;
   font-size: 18px;
 }
@@ -128,18 +119,42 @@ body {
   color: var(--font-color);
 }
 
-/* ---------------styling for left sid@import url('https://fonts.googleapis.com/css2?family=Alkatra:wght@500&family=Montserrat:wght@100;200;300;400;500;600;700&display=swap');e elements----------- */
-.left-section h1 {
-  font-size: 24px;
-  color: var(--font-color);
-  font-weight: 600;
+/* ---------------styling for left side elements----------- */
+
+.left-section {
+  display: flex;
+  gap: 20px;
+  align-items: center;
 }
 
-.left-section .username {
+.left-section span {
+  display: flex;
+  align-items: center;
+  font-size: 26px;
+  font-weight: bold;
+  color: var(--font-color);
+}
+
+.left-section h1 {
   font-size: 22px;
-  padding: 0px 6px;
+  letter-spacing: 1px;
+  margin-left: 7px;
   font-weight: 400;
   text-transform: capitalize;
+
+  width: 10ch;
+  overflow: hidden;
+  animation: typing 2s steps(10) infinite alternate-reverse;
+}
+
+@keyframes typing {
+  from {
+    width: 0ch;
+  }
+
+  to {
+    width: 10ch;
+  }
 }
 
 .left-section p {
@@ -263,7 +278,7 @@ body {
   border-radius: var(--single-border-radius);
   right: 22rem;
   top: 163px;
-  padding: 5px 24px;
+  padding: 0px 24px;
   box-shadow: #00000029 0px 10px 36px 0px,
     #0000000f 0px 0px 0px 1px;
 }
@@ -282,22 +297,27 @@ body {
 /* ---------close button for form---------------- */
 .close-btn {
   cursor: pointer;
-  color: var(--primary-color);
+  color: var(--close-btn-color);
   height: 30px;
   width: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--primary-color);
-  margin-left: 500px;
+  border: 1px solid var(--close-btn-border-color);
+  margin-left: 506px;
   font-weight: bold;
+  border-radius: 0px 10px 0px 10px;
+
+}
+
+.close-habit-div {
+  margin-left: 836px;
+  border-radius: 0px 10px 0px 10px;
 }
 
 .close-btn:hover {
   transition: 0.3s;
   border-radius: var(--single-border-radius);
-  color: var(--thresary-color);
-  background-color: var(--primary-color);
   box-shadow: var(--shadow-color) 0px 0px 8px 0px;
 }
 
@@ -317,9 +337,50 @@ body {
 .switchDiv {
   display: flex;
   gap: 10px;
-  margin-left: 11rem;
   align-items: center;
-  padding-top: 20px;
+  padding-left: 143px;
+}
+
+.switchDiv form {
+  display: flex;
+
+}
+
+.font-menu {
+  color: gray;
+  border-bottom: 4px solid var(--background-color);
+  border-radius: 0px;
+  padding: 0px 5px;
+}
+
+.selectedCatagory {
+  border-bottom: 4px solid var(--primary-color);
+  border-radius: 0px;
+  color: green;
+  animation: border_anim 1s linear forwards;
+}
+
+
+@keyframes border_anim {
+  0% {
+    width: 0%;
+  }
+
+  25% {
+    width: 100%;
+  }
+
+  50% {
+    width: 100%;
+  }
+
+  75% {
+    width: 100%;
+  }
+
+  100% {
+    width: 100%;
+  }
 }
 
 .switchCat {
@@ -366,9 +427,6 @@ body {
   padding: 0px 10px;
 }
 
-.dateTime {
-  cursor: pointer;
-}
 
 /* ------------below style is for our priority buttons-------------- */
 .matix {
@@ -377,6 +435,10 @@ body {
   gap: 35px;
   margin-left: 120px;
   margin-top: 25px;
+}
+
+.matix>div {
+  display: block;
 }
 
 .matix div input {
@@ -448,21 +510,20 @@ button {
 
 .main-div-closeBtn {
   cursor: pointer;
-  color: var(--primary-color);
+  color: var(--close-btn-color);
   font-weight: 600;
-  border: 1px solid var(--primary-color);
+  border: 1px solid var(--close-btn-border-color);
   width: fit-content;
   padding: 2px 8px;
-  margin-left: 55pc;
-  border-radius: 3px;
+  margin-left: 58rem;
+  border-radius: 0px 8px 0px 10px;
+
 }
 
 .main-div-closeBtn:hover {
   transition: 0.3s;
   border-radius: var(--multi-border-radius);
-  color: var(--thresary-color);
-  background-color: var(--primary-color);
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: var(--shadow-color) 0px 0px 8px 0px;
 }
 
 .show {
@@ -473,10 +534,10 @@ button {
 .multiple-input-form .multiple-forms-div {
   width: 1000px;
   background-color: var(--background-color);
-  padding: 30px 43px;
+  padding: 8px 30px 25px 35px;
   border-radius: var(--multi-border-radius);
   margin-top: 20px;
-  border: 1px solid var(--primary-color);
+  border: 1px solid rgb(96, 148, 96);
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 
@@ -498,7 +559,7 @@ button {
   justify-content: center;
   align-items: center;
   border-radius: var(--multi-border-radius);
-  border: 1px solid #656664;
+  border: 2px solid #656664;
   margin-left: 890px;
   font-weight: bold;
 }
@@ -507,7 +568,6 @@ button {
   transition: 0.2s;
   color: var(--thresary-color);
   background-color: var(--primary-color);
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 /* -----------input box styling---------- */
@@ -573,12 +633,21 @@ button {
 }
 
 /* ------------priority buttons styling----------- */
-
-.urgentDiv input {
-  cursor: pointer;
-  width: 25px;
+.urgentDiv,
+.ImportantDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
+.urgentDiv>div,
+.ImportantDiv>div {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.urgentDiv input,
 .ImportantDiv input {
   cursor: pointer;
   width: 25px;
@@ -629,11 +698,14 @@ button {
   cursor: pointer;
   background-color: var(--primary-color);
   color: var(--thresary-color);
-  font-size: 23px;
+  font-size: 30px;
+  font-weight: 500;
   border-radius: var(--multi-border-radius);
   width: 35px;
   height: 35px;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .addDivBtn:hover {
@@ -653,6 +725,7 @@ button {
   margin: 0 auto;
   font-family: var(--font-sans);
   padding: 20px;
+  z-index: 1;
 }
 
 .main-card {
@@ -761,7 +834,6 @@ button {
 /* notification list div */
 
 .Habitsdiv {
-
   width: 343px;
   display: none;
   border: 2px solid black;
@@ -771,7 +843,7 @@ button {
   left: 920px;
   border-radius: 10px;
   background-color: #FFFFFF;
-  z-index: 1;
+  /* z-index: 1; */
   border: none;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
@@ -792,11 +864,20 @@ button {
 }
 
 .Habitsdiv .notification-title .cancelicon {
-  border: none;
-  background: none;
-  color: red;
-  font-size: 22px;
+
   cursor: pointer;
+  color: var(--close-btn-color);
+  font-weight: 600;
+  border: 1px solid var(--close-btn-border-color);
+  width: fit-content;
+  padding: 2px 8px;
+  border-radius: var(--multi-border-radius);
+
+}
+
+.Habitsdiv .notification-title .cancelicon:hover {
+  transition: 0.3s;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 .Habitsdiv .Tasklist {
@@ -820,6 +901,7 @@ button.removetask {
 
 .showdiv {
   display: block;
+  z-index: 1;
 }
 
 .activeBtn {
@@ -829,53 +911,59 @@ button.removetask {
 /* ============================= this  block for the added todoinfo =========================*/
 
 
-.task-heading-2{
+.task-heading-2 {
   padding: 10px 180px 10px 150px;
 
 }
 
-.task-inner-div{
+.task-inner-div {
   display: flex;
   align-items: center;
   gap: 12rem;
   width: 40rem;
+  padding: 15px 0px;
 
 }
-.second-div{
+
+.tasks-lists:hover {
+  background-color: rgb(214, 228, 214);
+}
+
+.second-div {
   display: flex;
   align-items: center;
   gap: 60px;
-  padding: 17px 0px;
+  padding: 15px 0px;
 }
 
 .list-name h5 {
   font-size: 20px;
   width: 21rem;
 }
-#due-date{
-  color: var(--primary-color);  
-}
-.user-content{
-  padding: 2px;
+
+#due-date,
+.user-content {
+  font-size: 18px;
   color: var(--primary-color);
 }
+
 
 .completedTask {
   text-decoration: line-through;
   text-decoration-color: var(--primary-color);
 }
 
-.cmt-section{
+.cmt-section {
   visibility: hidden;
 }
 
-.add-Cmt input{
+.add-Cmt input {
   position: relative;
   width: 250px;
   height: 43px;
   background-color: var(--input-type-hover);
   border-radius: 10px;
-  border: none;
+  border: 1px solid #b0bdb0;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   padding: 0px 40px 0px 15px;
   outline: #52a521;
@@ -883,13 +971,14 @@ button.removetask {
 
 
 .add-Cmt #addComment {
-  border-radius: 11px;
-  padding: 8px;
-  font-size: 9px;
+  border-radius: 8px;
+  padding: 7px;
+  font-size: 10px;
   color: var(--primary-color);
   border: 2px solid var(--primary-color);
 }
-.model-title{
+
+.model-title {
   visibility: hidden;
 }
 
@@ -898,7 +987,8 @@ button.removetask {
   gap: 25px;
   visibility: hidden;
 }
-.show{
+
+.show {
   visibility: visible;
 }
 
@@ -910,6 +1000,13 @@ button.removetask {
   font-size: 20px;
 
 }
+
+/* #editBtn{
+  font-size: 16px;
+  color: var(--thresary-color);
+  background-color: var(--primary-color);
+  width: 40px;
+} */
 
 .change {
   display: flex;
@@ -951,19 +1048,19 @@ button.removetask {
   visibility: hidden;
 }
 
-.round input[type="checkbox"]:checked + label {
+.round input[type="checkbox"]:checked+label {
   background-color: var(--primary-color);
   border-color: var(--primary-color);
 }
 
-.round input[type="checkbox"]:checked + label:after {
+.round input[type="checkbox"]:checked+label:after {
   opacity: 1;
 }
 
 
 .addvisibility {
   visibility: visible;
-  }
+}
 
 /* ====================radio button style==================================== */
 
@@ -1024,13 +1121,131 @@ button.removetask {
 
 }
 
+
+
+
+
+/* ------------------styling for our default todo portion (home page body content)--------------- */
+.body-mainDiv {
+  display: flex;
+  justify-content: center;
+
+}
+
+.Habits-div {
+  display: none;
+  position: absolute;
+  top: 139px;
+  right: 206px;
+}
+
+.body-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--thresary-color);
+  height: 500px;
+  width: 867px;
+  border-radius: 10px;
+  box-shadow: #63636333 0px 2px 8px 0px;
+}
+
+
+
+/* -----------styling for header ---------------- */
+.body-content h3 {
+  font-weight: 400;
+  font-size: 24px;
+  padding: 35px 282px 25px 45px;
+}
+
+/* -----------------main div for all the separate div styling------------- */
+.pre-define-todo {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.pre-define-todo>div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ------------inner separate div styling------------------ */
+.contents {
+  height: 62px;
+  width: 606px;
+  border-radius: 5px;
+  background-color: var(--background-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 25px;
+}
+
+/* ------------for inner content p tag------------ */
+.contents p {
+  font-size: 16px;
+  color: var(--font-color);
+}
+
+/* -----------style for add text ----------- */
+.contents .add {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.contents .add:hover {
+  text-shadow: 2px 2px 8px #5fb32e;
+}
+
+.showdiv {
+  display: block;
+}
+
+.hidediv {
+  display: none;
+}
+
 button.completedBtn {
   background-color: #E5F7EE;
   border: 1px solid var(--primary-color);
   color: var(--primary-color);
 }
-button.completedBtn:hover{
+
+button.completedBtn:hover {
   background-color: var(--primary-color);
   color: var(--thresary-color);
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+}
+
+
+.notification-success{
+  display: flex;
+  background-color: white;
+  padding: 10px;
+  width: 250px;
+  justify-content: space-around;
+  border-radius: 5px;
+  display: flex;
+  position: relative;
+  bottom: 85px;
+  left: 868px;
+}
+.notifyIcon{
+  height: 30px;
+  width: 30px;
+}
+.notification-success>p{
+  margin-top: 5px;
+}
+
+#succcess{
+  display: none;
 }
