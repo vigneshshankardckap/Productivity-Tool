@@ -93,6 +93,12 @@ class UserController
 
     }
 
+    public function completedTask(){
+        // var_dump($_REQUEST);
+        $this->userModel->completedTask($_REQUEST['id']);
+
+    }
+
     public function deleteTask()
     {  
 

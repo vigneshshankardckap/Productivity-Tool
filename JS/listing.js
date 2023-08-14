@@ -227,9 +227,11 @@ darkBtn.addEventListener("click", () => {
 // ---------------show more button functionality code here--------------
 let showMoreBtn = document.querySelectorAll(".showMoreBtn");
 let popUpWnd = document.querySelector('.testing-window');
+let check =document.querySelectorAll("#round")
 
 for (let i = 0; i < showMoreBtn.length; i++) {
   showMoreBtn[i].addEventListener("click", () => {
+    // console.log(check);
     popUpWnd.classList.toggle('invisible');
   });
 
@@ -240,6 +242,7 @@ for (let i = 0; i < showMoreBtn.length; i++) {
 let popUpclose = document.querySelector('#popUpCloseBtn');
 popUpclose.addEventListener("click", () => {
   closePopUp()
+
 });
 
 function closePopUp(params) {
@@ -326,10 +329,10 @@ function datas(data) {
           </div>
           <div class="text-base leading-6 text-gray-900 no-underline " id="modal-title">
             <div class="change">
+            
               <div class="Task-progress pt-px	">
-                  <div class="round">
-                    <input type="checkbox" id="checkbox" class="taskCheckBox"/>
-                    <label for="checkbox"></label>
+                  <div class="round" >
+                    <label for="checkbox" class="roundCheck" id ="${element.id}"></label>
                   </div>
               </div>
               <div class="make-changes">
@@ -401,16 +404,17 @@ function datas(data) {
 
   let commentBtn = document.querySelectorAll(".add-comment-btn");
   let commentInput = document.querySelectorAll(".model-title ");
-  let TaskCompleted = document.querySelectorAll("#checkbox");
+  let TaskCompleted = document.querySelectorAll(".roundCheck");
   let task_name = document.querySelectorAll(".task-inner-div");
   let popUpHeader = document.querySelector('.popUpHeader')
 
   for (let j = 0; j < commentBtn.length; j++) {
     commentBtn[j].addEventListener("click", () => {
       commentInput[j].classList.toggle("addvisibility")
-    })
+    })  
 
     TaskCompleted[j].addEventListener("click", () => {
+
       task_name[j].classList.toggle("completedTask")
       setTimeout(() => {
         tasks_list[j].remove()
@@ -418,8 +422,25 @@ function datas(data) {
       }, 400);
     })
   }
+}
+
 
   // ================================================================================
+  $(document).on("click", ".roundCheck", function (e) {
+  
+    let taskid = e.target.id;
+    /**  sending task id to backend */
+    $.ajax({
+      url: "/completedTask",
+      data: { id: taskid },
+      type: "POST",
+      success: function (response) {
+        // console.log(response);
+      }
+
+    });
+  })
+
 
 
   // ================================delete task=================================
@@ -461,8 +482,8 @@ function datas(data) {
     addComment.click(function () {
       var comment = $("#comment").val()
       var commentId = $("#comment").attr("data-id")
-      console.log(commentId)
-      console.log(comment)
+      // console.log(commentId)
+      // console.log(comment)
       $.ajax({
         url: "/addComment",
         data: {
@@ -486,7 +507,7 @@ function datas(data) {
     })
 
   })
-}
+
 
 // ===============================This below function is about the after add the habit change it to added ===
 
@@ -525,7 +546,8 @@ $(function () {
     $(this).click(function (e) {
       var removeBtn = $(e.target).attr("name")
       var paren = $(e.target).parent();
-      console.log(paren)
+      // console.log(paren)
+
       $.ajax({
         url: "/deleteAddedTask",
         data: {
@@ -585,4 +607,14 @@ closeHabitdiv.addEventListener("click", () => {
 
 
 
+
+
+
+
+for (let i = 0; i < check.length; i++) {
+  check[i].addEventListener("click",(e)=>{
+    // console.log(e.target);
+  })
+  
+}
 
