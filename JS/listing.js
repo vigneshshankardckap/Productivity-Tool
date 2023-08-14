@@ -446,44 +446,13 @@ function datas(data) {
 
   // ==========================ADD COMMENT FUNCTION ========================
 
-  $(function () {
-    $('#addComment').each(function () {
-      $(this).click(function () {
-        alert("sde")
-        // var addText = $(e.target).text()
-        // var addedValue = $(e.target).attr("name")
-        // // console.log(addedValue)
-        // if (addText == "ADD") {
-        //   $(e.target).text("ADDED")
-        // }
-        // else if (addText == "ADDED") {
-        //   $(e.target).text("ADD")
-        // }
-        // $.ajax({
-        //   url: "/addTask",
-        //   data: {
-        //     value: addedValue
-        //   },
-        //   type: "POST",
-        //   success: function (response) {
-        //     // console.log(response)
-        //   }
-        // });
-      });
-    });
-  });
-
   let cmtBtn = document.querySelectorAll("#addComment")
-  // console.log(cmtBtn)
   let comment = document.querySelectorAll("#comment")
   for (let a = 0; a < cmtBtn.length; a++) {
     const element = cmtBtn[a];
-    // console.log(element)
     element.addEventListener("click", (e) => {
       let id = comment[a].dataset.id
       let comments = comment[a].value
-      // console.log(id,comments)
-
       $.ajax({
         url: "/addComment",
         data: {
@@ -492,14 +461,14 @@ function datas(data) {
         },
         type: "POST",
         success: function (response) {
-          // console.log(response);
-          // $("#succcess").css("display", "block");
+          console.log(response);
+          $("#succcess").css("display", "block");
 
-          // setTimeout(() => {
-          //   $("#succcess").css("display", "none");
-          // }, 3000)
+          setTimeout(() => {
+            $("#succcess").css("display", "none");
+          }, 3000)
 
-          // paren.remove()
+          paren.remove()
 
         }
       });
@@ -507,41 +476,7 @@ function datas(data) {
     })
 
   }
-
-
-  //   $(document).ready(function () {
-
-  //     var addComment = $('#addComment')
-  //     addComment.click(function () {
-  //       var comment = $("#comment").val()
-  //       var commentId = $("#comment").attr("data-id")
-  //       console.log(commentId)
-  //       console.log(comment)
-  //       $.ajax({
-  //         url: "/addComment",
-  //         data: {
-  //           comment: comment,
-  //           commentId: commentId
-  //         },
-  //         type: "POST",
-  //         success: function (response) {
-  //           // console.log(response);
-  //           $("#succcess").css("display", "block");
-
-  //           setTimeout(() => {
-  //             $("#succcess").css("display", "none");
-  //           }, 3000)
-
-  //           // paren.remove()
-
-  //         }
-  //       });
-
-  //     })
-
-  //   })
 }
-// $("p:first-child")
 
 // ===============================This below function is about the after add the habit change it to added ===
 
