@@ -241,14 +241,18 @@ for (let i = 0; i < showMoreBtn.length; i++) {
 
 let popUpclose = document.querySelector('#popUpCloseBtn');
 popUpclose.addEventListener("click", () => {
+  closePopUp()
+
+});
+
+function closePopUp(params) {
   popUpWnd.classList.toggle('invisible');
   // for (let i = 0; i < commentInput.length; i++) {
   //   if (commentInput[i].classList.contains('addvisibility')) {
-  //     commentInput[i].classList.remove('addvisibility')
+  //     commentInput[i].classList.remove(' addvisibility')
   //   }
   // }
-});
-
+}
 // ------------------------------------------------------------------------------
 // ==================================getId (we will fetch the tasks using jquery and store it array)==================
 
@@ -402,6 +406,7 @@ function datas(data) {
   let commentInput = document.querySelectorAll(".model-title ");
   let TaskCompleted = document.querySelectorAll(".roundCheck");
   let task_name = document.querySelectorAll(".task-inner-div");
+  let popUpHeader = document.querySelector('.popUpHeader')
 
   for (let j = 0; j < commentBtn.length; j++) {
     commentBtn[j].addEventListener("click", () => {
@@ -413,6 +418,7 @@ function datas(data) {
       task_name[j].classList.toggle("completedTask")
       setTimeout(() => {
         tasks_list[j].remove()
+        popUpHeader.innerHTML = `<button type="submit" class="completedBtn focus:outline-none font-medium rounded-lg text-sm px-5 ">COMPLETED TASK </button>`
       }, 400);
     })
   }
@@ -459,12 +465,16 @@ function datas(data) {
 
   // UI delete function code here //
   for (let i = 0; i < deleteBtn.length; i++) {
+
     deleteBtn[i].addEventListener('click', () => {
       tasks_list[i].remove()
+      if (deleteBtn[i].length < 1) {
+        popUpclose()
+      }
     })
   }
 
-// ==========================ADD COMMENT FUNCTION ========================
+  // ==========================ADD COMMENT FUNCTION ========================
 
   $(document).ready(function () {
 
@@ -485,9 +495,9 @@ function datas(data) {
           // console.log(response);
           $("#succcess").css("display", "block");
 
-          setTimeout(() =>{
+          setTimeout(() => {
             $("#succcess").css("display", "none");
-          },3000)
+          }, 3000)
 
           // paren.remove()
 
