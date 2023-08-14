@@ -477,22 +477,12 @@ function datas(data) {
   // ==========================ADD COMMENT FUNCTION ========================
 
   let cmtBtn = document.querySelectorAll("#addComment")
-  // console.log(cmtBtn)
   let comment = document.querySelectorAll("#comment")
   for (let a = 0; a < cmtBtn.length; a++) {
     const element = cmtBtn[a];
-    // console.log(element)
     element.addEventListener("click", (e) => {
       let id = comment[a].dataset.id
       let comments = comment[a].value
-      // console.log(id,comments)
-
-    var addComment = $('#addComment')
-    addComment.click(function () {
-      var comment = $("#comment").val()
-      var commentId = $("#comment").attr("data-id")
-      // console.log(commentId)
-      // console.log(comment)
       $.ajax({
         url: "/addComment",
         data: {
@@ -501,8 +491,15 @@ function datas(data) {
         },
         type: "POST",
         success: function (response) {
-          // console.log(response);
+          console.log(response);
           $("#succcess").css("display", "block");
+
+          setTimeout(() => {
+            $("#succcess").css("display", "none");
+          }, 3000)
+
+          paren.remove()
+
 
           setTimeout(() => {
             $("#succcess").css("display", "none");
@@ -512,7 +509,10 @@ function datas(data) {
       });
 
     })
-  })
+
+  }
+}
+
 
 // ===============================This below function is about the after add the habit change it to added ===
 
