@@ -498,7 +498,7 @@ $(function () {
     });
   });
 
-}
+})
 
 /*=========================== personal & professional btns code ===============================*/ 
 let Task_typeBtn = document.querySelectorAll("#categories");

@@ -1165,7 +1165,7 @@ button.removetask {
 
 .hidediv {
   display: none;
-
+}
 button.completedBtn {
   background-color: #E5F7EE;
   border: 1px solid var(--primary-color);
