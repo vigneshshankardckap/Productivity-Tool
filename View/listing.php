@@ -22,9 +22,11 @@
         <div>
           <div class="left-section">
             <img src="../Images/logo.png">
-            <h1>What's Up<span class="username">
-                <?php echo $_SESSION['username']; ?>
-              </span></h1>
+            <span>What's Up
+              <h1 class="username">
+                <?php echo $_SESSION['username']; ?>...
+              </h1>
+            </span>
           </div>
           <!-- this is our right side contents -->
           <div class="right-section">
@@ -38,6 +40,7 @@
               </li>
               <li class="right-icon">
                 <i class="fa-solid fa-pen-to-square Habits-icon"></i>
+                <!-- <img src="../Icons/line-icon-for-habits-vector-removebg-preview.png" style="height: 30px;" class="Habits-icon"> -->
               </li>
               <li class="right-icon">
                 <i class="fa-regular fa-moon theme-btn"></i>
@@ -57,7 +60,7 @@
               <button value="1" name="category_id" class="font-menu selectedCatagory" id="categories">PROFESSIONAL</button>
             </div>
 
-            <div> 
+            <div>
               <button value="2" class="font-menu" name="category_id" id="categories">PERSONAL</button>
             </div>
 
@@ -131,7 +134,7 @@
                   <?php endif; ?>
                 <?php endforeach; ?>
               </div>
-              <div class="viewBtnDiv2"> 
+              <div class="viewBtnDiv2">
                 <!-- <form action="/viewAllTask" method="post"> -->
                 <button class="showMoreBtn" id="getid" name="matrixId" data-id="<?php echo "2" ?>">View Task..</button>
                 <!-- </form> -->
@@ -151,7 +154,7 @@
               </div>
               <div class="viewBtnDiv3">
                 <!-- <form action="/viewAllTask" method="post"> -->
-                <button class="showMoreBtn" id="getid" name="matrixId" data-id="<?php echo "3"?>">View Task..</button>
+                <button class="showMoreBtn" id="getid" name="matrixId" data-id="<?php echo "3" ?>">View Task..</button>
                 <!-- </form> -->
               </div>
             </div>
@@ -186,7 +189,7 @@
                 <div class=" px-4 py-3 sm:flex justify-between items-center px-3	">
                   <h3 class="text-base font-semibold leading-6 text-gray-900 text-xl" id="modal-title">DO FIRST</h3>
                   <div class="flex gap-32">
-                    <button type="submit" class="completedBtn focus:outline-none font-medium rounded-lg text-sm px-5 ">COMPLETED TASK 1</button>
+                    <button type="submit" class="completedBtn focus:outline-none font-medium rounded-lg text-sm px-5 ">COMPLETED TASK </button>
                     <button type="submit" class="rounded-md bg-white h-8 w-8	text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 text-red-600" id='popUpCloseBtn'>X</button>
                   </div>
                 </div>
@@ -200,8 +203,8 @@
                 <div class="bg-white">
                   <div class="px-4 py-3 sm:flex justify-center items-center px-3">
                     <div class="taskListDiv text-base leading-6 text-gray-900 no-underline " id="modal-title">
-                    <div class="carts tasks-lists bg-zinc-200 my-1	h-14	py-3 px-1.5	cursor-pointer flex gap-8 pb-5 rounded">
-                  </div>
+                      <div class="carts tasks-lists bg-zinc-200 my-1	h-14	py-3 px-1.5	cursor-pointer flex gap-8 pb-5 rounded">
+                      </div>
                       <!-- fetched tasks and other functcartsionality buttons injected here -->
                     </div>
                   </div>
@@ -213,16 +216,15 @@
       </div>
     </div>
 
-
     <div class="Habits-div">
       <form action="/addTask" method="post">
         <div class="body-mainDiv">
           <div class="body-content">
-          <div class="close-btn close-habit-div" id="close-habit-div">
-          <div>
-            <span>X</span>
-          </div>
-        </div>
+            <div class="close-btn close-habit-div" id="close-habit-div">
+              <div>
+                <span>X</span>
+              </div>
+            </div>
             <h3>Let's Start With Some Good Habits</h3>
             <div class="pre-define-todo">
               <div class="contents">
@@ -293,7 +295,6 @@
             </label>
           </div>
         </div>
-
         <div>
           <div class="inputdiv">
             <div>
