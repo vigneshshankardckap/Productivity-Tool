@@ -85,6 +85,14 @@
           </div>
         </div>
       </header>
+      <!-- -----------Notification div -------------------- -->
+      <div id="succcess">
+        <div class="notification-success" style="display: flex;">
+          <img src="/Images/success.gif" alt="" height="20px" width="20px" class="notifyIcon">
+          <p>Succesfully Added</p>
+        </div>
+      </div>
+      <!-- -----------habits div -------------------- -->
       <div class="Habitsdiv">
         <div class="notification-title">
           <h4>Notification </h4>
