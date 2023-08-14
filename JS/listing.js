@@ -227,9 +227,11 @@ darkBtn.addEventListener("click", () => {
 // ---------------show more button functionality code here--------------
 let showMoreBtn = document.querySelectorAll(".showMoreBtn");
 let popUpWnd = document.querySelector('.testing-window');
+let check =document.querySelectorAll("#round")
 
 for (let i = 0; i < showMoreBtn.length; i++) {
   showMoreBtn[i].addEventListener("click", () => {
+    // console.log(check);
     popUpWnd.classList.toggle('invisible');
   });
 
@@ -239,14 +241,18 @@ for (let i = 0; i < showMoreBtn.length; i++) {
 
 let popUpclose = document.querySelector('#popUpCloseBtn');
 popUpclose.addEventListener("click", () => {
-  popUpWnd.classList.toggle('invisible');
-  for (let i = 0; i < commentInput.length; i++) {
-    if (commentInput[i].classList.contains('addvisibility')) {
-      commentInput[i].classList.remove('addvisibility')
-    }
-  }
+  closePopUp()
+
 });
 
+function closePopUp(params) {
+  popUpWnd.classList.toggle('invisible');
+  // for (let i = 0; i < commentInput.length; i++) {
+  //   if (commentInput[i].classList.contains('addvisibility')) {
+  //     commentInput[i].classList.remove(' addvisibility')
+  //   }
+  // }
+}
 // ------------------------------------------------------------------------------
 // ==================================getId (we will fetch the tasks using jquery and store it array)==================
 
@@ -323,10 +329,10 @@ function datas(data) {
           </div>
           <div class="text-base leading-6 text-gray-900 no-underline " id="modal-title">
             <div class="change">
+            
               <div class="Task-progress pt-px	">
-                  <div class="round">
-                    <input type="checkbox" id="checkbox" class="taskCheckBox"/>
-                    <label for="checkbox"></label>
+                  <div class="round" >
+                    <label for="checkbox" class="roundCheck" id ="${element.id}"></label>
                   </div>
               </div>
               <div class="make-changes">
@@ -398,23 +404,43 @@ function datas(data) {
 
   let commentBtn = document.querySelectorAll(".add-comment-btn");
   let commentInput = document.querySelectorAll(".model-title ");
-  let TaskCompleted = document.querySelectorAll("#checkbox");
+  let TaskCompleted = document.querySelectorAll(".roundCheck");
   let task_name = document.querySelectorAll(".task-inner-div");
+  let popUpHeader = document.querySelector('.popUpHeader')
 
   for (let j = 0; j < commentBtn.length; j++) {
     commentBtn[j].addEventListener("click", () => {
       commentInput[j].classList.toggle("addvisibility")
-    })
+    })  
 
     TaskCompleted[j].addEventListener("click", () => {
+
       task_name[j].classList.toggle("completedTask")
       setTimeout(() => {
         tasks_list[j].remove()
+        popUpHeader.innerHTML = `<button type="submit" class="completedBtn focus:outline-none font-medium rounded-lg text-sm px-5 ">COMPLETED TASK </button>`
       }, 400);
     })
   }
+}
+
 
   // ================================================================================
+  $(document).on("click", ".roundCheck", function (e) {
+  
+    let taskid = e.target.id;
+    /**  sending task id to backend */
+    $.ajax({
+      url: "/completedTask",
+      data: { id: taskid },
+      type: "POST",
+      success: function (response) {
+        // console.log(response);
+      }
+
+    });
+  })
+
 
 
   // ================================delete task=================================
@@ -439,39 +465,16 @@ function datas(data) {
 
   // UI delete function code here //
   for (let i = 0; i < deleteBtn.length; i++) {
+
     deleteBtn[i].addEventListener('click', () => {
       tasks_list[i].remove()
+      if (deleteBtn[i].length < 1) {
+        popUpclose()
+      }
     })
   }
 
   // ==========================ADD COMMENT FUNCTION ========================
-
-  $(function () {
-    $('#addComment').each(function () {
-      $(this).click(function () {
-        alert("sde")
-        // var addText = $(e.target).text()
-        // var addedValue = $(e.target).attr("name")
-        // // console.log(addedValue)
-        // if (addText == "ADD") {
-        //   $(e.target).text("ADDED")
-        // }
-        // else if (addText == "ADDED") {
-        //   $(e.target).text("ADD")
-        // }
-        // $.ajax({
-        //   url: "/addTask",
-        //   data: {
-        //     value: addedValue
-        //   },
-        //   type: "POST",
-        //   success: function (response) {
-        //     // console.log(response)
-        //   }
-        // });
-      });
-    });
-  });
 
   let cmtBtn = document.querySelectorAll("#addComment")
   // console.log(cmtBtn)
@@ -484,6 +487,12 @@ function datas(data) {
       let comments = comment[a].value
       // console.log(id,comments)
 
+    var addComment = $('#addComment')
+    addComment.click(function () {
+      var comment = $("#comment").val()
+      var commentId = $("#comment").attr("data-id")
+      // console.log(commentId)
+      // console.log(comment)
       $.ajax({
         url: "/addComment",
         data: {
@@ -493,55 +502,17 @@ function datas(data) {
         type: "POST",
         success: function (response) {
           // console.log(response);
-          // $("#succcess").css("display", "block");
+          $("#succcess").css("display", "block");
 
-          // setTimeout(() => {
-          //   $("#succcess").css("display", "none");
-          // }, 3000)
-
-          // paren.remove()
-
+          setTimeout(() => {
+            $("#succcess").css("display", "none");
+          }, 3000)
+          
         }
       });
 
     })
-
-  }
-
-
-  //   $(document).ready(function () {
-
-  //     var addComment = $('#addComment')
-  //     addComment.click(function () {
-  //       var comment = $("#comment").val()
-  //       var commentId = $("#comment").attr("data-id")
-  //       console.log(commentId)
-  //       console.log(comment)
-  //       $.ajax({
-  //         url: "/addComment",
-  //         data: {
-  //           comment: comment,
-  //           commentId: commentId
-  //         },
-  //         type: "POST",
-  //         success: function (response) {
-  //           // console.log(response);
-  //           $("#succcess").css("display", "block");
-
-  //           setTimeout(() => {
-  //             $("#succcess").css("display", "none");
-  //           }, 3000)
-
-  //           // paren.remove()
-
-  //         }
-  //       });
-
-  //     })
-
-  //   })
-}
-// $("p:first-child")
+  })
 
 // ===============================This below function is about the after add the habit change it to added ===
 
@@ -580,7 +551,8 @@ $(function () {
     $(this).click(function (e) {
       var removeBtn = $(e.target).attr("name")
       var paren = $(e.target).parent();
-      console.log(paren)
+      // console.log(paren)
+
       $.ajax({
         url: "/deleteAddedTask",
         data: {
@@ -640,4 +612,14 @@ closeHabitdiv.addEventListener("click", () => {
 
 
 
+
+
+
+
+for (let i = 0; i < check.length; i++) {
+  check[i].addEventListener("click",(e)=>{
+    // console.log(e.target);
+  })
+  
+}
 
