@@ -231,7 +231,7 @@ let check =document.querySelectorAll("#round")
 
 for (let i = 0; i < showMoreBtn.length; i++) {
   showMoreBtn[i].addEventListener("click", () => {
-    console.log(check);
+    // console.log(check);
     popUpWnd.classList.toggle('invisible');
   });
 
@@ -242,11 +242,11 @@ for (let i = 0; i < showMoreBtn.length; i++) {
 let popUpclose = document.querySelector('#popUpCloseBtn');
 popUpclose.addEventListener("click", () => {
   popUpWnd.classList.toggle('invisible');
-  for (let i = 0; i < commentInput.length; i++) {
-    if (commentInput[i].classList.contains('addvisibility')) {
-      commentInput[i].classList.remove('addvisibility')
-    }
-  }
+  // for (let i = 0; i < commentInput.length; i++) {
+  //   if (commentInput[i].classList.contains('addvisibility')) {
+  //     commentInput[i].classList.remove('addvisibility')
+  //   }
+  // }
 });
 
 // ------------------------------------------------------------------------------
@@ -325,9 +325,10 @@ function datas(data) {
           </div>
           <div class="text-base leading-6 text-gray-900 no-underline " id="modal-title">
             <div class="change">
+            
               <div class="Task-progress pt-px	">
-                  <div class="round" data-id ="${element.id}">
-                    <label for="checkbox" class="roundCheck" id="round"></label>
+                  <div class="round" >
+                    <label for="checkbox" class="roundCheck" id ="${element.id}"></label>
                   </div>
               </div>
               <div class="make-changes">
@@ -405,21 +406,34 @@ function datas(data) {
   for (let j = 0; j < commentBtn.length; j++) {
     commentBtn[j].addEventListener("click", () => {
       commentInput[j].classList.toggle("addvisibility")
-    })
-  }
+    })  
 
     TaskCompleted[j].addEventListener("click", () => {
+
       task_name[j].classList.toggle("completedTask")
       setTimeout(() => {
         tasks_list[j].remove()
       }, 400);
     })
-    // console.log(TaskCompleted[i])
-    // console.log(task_name[i]);
-    
   }
+}
 
   // ================================================================================
+  $(document).on("click", ".roundCheck", function (e) {
+  
+    let taskid = e.target.id;
+    /**  sending task id to backend */
+    $.ajax({
+      url: "/completedTask",
+      data: { id: taskid },
+      type: "POST",
+      success: function (response) {
+        // console.log(response);
+      }
+
+    });
+  })
+
 
 
   // ================================delete task=================================
@@ -457,8 +471,8 @@ function datas(data) {
     addComment.click(function () {
       var comment = $("#comment").val()
       var commentId = $("#comment").attr("data-id")
-      console.log(commentId)
-      console.log(comment)
+      // console.log(commentId)
+      // console.log(comment)
       $.ajax({
         url: "/addComment",
         data: {
@@ -521,7 +535,8 @@ $(function () {
     $(this).click(function (e) {
       var removeBtn = $(e.target).attr("name")
       var paren = $(e.target).parent();
-      console.log(paren)
+      // console.log(paren)
+
       $.ajax({
         url: "/deleteAddedTask",
         data: {
@@ -587,7 +602,7 @@ closeHabitdiv.addEventListener("click", () => {
 
 for (let i = 0; i < check.length; i++) {
   check[i].addEventListener("click",(e)=>{
-    console.log(e.target);
+    // console.log(e.target);
   })
   
 }
