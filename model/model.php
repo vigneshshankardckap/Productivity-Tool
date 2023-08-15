@@ -53,7 +53,6 @@ class UserModule extends Database
     public function store($data)
     {
 
-        // var_dump($data);
         $taskName = $data['Task_name'];
         $dueDate = $data['dateTime'];
         $userId = $data['user_id'];
@@ -118,15 +117,18 @@ class UserModule extends Database
 
     public function fetchDataFromDo($category_id)
     {
-
+        // var_dump($category_id);
         $userId = $_SESSION['userid'];
 
         if ($category_id) {
-            return $this->db->query("SELECT * from tasks where user_id =$userId AND matrix_id = 1 AND deleted_at is NULL and category_id = '$category_id' ")->fetchAll(PDO::FETCH_OBJ);
+            return $this->db->query("SELECT * from tasks where user_id =$userId AND matrix_id = 1 AND deleted_at is NULL and category_id = 2 ")->fetchAll(PDO::FETCH_OBJ);
+            // var_dump($data);
+
         } else {
             return $this->db->query("SELECT * from tasks where user_id =$userId AND matrix_id = 1 AND deleted_at is NULL and category_id = 1 ")->fetchAll(PDO::FETCH_OBJ);
         }
     }
+
     public function fetchDataFromdefer($category_id)
     {
 
