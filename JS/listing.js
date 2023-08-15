@@ -450,10 +450,30 @@ $(document).on("click", "#btnDelete", function (e) {
     success: function (response) {
       // console.log(response);
     }
-
   });
 })
 
+  let cmtBtn = document.querySelectorAll("#addComment")
+  let comment = document.querySelectorAll("#comment")
+  for (let a = 0; a < cmtBtn.length; a++) {
+    const element = cmtBtn[a];
+    element.addEventListener("click", (e) => {
+      let id = comment[a].dataset.id
+      let comments = comment[a].value
+      $.ajax({
+        url: "/addComment",
+        data: {
+          id: id,
+          comments: comments
+        },
+        type: "POST",
+        success: function (response) {
+          console.log(response);
+          $("#succcess").css("display", "block");
+        }
+      })
+    })
+  }
 
 // ==========================ADD COMMENT FUNCTION ========================
 
@@ -473,6 +493,7 @@ $(document).ready(function () {
       success: function (response) {
         // console.log(response);
         $("#succcess").css("display", "block");
+          paren.remove()
 
         setTimeout(() => {
           $("#succcess").css("display", "none");
@@ -481,7 +502,8 @@ $(document).ready(function () {
       }
     });
 
-  })
+  }
+}
 
 })
 

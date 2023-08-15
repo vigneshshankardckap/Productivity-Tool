@@ -188,8 +188,8 @@ class UserModule extends Database
     public function addComment($values)
     {
 
-        $commentId = $values['commentId'];
-        $comment = $values['comment'];
+        $commentId = $values['id'];
+        $comment = $values['comments'];
         $this->db->query("UPDATE tasks SET comments = '$comment' where id='$commentId' ");
         // header('location:/viewAllTask');
     }
