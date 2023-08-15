@@ -342,16 +342,22 @@ body {
 }
 
 .font-menu {
+  transition: 0.5s;
   color: gray;
   border-bottom: 4px solid var(--background-color);
+  font-weight: 500;
   border-radius: 0px;
-  padding: 0px 5px;
+}
+.font-menu:hover:not(.selectedCatagory) {
+  color: var(--icon-color );
 }
 
 .selectedCatagory {
-  border-bottom: 4px solid var(--primary-color);
+  transition: 0.5s;
   border-radius: 0px;
-  color: green;
+  border-bottom: 4px solid var(--primary-color);
+  font-weight: 500;
+  color: var(--primary-color);
   animation: border_anim 1s linear forwards;
 }
 
@@ -952,7 +958,7 @@ button.removetask {
 
 .add-Cmt #addComment {
   border-radius: 8px;
-  padding: 14px 8px;
+  padding: 7px;
   font-size: 10px;
   color: var(--primary-color);
   border: 2px solid var(--primary-color);

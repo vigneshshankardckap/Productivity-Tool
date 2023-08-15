@@ -66,7 +66,7 @@
               <button name="category_id" class="font-menu selectedCatagory" id="1">PROFESSIONAL</button>
             </div>
             <div>
-              <button class="font-menu" name="category_id" id="2">PERSONAL</button>
+              <button class="font-menu px-4	" name="category_id" id="2">PERSONAL</button>
             </div>
           </div>
 
@@ -122,7 +122,7 @@
                 <?php foreach ($fetchAllDataDo as $key => $do) : ?>
                   <?php if ($key < 4) : ?>
                     <div class="flex items-center gap-2	">
-                      <i class="fas fa-dot-circle" style="color: #99CC11; font-size: 20px;"></i>
+                      <i class="fas fa-dot-circle" style="color: #99CC11; font-size: 20px; opacity: 75%;"></i>
                       <div class="nameDateDiv">
                         <p class="copy text-start	w-60"> <?php echo $do->task_name; ?></p>
                         <p class="date text-right	"><?php echo $do->dates; ?></p>
@@ -134,7 +134,7 @@
               <div class="viewBtnDiv1">
                 <!-- view task button injected here -->
                 <div class="showMoreBtn">
-                  <i class="fa-solid fa-circle-chevron-down" style="color: #5fb32e; font-size: 24px;" id="getid" name="matrixId" data-id="<?php echo "1" ?>"></i>
+                  <i class="fa-solid fa-circle-chevron-down" style="color: #5fb32e; font-size: 24px; " id="getid" name="matrixId" data-id="<?php echo "1" ?>"></i>
                 </div>
               </div>
             </div>
@@ -147,7 +147,7 @@
                 <?php foreach ($fetchAllDataDefer as $key => $defer[0]) : ?>
                   <?php if ($key < 4) : ?>
                     <div class="flex items-center gap-2	">
-                      <i class="fas fa-dot-circle" style="color: #4588EE; font-size: 20px;"></i>
+                      <i class="fas fa-dot-circle" style="color: #4588EE; font-size: 20px; opacity: 75%;"></i>
                       <div class="nameDateDiv">
                         <p class="copy text-start	w-60"><?php echo $defer[0]->task_name ?></p>
                         <p class="date text-right	"><?php echo $defer[0]->dates; ?></p>
@@ -173,7 +173,7 @@
                 <?php foreach ($fetchAllDataDelegate as $key => $Delegate) : ?>
                   <?php if ($key < 4) : ?>
                     <div class="flex items-center gap-2	">
-                      <i class="fas fa-dot-circle" style="color: #F7A821; font-size: 20px;"></i>
+                      <i class="fas fa-dot-circle" style="color: #F7A821; font-size: 20px; opacity: 75%;"></i>
                       <div class="nameDateDiv">
                         <p class="copy text-start	w-60"><?php echo $Delegate->task_name ?></p>
                         <p class="date text-right	"><?php echo $Delegate->dates; ?></p>
@@ -198,8 +198,8 @@
                 <h2 class="title">DELETE</h2>
                 <?php foreach ($fetchAllDataDelete as $key => $delete) : ?>
                   <?php if ($key < 4) : ?>
-                    <div class="flex items-center gap-2	">
-                      <i class="fas fa-dot-circle" style="color: #CE4317; font-size: 20px;"></i>
+                    <div class="flex items-center gap-2	taskDetailcont">
+                      <i class="fas fa-dot-circle" style="color: #CE4317; font-size: 20px; opacity: 75%;"></i>
                       <div class="nameDateDiv">
                         <p class="copy text-start	w-60"><?php echo $delete->task_name ?></p>
                         <p class="date text-right	"><?php echo $delete->dates; ?></p>
@@ -211,7 +211,7 @@
               <div class="viewBtnDiv4">
                 <!-- <button class="showMoreBtn" id="getid" name="matrixId" data-id="<?php echo "4" ?>">View Task..</button> -->
                 <div class="showMoreBtn">
-                  <i class="fa-solid fa-circle-chevron-down" style="color: #5fb32e; font-size: 24px;" id="getid" name="matrixId" data-id="<?php echo "4" ?>"> </i>
+                  <i class="fa-solid fa-circle-chevron-down" style="color: #5fb32e; font-size: 24px; " id="getid" name="matrixId" data-id="<?php echo "4" ?>"> </i>
                 </div>
               </div>
             </div>

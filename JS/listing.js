@@ -231,7 +231,6 @@ let check = document.querySelectorAll("#round")
 
 for (let i = 0; i < showMoreBtn.length; i++) {
   showMoreBtn[i].addEventListener("click", () => {
-    // console.log(check);
     popUpWnd.classList.toggle('invisible');
   });
 
@@ -241,18 +240,10 @@ for (let i = 0; i < showMoreBtn.length; i++) {
 
 let popUpclose = document.querySelector('#popUpCloseBtn');
 popUpclose.addEventListener("click", () => {
-  closePopUp()
-
+  popUpWnd.classList.toggle('invisible');
+  // closePopUp()
 });
 
-function closePopUp(params) {
-  popUpWnd.classList.toggle('invisible');
-  // for (let i = 0; i < commentInput.length; i++) {
-  //   if (commentInput[i].classList.contains('addvisibility')) {
-  //     commentInput[i].classList.remove(' addvisibility')
-  //   }
-  // }
-}
 // ------------------------------------------------------------------------------
 // ==================================getId (we will fetch the tasks using jquery and store it array)==================
 
@@ -412,9 +403,16 @@ function datas(data) {
   }
   // ------------------------------------------------------------------------
   //  ==========================This function(datas) ended here=====================
+
 }
 
-
+function close(params) {
+  for (let i = 0; i < commentInput.length; i++) {
+    if (commentInput[i].classList.contains('addvisibility')) {
+      commentInput[i].classList.remove(' addvisibility')
+    }
+  }
+}
 
 // ===================================Below ajax code is for send the task id to backend for complete task functionality=============================================
 $(document).on("click", ".roundCheck", function (e) {
@@ -453,27 +451,27 @@ $(document).on("click", "#btnDelete", function (e) {
   });
 })
 
-  let cmtBtn = document.querySelectorAll("#addComment")
-  let comment = document.querySelectorAll("#comment")
-  for (let a = 0; a < cmtBtn.length; a++) {
-    const element = cmtBtn[a];
-    element.addEventListener("click", (e) => {
-      let id = comment[a].dataset.id
-      let comments = comment[a].value
-      $.ajax({
-        url: "/addComment",
-        data: {
-          id: id,
-          comments: comments
-        },
-        type: "POST",
-        success: function (response) {
-          console.log(response);
-          $("#succcess").css("display", "block");
-        }
-      })
+let cmtBtn = document.querySelectorAll("#addComment")
+let comment = document.querySelectorAll("#comment")
+for (let a = 0; a < cmtBtn.length; a++) {
+  const element = cmtBtn[a];
+  element.addEventListener("click", (e) => {
+    let id = comment[a].dataset.id
+    let comments = comment[a].value
+    $.ajax({
+      url: "/addComment",
+      data: {
+        id: id,
+        comments: comments
+      },
+      type: "POST",
+      success: function (response) {
+        console.log(response);
+        $("#succcess").css("display", "block");
+      }
     })
-  }
+  })
+}
 
 // ==========================ADD COMMENT FUNCTION ========================
 
@@ -493,7 +491,7 @@ $(document).ready(function () {
       success: function (response) {
         // console.log(response);
         $("#succcess").css("display", "block");
-          paren.remove()
+        paren.remove()
 
         setTimeout(() => {
           $("#succcess").css("display", "none");
@@ -502,9 +500,7 @@ $(document).ready(function () {
       }
     });
 
-  }
-}
-
+  })
 })
 
 
@@ -626,4 +622,3 @@ for (let i = 0; i < check.length; i++) {
   })
 
 }
-
