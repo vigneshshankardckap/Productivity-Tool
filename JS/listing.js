@@ -412,7 +412,7 @@ let comment = document.querySelectorAll("#comment")
 for (let a = 0; a < cmtBtn.length; a++) {
   const element = cmtBtn[a];
   // console.log(element)
-  alert("clicked")
+ 
   element.addEventListener("click", () => {
     let id = comment[a].dataset.id
     let comments = comment[a].value
@@ -426,7 +426,7 @@ for (let a = 0; a < cmtBtn.length; a++) {
       },
       type: "POST",
       success: function (response) {
-        console.log(response);
+      
         $("#succcess").css("display", "block");
 
         setTimeout(() => {
