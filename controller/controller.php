@@ -39,6 +39,7 @@ class UserController
     {
        
         $category_id =  $_POST['category_id'];
+
         $fetchAllDataDo = $this->userModel->fetchDataFromDo($category_id);
         $fetchAllDataDefer = $this->userModel->fetchDataFromdefer($category_id);
         $fetchAllDataDelegate = $this->userModel->fetchDataFromdelegate($category_id);
