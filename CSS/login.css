@@ -1,12 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
 
-* {
+*{
 	box-sizing: border-box;
 }
 
 body {
-	margin: 0;
-	padding: 0;
 	background: #f6f5f7;
 	display: flex;
 	justify-content: center;
@@ -14,6 +12,7 @@ body {
 	flex-direction: column;
 	font-family: "Montserrat", sans-serif;
 	height: 100vh;
+	margin: -20px 0 50px;
 }
 
 h1 {
@@ -46,8 +45,7 @@ a {
 
 button {
 	border-radius: 20px;
-	border: 1px solid #5fb32e;
-	;
+	border: 1px solid #5fb32e;;
 	background-color: #5fb32e;
 	color: #ffffff;
 	font-size: 12px;
@@ -91,9 +89,8 @@ input {
 	width: 100%;
 	border-radius: 3px;
 }
-
-input:focus {
-	outline: solid 1px #5fb32e;
+input:focus{
+	outline: solid 1px  #5fb32e ;
 
 }
 
@@ -140,7 +137,6 @@ input:focus {
 }
 
 @keyframes show {
-
 	0%,
 	49.99% {
 		opacity: 0;
@@ -171,8 +167,8 @@ input:focus {
 
 .overlay {
 	background: #5fb32e;
-	background: -webkit-linear-gradient(to right, #5fb32e, #5fb32e);
-	background: linear-gradient(to right, #5fb32e, #5fb32e);
+	background: -webkit-linear-gradient(to right, #5fb32e ,#5fb32e);
+	background: linear-gradient(to right, #5fb32e,#5fb32e);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;
@@ -261,36 +257,34 @@ footer a {
 	text-decoration: none;
 } */
 
-button {
+button{
 	cursor: pointer;
 }
 
 .emailError,
-.passError {
+.passError{
 	margin-top: 5px;
-	color: red;
+    color: red;
 	display: none;
 	/* background-color: rgb(255, 225, 225); */
 
 }
 
 
-input:invalid {
-	animation: shake 300ms;
-	color: red;
+input:invalid{
+    animation: shake 300ms;
+    color: red;
 
-}
+  }
 
-@keyframes shake {
-	25% {
-		transform: translateX(4px);
-	}
-
-	50% {
-		transform: translateX(-4px);
-	}
-
-	75% {
-		transform: translateX(4px);
-	}
-}
+  @keyframes shake{
+    25%{
+      transform: translateX(4px);
+    }
+    50%{
+      transform: translateX(-4px);
+    }
+    75%{
+      transform: translateX(4px);
+    }
+  } 
