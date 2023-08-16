@@ -12,6 +12,7 @@
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
+
 </head>
 
 <body>
@@ -188,7 +189,7 @@
         </main>
       </div>
       <!-- pop up window code here -->
-      <div class="testing-window invisible">
+      <div class="testing-window ">
         <div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
           <div class="fixed inset-0 bg-gray-400 bg-opacity-60 transition-opacity"></div>
           <div class="fixed inset-0 z-10 overflow-y-auto">
@@ -275,6 +276,10 @@
           </div>
         </div>
       </form>
+    </div>
+
+    <div class="editForm ">
+        <!-- edit form injected here -->
     </div>
 
     <div class="single-input-form">
