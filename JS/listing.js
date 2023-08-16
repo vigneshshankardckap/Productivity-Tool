@@ -227,6 +227,7 @@ darkBtn.addEventListener("click", () => {
 // ---------------show more button functionality code here--------------
 let showMoreBtn = document.querySelectorAll(".showMoreBtn");
 let popUpWnd = document.querySelector('.testing-window');
+let check = document.querySelectorAll("#round")
 
 for (let i = 0; i < showMoreBtn.length; i++) {
   showMoreBtn[i].addEventListener("click", () => {
@@ -240,11 +241,7 @@ for (let i = 0; i < showMoreBtn.length; i++) {
 let popUpclose = document.querySelector('#popUpCloseBtn');
 popUpclose.addEventListener("click", () => {
   popUpWnd.classList.toggle('invisible');
-  for (let i = 0; i < commentInput.length; i++) {
-    if (commentInput[i].classList.contains('addvisibility')) {
-      commentInput[i].classList.remove('addvisibility')
-    }
-  }
+  // closePopUp()
 });
 
 // ------------------------------------------------------------------------------
@@ -254,6 +251,7 @@ popUpclose.addEventListener("click", () => {
 $(document).ready(function () {
 
   // selecting btn to delete
+
   var viewtask = $("#getid");
 
   let btn = document.querySelectorAll("#getid");
@@ -303,8 +301,8 @@ function datas(data) {
           <div class="task-info " id="rowdiv" >
             <input type="hidden" id="rowid" value="">
             <div class="list-name">
-            <h5>
-                <p class="user-content">${element.task_name}</p>
+              <h5>
+               <p class="user-content">${element.task_name}</p>
               </h5>
             </div>
           </div>
@@ -324,9 +322,8 @@ function datas(data) {
           <div class="text-base leading-6 text-gray-900 no-underline " id="modal-title">
             <div class="change">
               <div class="Task-progress pt-px	">
-                  <div class="round">
-                    <input type="checkbox" id="checkbox" class="taskCheckBox"/>
-                    <label for="checkbox"></label>
+                  <div class="round" >
+                    <label for="checkbox" class="roundCheck" id ="${element.id}"></label>
                   </div>
               </div>
               <div class="make-changes">
@@ -343,36 +340,14 @@ function datas(data) {
       `
     }).join("")
     taskDiv.innerHTML = datas
-
-    let changeDiv = document.querySelector(".list-name")
-    let changeBtn = document.querySelector("#editBtn")
-    let userContents = document.querySelectorAll(".user-content")
-    // console.log(changeBtn);
-    changeBtn.addEventListener("click", (e) => {
-      for (let k = 0; k < userContents.length; k++) {
-        let inner = userContents[k].innerText
-        let changeInput = `<input type="text" value="${inner}">`
-        if (changeBtn.innerHTML = `<i class="fa-solid fa-pen"></i>`) {
-          changeBtn.className = `<i class="fa-solid fa-check" style="color: #5fb32e;"></i>`
-          changeDiv.innerHTML = changeInput
-        }
-        if (`<i class="fa-solid fa-check" style="color: #5fb32e;"></i`) {
-          changeBtn.innerHTML = `<i class="fa-solid fa-pen"></i>`;
-          changeDiv.innerHTML = `<p>${inner}</p`;
-        }
-      }
-    })
-
-
   }
+
   else {
     let emptyMsg = `
     <div>
-    <p>Please Add Task</p>
-
+     <p>Please Add Task</p>
     </div>
     `
-
     taskDiv.innerHTML = emptyMsg;
   }
 
@@ -398,8 +373,9 @@ function datas(data) {
 
   let commentBtn = document.querySelectorAll(".add-comment-btn");
   let commentInput = document.querySelectorAll(".model-title ");
-  let TaskCompleted = document.querySelectorAll("#checkbox");
+  let TaskCompleted = document.querySelectorAll(".roundCheck");
   let task_name = document.querySelectorAll(".task-inner-div");
+  let popUpHeader = document.querySelector('.popUpHeader')
 
   for (let j = 0; j < commentBtn.length; j++) {
     commentBtn[j].addEventListener("click", () => {
@@ -407,22 +383,61 @@ function datas(data) {
     })
 
     TaskCompleted[j].addEventListener("click", () => {
+
       task_name[j].classList.toggle("completedTask")
       setTimeout(() => {
         tasks_list[j].remove()
+        popUpHeader.innerHTML = `<button type="submit" class="completedBtn focus:outline-none font-medium rounded-lg text-sm px-5 ">COMPLETED TASK </button>`
       }, 400);
     })
   }
 
-  // ================================================================================
+  // -------------------------below code is for remove the task from UI------------------------------------
+  // UI delete function code here //
+  let deleteBtn = document.querySelectorAll('#btnDelete')
+  for (let i = 0; i < deleteBtn.length; i++) {
+
+    deleteBtn[i].addEventListener('click', () => {
+      tasks_list[i].remove()
+    })
+  }
+  // ------------------------------------------------------------------------
+  //  ==========================This function(datas) ended here=====================
+
+}
+
+function close(params) {
+  for (let i = 0; i < commentInput.length; i++) {
+    if (commentInput[i].classList.contains('addvisibility')) {
+      commentInput[i].classList.remove(' addvisibility')
+    }
+  }
+}
+
+// ===================================Below ajax code is for send the task id to backend for complete task functionality=============================================
+$(document).on("click", ".roundCheck", function (e) {
+
+  let taskid = e.target.id;
+  /**  sending task id to backend */
+  $.ajax({
+    url: "/completedTask",
+    data: { id: taskid },
+    type: "POST",
+    success: function (response) {
+      // console.log(response);
+    }
+
+  });
+})
 
 
-  // ================================delete task=================================
+// ================================delete task=================================
 
-  // ----------backend delete function here--------
-  let deleteBtn = document.querySelectorAll('#btnDelete');
+// ----------backend delete function here--------
 
-  $(document).on("click", "#btnDelete", function (e) {
+let deleteBtn = document.querySelectorAll('#btnDelete');
+
+$(document).on("click", "#btnDelete", function (e) {
 
     let taskid = e.target.parentElement.dataset.id;
     /**  sending task id to backend */
@@ -444,41 +459,62 @@ function datas(data) {
     })
   }
 
-  // ==========================ADD COMMENT FUNCTION  using Ajax method========================
+  // ==========================ADD COMMENT FUNCTION ========================
 
-  let cmtBtn = document.querySelectorAll("#addComment")
-  let comment = document.querySelectorAll("#comment")
-  for (let a = 0; a < cmtBtn.length; a++) {
-    const element = cmtBtn[a];
-    element.addEventListener("click", (e) => {
-      let id = comment[a].dataset.id
-      let comments = comment[a].value
-      $.ajax({
-        url: "/addComment",
-        data: {
-          id: id,
-          comments: comments
-        },
-        type: "POST",
-        success: function (response) {
-          console.log(response);
-          $("#succcess").css("display", "block");
-
-          setTimeout(() => {
-            $("#succcess").css("display", "none");
-          }, 3000)
-
-          paren.remove()
-
-        }
-      });
-
+let cmtBtn = document.querySelectorAll("#addComment")
+let comment = document.querySelectorAll("#comment")
+for (let a = 0; a < cmtBtn.length; a++) {
+  const element = cmtBtn[a];
+  element.addEventListener("click", (e) => {
+    let id = comment[a].dataset.id
+    let comments = comment[a].value
+    $.ajax({
+      url: "/addComment",
+      data: {
+        id: id,
+        comments: comments
+      },
+      type: "POST",
+      success: function (response) {
+        console.log(response);
+        $("#succcess").css("display", "block");
+      }
     })
-
-  }
+  })
 }
 
-// ===============================This below function is about the after add the habit change it to added ===
+// ==========================ADD COMMENT FUNCTION ========================
+
+$(document).ready(function () {
+
+  var addComment = $('#addComment')
+  addComment.click(function () {
+    var comment = $("#comment").val()
+    var commentId = $("#comment").attr("data-id")
+    $.ajax({
+      url: "/addComment",
+      data: {
+        comment: comment,
+        commentId: commentId
+      },
+      type: "POST",
+      success: function (response) {
+        // console.log(response);
+        $("#succcess").css("display", "block");
+        paren.remove()
+
+        setTimeout(() => {
+          $("#succcess").css("display", "none");
+        }, 3000)
+
+      }
+    });
+
+  })
+})
+
+
+// ===============================This below function is about the after add the habit change it to added ==================
 
 $(function () {
   $('.add').each(function () {
@@ -515,7 +551,7 @@ $(function () {
     $(this).click(function (e) {
       var removeBtn = $(e.target).attr("name")
       var paren = $(e.target).parent();
-      console.log(paren)
+      // console.log(paren)
       $.ajax({
         url: "/deleteAddedTask",
         data: {
@@ -529,9 +565,7 @@ $(function () {
           setTimeout(() => {
             $("#succcess").css("display", "none");
           }, 5000)
-
           paren.remove()
-
         }
 
       });
@@ -542,10 +576,28 @@ $(function () {
 
 })
 
-/*=========================== personal & professional btns code ===============================*/
-let Task_typeBtn = document.querySelectorAll("#categories");
+/*=========================== personal & professional btns functionality code ===============================*/
 
-// console.log(Task_typeBtn);
+// -----------below ajax code is for send the task type id to backend for fetch that type of task --------------
+let Task_typeBtn = document.querySelectorAll(".font-menu");
+
+$(document).on("click", ".font-menu", function (e) {
+
+
+  let taskid = e.target.id;
+
+  /**  sending task id to backend */
+  $.ajax({
+    url: "/list",
+    data: { category_id: taskid },
+    type: "POST",
+    success: function (response) {
+    }
+
+  });
+})
+
+// ---------------below code is for add a classList to user clicked task--------------
 for (let i = 0; i < Task_typeBtn.length; i++) {
   Task_typeBtn[i].addEventListener("click", (e) => {
     for (let j = 0; j < Task_typeBtn.length; j++) {
@@ -572,7 +624,11 @@ closeHabitdiv.addEventListener("click", () => {
   innerContainer.classList.remove("active")
   AddHabisDiv.style.display = "none"
 })
+// ===============================================================
 
+for (let i = 0; i < check.length; i++) {
+  check[i].addEventListener("click", (e) => {
+    // console.log(e.target);
+  })
 
-
-
+}
