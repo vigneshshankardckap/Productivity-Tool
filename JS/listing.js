@@ -405,41 +405,51 @@ function datas(data) {
   //  ==========================This function(datas) ended here=====================
 
 
-// ==========================ADD COMMENT FUNCTION ========================
-let addComment = document.querySelectorAll("#addComment")
-let cmtBtn = document.querySelectorAll("#addComment")
-let comment = document.querySelectorAll("#comment")
-for (let a = 0; a < cmtBtn.length; a++) {
-  const element = cmtBtn[a];
-  // console.log(element)
- 
-  element.addEventListener("click", () => {
-    let id = comment[a].dataset.id
-    let comments = comment[a].value
-    console.log(id)
-    console.log(comments)
-    $.ajax({
-      url: "/addComment",
-      data: {
-        id: id,
-        comments: comments
-      },
-      type: "POST",
-      success: function (response) {
-      
-        $("#succcess").css("display", "block");
+  // ==========================ADD COMMENT FUNCTION ========================
+  // let addComment = document.querySelectorAll("#addComment")
+  let cmtBtn = document.querySelectorAll("#addComment")
+  let comment = document.querySelectorAll("#comment")
+  let addCommentBtn = document.querySelectorAll(".add-comment-btn")
 
-        setTimeout(() => {
-          $("#succcess").css("display", "none");
-        }, 3000)
 
-      }
-    });
+  for (let a = 0; a < cmtBtn.length; a++) {
+    const element = cmtBtn[a];
+    // console.log(element)
 
-  })
+    element.addEventListener("click", () => {
+      let id = comment[a].dataset.id
+      let comments = comment[a].value
+      let addCommentButton = addCommentBtn[a]
+      console.log(id)
+      console.log(comments)
+      console.log(addCommentButton)
 
-// }
-}
+      $.ajax({
+        url: "/addComment",
+        data: {
+          id: id,
+          comments: comments
+        },
+        type: "POST",
+        success: function (response) {
+
+          $("#succcess").css("display", "block");
+
+          setTimeout(() => {
+            $("#succcess").css("display", "none");
+          }, 3000)
+
+          addCommentButton.innerHTML = `<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M21 6.49962C21 9.53698 18.5376 11.9992 15.5 11.9992C12.4624 11.9992 10 9.53698 10 6.49962C10 3.46227 12.4624 1 15.5 1C18.5376 1 21 3.46227 21 6.49962ZM16.5285 2.99986H15.0965C14.8881 2.99986 14.7015 3.12914 14.6283 3.32428L13.5033 6.32407C13.3808 6.65093 13.6224 6.99959 13.9715 6.99959H14.75L13.9773 9.31749C13.8655 9.65295 14.1152 9.99938 14.4688 9.99938C14.6442 9.99938 14.8077 9.91068 14.9032 9.76366L17.5283 5.72535C17.7314 5.4129 17.5072 4.99973 17.1345 4.99973H16.5L16.9967 3.67538C17.1192 3.34853 16.8776 2.99986 16.5285 2.99986ZM15.5 12.9992C17.2465 12.9992 18.8321 12.3104 20 11.1897V14.7491C20 16.5439 18.5449 17.9988 16.75 17.9988H10.9648L5.57814 21.8159C5.12752 22.1351 4.50337 22.0287 4.18407 21.5781C4.06432 21.4091 4 21.2071 4 21.0002L3.9992 17.9988H3.25C1.45507 17.9988 0 16.5439 0 14.7491V6.24964C0 4.45484 1.45507 2.99986 3.25 2.99986H10.0218C9.375 4.01009 9 5.21107 9 6.49962C9 10.0892 11.9101 12.9992 15.5 12.9992Z" fill="#5FB32E"/>
+        <circle cx="16" cy="6" r="6" fill="#FF0000"/>
+        </svg>`
+        }
+      });
+
+    })
+
+    // }
+  }
 
 
 }
