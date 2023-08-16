@@ -444,7 +444,7 @@ function datas(data) {
     })
   }
 
-  // ==========================ADD COMMENT FUNCTION ========================
+  // ==========================ADD COMMENT FUNCTION  using Ajax method========================
 
   let cmtBtn = document.querySelectorAll("#addComment")
   let comment = document.querySelectorAll("#comment")
