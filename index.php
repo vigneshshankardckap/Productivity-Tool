@@ -34,8 +34,6 @@ $router->post('/viewAllTask', 'viewAllTask');
 
 $router->post('/addTask', 'addTask');
 
-$router->post('/completedTask', 'completedTask');
-
 $router->post('/deleteTask', 'deleteTask');
 
 $router->post('/addedTaskDetails', 'addedTaskDetails');

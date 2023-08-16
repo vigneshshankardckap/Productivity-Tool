@@ -13,6 +13,8 @@ class Database
                 'welcome'
 
             );
+
+
         }
 
         catch (PDOException $e) {
