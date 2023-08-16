@@ -21,7 +21,7 @@ class UserController
 
     public function login()
     {
-        require "index.html";
+        require "signup.php";
     }
 
     public function loginLogic()
@@ -31,7 +31,7 @@ class UserController
 
     public function signUp()
     {
-        require "index.html";
+        require "signup.php";
     }
 
 
@@ -75,8 +75,12 @@ class UserController
 
     public function logout()
     {
+        session_start();
+        unset($_SESSION["name"]);
+        unset($_SESSION["email"]);
+        unset($_SESSION["picture"]);
         session_destroy();
-        header("location:/login");
+        header("location:/");
     }
 
     public function deleteAddedTask()
@@ -117,5 +121,11 @@ class UserController
 
 
         // require "View/listing.php";
+    }
+
+    public function completed()
+    {
+        // var_dump($_REQUEST);
+        $this->userModel->completed($_REQUEST);
     }
 }

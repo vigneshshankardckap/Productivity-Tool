@@ -193,4 +193,26 @@ class UserModule extends Database
         $this->db->query("UPDATE tasks SET comments = '$comment' where id='$commentId' ");
         // header('location:/viewAllTask');
     }
+
+    public function completed($matrixId)
+    {
+        $matrix_id = $matrixId["value"];
+//select * from tasks where completed_at is not null and matrix_id = 1;
+
+        // $datas = $this->db->query("SELECT matrix_id,user_id,completed_at,category_id FROM tasks WHERE completed_at is not null and category_id = 1;")->fetchAll(PDO::FETCH_OBJ);
+        $datas = $this->db->query("SELECT id,task_name,dates,user_id,category_id,matrix_id,completed_at FROM tasks WHERE completed_at is not null and category_id = 1 and matrix_id ='$matrix_id'")->fetchAll(PDO::FETCH_OBJ);
+        
+
+        echo json_encode($datas);
+    }
+    // public function viewAllTask($data)
+    // {
+
+    //     $userId = $_SESSION['userid'];
+    //     $matrix_id = $data;
+
+
+    //     $datas = $this->db->query("SELECT * from tasks where user_id = $userId AND matrix_id = $matrix_id AND deleted_at is NULL AND completed_at is NULL ")->fetchAll(PDO::FETCH_OBJ);
+    //     echo json_encode($datas);
+    // }
 }
