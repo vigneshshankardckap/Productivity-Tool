@@ -404,6 +404,44 @@ function datas(data) {
   // ------------------------------------------------------------------------
   //  ==========================This function(datas) ended here=====================
 
+
+// ==========================ADD COMMENT FUNCTION ========================
+let addComment = document.querySelectorAll("#addComment")
+let cmtBtn = document.querySelectorAll("#addComment")
+let comment = document.querySelectorAll("#comment")
+for (let a = 0; a < cmtBtn.length; a++) {
+  const element = cmtBtn[a];
+  // console.log(element)
+  alert("clicked")
+  element.addEventListener("click", () => {
+    let id = comment[a].dataset.id
+    let comments = comment[a].value
+    console.log(id)
+    console.log(comments)
+    $.ajax({
+      url: "/addComment",
+      data: {
+        id: id,
+        comments: comments
+      },
+      type: "POST",
+      success: function (response) {
+        console.log(response);
+        $("#succcess").css("display", "block");
+
+        setTimeout(() => {
+          $("#succcess").css("display", "none");
+        }, 3000)
+
+      }
+    });
+
+  })
+
+// }
+}
+
+
 }
 
 function close(params) {
@@ -450,59 +488,6 @@ $(document).on("click", "#btnDelete", function (e) {
     }
   });
 })
-
-let cmtBtn = document.querySelectorAll("#addComment")
-let comment = document.querySelectorAll("#comment")
-for (let a = 0; a < cmtBtn.length; a++) {
-  const element = cmtBtn[a];
-  element.addEventListener("click", (e) => {
-    let id = comment[a].dataset.id
-    let comments = comment[a].value
-    $.ajax({
-      url: "/addComment",
-      data: {
-        id: id,
-        comments: comments
-      },
-      type: "POST",
-      success: function (response) {
-        console.log(response);
-        $("#succcess").css("display", "block");
-      }
-    })
-  })
-}
-
-// ==========================ADD COMMENT FUNCTION ========================
-
-$(document).ready(function () {
-
-  var addComment = $('#addComment')
-  addComment.click(function () {
-    var comment = $("#comment").val()
-    var commentId = $("#comment").attr("data-id")
-    $.ajax({
-      url: "/addComment",
-      data: {
-        comment: comment,
-        commentId: commentId
-      },
-      type: "POST",
-      success: function (response) {
-        // console.log(response);
-        $("#succcess").css("display", "block");
-        paren.remove()
-
-        setTimeout(() => {
-          $("#succcess").css("display", "none");
-        }, 3000)
-
-      }
-    });
-
-  })
-})
-
 
 // ===============================This below function is about the after add the habit change it to added ==================
 
