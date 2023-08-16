@@ -37,17 +37,14 @@ class UserController
 
     public function list()
     {
-
+       
         $category_id =  $_POST['category_id'];
-        // var_dump($_POST['category_id']);
-        // var_dump($_REQUEST);
         $fetchAllDataDo = $this->userModel->fetchDataFromDo($category_id);
-        // var_dump($fetchAllDataDo);
         $fetchAllDataDefer = $this->userModel->fetchDataFromdefer($category_id);
         $fetchAllDataDelegate = $this->userModel->fetchDataFromdelegate($category_id);
         $fetchAllDataDelete = $this->userModel->fetchDataFromdelete($category_id);
 
-        $tasks = $this->userModel->addedTaskDetails();
+      $tasks = $this->userModel->addedTaskDetails();
 
         require "View/listing.php";
     }
@@ -63,7 +60,7 @@ class UserController
 
     public function addTask()
     {
-
+        
 
         $this->userModel->addTask($_REQUEST);
     }
@@ -85,25 +82,19 @@ class UserController
         $this->userModel->deleteAddedTask($_REQUEST);
     }
 
-    //     public function editTask(){
-    //         var_dump($_POST);
-    //         $this->userModel->editTask($_POST);
-    //     }
+//     public function editTask(){
+//         var_dump($_POST);
+//         $this->userModel->editTask($_POST);
+//     }
 
-    public function addComment()
-    {
-
+    public function addComment(){
+       
         $this->userModel->addComment($_REQUEST);
-    }
 
-    public function completedTask()
-    {
-        // var_dump($_REQUEST);
-        $this->userModel->completedTask($_REQUEST['id']);
     }
 
     public function deleteTask()
-    {
+    {  
 
         // var_dump($_REQUEST);
 
@@ -112,10 +103,10 @@ class UserController
 
     public function particulartask()
     {
-        //   var_dump($_REQUEST['id']);
+    //   var_dump($_REQUEST['id']);
         $this->userModel->viewAllTask($_REQUEST['id']);
-
-
+       
+        
         // require "View/listing.php";
     }
 }
