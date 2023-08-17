@@ -94,7 +94,7 @@ class UserModule extends Database
     {
 
         $userId = $_SESSION['userid'];
-        $fetchAddedTasks = $this->db->query("select userAddedTask.id,name from addTask join userAddedTask on addTask.id = userAddedTask.addTask_id where userAddedTask.user_id = '$userId'");
+        $fetchAddedTasks = $this->db->query("SELECT userAddedTask.id,name FROM addTask JOIN userAddedTask ON addTask.id = userAddedTask.addTask_id WHERE userAddedTask.user_id = '$userId'");
         $exists = $fetchAddedTasks->fetchAll();
 
         return $exists;

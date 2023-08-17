@@ -1,5 +1,6 @@
 <?php 
 session_start();
+require_once "con.php";
 
 include "sample/gc_config.php";
 if(isset($_GET["code"])){
@@ -14,16 +15,19 @@ if(isset($_GET["code"])){
         $data=$obj->userinfo->get();
         // echo "<pre>";
         // var_dump($data);
-        // echo "</pre>";  
+        // echo "</pre>";
         
         if(!empty($data->email)&&!empty($data->name)){
           // $email=$data->email;
           // $name=$data->name;
-          //if you want to register user details, place mysql insert query here
+          // if you want to register user details, place mysql insert query here
           
-          $_SESSION["email"]=$data->email;
-          $_SESSION["username"]=$data->name;
+          $userName = $_SESSION["email"]=$data->email;
+          $userEmail = $_SESSION["username"]=$data->name;
           $_SESSION["picture"]=$data->picture;
+
+        //   $insert = $this->db->query("INSERT INTO users(username,email_id,password)VALUES ('$userName','$userEmail','$password')");
+
           header("location:/LandingPage");
         }
       }
