@@ -399,7 +399,8 @@ for (let i = 0; i < editbtn.length; i++) {
                         <button type="submit" onclick="store()" class="submit-btn">Submit</button>
                       </form>`
         
-
+  
+                      
     editForm.innerHTML = editHtml
     let updateFormCloseBtn = document.querySelector('.updateCloseBtn')
     updateFormCloseBtn.addEventListener('click', () => {
