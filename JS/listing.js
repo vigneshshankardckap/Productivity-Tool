@@ -14,7 +14,7 @@ for (let i = 0; i < inputBtn.length; i++) {
 
     if (inputBtn[i].innerText == "Single") {
       singleForm.classList.add("show")
-      openSingleForm()
+      openSingleForm();
     }
     else if (inputBtn[i].innerText == "Multiple") {
       multiFormDiv.classList.add("show");
@@ -327,7 +327,7 @@ function datas(data) {
                   </div>
               </div>
               <div class="make-changes">
-                <button id="editBtn"><i class="fa-solid fa-pen"></i></button>
+                <button id="editBtn" ><i class="fa-solid fa-pen"></i></button>
               <div>
                   <button type="button" id="btnDelete" data-id="${element.id}"><i class="fa-solid fa-trash-can"></i></button>
               </div>
@@ -368,7 +368,48 @@ function datas(data) {
     }
   });
 
-console.log(data)
+
+// ======================================================editform================================================
+
+let editbtn = document.querySelectorAll("#editBtn")
+let editForm = document.querySelector('.editForm')  
+for (let i = 0; i < editbtn.length; i++) {
+  editbtn[i].addEventListener("click", (e) => {
+    popUpWnd.classList.toggle('invisible');
+    editForm.style.display = "block"
+    let editHtml = ` <form action="/store" method="post">
+                        <div class="updateCloseBtn" id="updateFormCloseBtn">
+                          <div>
+                            <span>X</span>
+                          </div>
+                        </div>
+                        <div>
+                          <div class="inputdiv">
+                            <div>
+                              <label for="grid-first-name">
+                                What is on your Task
+                              </label>
+                              <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-black focus:bg-white" id="grid-first-name" type="text" required placeholder="projectName" name="Task_name">
+                            </div>
+                            <div>
+                              <label for="project" placeholder="Get Date/Time">What on your due?</label>
+                              <input type="datetime-local" placeholder="Get Date/Time" required class="dateTime" value="" name="dateTime" />
+                            </div>
+                          </div>
+                        </div>
+                        <button type="submit" onclick="store()" class="submit-btn">Submit</button>
+                      </form>`
+        
+
+    editForm.innerHTML = editHtml
+    let updateFormCloseBtn = document.querySelector('.updateCloseBtn')
+    updateFormCloseBtn.addEventListener('click', () => {
+      editForm.style.display = "none"
+    })
+  })
+}
+
+
   // =============================below code is for three functionality (comment div toggling)(task detail strike out)(if user click the check box the div will be hiding)=================================
 
   let commentBtn = document.querySelectorAll(".add-comment-btn");

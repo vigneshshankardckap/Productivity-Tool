@@ -1235,3 +1235,14 @@ button.completedBtn:hover {
 #succcess {
   display: none;
 }
+
+/* ===================== */
+.editForm{
+  display: none;
+  background-color: #abf381;
+  position: absolute;
+    height: 28rem;
+    width: 35rem;
+    right: 22rem;
+    top: 163px;
+}
