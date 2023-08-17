@@ -1,11 +1,9 @@
-let form = document.querySelector(".multiple-form")
+let form = document.querySelector(".multiple-form");
 let inputBtn = document.querySelectorAll(".input-type-btn");
-let singleForm = document.querySelector(".single-input-form");
-let multiFormDiv = document.querySelector(".multiple-input-form");
-let innerContainer = document.querySelector(".inner-container")
+let innerContainer = document.querySelector(".inner-container");
 let cancelBtn = document.querySelector(".cancel-btn");
-let empty = document.querySelector(".forms-inner-div")
-
+let empty = document.querySelector(".forms-inner-div");
+let taskHeading = document.querySelector(".taskHeading");
 
 // ======================below code is for open single form and multi form ===============================
 for (let i = 0; i < inputBtn.length; i++) {
@@ -13,28 +11,17 @@ for (let i = 0; i < inputBtn.length; i++) {
     innerContainer.classList.add("active")
 
     if (inputBtn[i].innerText == "Single") {
-      singleForm.classList.add("show")
-      openSingleForm();
+      $(".single-input-form").show()
+      openSingleForm()
     }
     else if (inputBtn[i].innerText == "Multiple") {
-      multiFormDiv.classList.add("show");
+      $(".multiple-input-form").show()
       AddOneMoreForm();
     }
 
   })
 
 }
-
-// ================================Below code is for switch the type button (personal or profession)============
-let switchs = document.querySelector(".switchBall")
-let taskType = document.querySelectorAll('.switchCat')
-
-for (let s = 0; s < taskType.length; s++) {
-  switchs.addEventListener("click", () => {
-    taskType[s].classList.toggle('on')
-  })
-}
-
 
 //========================================single form functionality================================/
 
@@ -73,7 +60,8 @@ function openSingleForm(params) {
 
   closeBtn.addEventListener("click", () => {
     innerContainer.classList.remove("active")
-    singleForm.classList.remove("show")
+    $(".single-input-form").hide()
+
   })
 
 
@@ -175,10 +163,11 @@ function AddOneMoreForm() {
   for (let i = 0; i < mainDivCloseBtn.length; i++) {
     mainDivCloseBtn[i].addEventListener("click", () => {
       cnt--;
+
       if (cnt == 0) {
         innerContainer.classList.remove("active");
-        multipleFormsDiv[i].remove();
-        multiFormDiv.classList.remove("show");
+        $('.multiple-forms-div').remove();
+        $('.multiple-input-form').hide();
       }
       else {
         multipleFormsDiv[i].remove();
@@ -196,12 +185,15 @@ let closelist = document.querySelector("#close-notificationList")
 let Habitsdiv = document.querySelector(".Habitsdiv");
 
 function openNotofy() {
-  Habitsdiv.classList.toggle("showdiv");
+  // Habitsdiv.classList.toggle("showdiv");
+  $('.Habitsdiv').toggle('showdiv')
+
 }
 
 
 closelist.addEventListener("click", (e) => {
-  Habitsdiv.classList.remove("showdiv");
+  // Habitsdiv.classList.remove("showdiv");
+  $('.Habitsdiv').hide()
 })
 
 // ==========================================================================================================
@@ -231,18 +223,40 @@ let check = document.querySelectorAll("#round")
 
 for (let i = 0; i < showMoreBtn.length; i++) {
   showMoreBtn[i].addEventListener("click", () => {
-    popUpWnd.classList.toggle('invisible');
+
+    $(".testing-window").show();
+
+    // -----below code is for assign respective names for pop up window-------
+    taskId = showMoreBtn[i].id
+    switch (taskId) {
+      case "1":
+        taskHeading.innerText = "DO FIRST"
+        break;
+      case "2":
+        taskHeading.innerText = "DEFER"
+        break;
+      case "3":
+        taskHeading.innerText = "DELEGATE"
+        break;
+      case "4":
+        taskHeading.innerText = "DELETE"
+        break;
+      default:
+        taskHeading.innerText = ""
+        break;
+    }
+    // ----
   });
 
 }
 
 // -------------task pop up window close functionality code here--------------
 
-let popUpclose = document.querySelector('#popUpCloseBtn');
-popUpclose.addEventListener("click", () => {
-  popUpWnd.classList.toggle('invisible');
-  // closePopUp()
-});
+
+$("#popUpCloseBtn").on("click", () => {
+  $(".testing-window").hide();
+})
+
 
 // ------------------------------------------------------------------------------
 // ==================================getId (we will fetch the tasks using jquery and store it array)==================
@@ -765,7 +779,6 @@ for (let i = 0; i < check.length; i++) {
 
 }
 
-
 let category_id = document.querySelectorAll(".category_id")
 
 
@@ -788,5 +801,4 @@ $(document).on("click", ".category_id", function (e) {
 
 
 })
-
 

@@ -4,17 +4,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Listing page</title>
+  <title>Document</title>
   <link rel="stylesheet" href="../CSS/listing.css" />
+  <link rel="stylesheet" href="">
   <script src="https://kit.fontawesome.com/52d2b40c3f.js" crossorigin="anonymous"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+
 </head>
 
 <body>
   <!-- this is the main container of the application -->
-  <div class="main-container">
+  <div class="container">
     <div class="inner-container">
       <header class="header">
         <div>
@@ -28,18 +31,10 @@
           </div>
           <!-- this is our right side contents -->
           <div class="right-section">
-            <!-- search input code -->
-            <div>
-              <div class="relative">
-                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                  <svg class="w-4 h-4 search-icon " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                  </svg>
-                </div>
-                <input type="search" id="default-search" class="block rounded-lg search-box" placeholder="Search" required>
-              </div>
+            <div class="search-icon-div">
+              <i class="fa-solid fa-magnifying-glass"></i>
             </div>
-            <!-- ---- -->
+            <input placeholder="search" type="search" class="input-box" />
             <ul class="icons">
               <li class="right-icon">
                 <i class="fa-regular fa-bell notification" onclick="openNotofy()"></i>
@@ -60,16 +55,22 @@
           </div>
         </div>
         <div>
-
           <div class="switchDiv">
+            <!-- <form action="\list" method="post"> -->
             <div>
               <button name="category_id" class="font-menu selectedCatagory category_id" id="1">PROFESSIONAL</button>
             </div>
+
             <div>
               <button class="font-menu px-4	category_id" name="category_id" id="2">PERSONAL</button>
             </div>
-          </div>
 
+
+
+            <!-- </form> -->
+            <!-- <hr class="on-catagory"> -->
+
+          </div>
           <div class="add-todo-btn-section">
             <div class="add-todo-inner-section">
               <h2 class="add-btn">ADD TASK</h2>
@@ -121,21 +122,13 @@
                 <h2 class="title">DO FIRST</h2>
                 <?php foreach ($fetchAllDataDo as $key => $do) : ?>
                   <?php if ($key < 4) : ?>
-                    <div class="flex items-center gap-2	">
-                      <i class="fas fa-dot-circle" style="color: #99CC11; font-size: 20px; opacity: 75%;"></i>
-                      <div class="nameDateDiv">
-                        <p class="copy text-start	w-60"> <?php echo $do->task_name; ?></p>
-                        <p class="date text-right	"><?php echo $do->dates; ?></p>
-                      </div>
-                    </div>
+                    <p class="copy"><?php echo $key + 1; ?> <?php echo $do->task_name; ?><span class="date"><?php echo $do->dates; ?></span></p>
                   <?php endif; ?>
                 <?php endforeach; ?>
               </div>
               <div class="viewBtnDiv1">
                 <!-- view task button injected here -->
-                <div class="showMoreBtn">
-                  <i class="fa-solid fa-circle-chevron-down" style="color: #5fb32e; font-size: 24px; " id="getid" name="matrixId" data-id="<?php echo "1" ?>"></i>
-                </div>
+                <button class="showMoreBtn" id="getid" name="matrixId" data-id="<?php echo "1" ?>">View Task..</button>
               </div>
             </div>
           </div>
@@ -146,21 +139,13 @@
                 <h2 class="title">DEFER</h2>
                 <?php foreach ($fetchAllDataDefer as $key => $defer[0]) : ?>
                   <?php if ($key < 4) : ?>
-                    <div class="flex items-center gap-2	">
-                      <i class="fas fa-dot-circle" style="color: #4588EE; font-size: 20px; opacity: 75%;"></i>
-                      <div class="nameDateDiv">
-                        <p class="copy text-start	w-60"><?php echo $defer[0]->task_name ?></p>
-                        <p class="date text-right	"><?php echo $defer[0]->dates; ?></p>
-                      </div>
-                    </div>
+                    <p class="copy"><?php echo $key + 1; ?> <?php echo $defer[0]->task_name ?><span class="date"><?php echo $defer[0]->dates; ?></span></p>
                   <?php endif; ?>
                 <?php endforeach; ?>
               </div>
               <div class="viewBtnDiv2">
                 <!-- <form action="/viewAllTask" method="post"> -->
-                <div class="showMoreBtn">
-                  <i class="fa-solid fa-circle-chevron-down" style="color: #5fb32e; font-size: 24px;" id="getid" name="matrixId" data-id="<?php echo "2" ?>"></i>
-                </div>
+                <button class="showMoreBtn" id="getid" name="matrixId" data-id="<?php echo "2" ?>">View Task..</button>
                 <!-- </form> -->
               </div>
             </div>
@@ -172,21 +157,13 @@
                 <h2 class="title">DELEGATE</h2>
                 <?php foreach ($fetchAllDataDelegate as $key => $Delegate) : ?>
                   <?php if ($key < 4) : ?>
-                    <div class="flex items-center gap-2	">
-                      <i class="fas fa-dot-circle" style="color: #F7A821; font-size: 20px; opacity: 75%;"></i>
-                      <div class="nameDateDiv">
-                        <p class="copy text-start	w-60"><?php echo $Delegate->task_name ?></p>
-                        <p class="date text-right	"><?php echo $Delegate->dates; ?></p>
-                      </div>
-                    </div>
+                    <p class="copy"><?php echo $key + 1; ?> <?php echo $Delegate->task_name ?><span class="date"><?php echo $Delegate->dates; ?></span></p>
                   <?php endif; ?>
                 <?php endforeach; ?>
               </div>
               <div class="viewBtnDiv3">
                 <!-- <form action="/viewAllTask" method="post"> -->
-                <div class="showMoreBtn">
-                  <i class="fa-solid fa-circle-chevron-down" style="color: #5fb32e; font-size: 24px;" id="getid" name="matrixId" data-id="<?php echo "3" ?>"> </i>
-                </div>
+                <button class="showMoreBtn" id="getid" name="matrixId" data-id="<?php echo "3" ?>">View Task..</button>
                 <!-- </form> -->
               </div>
             </div>
@@ -198,28 +175,21 @@
                 <h2 class="title">DELETE</h2>
                 <?php foreach ($fetchAllDataDelete as $key => $delete) : ?>
                   <?php if ($key < 4) : ?>
-                    <div class="flex items-center gap-2	taskDetailcont">
-                      <i class="fas fa-dot-circle" style="color: #CE4317; font-size: 20px; opacity: 75%;"></i>
-                      <div class="nameDateDiv">
-                        <p class="copy text-start	w-60"><?php echo $delete->task_name ?></p>
-                        <p class="date text-right	"><?php echo $delete->dates; ?></p>
-                      </div>
-                    </div>
+                    <p class="copy"><?php echo $key + 1; ?> <?php echo $delete->task_name ?><span class="date"><?php echo $delete->dates; ?></span></p>
                   <?php endif; ?>
                 <?php endforeach; ?>
               </div>
               <div class="viewBtnDiv4">
-                <!-- <button class="showMoreBtn" id="getid" name="matrixId" data-id="<?php echo "4" ?>">View Task..</button> -->
-                <div class="showMoreBtn">
-                  <i class="fa-solid fa-circle-chevron-down" style="color: #5fb32e; font-size: 24px; " id="getid" name="matrixId" data-id="<?php echo "4" ?>"> </i>
-                </div>
+                <!-- <form action="/viewAllTask" method="post"> -->
+                <button class="showMoreBtn" id="getid" name="matrixId" data-id="<?php echo "4" ?>">View Task..</button>
+                <!-- </form> -->
               </div>
             </div>
           </div>
         </main>
       </div>
       <!-- pop up window code here -->
-      <div class="testing-window invisible">
+      <div class="testing-window ">
         <div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
           <div class="fixed inset-0 bg-gray-400 bg-opacity-60 transition-opacity"></div>
           <div class="fixed inset-0 z-10 overflow-y-auto">
@@ -227,10 +197,8 @@
               <div class="relative  overflow-hidden rounded-lg bg-white text-left shadow-xl sm:my-8 w-11/12 m-auto">
                 <div class=" px-4 py-3 sm:flex justify-between items-center px-3	">
                   <h3 class="text-base font-semibold leading-6 text-gray-900 text-xl" id="modal-title">DO FIRST</h3>
-                  <div class="flex gap-32 ">
-                    <div class="popUpHeader">
-
-                    </div>
+                  <div class="flex gap-32">
+                    <button type="submit" class="completedBtn focus:outline-none font-medium rounded-lg text-sm px-5 ">COMPLETED TASK </button>
                     <button type="submit" class="rounded-md bg-white h-8 w-8	text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 text-red-600" id='popUpCloseBtn'>X</button>
                   </div>
                 </div>
@@ -315,6 +283,10 @@
         
     </div>
 
+    <div class="editForm ">
+        <!-- edit form injected here -->
+    </div>
+
     <div class="single-input-form">
       <form action="/store" method="post">
         <div class="close-btn" id="singleCloseBtn">
@@ -393,5 +365,8 @@
   </div>
   <script src="../JS/listing.js"></script>
 </body>
+
+</div>
+
 
 </html>

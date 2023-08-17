@@ -37,11 +37,11 @@ body {
   background-color: var(--background-color);
 }
 
-.main-container {
+.container {
   position: relative;
-  padding: 30px 70px;
+  padding: 35px 80px;
+  width: -webkit-fill-available;
   /* max-width: 1024px; */
-  width: 100%;
 }
 
 .active {
@@ -65,31 +65,35 @@ body {
   position: relative;
 }
 
-/* ------------------for search box and icon---------------- */
-.search-box {
+/* ---------------for search icon ------------------ */
+.search-icon-div {
+  color: var(--icon-color);
+  position: absolute;
+  right: 380px;
+  top: 19px;
+  font-size: 18px;
+}
+
+
+/* ------------------for search box ---------------- */
+.input-box {
   font-size: 14px;
   height: 37px;
   width: 300px;
+  border-radius: 5px;
   color: var(--font-color);
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 5px;
   background-color: var(--thresary-color);
-  padding: 0px 10px 0px 40px;
+  padding: 0px 10px 0px 45px;
+  border: 1px solid white;
 }
 
-.search-box:focus {
+.input-box:focus {
   transition: 0.4s;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   outline: none;
   border: 1px solid #52a521;
 }
 
-.search-box::placeholder {
-  color: var(--icon-color);
-}
-
-.search-icon {
-  color: var(--icon-color);
-}
 
 /* ---------------styling for left side elements----------- */
 .left-section {
@@ -159,7 +163,7 @@ body {
   display: flex;
   gap: 30px;
   justify-content: flex-end;
-  padding: 10px 0px;
+  padding: 15px 0px;
 }
 
 .add-btn {
@@ -169,7 +173,7 @@ body {
   background-color: var(--primary-color);
   border-radius: 5px;
   color: white;
-  padding: 7px 42px;
+  padding: 10px 42px;
 }
 
 .add-btn:hover {
@@ -204,19 +208,19 @@ body {
   }
 
   25% {
-    top: 38px;
+    top: 40px;
   }
 
   50% {
-    top: 38px;
+    top: 40px;
   }
 
   75% {
-    top: 38px;
+    top: 40px;
   }
 
   100% {
-    top: 38px;
+    top: 40px;
   }
 }
 
@@ -246,6 +250,7 @@ body {
   align-items: center;
   background-color: var(--thresary-color);
   height: 435px;
+  width: 753px;
   border-radius: 10px;
   box-shadow: #63636333 0px 2px 8px 0px;
 }
@@ -254,7 +259,7 @@ body {
 .body-content h3 {
   font-weight: 400;
   font-size: 24px;
-  padding: 30px 280px 30px 45px;
+  padding: 35px 282px 25px 45px;
 }
 
 /* -----------------main div for all the separate div styling------------- */
@@ -262,10 +267,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 25px;
-}
-
-.pre-define-todo>.contents {
-  display: flex;
 }
 
 /* ------------inner separate div styling------------------ */
@@ -407,7 +408,7 @@ body {
   cursor: pointer;
 }
 
-/* ------------below style is for priority buttons-------------- */
+/* ------------below style is for our priority buttons-------------- */
 .matix {
   display: flex;
   padding: 24 px 0px 0px 120px;

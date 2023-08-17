@@ -1,3 +1,6 @@
+<?php
+//var_dump($tasks);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,15 +9,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
   <link rel="stylesheet" href="../CSS/homepage.css" />
+  <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
   <script src="https://kit.fontawesome.com/52d2b40c3f.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 </head>
 
 <body>
   <!-- this is the main container of the application -->
-  <div class="main-container">
+  <div class="container">
     <div class="inner-container">
       <header class="header">
         <div class="left-section">
@@ -29,18 +32,10 @@
         </div>
 
         <div class="right-section">
-          <!-- search input code -->
-          <div>
-            <div class="relative">
-              <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <svg class="w-4 h-4 search-icon " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                </svg>
-              </div>
-              <input type="search" id="default-search" class="block rounded-lg search-box" placeholder="Search" required>
-            </div>
+          <div class="search-icon-div">
+            <i class="fa-solid fa-magnifying-glass"></i>
           </div>
-          <!-- ---- -->
+          <input placeholder="search" type="search" class="input-box" />
           <ul class="icons">
             <!-- <form action="/addedTaskDetails" method="post"> -->
             <li class="right-icon" onclick="openNotofy()" id="notification" value="<?php echo $_SESSION['userid'] ?>">

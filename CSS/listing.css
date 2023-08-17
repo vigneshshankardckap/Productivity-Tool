@@ -17,7 +17,7 @@ button {
   --primary-color: #5fb32e;
   --secondary-color: #b6e7ce;
   --thresary-color: #ffffff;
-  --font-color: #000000;
+  --font-color: #0C2000;
   --focus-color: #e1f8ec;
   --shadow-color: #479c16ab;
   --background-color: #f3f3f5;
@@ -740,22 +740,25 @@ button {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1), 0 4px 4px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.1), 0 16px 16px rgba(0, 0, 0, 0.1);
 }
 
-.main-card:nth-child(1)>.card-color:nth-child(1) {
+.card-div:nth-child(1)>.main-card>.card-color{
   background-color: #99CC11;
+
 }
 
-.main-card:nth-child(2)>.card-color:nth-child(1) {
+.card-div:nth-child(2)>.main-card>.card-color{
   background-color: #4588EE;
 
 }
-
-.main-card:nth-child(3)>.card-color:nth-child(1) {
+.card-div:nth-child(3)>.main-card>.card-color{
   background-color: #F7A821;
+
+}
+.card-div:nth-child(4)>.main-card>.card-color{
+  background-color: #CE4317;
+
 }
 
-.main-card:nth-child(4)>.card-color:nth-child(1) {
-  background-color: #CE4317;
-}
+
 
 .card-color {
   width: 25px;
@@ -770,7 +773,7 @@ button {
 
 .card> :last-child {
   position: absolute;
-  bottom: 5px;
+  bottom: 10px;
   left: 46%;
 }
 
@@ -791,16 +794,14 @@ button {
 .title {
   font-weight: bold;
   color: var(--font-color);
+  padding-bottom: 10px;
 }
 
 .nameDateDiv {
   display: flex;
-  /* justify-content: space-between;
-  height: 35px; */
   background-color: var(--task-list-bg-color);
-  padding: 5px;
+  padding: 6px;
   margin: 4px;
-  border-radius: 5px;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
 }
 
@@ -812,7 +813,13 @@ button {
 .showMoreBtn {
   cursor: pointer;
 }
-
+/* ==========================style for pop up window========================== */
+.testing-window{
+  display: none;
+}
+.show{
+  display: block;
+}
 
 
 /* ===============  ================================================================= */
@@ -821,8 +828,6 @@ button {
 
 .Habitsdiv {
   width: 343px;
-  display: none;
-  border: 2px solid black;
   position: absolute;
   min-height: 555px;
   top: 70px;
@@ -830,7 +835,7 @@ button {
   border-radius: 10px;
   background-color: var(--background-color);
   color: var(--font-color);
-  /* z-index: 1; */
+  z-index: 1;
   border: none;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
