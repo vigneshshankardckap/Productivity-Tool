@@ -41,7 +41,7 @@ class UserController
         $category_id =  $_REQUEST['category_id'];
         // var_dump($category_id);
         $fetchAllDataDo = $this->userModel->fetchDataFromDo($category_id);
-        var_dump($fetchAllDataDo);
+        // var_dump($fetchAllDataDo);
         $fetchAllDataDefer = $this->userModel->fetchDataFromdefer($category_id);
         $fetchAllDataDelegate = $this->userModel->fetchDataFromdelegate($category_id);
         $fetchAllDataDelete = $this->userModel->fetchDataFromdelete($category_id);
