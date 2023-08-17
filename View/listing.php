@@ -77,10 +77,10 @@
               </div>
               <div class="input-type">
                 <div class="input-type-btn">
-                  <span>Single</span>
+                  <img src="../Icons/single.png" class="type-btn" id="1" ><span class="typeName">Single</span>
                 </div>
                 <div class="input-type-btn">
-                  <span>Multiple</span>
+                <img src="../Icons/multi.png" class="type-btn" id="2" ><span class="typeName">Multiple</span>
                 </div>
               </div>
             </div>

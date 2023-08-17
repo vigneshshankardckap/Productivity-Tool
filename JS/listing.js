@@ -1,7 +1,7 @@
 let form = document.querySelector(".multiple-form")
-let inputBtn = document.querySelectorAll(".input-type-btn");
-let singleForm = document.querySelector(".single-input-form");
-let multiFormDiv = document.querySelector(".multiple-input-form");
+let inputBtn = document.querySelectorAll(".type-btn");
+// let singleForm = document.querySelector(".single-input-form");
+// let multiFormDiv = document.querySelector(".multiple-input-form");
 let innerContainer = document.querySelector(".inner-container")
 let cancelBtn = document.querySelector(".cancel-btn");
 let empty = document.querySelector(".forms-inner-div")
@@ -12,12 +12,12 @@ for (let i = 0; i < inputBtn.length; i++) {
   inputBtn[i].addEventListener("click", () => {
     innerContainer.classList.add("active")
 
-    if (inputBtn[i].innerText == "Single") {
+    if (inputBtn[i].id == "1") {
       // singleForm.classList.add("show")
       $("#single-form").show()
       openSingleForm()
     }
-    else if (inputBtn[i].innerText == "Multiple") {
+    else if (inputBtn[i].id == "2") {
       // multiFormDiv.classList.add("show");
       $("#multi-form").show()
       AddOneMoreForm();
@@ -26,6 +26,26 @@ for (let i = 0; i < inputBtn.length; i++) {
   })
 
 }
+
+// -----------below jquery code is for rotate the add button when user hover the btn-------------
+$(".input-type").hover(function () {
+  $(".add-btn").addClass('rotate')
+}, function () {
+  $(".add-btn").removeClass('rotate')
+});
+// ----------------------------
+let typeBtn = document.querySelectorAll(".type-btn")
+let typeName = document.querySelectorAll(".typeName")
+
+$(document).ready(function () {
+  for (let i = 0; i < typeBtn.length; i++) {
+    $(typeBtn[i]).hover(function () {
+      $(typeName[i]).show()
+    }, function () {
+      $(typeName[i]).hide()
+    });
+  }
+});
 
 // ================================Below code is for switch the type button (personal or profession)============
 let switchs = document.querySelector(".switchBall")
