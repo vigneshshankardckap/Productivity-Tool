@@ -32,6 +32,9 @@ if(isset($_GET["code"])){
 
           header("location:/LandingPage");
         }
+        else{
+            header('location:/error.php');
+        }
       }
 
 ?>
