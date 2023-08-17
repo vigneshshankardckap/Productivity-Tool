@@ -329,7 +329,9 @@ function datas(data) {
               <div class="make-changes">
                 <button id="editBtn"><i class="fa-solid fa-pen"></i></button>
               <div>
-                  <button type="button" id="btnDelete" data-id="${element.id}"><i class="fa-solid fa-trash-can"></i></button>
+    
+    
+              <button type="button" id="btnDelete" data-id="${element.id}"><i class="fa-solid fa-trash-can"></i></button>
               </div>
                 <button class="add-comment-btn" data-id="${element.id}"><i class="fa-solid fa-comment"></i></button>
               </div>
