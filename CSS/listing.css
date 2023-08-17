@@ -76,7 +76,7 @@ body {
   align-items: center;
   display: flex;
   justify-content: center;
-  gap: 36rem;
+  gap: 38%;
 }
 
 /* -----------home page right side element styling----------------- */
@@ -190,19 +190,35 @@ body {
 
 .add-btn {
   cursor: pointer;
-  font-size: 35px;
+  font-size: 32px;
   background-color: var(--primary-color);
   border-radius: 50%;
   color: white;
-  width: 53px;
-  height: 53px;
-  text-align: center;
-  font-weight: 300;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 250;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 4px 0px;
+}
+.type-btn{
+  cursor: pointer;
 }
 
 /* -----------below style for input type visible button (single or multiplr )------------------ */
+.add-btn:hover {
+  rotate: 44deg;
+}
+
+
 .add-btn:hover+.input-type {
   display: block;
+}
+
+.rotate {
+  transition: 10s;
+  rotate: 44deg;
 }
 
 .input-type:hover {
@@ -212,48 +228,50 @@ body {
 /* ------------styel for input type   div ----------- */
 .input-type {
   position: absolute;
-  background-color: var(--input-type-hover);
-  border-radius: 0px 0px 5px 5px;
   display: none;
-  animation-duration: 1s;
+  animation-duration: 0.5s;
   animation-name: showInputBox;
   z-index: 1;
+  padding: 16px 0px;
 }
 
 @keyframes showInputBox {
   0% {
-    top: 70px;
-  }
-
-  25% {
-    top: 38px;
+    top: 40px;
   }
 
   50% {
-    top: 38px;
+    top: 60px;
   }
 
   75% {
-    top: 38px;
+    top: 60px;
   }
 
   100% {
-    top: 38px;
+    top: 60px;
   }
 }
 
 /* ------------style for todo input child div------------------ */
-.input-type div {
-  cursor: pointer;
-  text-align: center;
-  color: var(--primary-color);
-  padding: 10px 53px;
+
+
+.input-type-btn {
+  display: flex;
+  align-items: center;
+  gap: 5%;
 }
 
-/* -----------------style for todo input type(single or multiple)---------------- */
-.input-type div:hover {
-  color: var(--thresary-color);
-  background-color: #838f7cfa;
+.input-type-btn>span {
+  background-color: var(--thresary-color);
+  color: var(--primary-color);
+  border-radius: 0px 10px 10px 10px;
+  text-align: center;
+  line-height: 35px;   
+  height: 35px;
+  width: 150px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 4px 0px;
+  display: none;
 }
 
 /* ============================For single form section============================ */
@@ -347,8 +365,9 @@ body {
   font-weight: 500;
   border-radius: 0px;
 }
+
 .font-menu:hover:not(.selectedCatagory) {
-  color: var(--icon-color );
+  color: var(--icon-color);
 }
 
 .selectedCatagory {
@@ -497,7 +516,7 @@ button {
 .multiple-input-form {
   position: absolute;
   top: 140px;
-  right: 117px;
+  right: 185px;
   display: none;
 }
 
@@ -699,13 +718,15 @@ button {
   background-color: var(--primary-color);
   color: var(--thresary-color);
   font-size: 30px;
-  font-weight: 500;
+  font-weight: 350;
   border-radius: var(--multi-border-radius);
   width: 35px;
   height: 35px;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 4px 0px;
+  
 }
 
 .addDivBtn:hover {
@@ -747,7 +768,7 @@ button {
 
 }
 
-.card-div:nth-child(3)>.main-card>.card-color{
+.card-div:nth-child(3)>.main-card>.card-color {
   background-color: #F7A821;
 }
 
@@ -810,7 +831,7 @@ button {
   cursor: pointer;
 }
 
-.testing-window{
+.testing-window {
   display: none;
 }
 
@@ -821,16 +842,13 @@ button {
 .Habitsdiv {
   width: 343px;
   display: none;
-  border: 2px solid black;
   position: absolute;
   min-height: 555px;
-  top: 70px;
-  left: 1000px;
+  top: 85px;
+  left: 950px;
   border-radius: 10px;
   background-color: var(--background-color);
   color: var(--font-color);
-  /* z-index: 1; */
-  border: none;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
@@ -1118,8 +1136,8 @@ button.removetask {
 .Habits-div {
   display: none;
   position: absolute;
-  top: 139px;
-  right: 206px;
+  top: 188px;
+  right: 238px;
 }
 
 .body-content {
