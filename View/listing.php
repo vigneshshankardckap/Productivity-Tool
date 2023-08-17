@@ -58,11 +58,11 @@
           <div class="switchDiv">
             <!-- <form action="\list" method="post"> -->
             <div>
-              <button value="1" name="category_id" class="font-menu selectedCatagory" id="categories">PROFESSIONAL</button>
+              <button name="category_id" class="font-menu selectedCatagory category_id" id="1">PROFESSIONAL</button>
             </div>
 
             <div>
-              <button value="2" class="font-menu" name="category_id" id="categories">PERSONAL</button>
+              <button class="font-menu px-4	category_id" name="category_id" id="2">PERSONAL</button>
             </div>
 
 
@@ -276,6 +276,11 @@
           </div>
         </div>
       </form>
+    </div>
+    <div class="editForm ">
+
+        <!-- edit form injected here -->
+        
     </div>
 
     <div class="editForm ">

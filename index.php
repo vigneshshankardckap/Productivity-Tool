@@ -44,5 +44,7 @@ $router->post('/addComment', 'addComment');
 
 $router->post('/particulartask','particulartask');
 
+$router->post('/completed','completed');
+
 
 $router->routing();

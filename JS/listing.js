@@ -341,7 +341,7 @@ function datas(data) {
                   </div>
               </div>
               <div class="make-changes">
-                <button id="editBtn"><i class="fa-solid fa-pen"></i></button>
+                <button id="editBtn" ><i class="fa-solid fa-pen"></i></button>
               <div>
                   <button type="button" id="btnDelete" data-id="${element.id}"><i class="fa-solid fa-trash-can"></i></button>
               </div>
@@ -383,6 +383,47 @@ function datas(data) {
   });
 
 
+// ======================================================editform================================================
+
+let editbtn = document.querySelectorAll("#editBtn")
+let editForm = document.querySelector('.editForm')  
+for (let i = 0; i < editbtn.length; i++) {
+  editbtn[i].addEventListener("click", (e) => {
+    popUpWnd.classList.toggle('invisible');
+    editForm.style.display = "block"
+    let editHtml = ` <form action="/store" method="post">
+                        <div class="updateCloseBtn" id="updateFormCloseBtn">
+                          <div>
+                            <span>X</span>
+                          </div>
+                        </div>
+                        <div>
+                          <div class="inputdiv">
+                            <div>
+                              <label for="grid-first-name">
+                                What is on your Task
+                              </label>
+                              <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-black focus:bg-white" id="grid-first-name" type="text" required placeholder="projectName" name="Task_name">
+                            </div>
+                            <div>
+                              <label for="project" placeholder="Get Date/Time">What on your due?</label>
+                              <input type="datetime-local" placeholder="Get Date/Time" required class="dateTime" value="" name="dateTime" />
+                            </div>
+                          </div>
+                        </div>
+                        <button type="submit" onclick="store()" class="submit-btn">Submit</button>
+                      </form>`
+        
+
+    editForm.innerHTML = editHtml
+    let updateFormCloseBtn = document.querySelector('.updateCloseBtn')
+    updateFormCloseBtn.addEventListener('click', () => {
+      editForm.style.display = "none"
+    })
+  })
+}
+
+
   // =============================below code is for three functionality (comment div toggling)(task detail strike out)(if user click the check box the div will be hiding)=================================
 
   let commentBtn = document.querySelectorAll(".add-comment-btn");
@@ -390,6 +431,8 @@ function datas(data) {
   let TaskCompleted = document.querySelectorAll(".roundCheck");
   let task_name = document.querySelectorAll(".task-inner-div");
   let popUpHeader = document.querySelector('.popUpHeader')
+
+  popUpHeader.innerHTML = `<button type="submit" id="${data[0].matrix_id}" class="completedBtn focus:outline-none font-medium rounded-lg text-sm px-5 ">COMPLETED TASK </button>`
 
   for (let j = 0; j < commentBtn.length; j++) {
     commentBtn[j].addEventListener("click", () => {
@@ -399,24 +442,136 @@ function datas(data) {
     TaskCompleted[j].addEventListener("click", () => {
 
       task_name[j].classList.toggle("completedTask")
+      
       setTimeout(() => {
-        tasks_list[j].remove()
-        popUpHeader.innerHTML = `<button type="submit" class="completedBtn focus:outline-none font-medium rounded-lg text-sm px-5 ">COMPLETED TASK </button>`
-      }, 400);
+        tasks_list[j].remove()        
+      }, 400)
+
     })
   }
 
+// ==============================completed task shown=================================
+let completedBtn = document.querySelector('.completedBtn')
+$(document).on("click", ".completedBtn", function (e) {
+  let matrixId = e.target.id;
+  console.log(matrixId)
+
+  /**  sending martix id to backend */
+  $.ajax({
+    url: "/completed",
+    data: {
+      value: matrixId
+    },
+    type: "POST",
+    success: function (response) {
+      console.log(response)
+      let completedTask = JSON.parse(response)
+      console.log(completedTask)
+      let datas = completedTask.map((element) => {
+        return `
+<div class=" tasks-lists my-1	h-14	py-3 px-1.5	cursor-pointer flex gap-8 pb-5 rounded">
+<div class="task-inner-div">
+  <div class="task-info " id="rowdiv" >
+    <input type="hidden" id="rowid" value="">
+    <div class="list-name">
+      <h5>
+       <p class="user-content">${element.task_name}</p>
+      </h5>
+    </div>
+  </div>
+  <div class="text-base  leading-6 text-gray-900 no-underline " id="modal-title">
+    <p id="due-date">${element.dates}</p>
+  </div>
+</div>
+<div class=" tasks-lists my-1	h-14	py-3 px-1.5	cursor-pointer flex gap-8 pb-5 rounded">
+<div>
+
+<div class="make-changes addvisibility">
+    <div>
+        <button type="button" id="btnDelete" data-id="${element.id}"><i class="fa-solid fa-trash-can"></i></button>
+    </div>
+    </div>
+</div>
+</div>
+</div>
+`
+}).join("")
+taskDiv.innerHTML = datas
+      // });
+    }
+  });
+})
+
+// =====================================
+
+  
   // -------------------------below code is for remove the task from UI------------------------------------
   // UI delete function code here //
   let deleteBtn = document.querySelectorAll('#btnDelete')
+  console.log(deleteBtn)
   for (let i = 0; i < deleteBtn.length; i++) {
 
     deleteBtn[i].addEventListener('click', () => {
       tasks_list[i].remove()
     })
   }
+
+      let del = document.querySelectorAll("#btnDelete")
+      console.log(del)
+
+
+
+
   // ------------------------------------------------------------------------
   //  ==========================This function(datas) ended here=====================
+
+
+  // ==========================ADD COMMENT FUNCTION ========================
+  // let addComment = document.querySelectorAll("#addComment")
+  let cmtBtn = document.querySelectorAll("#addComment")
+  let comment = document.querySelectorAll("#comment")
+  let addCommentBtn = document.querySelectorAll(".add-comment-btn")
+
+
+  for (let a = 0; a < cmtBtn.length; a++) {
+    const element = cmtBtn[a];
+    // console.log(element)
+
+    element.addEventListener("click", () => {
+      let id = comment[a].dataset.id
+      let comments = comment[a].value
+      let addCommentButton = addCommentBtn[a]
+      console.log(id)
+      console.log(comments)
+      console.log(addCommentButton)
+
+      $.ajax({
+        url: "/addComment",
+        data: {
+          id: id,
+          comments: comments
+        },
+        type: "POST",
+        success: function (response) {
+
+          $("#succcess").css("display", "block");
+
+          setTimeout(() => {
+            $("#succcess").css("display", "none");
+          }, 3000)
+
+          addCommentButton.innerHTML = `<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M21 6.49962C21 9.53698 18.5376 11.9992 15.5 11.9992C12.4624 11.9992 10 9.53698 10 6.49962C10 3.46227 12.4624 1 15.5 1C18.5376 1 21 3.46227 21 6.49962ZM16.5285 2.99986H15.0965C14.8881 2.99986 14.7015 3.12914 14.6283 3.32428L13.5033 6.32407C13.3808 6.65093 13.6224 6.99959 13.9715 6.99959H14.75L13.9773 9.31749C13.8655 9.65295 14.1152 9.99938 14.4688 9.99938C14.6442 9.99938 14.8077 9.91068 14.9032 9.76366L17.5283 5.72535C17.7314 5.4129 17.5072 4.99973 17.1345 4.99973H16.5L16.9967 3.67538C17.1192 3.34853 16.8776 2.99986 16.5285 2.99986ZM15.5 12.9992C17.2465 12.9992 18.8321 12.3104 20 11.1897V14.7491C20 16.5439 18.5449 17.9988 16.75 17.9988H10.9648L5.57814 21.8159C5.12752 22.1351 4.50337 22.0287 4.18407 21.5781C4.06432 21.4091 4 21.2071 4 21.0002L3.9992 17.9988H3.25C1.45507 17.9988 0 16.5439 0 14.7491V6.24964C0 4.45484 1.45507 2.99986 3.25 2.99986H10.0218C9.375 4.01009 9 5.21107 9 6.49962C9 10.0892 11.9101 12.9992 15.5 12.9992Z" fill="#5FB32E"/>
+        <circle cx="16" cy="6" r="6" fill="#FF0000"/>
+        </svg>`
+        }
+      });
+
+    })
+
+    // }
+  }
+
 
 }
 
@@ -585,21 +740,7 @@ $(function () {
 // -----------below ajax code is for send the task type id to backend for fetch that type of task --------------
 let Task_typeBtn = document.querySelectorAll(".font-menu");
 
-$(document).on("click", ".font-menu", function (e) {
 
-
-  let taskid = e.target.id;
-
-  /**  sending task id to backend */
-  $.ajax({
-    url: "/list",
-    data: { category_id: taskid },
-    type: "POST",
-    success: function (response) {
-    }
-
-  });
-})
 
 // ---------------below code is for add a classList to user clicked task--------------
 for (let i = 0; i < Task_typeBtn.length; i++) {
@@ -615,11 +756,12 @@ for (let i = 0; i < Task_typeBtn.length; i++) {
 // =================== habits div ======================
 
 let habiticon = document.querySelector(".Habits-icon")
+console.log(habiticon);
 let AddHabisDiv = document.querySelector(".Habits-div")
 let matrixdiv = document.querySelector(".page-content")
 let closeHabitdiv = document.querySelector("#close-habit-div");
 
-habiticon.addEventListener('click', () => {
+habiticon.addEventListener("click", () => {
   innerContainer.classList.add("active")
   AddHabisDiv.style.display = "block"
 })
@@ -636,4 +778,27 @@ for (let i = 0; i < check.length; i++) {
   })
 
 }
+
+let category_id = document.querySelectorAll(".category_id")
+
+
+$(document).on("click", ".category_id", function (e) {
+
+
+  let taskid = +e.target.id;
+  console.log(taskid);
+
+  /**  sending task id to backend */
+  $.ajax({
+    url: "/list",
+    data: { category_id: taskid },
+    type: "POST",
+    success: function (response) {
+    }
+
+  });
+
+
+
+})
 
