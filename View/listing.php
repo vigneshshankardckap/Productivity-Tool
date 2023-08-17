@@ -72,7 +72,9 @@
 
           <div class="add-todo-btn-section">
             <div class="add-todo-inner-section">
-              <h2 class="add-btn">ADD TASK</h2>
+              <div class="add-btn">
+                <i class="fa-sharp fa-light fa-plus fa-xl"></i>
+              </div>
               <div class="input-type">
                 <div class="input-type-btn">
                   <span>Single</span>
@@ -114,104 +116,112 @@
 
       <div class="taskDetailBox">
         <main class="page-content">
-          <div class="main-card">
-            <div class="card-color"></div>
-            <div class="card">
-              <div class="content">
-                <h2 class="title">DO FIRST</h2>
-                <?php foreach ($fetchAllDataDo as $key => $do) : ?>
-                  <?php if ($key < 4) : ?>
-                    <div class="flex items-center gap-2	">
-                      <i class="fas fa-dot-circle" style="color: #99CC11; font-size: 20px; opacity: 75%;"></i>
-                      <div class="nameDateDiv">
-                        <p class="copy text-start	w-60"> <?php echo $do->task_name; ?></p>
-                        <p class="date text-right	"><?php echo $do->dates; ?></p>
+          <div class="card-div">
+            <h2 class="title">DO FIRST</h2>
+            <div class="main-card">
+              <div class="card-color"></div>
+              <div class="card">
+                <div class="content">
+                  <?php foreach ($fetchAllDataDo as $key => $do) : ?>
+                    <?php if ($key < 4) : ?>
+                      <div class="flex items-center gap-2	">
+                        <i class="fas fa-dot-circle" style="color: #99CC11; font-size: 20px; opacity: 90%;"></i>
+                        <div class="nameDateDiv">
+                          <p class="copy text-start	w-60"> <?php echo $do->task_name; ?></p>
+                          <p class="date text-right	"><?php echo $do->dates; ?></p>
+                        </div>
                       </div>
-                    </div>
-                  <?php endif; ?>
-                <?php endforeach; ?>
-              </div>
-              <div class="viewBtnDiv1">
-                <!-- view task button injected here -->
-                <div class="showMoreBtn">
-                  <i class="fa-solid fa-circle-chevron-down" style="color: #5fb32e; font-size: 24px; " id="getid" name="matrixId" data-id="<?php echo "1" ?>"></i>
+                    <?php endif; ?>
+                  <?php endforeach; ?>
+                </div>
+                <div class="viewBtnDiv1">
+                  <!-- view task button injected here -->
+                  <div class="showMoreBtn">
+                    <i class="fa-solid fa-circle-chevron-down" style="color: #5fb32e; font-size: 24px; " id="getid" name="matrixId" data-id="<?php echo "1" ?>"></i>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="main-card">
-            <div class="card-color"></div>
-            <div class="card">
-              <div class="content">
-                <h2 class="title">DEFER</h2>
-                <?php foreach ($fetchAllDataDefer as $key => $defer[0]) : ?>
-                  <?php if ($key < 4) : ?>
-                    <div class="flex items-center gap-2	">
-                      <i class="fas fa-dot-circle" style="color: #4588EE; font-size: 20px; opacity: 75%;"></i>
-                      <div class="nameDateDiv">
-                        <p class="copy text-start	w-60"><?php echo $defer[0]->task_name ?></p>
-                        <p class="date text-right	"><?php echo $defer[0]->dates; ?></p>
+          <div class="card-div">
+            <h2 class="title">DEFER</h2>
+            <div class="main-card">
+              <div class="card-color"></div>
+              <div class="card">
+                <div class="content">
+                  <?php foreach ($fetchAllDataDefer as $key => $defer[0]) : ?>
+                    <?php if ($key < 4) : ?>
+                      <div class="flex items-center gap-2	">
+                        <i class="fas fa-dot-circle" style="color: #4588EE; font-size: 20px; opacity: 90%;"></i>
+                        <div class="nameDateDiv">
+                          <p class="copy text-start	w-60"><?php echo $defer[0]->task_name ?></p>
+                          <p class="date text-right	"><?php echo $defer[0]->dates; ?></p>
+                        </div>
                       </div>
-                    </div>
-                  <?php endif; ?>
-                <?php endforeach; ?>
-              </div>
-              <div class="viewBtnDiv2">
-                <!-- <form action="/viewAllTask" method="post"> -->
-                <div class="showMoreBtn">
-                  <i class="fa-solid fa-circle-chevron-down" style="color: #5fb32e; font-size: 24px;" id="getid" name="matrixId" data-id="<?php echo "2" ?>"></i>
+                    <?php endif; ?>
+                  <?php endforeach; ?>
                 </div>
-                <!-- </form> -->
+                <div class="viewBtnDiv2">
+                  <!-- <form action="/viewAllTask" method="post"> -->
+                  <div class="showMoreBtn">
+                    <i class="fa-solid fa-circle-chevron-down" style="color: #5fb32e; font-size: 24px;" id="getid" name="matrixId" data-id="<?php echo "2" ?>"></i>
+                  </div>
+                  <!-- </form> -->
+                </div>
               </div>
             </div>
           </div>
-          <div class="main-card">
-            <div class="card-color"></div>
-            <div class="card">
-              <div class="content">
-                <h2 class="title">DELEGATE</h2>
-                <?php foreach ($fetchAllDataDelegate as $key => $Delegate) : ?>
-                  <?php if ($key < 4) : ?>
-                    <div class="flex items-center gap-2	">
-                      <i class="fas fa-dot-circle" style="color: #F7A821; font-size: 20px; opacity: 75%;"></i>
-                      <div class="nameDateDiv">
-                        <p class="copy text-start	w-60"><?php echo $Delegate->task_name ?></p>
-                        <p class="date text-right	"><?php echo $Delegate->dates; ?></p>
+          <div class="card-div" >
+            <h2 class="title">DELEGATE</h2>
+            <div class="main-card">
+              <div class="card-color"></div>
+              <div class="card">
+                <div class="content">
+                  <?php foreach ($fetchAllDataDelegate as $key => $Delegate) : ?>
+                    <?php if ($key < 4) : ?>
+                      <div class="flex items-center gap-2	">
+                        <i class="fas fa-dot-circle" style="color: #F7A821; font-size: 20px; opacity: 90%;"></i>
+                        <div class="nameDateDiv">
+                          <p class="copy text-start	w-60"><?php echo $Delegate->task_name ?></p>
+                          <p class="date text-right	"><?php echo $Delegate->dates; ?></p>
+                        </div>
                       </div>
-                    </div>
-                  <?php endif; ?>
-                <?php endforeach; ?>
-              </div>
-              <div class="viewBtnDiv3">
-                <!-- <form action="/viewAllTask" method="post"> -->
-                <div class="showMoreBtn">
-                  <i class="fa-solid fa-circle-chevron-down" style="color: #5fb32e; font-size: 24px;" id="getid" name="matrixId" data-id="<?php echo "3" ?>"> </i>
+                    <?php endif; ?>
+                  <?php endforeach; ?>
                 </div>
-                <!-- </form> -->
+                <div class="viewBtnDiv3">
+                  <!-- <form action="/viewAllTask" method="post"> -->
+                  <div class="showMoreBtn">
+                    <i class="fa-solid fa-circle-chevron-down" style="color: #5fb32e; font-size: 24px;" id="getid" name="matrixId" data-id="<?php echo "3" ?>"> </i>
+                  </div>
+                  <!-- </form> -->
+                </div>
               </div>
             </div>
           </div>
-          <div class="main-card">
-            <div class="card-color"></div>
-            <div class="card">
-              <div class="content">
-                <h2 class="title">DELETE</h2>
-                <?php foreach ($fetchAllDataDelete as $key => $delete) : ?>
-                  <?php if ($key < 4) : ?>
-                    <div class="flex items-center gap-2	taskDetailcont">
-                      <i class="fas fa-dot-circle" style="color: #CE4317; font-size: 20px; opacity: 75%;"></i>
-                      <div class="nameDateDiv">
-                        <p class="copy text-start	w-60"><?php echo $delete->task_name ?></p>
-                        <p class="date text-right	"><?php echo $delete->dates; ?></p>
+          <div class="card-div">
+            <h2 class="title">DELETE</h2>
+            <div class="main-card">
+              <div class="card-color"></div>
+              <div class="card">
+                <div class="content">
+                  <?php foreach ($fetchAllDataDelete as $key => $delete) : ?>
+                    <?php if ($key < 4) : ?>
+                      <div class="flex items-center gap-2	taskDetailcont">
+                        <i class="fas fa-dot-circle" style="color: #CE4317; font-size: 20px; opacity: 90%;"></i>
+                        <div class="nameDateDiv">
+                          <p class="copy text-start	w-60"><?php echo $delete->task_name ?></p>
+                          <p class="date text-right	"><?php echo $delete->dates; ?></p>
+                        </div>
                       </div>
-                    </div>
-                  <?php endif; ?>
-                <?php endforeach; ?>
-              </div>
-              <div class="viewBtnDiv4">
-                <!-- <button class="showMoreBtn" id="getid" name="matrixId" data-id="<?php echo "4" ?>">View Task..</button> -->
-                <div class="showMoreBtn">
-                  <i class="fa-solid fa-circle-chevron-down" style="color: #5fb32e; font-size: 24px; " id="getid" name="matrixId" data-id="<?php echo "4" ?>"> </i>
+                    <?php endif; ?>
+                  <?php endforeach; ?>
+                </div>
+                <div class="viewBtnDiv4">
+                  <!-- <button class="showMoreBtn" id="getid" name="matrixId" data-id="<?php echo "4" ?>">View Task..</button> -->
+                  <div class="showMoreBtn">
+                    <i class="fa-solid fa-circle-chevron-down" style="color: #5fb32e; font-size: 24px; " id="getid" name="matrixId" data-id="<?php echo "4" ?>"> </i>
+                  </div>
                 </div>
               </div>
             </div>
@@ -219,7 +229,7 @@
         </main>
       </div>
       <!-- pop up window code here -->
-      <div class="testing-window invisible">
+      <div class="testing-window" id="popUpWindow">
         <div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
           <div class="fixed inset-0 bg-gray-400 bg-opacity-60 transition-opacity"></div>
           <div class="fixed inset-0 z-10 overflow-y-auto">
@@ -310,7 +320,7 @@
       </form>
     </div>
 
-    <div class="single-input-form">
+    <div class="single-input-form" id="single-form">
       <form action="/store" method="post">
         <div class="close-btn" id="singleCloseBtn">
           <div>
@@ -371,7 +381,7 @@
       </form>
     </div>
     <!-- this is multiple-input-form  -->
-    <div class="multiple-input-form">`
+    <div class="multiple-input-form" id="multi-form">`
       <form action="" method="post" class="multiple-form">
         <div class="forms-inner-div">
           <!-- multiple forms injected here  -->
