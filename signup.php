@@ -35,7 +35,7 @@ if(isset($_GET["code"])){
         else{
             header('location:/error.php');
         }
-    }git
+    }
 
 ?>
 
