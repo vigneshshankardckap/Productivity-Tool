@@ -370,7 +370,7 @@ function datas(data) {
     }
   });
 
-
+console.log(data)
   // =============================below code is for three functionality (comment div toggling)(task detail strike out)(if user click the check box the div will be hiding)=================================
 
   let commentBtn = document.querySelectorAll(".add-comment-btn");
@@ -378,6 +378,8 @@ function datas(data) {
   let TaskCompleted = document.querySelectorAll(".roundCheck");
   let task_name = document.querySelectorAll(".task-inner-div");
   let popUpHeader = document.querySelector('.popUpHeader')
+
+  popUpHeader.innerHTML = `<button type="submit" id="${data[0].matrix_id}" class="completedBtn focus:outline-none font-medium rounded-lg text-sm px-5 ">COMPLETED TASK </button>`
 
   for (let j = 0; j < commentBtn.length; j++) {
     commentBtn[j].addEventListener("click", () => {
@@ -387,22 +389,86 @@ function datas(data) {
     TaskCompleted[j].addEventListener("click", () => {
 
       task_name[j].classList.toggle("completedTask")
+      
       setTimeout(() => {
-        tasks_list[j].remove()
-        popUpHeader.innerHTML = `<button type="submit" class="completedBtn focus:outline-none font-medium rounded-lg text-sm px-5 ">COMPLETED TASK </button>`
-      }, 400);
+        tasks_list[j].remove()        
+      }, 400)
+
     })
   }
 
+// ==============================completed task shown=================================
+let completedBtn = document.querySelector('.completedBtn')
+$(document).on("click", ".completedBtn", function (e) {
+  let matrixId = e.target.id;
+  console.log(matrixId)
+
+  /**  sending martix id to backend */
+  $.ajax({
+    url: "/completed",
+    data: {
+      value: matrixId
+    },
+    type: "POST",
+    success: function (response) {
+      console.log(response)
+      let completedTask = JSON.parse(response)
+      console.log(completedTask)
+      let datas = completedTask.map((element) => {
+        return `
+<div class=" tasks-lists my-1	h-14	py-3 px-1.5	cursor-pointer flex gap-8 pb-5 rounded">
+<div class="task-inner-div">
+  <div class="task-info " id="rowdiv" >
+    <input type="hidden" id="rowid" value="">
+    <div class="list-name">
+      <h5>
+       <p class="user-content">${element.task_name}</p>
+      </h5>
+    </div>
+  </div>
+  <div class="text-base  leading-6 text-gray-900 no-underline " id="modal-title">
+    <p id="due-date">${element.dates}</p>
+  </div>
+</div>
+<div class=" tasks-lists my-1	h-14	py-3 px-1.5	cursor-pointer flex gap-8 pb-5 rounded">
+<div>
+
+<div class="make-changes addvisibility">
+    <div>
+        <button type="button" id="btnDelete" data-id="${element.id}"><i class="fa-solid fa-trash-can"></i></button>
+    </div>
+    </div>
+</div>
+</div>
+</div>
+`
+}).join("")
+taskDiv.innerHTML = datas
+      // });
+    }
+  });
+})
+
+// =====================================
+
+  
   // -------------------------below code is for remove the task from UI------------------------------------
   // UI delete function code here //
   let deleteBtn = document.querySelectorAll('#btnDelete')
+  console.log(deleteBtn)
   for (let i = 0; i < deleteBtn.length; i++) {
 
     deleteBtn[i].addEventListener('click', () => {
       tasks_list[i].remove()
     })
   }
+
+      let del = document.querySelectorAll("#btnDelete")
+      console.log(del)
+
+
+
+
   // ------------------------------------------------------------------------
   //  ==========================This function(datas) ended here=====================
 
@@ -503,6 +569,60 @@ $(document).on("click", "#btnDelete", function (e) {
     }
   });
 })
+
+
+let cmtBtn = document.querySelectorAll("#addComment")
+let comment = document.querySelectorAll("#comment")
+for (let a = 0; a < cmtBtn.length; a++) {
+  const element = cmtBtn[a];
+  element.addEventListener("click", (e) => {
+    let id = comment[a].dataset.id
+    let comments = comment[a].value
+    $.ajax({
+      url: "/addComment",
+      data: {
+        id: id,
+        comments: comments
+      },
+      type: "POST",
+      success: function (response) {
+        console.log(response);
+        $("#succcess").css("display", "block");
+      }
+    })
+  })
+}
+
+// ==========================ADD COMMENT FUNCTION ========================
+
+$(document).ready(function () {
+
+  var addComment = $('#addComment')
+  addComment.click(function () {
+    var comment = $("#comment").val()
+    var commentId = $("#comment").attr("data-id")
+    $.ajax({
+      url: "/addComment",
+      data: {
+        comment: comment,
+        commentId: commentId
+      },
+      type: "POST",
+      success: function (response) {
+        // console.log(response);
+        $("#succcess").css("display", "block");
+        paren.remove()
+
+        setTimeout(() => {
+          $("#succcess").css("display", "none");
+        }, 3000)
+
+      }
+    });
+
+  })
+})
+
 
 // ===============================This below function is about the after add the habit change it to added ==================
 
