@@ -571,21 +571,7 @@ $(function () {
 // -----------below ajax code is for send the task type id to backend for fetch that type of task --------------
 let Task_typeBtn = document.querySelectorAll(".font-menu");
 
-$(document).on("click", ".font-menu", function (e) {
 
-
-  let taskid = e.target.id;
-
-  /**  sending task id to backend */
-  $.ajax({
-    url: "/list",
-    data: { category_id: taskid },
-    type: "POST",
-    success: function (response) {
-    }
-
-  });
-})
 
 // ---------------below code is for add a classList to user clicked task--------------
 for (let i = 0; i < Task_typeBtn.length; i++) {
@@ -601,11 +587,12 @@ for (let i = 0; i < Task_typeBtn.length; i++) {
 // =================== habits div ======================
 
 let habiticon = document.querySelector(".Habits-icon")
+console.log(habiticon);
 let AddHabisDiv = document.querySelector(".Habits-div")
 let matrixdiv = document.querySelector(".page-content")
 let closeHabitdiv = document.querySelector("#close-habit-div");
 
-habiticon.addEventListener('click', () => {
+habiticon.addEventListener("click", () => {
   innerContainer.classList.add("active")
   AddHabisDiv.style.display = "block"
 })
@@ -622,3 +609,29 @@ for (let i = 0; i < check.length; i++) {
   })
 
 }
+
+
+let category_id = document.querySelectorAll(".category_id")
+
+
+$(document).on("click", ".category_id", function (e) {
+
+
+  let taskid = +e.target.id;
+  console.log(taskid);
+
+  /**  sending task id to backend */
+  $.ajax({
+    url: "/list",
+    data: { category_id: taskid },
+    type: "POST",
+    success: function (response) {
+    }
+
+  });
+
+
+
+})
+
+
