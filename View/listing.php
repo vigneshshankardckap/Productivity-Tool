@@ -309,6 +309,11 @@
         </div>
       </form>
     </div>
+    <div class="editForm ">
+
+        <!-- edit form injected here -->
+        
+    </div>
 
     <div class="single-input-form">
       <form action="/store" method="post">
