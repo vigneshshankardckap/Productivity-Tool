@@ -63,10 +63,10 @@
 
           <div class="switchDiv">
             <div>
-              <button name="category_id" class="font-menu selectedCatagory" id="1">PROFESSIONAL</button>
+              <button name="category_id" class="font-menu selectedCatagory category_id" id="1">PROFESSIONAL</button>
             </div>
             <div>
-              <button class="font-menu px-4	" name="category_id" id="2">PERSONAL</button>
+              <button class="font-menu px-4	category_id" name="category_id" id="2">PERSONAL</button>
             </div>
           </div>
 
