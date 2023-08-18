@@ -36,24 +36,24 @@
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                   </svg>
                 </div>
-                <input type="search" id="default-search" class="block rounded-lg search-box" placeholder="Search" required>
+                <input type="search" id="default-search" class="block rounded-lg search-box" placeholder="Search" title="Search your tasks here" required>
               </div>
             </div>
             <!-- ---- -->
             <ul class="icons">
               <li class="right-icon">
-                <i class="fa-regular fa-bell notification" onclick="openNotofy()"></i>
+                <i class="fa-regular fa-bell notification" title="Notification" onclick="openNotofy()"></i>
               </li>
               <li class="right-icon">
-                <i class="fa-solid fa-pen-to-square Habits-icon"></i>
+                <i class="fa-solid fa-pen-to-square Habits-icon" title="Daily Habits"></i>
                 <!-- <img src="../Icons/line-icon-for-habits-vector-removebg-preview.png" style="height: 30px;" class="Habits-icon"> -->
               </li>
               <li class="right-icon">
-                <i class="fa-regular fa-moon theme-btn"></i>
+                <i class="fa-regular fa-moon theme-btn" title="Dark Mode"></i>
               </li>
               <li class="right-icon">
                 <a href="/logout">
-                  <i class="fa-solid fa-arrow-right-from-bracket logout"></i>
+                  <i class="fa-solid fa-arrow-right-from-bracket logout" title="Log out"></i>
                 </a>
               </li>
             </ul>
@@ -77,10 +77,10 @@
               </div>
               <div class="input-type">
                 <div class="input-type-btn">
-                  <img src="../Icons/single.png" class="type-btn" id="1" ><span class="typeName">Single</span>
+                  <img src="../Icons/single.png" class="type-btn" id="1"><span class="typeName">Single</span>
                 </div>
                 <div class="input-type-btn">
-                <img src="../Icons/multi.png" class="type-btn" id="2" ><span class="typeName">Multiple</span>
+                  <img src="../Icons/multi.png" class="type-btn" id="2"><span class="typeName">Multiple</span>
                 </div>
               </div>
             </div>
@@ -137,7 +137,7 @@
                 <div class="viewBtnDiv1">
                   <!-- view task button injected here -->
                   <div class="showMoreBtn">
-                    <i class="fa-solid fa-circle-chevron-down" style="color: #5fb32e; font-size: 24px; " id="getid" name="matrixId" data-id="<?php echo "1" ?>"></i>
+                    <i class="fa-solid fa-circle-chevron-down" title="View All" style="color: #5fb32e; font-size: 24px; " id="getid" name="matrixId" data-id="<?php echo "1" ?>"></i>
                   </div>
                 </div>
               </div>
@@ -164,14 +164,14 @@
                 <div class="viewBtnDiv2">
                   <!-- <form action="/viewAllTask" method="post"> -->
                   <div class="showMoreBtn">
-                    <i class="fa-solid fa-circle-chevron-down" style="color: #5fb32e; font-size: 24px;" id="getid" name="matrixId" data-id="<?php echo "2" ?>"></i>
+                    <i class="fa-solid fa-circle-chevron-down" title="View All" style="color: #5fb32e; font-size: 24px;" id="getid" name="matrixId" data-id="<?php echo "2" ?>"></i>
                   </div>
                   <!-- </form> -->
                 </div>
               </div>
             </div>
           </div>
-          <div class="card-div" >
+          <div class="card-div">
             <h2 class="title">DELEGATE</h2>
             <div class="main-card">
               <div class="card-color"></div>
@@ -192,7 +192,7 @@
                 <div class="viewBtnDiv3">
                   <!-- <form action="/viewAllTask" method="post"> -->
                   <div class="showMoreBtn">
-                    <i class="fa-solid fa-circle-chevron-down" style="color: #5fb32e; font-size: 24px;" id="getid" name="matrixId" data-id="<?php echo "3" ?>"> </i>
+                    <i class="fa-solid fa-circle-chevron-down" title="View All" style="color: #5fb32e; font-size: 24px;" id="getid" name="matrixId" data-id="<?php echo "3" ?>"> </i>
                   </div>
                   <!-- </form> -->
                 </div>
@@ -218,9 +218,8 @@
                   <?php endforeach; ?>
                 </div>
                 <div class="viewBtnDiv4">
-                  <!-- <button class="showMoreBtn" id="getid" name="matrixId" data-id="<?php echo "4" ?>">View Task..</button> -->
                   <div class="showMoreBtn">
-                    <i class="fa-solid fa-circle-chevron-down" style="color: #5fb32e; font-size: 24px; " id="getid" name="matrixId" data-id="<?php echo "4" ?>"> </i>
+                    <i class="fa-solid fa-circle-chevron-down" title="View All" style="color: #5fb32e; font-size: 24px; " id="getid" name="matrixId" data-id="<?php echo "4" ?>"> </i>
                   </div>
                 </div>
               </div>
@@ -273,6 +272,7 @@
     </div>
 
     <div class="Habits-div">
+      <!-- <div class="fixed inset-0 bg-gray-400 bg-opacity-60 transition-opacity"></div> -->
       <form action="/addTask" method="post">
         <div class="body-mainDiv">
           <div class="body-content">
@@ -369,17 +369,22 @@
           <div class="urgentDiv">
             <label for="project">Urgent</label>
             <br>
-            <label for="css">Yes</label>
-            <input type="radio" class="urgent-priority-btn " required id="1" value="1" name="urgent">
-            <label for="css">No</label>
-            <input type="radio" class="urgent-priority-btn " required id="1" value="0" name="urgent">
+            <div>
+              <label for="css">Yes</label>
+              <input type="radio" class="urgent-priority-btn " required id="1" value="1" name="urgent">
+              <label for="css">No</label>
+              <input type="radio" class="urgent-priority-btn " required id="1" value="0" name="urgent">
+            </div>
           </div>
           <div class="ImportantDiv">
-            <label for="project">Important</label><br>
-            <label for="css">Yes</label>
-            <input type="radio" class="important-priority-btn datas" id="1" required value="1" name="important">
-            <label for="css">No</label>
-            <input type="radio" class="important-priority-btn datas" required id="1" value="0" name="important">
+            <label for="project">Important</label>
+            <br>
+            <div>
+              <label for="css">Yes</label>
+              <input type="radio" class="important-priority-btn datas" id="1" required value="1" name="important">
+              <label for="css">No</label>
+              <input type="radio" class="important-priority-btn datas" required id="1" value="0" name="important">
+            </div>
           </div>
         </div>
         <button type="submit" onclick="store()" class="submit-btn">Submit</button>

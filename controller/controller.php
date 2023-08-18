@@ -120,4 +120,9 @@ class UserController
 
         $this->userModel->completed($_REQUEST);
     }
+
+    public function permanentDel()
+    {
+        $this->userModel->permanentDel($_REQUEST['id']);
+    }
 }
