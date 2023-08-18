@@ -511,8 +511,6 @@ function datas(data) {
 
   // ------------------------------------------------------------------------
 //  ===========================edit form backend============================================================
-  let taskDatas=[];
-
   $(document).on("click", '[data-role=update]', function (e) {
   let id=$(this).data('id')
    
@@ -525,11 +523,7 @@ function datas(data) {
     success: function (response) {
       let EditTask_Responce = JSON.parse(response);
       EditFilling(EditTask_Responce)
-
-      
     }
-    
-  
   })
 })
 
@@ -542,18 +536,23 @@ function EditFilling(EditTask_Responce){
       editForm.style.display = "block"
 
       EditTask_Responce.forEach(editContent => {
+        console.log(editContent);
         let editHtml = `<div class="updateCloseBtn" id="updateFormCloseBtn">
         <div>
           <span>X</span>
         </div>
       </div>
+
+      <input
+      class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      id="username" type="text" hidden name="userId" placeholder="Task Name" value=${editContent.user_id} id="userId" >
       <div class="mb-4">
       <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
           Task Name
       </label>
       <input
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          id="username" type="text" placeholder="Task Name" value=${editContent.task_name}>
+          id="username" type="text" name="editTaskName" placeholder="Task Name" value=${editContent.task_name} id="editTaskName">
   </div>
   <div class="mb-6">
       <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
@@ -561,14 +560,14 @@ function EditFilling(EditTask_Responce){
       </label>
       <input
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          id="username" type="date" placeholder="Date">
+          id="username" type="date" name=editTaskdate placeholder="Date" value=${editContent.dates} id="editTaskdate">
 
   </div>
 
   <div class="flex items-center justify-between">
   <button
       class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-      type="button">
+      type="button"  id="updateTask" data-id=${editContent.id}>
        Update
   </button>
 </div>`
@@ -583,45 +582,30 @@ function EditFilling(EditTask_Responce){
   }
 }
 
+$(document).on("click", '#updateTask', function (e) {
+  let id=$(this).data('id')
 
- //  ==========================This function(edit form UI )=====================
-//  let editbtn = document.querySelectorAll("#editBtn")
-//  let editForm = document.querySelector('.editForm')
-//  for (let i = 0; i < editbtn.length; i++) {
-//    editbtn[i].addEventListener("click", (e) => {
-//      $("#popUpWindow").hide();
-//      editForm.style.display = "block"
-//      let editHtml = `<div class="updateCloseBtn" id="updateFormCloseBtn">
-//                            <div>
-//                              <span>X</span>
-//                            </div>
-//                          </div>
-//                          <div>
-//                            <div class="inputdiv"  >
-//                              <div>
-//                                <label for="grid-first-name" >
-//                                  What is on your Task
-//                                </label>
-//                                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-black focus:bg-white" id="grid-first-name" type="text" required placeholder="projectName" name="Task_name">
-//                              </div>
-//                              <div>
-//                                <label for="project" placeholder="Get Date/Time">What on your due?</label>
-//                                <input type="datetime-local" placeholder="Get Date/Time" required class="dateTime" value="" name="dateTime" />
-//                              </div>
-//                            </div>
-//                          </div>
-//                          <button type="submit" onclick="store()" class="submit-btn">Submit</button>`
-//      editForm.innerHTML = editHtml
-//      let updateFormCloseBtn = document.querySelector('.updateCloseBtn')
-//      updateFormCloseBtn.addEventListener('click', () => {
-//        editForm.style.display = "none"
-//      })
-//    })
-//  }
+let user_id=$('#userId').val();
+// console.log(user_id);
+let editTaskName=$('#editTaskName').val();
+// console.log(editTaskName);
+let editTaskdate=$('#editTaskdate').val();
+// console.log(editTaskdate);
 
-
-
-
+  $.ajax({
+    url: "/updateTask",
+    data: {
+      id:id,
+      editTaskName:editTaskName,
+      editTaskdate:editTaskdate,
+      user_id:user_id,
+    },
+    type: "PUT",
+    success: function (response) {
+   
+    }
+  })
+})
 
   // ==========================ADD COMMENT FUNCTION ========================
   // let addComment = document.querySelectorAll("#addComment")
