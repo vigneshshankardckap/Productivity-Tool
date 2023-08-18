@@ -1,8 +1,7 @@
 <?php 
-session_start();
+
 $servername = "localhost";
-$username = "admin";
-$password = "welcome";
+
 
 
 include "sample/gc_config.php";
@@ -17,7 +16,7 @@ if(isset($_GET["code"])){
     
 
         if(!empty($data["email"])&&!empty($data["name"])){
-            
+            session_start();
             $email_id = $data["email"];
             $name = $data["name"];
            
