@@ -117,7 +117,7 @@
       <div class="taskDetailBox">
         <main class="page-content">
           <div class="card-div">
-            <h2 class="title">DO FIRST</h2>
+            <h2 class="title">Do it now</h2>
             <div class="main-card">
               <div class="card-color"></div>
               <div class="card">
@@ -134,9 +134,9 @@
                     <?php endif; ?>
                   <?php endforeach; ?>
                 </div>
-                <div class="viewBtnDiv1">
+                <div class="viewBtnDiv1" >
                   <!-- view task button injected here -->
-                  <div class="showMoreBtn">
+                  <div class="showMoreBtn" id="1">
                     <i class="fa-solid fa-circle-chevron-down" title="View All" style="color: #5fb32e; font-size: 24px; " id="getid" name="matrixId" data-id="<?php echo "1" ?>"></i>
                   </div>
                 </div>
@@ -144,7 +144,7 @@
             </div>
           </div>
           <div class="card-div">
-            <h2 class="title">DEFER</h2>
+            <h2 class="title">Schedule a Time to Do it</h2>
             <div class="main-card">
               <div class="card-color"></div>
               <div class="card">
@@ -163,7 +163,7 @@
                 </div>
                 <div class="viewBtnDiv2">
                   <!-- <form action="/viewAllTask" method="post"> -->
-                  <div class="showMoreBtn">
+                  <div class="showMoreBtn" id="2">
                     <i class="fa-solid fa-circle-chevron-down" title="View All" style="color: #5fb32e; font-size: 24px;" id="getid" name="matrixId" data-id="<?php echo "2" ?>"></i>
                   </div>
                   <!-- </form> -->
@@ -172,7 +172,7 @@
             </div>
           </div>
           <div class="card-div">
-            <h2 class="title">DELEGATE</h2>
+            <h2 class="title">Who can Do it for you</h2>
             <div class="main-card">
               <div class="card-color"></div>
               <div class="card">
@@ -191,7 +191,7 @@
                 </div>
                 <div class="viewBtnDiv3">
                   <!-- <form action="/viewAllTask" method="post"> -->
-                  <div class="showMoreBtn">
+                  <div class="showMoreBtn" id="3">
                     <i class="fa-solid fa-circle-chevron-down" title="View All" style="color: #5fb32e; font-size: 24px;" id="getid" name="matrixId" data-id="<?php echo "3" ?>"> </i>
                   </div>
                   <!-- </form> -->
@@ -200,7 +200,7 @@
             </div>
           </div>
           <div class="card-div">
-            <h2 class="title">DELETE</h2>
+            <h2 class="title">Eleminate it</h2>
             <div class="main-card">
               <div class="card-color"></div>
               <div class="card">
@@ -218,7 +218,7 @@
                   <?php endforeach; ?>
                 </div>
                 <div class="viewBtnDiv4">
-                  <div class="showMoreBtn">
+                  <div class="showMoreBtn" id="4">
                     <i class="fa-solid fa-circle-chevron-down" title="View All" style="color: #5fb32e; font-size: 24px; " id="getid" name="matrixId" data-id="<?php echo "4" ?>"> </i>
                   </div>
                 </div>
@@ -367,7 +367,7 @@
         </div>
         <div class="matix">
           <div class="urgentDiv">
-            <label for="project">Urgent</label>
+            <label for="project" style="padding-left: 30px;">Urgent</label>
             <br>
             <div>
               <label for="css">Yes</label>
@@ -377,7 +377,7 @@
             </div>
           </div>
           <div class="ImportantDiv">
-            <label for="project">Important</label>
+            <label for="project" style="padding-left: 15px;">Important</label>
             <br>
             <div>
               <label for="css">Yes</label>
