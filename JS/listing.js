@@ -405,7 +405,7 @@ function datas(data) {
   let task_name = document.querySelectorAll(".task-inner-div");
   let popUpHeader = document.querySelector('.popUpHeader')
 
-  // popUpHeader.innerHTML = `<button type="submit" id="${data[0].matrix_id}" class="completedBtn focus:outline-none font-medium rounded-lg text-sm px-5 ">COMPLETED TASK </button>`
+  popUpHeader.innerHTML = `<button type="submit" id="${data[0].matrix_id}" class="completedBtn focus:outline-none font-medium rounded-lg text-sm px-5 ">COMPLETED TASK </button>`
 
   for (let j = 0; j < commentBtn.length; j++) {
     commentBtn[j].addEventListener("click", () => {
