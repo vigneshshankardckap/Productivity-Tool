@@ -1247,3 +1247,35 @@ button.completedBtn:hover {
 #succcess {
   display: none;
 }
+
+
+/* ==============edit form============================================ */
+
+.editForm{
+  display: none;
+  position: absolute;
+  width: 350px;
+  height: 275px;
+  background-color: var(--thresary-color);
+  border-radius: var(--single-border-radius);
+  right: 22rem;
+  top: 163px;
+  padding: 0px 24px;
+  box-shadow: #00000029 0px 10px 36px 0px,
+    #0000000f 0px 0px 0px 1px;
+}
+.updateCloseBtn{
+  cursor: pointer;
+  color: var(--close-btn-color);
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--close-btn-border-color);
+  margin-left: 506px;
+  font-weight: bold;
+  border-radius: 0px 6px 0px 10px;
+}
+
+/* ====================================================================== */

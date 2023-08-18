@@ -100,9 +100,9 @@ class UserModule extends Database
 
     public function completedTask($value)
     {
-        // var_dump($value);
+      
         $this->db->query("UPDATE tasks SET completed_at = now() WHERE id = '$value'");
-        // header('location:/LandingPage');
+    
     }
 
     public function deleteAddedTask($value)
@@ -159,9 +159,11 @@ class UserModule extends Database
 
     public function editTask($id)
     {
-
-        $userId = $id;
-        $fetchUserAddedTask = $this->db->query("SELECT * FROM tasks WHERE userId = '$userId'");
+        $userId = $_SESSION['userid'];
+       $id=$_REQUEST['id'];
+       
+        $fetchUserAddedTask = $this->db->query("SELECT * FROM tasks WHERE id=$id")->fetchAll();
+        echo json_encode($fetchUserAddedTask);
     }
 
     public function DeleteTask($id)
