@@ -1,7 +1,7 @@
 let form = document.querySelector(".multiple-form")
-let inputBtn = document.querySelectorAll(".input-type-btn");
-let singleForm = document.querySelector(".single-input-form");
-let multiFormDiv = document.querySelector(".multiple-input-form");
+let inputBtn = document.querySelectorAll(".type-btn");
+// let singleForm = document.querySelector(".single-input-form");
+// let multiFormDiv = document.querySelector(".multiple-input-form");
 let innerContainer = document.querySelector(".inner-container")
 let cancelBtn = document.querySelector(".cancel-btn");
 let empty = document.querySelector(".forms-inner-div")
@@ -12,18 +12,40 @@ for (let i = 0; i < inputBtn.length; i++) {
   inputBtn[i].addEventListener("click", () => {
     innerContainer.classList.add("active")
 
-    if (inputBtn[i].innerText == "Single") {
-      singleForm.classList.add("show")
+    if (inputBtn[i].id == "1") {
+      // singleForm.classList.add("show")
+      $("#single-form").show()
       openSingleForm()
     }
-    else if (inputBtn[i].innerText == "Multiple") {
-      multiFormDiv.classList.add("show");
+    else if (inputBtn[i].id == "2") {
+      // multiFormDiv.classList.add("show");
+      $("#multi-form").show()
       AddOneMoreForm();
     }
 
   })
 
 }
+
+// -----------below jquery code is for rotate the add button when user hover the btn-------------
+$(".input-type").hover(function () {
+  $(".add-btn").addClass('rotate')
+}, function () {
+  $(".add-btn").removeClass('rotate')
+});
+// ----------------------------
+let typeBtn = document.querySelectorAll(".type-btn")
+let typeName = document.querySelectorAll(".typeName")
+
+$(document).ready(function () {
+  for (let i = 0; i < typeBtn.length; i++) {
+    $(typeBtn[i]).hover(function () {
+      $(typeName[i]).show()
+    }, function () {
+      $(typeName[i]).hide()
+    });
+  }
+});
 
 // ================================Below code is for switch the type button (personal or profession)============
 let switchs = document.querySelector(".switchBall")
@@ -73,7 +95,8 @@ function openSingleForm(params) {
 
   closeBtn.addEventListener("click", () => {
     innerContainer.classList.remove("active")
-    singleForm.classList.remove("show")
+    // singleForm.classList.remove("show")
+    $("#single-form").hide()
   })
 
 
@@ -178,7 +201,8 @@ function AddOneMoreForm() {
       if (cnt == 0) {
         innerContainer.classList.remove("active");
         multipleFormsDiv[i].remove();
-        multiFormDiv.classList.remove("show");
+        // multiFormDiv.classList.remove("show");
+        $("#multi-form").hide()
       }
       else {
         multipleFormsDiv[i].remove();
@@ -231,7 +255,8 @@ let check = document.querySelectorAll("#round")
 
 for (let i = 0; i < showMoreBtn.length; i++) {
   showMoreBtn[i].addEventListener("click", () => {
-    popUpWnd.classList.toggle('invisible');
+    // popUpWnd.classList.toggle('invisible');
+    $("#popUpWindow").show();
   });
 
 }
@@ -240,7 +265,8 @@ for (let i = 0; i < showMoreBtn.length; i++) {
 
 let popUpclose = document.querySelector('#popUpCloseBtn');
 popUpclose.addEventListener("click", () => {
-  popUpWnd.classList.toggle('invisible');
+  // popUpWnd.classList.toggle('invisible');
+  $("#popUpWindow").hide();
   // closePopUp()
 });
 
@@ -370,7 +396,7 @@ function datas(data) {
     }
   });
 
-console.log(data)
+  console.log(data)
   // =============================below code is for three functionality (comment div toggling)(task detail strike out)(if user click the check box the div will be hiding)=================================
 
   let commentBtn = document.querySelectorAll(".add-comment-btn");
@@ -379,7 +405,7 @@ console.log(data)
   let task_name = document.querySelectorAll(".task-inner-div");
   let popUpHeader = document.querySelector('.popUpHeader')
 
-  popUpHeader.innerHTML = `<button type="submit" id="${data[0].matrix_id}" class="completedBtn focus:outline-none font-medium rounded-lg text-sm px-5 ">COMPLETED TASK </button>`
+  // popUpHeader.innerHTML = `<button type="submit" id="${data[0].matrix_id}" class="completedBtn focus:outline-none font-medium rounded-lg text-sm px-5 ">COMPLETED TASK </button>`
 
   for (let j = 0; j < commentBtn.length; j++) {
     commentBtn[j].addEventListener("click", () => {
@@ -389,33 +415,33 @@ console.log(data)
     TaskCompleted[j].addEventListener("click", () => {
 
       task_name[j].classList.toggle("completedTask")
-      
+
       setTimeout(() => {
-        tasks_list[j].remove()        
+        tasks_list[j].remove()
       }, 400)
 
     })
   }
 
-// ==============================completed task shown=================================
-let completedBtn = document.querySelector('.completedBtn')
-$(document).on("click", ".completedBtn", function (e) {
-  let matrixId = e.target.id;
-  console.log(matrixId)
+  // ==============================completed task shown=================================
+  let completedBtn = document.querySelector('.completedBtn')
+  $(document).on("click", ".completedBtn", function (e) {
+    let matrixId = e.target.id;
+    console.log(matrixId)
 
-  /**  sending martix id to backend */
-  $.ajax({
-    url: "/completed",
-    data: {
-      value: matrixId
-    },
-    type: "POST",
-    success: function (response) {
-      console.log(response)
-      let completedTask = JSON.parse(response)
-      console.log(completedTask)
-      let datas = completedTask.map((element) => {
-        return `
+    /**  sending martix id to backend */
+    $.ajax({
+      url: "/completed",
+      data: {
+        value: matrixId
+      },
+      type: "POST",
+      success: function (response) {
+        console.log(response)
+        let completedTask = JSON.parse(response)
+        console.log(completedTask)
+        let datas = completedTask.map((element) => {
+          return `
 <div class=" tasks-lists my-1	h-14	py-3 px-1.5	cursor-pointer flex gap-8 pb-5 rounded">
 <div class="task-inner-div">
   <div class="task-info " id="rowdiv" >
@@ -442,16 +468,16 @@ $(document).on("click", ".completedBtn", function (e) {
 </div>
 </div>
 `
-}).join("")
-taskDiv.innerHTML = datas
-      // });
-    }
-  });
-})
+        }).join("")
+        taskDiv.innerHTML = datas
+        // });
+      }
+    });
+  })
 
-// =====================================
+  // =====================================
 
-  
+
   // -------------------------below code is for remove the task from UI------------------------------------
   // UI delete function code here //
   let deleteBtn = document.querySelectorAll('#btnDelete')
@@ -463,8 +489,8 @@ taskDiv.innerHTML = datas
     })
   }
 
-      let del = document.querySelectorAll("#btnDelete")
-      console.log(del)
+  let del = document.querySelectorAll("#btnDelete")
+  console.log(del)
 
 
 
@@ -512,6 +538,7 @@ taskDiv.innerHTML = datas
         <circle cx="16" cy="6" r="6" fill="#FF0000"/>
         </svg>`
         addCommentButton.className = "addedCommentIcon";
+
         }
       });
 
