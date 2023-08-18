@@ -296,12 +296,9 @@ popUpclose.addEventListener("click", () => {
 
 $(document).ready(function () {
 
-  // selecting btn to delete
-
   var viewtask = $("#getid");
 
   let btn = document.querySelectorAll("#getid");
-  // console.log(btn)
 
   for (let i = 0; i < btn.length; i++) {
     btn[i].addEventListener("click", (e) => {
@@ -373,9 +370,9 @@ function datas(data) {
                   </div>
               </div>
               <div class="make-changes">
-                <button id="editBtn"><i class="fa-solid fa-pen" title="Edit"></i></button>
-              <div>
-              <button type="button" id="btnDelete" data-id="${element.id}" title="Delete"><i class="fa-solid fa-trash-can"></i></button>
+                <button id="editBtn" data-role="update" data-id="${element.id}"><i class="fa-solid fa-pen"></i></button>
+              <div> 
+              <button type="button" id="btnDelete"   data-id="${element.id}"><i class="fa-solid fa-trash-can"></i></button>
               </div>
                 <button class="add-comment-btn" data-id="${element.id}" title="Add Comment"><i class="fa-solid fa-comment"></i></button>
               </div>
@@ -414,7 +411,6 @@ function datas(data) {
     }
   });
 
-  // console.log(data)
   // =============================below code is for three functionality (comment div toggling)(task detail strike out)(if user click the check box the div will be hiding)=================================
 
   let commentBtn = document.querySelectorAll(".add-comment-btn");
@@ -499,7 +495,7 @@ function datas(data) {
   // -------------------------below code is for remove the task from UI------------------------------------
   // UI delete function code here //
   let deleteBtn = document.querySelectorAll('#btnDelete')
-  console.log(deleteBtn)
+  // console.log(deleteBtn)
   for (let i = 0; i < deleteBtn.length; i++) {
 
     deleteBtn[i].addEventListener('click', () => {
@@ -508,13 +504,123 @@ function datas(data) {
   }
 
   let del = document.querySelectorAll("#btnDelete")
-  console.log(del)
+  // console.log(del)
 
 
 
 
   // ------------------------------------------------------------------------
-  //  ==========================This function(datas) ended here=====================
+//  ===========================edit form backend============================================================
+  let taskDatas=[];
+
+  $(document).on("click", '[data-role=update]', function (e) {
+  let id=$(this).data('id')
+   
+  $.ajax({
+    url: "/editTask",
+    data: {
+      id: id,
+    },
+    type: "POST",
+    success: function (response) {
+      let EditTask_Responce = JSON.parse(response);
+      EditFilling(EditTask_Responce)
+
+      
+    }
+    
+  
+  })
+})
+
+function EditFilling(EditTask_Responce){
+  let editbtn = document.querySelectorAll("#editBtn")
+  let editForm = document.querySelector('.editForm')
+  for (let i = 0; i < editbtn.length; i++) {
+    editbtn[i].addEventListener("click", (e) => {
+      $("#popUpWindow").hide();
+      editForm.style.display = "block"
+
+      EditTask_Responce.forEach(editContent => {
+        let editHtml = `<div class="updateCloseBtn" id="updateFormCloseBtn">
+        <div>
+          <span>X</span>
+        </div>
+      </div>
+      <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+          Task Name
+      </label>
+      <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="username" type="text" placeholder="Task Name" value=${editContent.task_name}>
+  </div>
+  <div class="mb-6">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+          Date
+      </label>
+      <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="username" type="date" placeholder="Date">
+
+  </div>
+
+  <div class="flex items-center justify-between">
+  <button
+      class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+      type="button">
+       Update
+  </button>
+</div>`
+       editForm.innerHTML = editHtml
+      });
+
+      let updateFormCloseBtn = document.querySelector('.updateCloseBtn')
+      updateFormCloseBtn.addEventListener('click', () => {
+        editForm.style.display = "none"
+      })
+    })
+  }
+}
+
+
+ //  ==========================This function(edit form UI )=====================
+//  let editbtn = document.querySelectorAll("#editBtn")
+//  let editForm = document.querySelector('.editForm')
+//  for (let i = 0; i < editbtn.length; i++) {
+//    editbtn[i].addEventListener("click", (e) => {
+//      $("#popUpWindow").hide();
+//      editForm.style.display = "block"
+//      let editHtml = `<div class="updateCloseBtn" id="updateFormCloseBtn">
+//                            <div>
+//                              <span>X</span>
+//                            </div>
+//                          </div>
+//                          <div>
+//                            <div class="inputdiv"  >
+//                              <div>
+//                                <label for="grid-first-name" >
+//                                  What is on your Task
+//                                </label>
+//                                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-black focus:bg-white" id="grid-first-name" type="text" required placeholder="projectName" name="Task_name">
+//                              </div>
+//                              <div>
+//                                <label for="project" placeholder="Get Date/Time">What on your due?</label>
+//                                <input type="datetime-local" placeholder="Get Date/Time" required class="dateTime" value="" name="dateTime" />
+//                              </div>
+//                            </div>
+//                          </div>
+//                          <button type="submit" onclick="store()" class="submit-btn">Submit</button>`
+//      editForm.innerHTML = editHtml
+//      let updateFormCloseBtn = document.querySelector('.updateCloseBtn')
+//      updateFormCloseBtn.addEventListener('click', () => {
+//        editForm.style.display = "none"
+//      })
+//    })
+//  }
+
+
+
 
 
   // ==========================ADD COMMENT FUNCTION ========================
@@ -526,16 +632,11 @@ function datas(data) {
 
   for (let a = 0; a < cmtBtn.length; a++) {
     const element = cmtBtn[a];
-    // console.log(element)
 
     element.addEventListener("click", () => {
       let id = comment[a].dataset.id
       let comments = comment[a].value
       let addCommentButton = addCommentBtn[a]
-      // console.log(id)
-      // console.log(comments)
-      // console.log(addCommentButton)
-
       $.ajax({
         url: "/addComment",
         data: {
@@ -750,7 +851,7 @@ for (let i = 0; i < Task_typeBtn.length; i++) {
 // =================== habits div ======================
 
 let habiticon = document.querySelector(".Habits-icon")
-console.log(habiticon);
+// console.log(habiticon);
 let AddHabisDiv = document.querySelector(".Habits-div")
 let matrixdiv = document.querySelector(".page-content")
 let closeHabitdiv = document.querySelector("#close-habit-div");

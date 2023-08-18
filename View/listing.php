@@ -266,6 +266,11 @@
       </div>
     </div>
 
+    <div class="editForm">
+      
+
+    </div>
+
     <div class="Habits-div">
       <!-- <div class="fixed inset-0 bg-gray-400 bg-opacity-60 transition-opacity"></div> -->
       <form action="/addTask" method="post">
