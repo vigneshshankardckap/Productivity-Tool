@@ -88,43 +88,36 @@ class UserController
         $this->userModel->deleteAddedTask($_REQUEST);
     }
 
-    //     public function editTask(){
-    //         var_dump($_POST);
-    //         $this->userModel->editTask($_POST);
-    //     }
+        public function editTask(){
+            
+            $this->userModel->editTask($_REQUEST);
+        }
 
     public function addComment()
     {
-
         $this->userModel->addComment($_REQUEST);
     }
 
     public function completedTask()
     {
-        // var_dump($_REQUEST);
         $this->userModel->completedTask($_REQUEST['id']);
     }
 
     public function deleteTask()
     {
 
-        // var_dump($_REQUEST);
-
         $this->userModel->deleteTask($_REQUEST['id']);
     }
 
     public function particulartask()
     {
-        //   var_dump($_REQUEST['id']);
+       
         $this->userModel->viewAllTask($_REQUEST['id']);
-
-
-        // require "View/listing.php";
     }
 
     public function completed()
     {
-        // var_dump($_REQUEST);
+
         $this->userModel->completed($_REQUEST);
     }
 }
