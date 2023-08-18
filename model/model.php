@@ -28,9 +28,7 @@ class UserModule extends Database
         $check = $this->db->query("SELECT * FROM users WHERE email_id = '$email'");
         $exists = $check->fetchAll(PDO::FETCH_OBJ);
         if ($exists) {
-            header('location:/login');
-
-            $_SESSION['guest_user'] = "Kindly Please Login";
+            header('location:/');
         } else {
             $name = $data['name'];
             $email = $data['email'];
@@ -196,12 +194,19 @@ class UserModule extends Database
     public function completed($matrixId)
     {
         $matrix_id = $matrixId["value"];
+        $userId = $_SESSION['userid'];
 //select * from tasks where completed_at is not null and matrix_id = 1;
 
         // $datas = $this->db->query("SELECT matrix_id,user_id,completed_at,category_id FROM tasks WHERE completed_at is not null and category_id = 1;")->fetchAll(PDO::FETCH_OBJ);
-        $datas = $this->db->query("SELECT id,task_name,dates,user_id,category_id,matrix_id,completed_at FROM tasks WHERE completed_at is not null and category_id = 1 and matrix_id ='$matrix_id'")->fetchAll(PDO::FETCH_OBJ);
+        $datas = $this->db->query("SELECT id,task_name,dates,user_id,category_id,matrix_id,completed_at FROM tasks WHERE completed_at is not null and category_id = 1 and matrix_id ='$matrix_id' AND user_id = '$userId;'")->fetchAll(PDO::FETCH_OBJ);
         
 
+        echo json_encode($datas);
+    }
+
+    public function permanentDel($delId)
+    {
+        $delFun = $this->db->query("DELETE FROM `tasks` WHERE `tasks`.`id` = $delId");
         echo json_encode($datas);
     }
     // public function viewAllTask($data)
