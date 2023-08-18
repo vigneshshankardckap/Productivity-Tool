@@ -21,10 +21,10 @@
           <img src="../Images/logo.png">
           <span>What's Up
             <h1 class="username">
-              <?php echo $_SESSION["username"]; ?>...
-              <!-- <?php echo $_SESSION["email"]; ?>... -->
+            <?php if (isset($_SESSION["email"])) { ?>
+                <?php echo  $_SESSION["email"]?>
+            <?php } ?>
             </h1>
-            <!-- <img src="<?php echo $_SESSION['picture']?>"> -->
           </span>
         </div>
 

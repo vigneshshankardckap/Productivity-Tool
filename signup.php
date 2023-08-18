@@ -1,41 +1,47 @@
 <?php 
 session_start();
+$servername = "localhost";
+$username = "admin";
+$password = "welcome";
+
 
 include "sample/gc_config.php";
+
 if(isset($_GET["code"])){
-    //      echo "<pre>";
-    //      var_dump($_GET);
-    //      echo "</pre>";
         $token=$client->fetchAccessTokenWithAuthCode($_GET["code"]);
     
         $client->setAccessToken($token["access_token"]);
         
         $obj=new Google_Service_Oauth2($client);
         $data=$obj->userinfo->get();
-        // echo "<pre>";
-        // var_dump($data);
-        // echo "</pre>";
-        
-        if(!empty($data->email)&&!empty($data->name)){
-          // $email=$data->email;
-          // $name=$data->name;
-          // if you want to register user details, place mysql insert query here
-          
-          $userName = $_SESSION["email"]=$data->email;
-          $userEmail = $_SESSION["username"]=$data->name;
-          $_SESSION["picture"]=$data->picture;
+    
 
-        //   $controller->demo($userName);
+        if(!empty($data["email"])&&!empty($data["name"])){
+            
+            $email_id = $data["email"];
+            $name = $data["name"];
+           
 
-            // $db->query("INSERT INTO users(username,email)VALUES('$userName','$userEmail')");
-        //   $insert = $this->db->query("INSERT INTO users(username,email_id)VALUES ('$userName','$userEmail')");
 
-          header("location:/LandingPage");
+             $_SESSION["email"]= $data["email"];
+
+
+            $conn = new PDO("mysql:host=$servername;dbname=EisenDo", "admin", "welcome");
+            $exits = $conn->query("SELECT * FROM users WHERE email_id = '$email_id'");
+            $exits = $exits->fetchAll(PDO::FETCH_OBJ);
+            
+            if($exits){
+                $_SESSION["error"] = "already exits";
+            }
+            else{
+                var_dump("register succesfull");
+                $conn->query("INSERT INTO users(username,email_id)VALUES('$name','$email_id')");
+                header("location:/LandingPage");
+            }
+
         }
-        else{
-            header('location:/error.php');
-        }
-    }
+ 
+}
 
 ?>
 
@@ -49,8 +55,12 @@ if(isset($_GET["code"])){
     <script src="https://kit.fontawesome.com/f3bda5e226.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
+            <?php if (isset($_SESSION["error"])) { ?>
+                <?php echo  $_SESSION["error"]?>
+                <?php unset($_SESSION["error"])?>
+            <?php } ?>
        <div class="container" id="container">
+     
         <div class="form-container sign-up-container">
             <form action="/signupLogic" method="post" onsubmit="return validateSignUpForm()">
             <!-- <form action="/signupLogic" method="post" onsubmit="return validated()"> -->
@@ -58,9 +68,9 @@ if(isset($_GET["code"])){
                 <h1>Create Account</h1>
                 <div class="social-container">
                     <!-- <a href="#" class="social"><i class="fab fa-facebook-f"></i></a> -->
-                    <a href='<?php echo  $client->createAuthUrl(); ?>' class="social"><i class="fab fa-google-plus-g"></i></a>
+                   hi <a href='<?php echo  $client->createAuthUrl(); ?>' class="social"><i class="fab fa-google-plus-g"></i></a>
                     <!-- <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>  -->
-            <!-- <p><?php echo  $_SESSION['guest_user'] ="Kindly Please Login";  ?></p> -->
+            <!-- <p></p> -->
                 </div>
                 <span>or use your email for registration</span>
                 <input type="text" placeholder="Name" required name="name" pattern="[a-z,A-Z]*" autocomplete="off"/>
@@ -74,7 +84,6 @@ if(isset($_GET["code"])){
             <form action="/loginLogic" method="post" name="form" onsubmit="return validated()">
                 <h1>Log in</h1>
                 <div class="social-container">
-                    <!-- <a href='<?php echo  $client->createAuthUrl(); ?>' class='btn btn-danger'>Login With Google</a> -->
                     <!-- <a href="#" class="social"><i class="fab fa-facebook-f"></i></a> -->
                     <a href='<?php echo  $client->createAuthUrl(); ?>' class="social"><i class="fab fa-google-plus-g"></i></a>
                     <!-- <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a> -->

@@ -512,8 +512,6 @@ taskDiv.innerHTML = datas
         <circle cx="16" cy="6" r="6" fill="#FF0000"/>
         </svg>`
         addCommentButton.className = "addedCommentIcon";
-
-        console.log(e.target)
         }
       });
 
@@ -754,4 +752,22 @@ $(document).on("click", ".category_id", function (e) {
 
 })
 
+// =================permanent delete functionlity==============
+let permanentBtn = document.querySelectorAll('#btnDelete');
+
+
+$(document).on("click", "#btnDelete", function (e) {
+
+  let taskid = e.target.parentElement.dataset.id;
+  /**  sending task id to backend */
+  $.ajax({
+    url: "/permanentDel",
+    data: { id: taskid },
+    type: "POST",
+    success: function (response) {
+      // console.log(response);
+      confirm("Are you sure to Delete permanently?");
+    }
+  });
+})
 
