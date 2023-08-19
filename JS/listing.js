@@ -371,8 +371,9 @@ function datas(data) {
               </div>
               <div class="make-changes">
                 <button id="editBtn" data-role="update" data-id=${element.id} ><i class="fa-solid fa-pen"></i></button>
-       
+  
                 <button class="add-comment-btn" data-id="${element.id}"><i class="fa-solid fa-comment"></i></button>
+                
               </div>
             </div>
           </div>
