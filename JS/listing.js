@@ -338,8 +338,8 @@ function datas(data) {
     let datas = data.map((element) => {
 
       return `
-      <div class=" tasks-lists my-1	h-14	py-3 px-1.5	cursor-pointer flex gap-8 pb-5 rounded">
-        <div class="task-inner-div">
+      <div class=" tasks-lists my-1	h-14	py-3 px-1.5	cursor-pointer flex gap-8 pb-5 rounded" >
+        <div class="task-inner-div" id="${element.matrix_id}">
           <div class="task-info " id="rowdiv" >
             <input type="hidden" id="rowid" value="">
             <div class="list-name">
@@ -355,13 +355,16 @@ function datas(data) {
         <div class="second-div">
           <div class="text-base leading-6 text-gray-900 no-underline model-title " id="modal-title">
             <div class="add-Cmt">
-              <div class="relative" >
-              <input type="text" placeholder="comment here" id="comment" data-id="${element.id}" class="add-Cmt">
+              <div class="relative" id="1">
+                <input type="text" placeholder="comment here" id="comment" data-id="${element.id}" class="add-Cmts">
                 <button id="addComment" data-id="${element.id}" class="absolute right-0 type="button"><i class="fa-solid fa-upload"></i></button>
+              </div>
+              <div class="fetchedComment">
+                <p class="fetchCmt">${element.comments}</p>
               </div>
             </div>
           </div>
-          <div class="text-base leading-6 text-gray-900 no-underline " id="modal-title">
+          <div class="text-base leading-6 text-gray-900 no-underline " id="modal-title" >
             <div class="change">
               <div class="Task-progress pt-px	">
                   <div class="round" >
@@ -372,7 +375,10 @@ function datas(data) {
                 <button id="editBtn" data-role="update" data-id=${element.id} ><i class="fa-solid fa-pen"></i></button>
   
                 <button class="add-comment-btn" data-id="${element.id}"><i class="fa-solid fa-comment"></i></button>
-                
+                <button class="addedCommentIcon" data-id="${element.id}"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 6.49962C21 9.53698 18.5376 11.9992 15.5 11.9992C12.4624 11.9992 10 9.53698 10 6.49962C10 3.46227 12.4624 1 15.5 1C18.5376 1 21 3.46227 21 6.49962ZM16.5285 2.99986H15.0965C14.8881 2.99986 14.7015 3.12914 14.6283 3.32428L13.5033 6.32407C13.3808 6.65093 13.6224 6.99959 13.9715 6.99959H14.75L13.9773 9.31749C13.8655 9.65295 14.1152 9.99938 14.4688 9.99938C14.6442 9.99938 14.8077 9.91068 14.9032 9.76366L17.5283 5.72535C17.7314 5.4129 17.5072 4.99973 17.1345 4.99973H16.5L16.9967 3.67538C17.1192 3.34853 16.8776 2.99986 16.5285 2.99986ZM15.5 12.9992C17.2465 12.9992 18.8321 12.3104 20 11.1897V14.7491C20 16.5439 18.5449 17.9988 16.75 17.9988H10.9648L5.57814 21.8159C5.12752 22.1351 4.50337 22.0287 4.18407 21.5781C4.06432 21.4091 4 21.2071 4 21.0002L3.9992 17.9988H3.25C1.45507 17.9988 0 16.5439 0 14.7491V6.24964C0 4.45484 1.45507 2.99986 3.25 2.99986H10.0218C9.375 4.01009 9 5.21107 9 6.49962C9 10.0892 11.9101 12.9992 15.5 12.9992Z" fill="#5FB32E"/>
+                <circle cx="16" cy="6" r="6" fill="#FF0000"/></svg></button>
+
               </div>
             </div>
           </div>
@@ -409,6 +415,7 @@ function datas(data) {
     }
   });
 
+
   // =============================below code is for three functionality (comment div toggling)(task detail strike out)(if user click the check box the div will be hiding)=================================
 
   let commentBtn = document.querySelectorAll(".add-comment-btn");
@@ -416,6 +423,7 @@ function datas(data) {
   let TaskCompleted = document.querySelectorAll(".roundCheck");
   let task_name = document.querySelectorAll(".task-inner-div");
   let popUpHeader = document.querySelector('.popUpHeader')
+
 
   popUpHeader.innerHTML = `<button type="submit" id="${data[0].matrix_id}" class="completedBtn focus:outline-none font-medium rounded-lg text-sm px-5 py-2">COMPLETED TASK </button>`
 
@@ -449,7 +457,7 @@ function datas(data) {
   let completedBtn = document.querySelector('.completedBtn')
   $(document).on("click", ".completedBtn", function (e) {
     let matrixId = e.target.id;
-    console.log(matrixId)
+    // console.log(matrixId)
 
     /**  sending martix id to backend */
     $.ajax({
@@ -459,9 +467,9 @@ function datas(data) {
       },
       type: "POST",
       success: function (response) {
-        console.log(response)
+        // console.log(response)
         let completedTask = JSON.parse(response)
-        console.log(completedTask)
+        // console.log(completedTask)
         let datas = completedTask.map((element) => {
           return `
 <div class=" tasks-lists my-1	h-14	py-3 px-1.5	cursor-pointer flex gap-8 pb-5 rounded">
@@ -512,6 +520,7 @@ function datas(data) {
   }
 
   let del = document.querySelectorAll("#btnDelete")
+
 
   // ------------------------------------------------------------------------
 //  ===========================edit form backend============================================================
@@ -618,11 +627,11 @@ function EditFilling(EditTask_Responce){
   let cmtBtn = document.querySelectorAll("#addComment")
   let comment = document.querySelectorAll("#comment")
   let addCommentBtn = document.querySelectorAll(".add-comment-btn")
-
+  let addedCommentIcon = document.querySelectorAll(".addedCommentIcon")
 
   for (let a = 0; a < cmtBtn.length; a++) {
     const element = cmtBtn[a];
-
+    // console.log(element)
     element.addEventListener("click", () => {
       let id = comment[a].dataset.id
       let comments = comment[a].value
@@ -641,6 +650,10 @@ function EditFilling(EditTask_Responce){
           setTimeout(() => {
             $("#succcess").css("display", "none");
           }, 3000)
+          $(cmtBtn[a]).hide()
+          $(addCommentBtn[a]).hide()
+          $(comment[a]).hide()
+          $(addedCommentIcon[a]).show();
 
           addCommentButton.innerHTML = `<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M21 6.49962C21 9.53698 18.5376 11.9992 15.5 11.9992C12.4624 11.9992 10 9.53698 10 6.49962C10 3.46227 12.4624 1 15.5 1C18.5376 1 21 3.46227 21 6.49962ZM16.5285 2.99986H15.0965C14.8881 2.99986 14.7015 3.12914 14.6283 3.32428L13.5033 6.32407C13.3808 6.65093 13.6224 6.99959 13.9715 6.99959H14.75L13.9773 9.31749C13.8655 9.65295 14.1152 9.99938 14.4688 9.99938C14.6442 9.99938 14.8077 9.91068 14.9032 9.76366L17.5283 5.72535C17.7314 5.4129 17.5072 4.99973 17.1345 4.99973H16.5L16.9967 3.67538C17.1192 3.34853 16.8776 2.99986 16.5285 2.99986ZM15.5 12.9992C17.2465 12.9992 18.8321 12.3104 20 11.1897V14.7491C20 16.5439 18.5449 17.9988 16.75 17.9988H10.9648L5.57814 21.8159C5.12752 22.1351 4.50337 22.0287 4.18407 21.5781C4.06432 21.4091 4 21.2071 4 21.0002L3.9992 17.9988H3.25C1.45507 17.9988 0 16.5439 0 14.7491V6.24964C0 4.45484 1.45507 2.99986 3.25 2.99986H10.0218C9.375 4.01009 9 5.21107 9 6.49962C9 10.0892 11.9101 12.9992 15.5 12.9992Z" fill="#5FB32E"/>
@@ -650,14 +663,37 @@ function EditFilling(EditTask_Responce){
 
         }
       });
-
     })
-
-    // }
   }
 
-
+  // ==============================addedCommentfetching=============================
+  let taskInnerDiv = document.querySelectorAll(".task-inner-div")
+  let fetchedComment = document.querySelectorAll(".fetchedComment")
+  for (let v = 0; v < addedCommentIcon.length; v++) {
+    const element = addedCommentIcon[v];
+    element.addEventListener("click", () => {
+      let id = comment[v].dataset.id
+      let matId = taskInnerDiv[v].id
+      $.ajax({
+        url: "/commFetch",
+        data: {
+          id: id,
+          matrixId: matId
+        },
+        type: "POST",
+        success: function (res) {
+          // console.log(res)
+          let fetCmt = JSON.parse(res);
+          $(fetchedComment[v]).css("visibility", "visible");
+          fetchedComment[v].innerText = fetCmt
+        }
+      });
+    })
+  }
 }
+
+
+// =========================================================================
 
 function close(params) {
   for (let i = 0; i < commentInput.length; i++) {
@@ -720,7 +756,7 @@ for (let a = 0; a < cmtBtn.length; a++) {
       },
       type: "POST",
       success: function (response) {
-        console.log(response);
+        // console.log(response);
         $("#succcess").css("display", "block");
       }
     })
@@ -795,7 +831,6 @@ $(function () {
     $(this).click(function (e) {
       var removeBtn = $(e.target).attr("name")
       var paren = $(e.target).parent();
-      // console.log(paren)
       $.ajax({
         url: "/deleteAddedTask",
         data: {
@@ -803,9 +838,7 @@ $(function () {
         },
         type: "POST",
         success: function (response) {
-
           $("#succcess").css("display", "block");
-
           setTimeout(() => {
             $("#succcess").css("display", "none");
           }, 5000)
@@ -872,7 +905,7 @@ $(document).on("click", ".category_id", function (e) {
 
 
   let taskid = +e.target.id;
-  console.log(taskid);
+  // console.log(taskid);
 
   /**  sending task id to backend */
   $.ajax({
