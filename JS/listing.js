@@ -370,7 +370,7 @@ function datas(data) {
                   </div>
               </div>
               <div class="make-changes">
-                <button id="editBtn"><i class="fa-solid fa-pen"></i></button>
+                <button id="editBtn" data-role="update" data-id=${element.id} ><i class="fa-solid fa-pen"></i></button>
        
                 <button class="add-comment-btn" data-id="${element.id}"><i class="fa-solid fa-comment"></i></button>
               </div>
@@ -515,9 +515,10 @@ function datas(data) {
 
   // ------------------------------------------------------------------------
 //  ===========================edit form backend============================================================
+
   $(document).on("click", '[data-role=update]', function (e) {
   let id=$(this).data('id')
-   
+
   $.ajax({
     url: "/editTask",
     data: {
@@ -611,7 +612,6 @@ function EditFilling(EditTask_Responce){
     })
   }
 }
-
 
   // ==========================ADD COMMENT FUNCTION ========================
   // let addComment = document.querySelectorAll("#addComment")
