@@ -61,6 +61,7 @@ class UserController
     {
 
         $this->userModel->store($_REQUEST);
+        
     }
 
     public function addTask()
@@ -98,14 +99,26 @@ class UserController
     {       
             $this->userModel->editTask($_REQUEST);
     }
-
+    
      public function updateTask()
 
      {
 
-            $this->userModel->updateTask($_REQUEST);
+        
+        $EditId = intval($_POST["editId"]);
+        $editTaskName = $_POST["editTaskName"];
+        $user_id = intval($_POST["user_id"]);
 
-     }
+        $data = [
+            "EditId"=>$EditId,
+            "editTaskName"=>$editTaskName,
+            "editTaskDate"=>$_POST["editTaskdate"],
+            "user_id"=>$user_id
+        ];
+
+        $this->userModel->updateTask($data);
+
+    }
 
     public function addComment()
 
