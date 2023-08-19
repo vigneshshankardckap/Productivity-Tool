@@ -218,12 +218,4 @@ class UserModule extends Database
         echo json_encode($datas);
         header("location:/list");
     }
-    // public function viewAllTask($data)
-    // {
-
-    //     $userId = $_SESSION['userid'];
-    //     $matrix_id = $data;
-
-    }
-
 }
