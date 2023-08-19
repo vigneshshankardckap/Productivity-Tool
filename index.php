@@ -48,5 +48,7 @@ $router->post('/particulartask','particulartask');
 
 $router->post('/completed','completed');
 
+$router->post('/commFetch','commFetch');
+
 
 $router->routing();

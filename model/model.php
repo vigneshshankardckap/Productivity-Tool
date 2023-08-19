@@ -49,6 +49,10 @@ class UserModule extends Database
             header('location:/LandingPage');
         }
     }
+    // public function fetchedComment()  {
+    //     // $value = $this->db->("SELECT id,comments from tasks WHERE  comments IS not null and user_id = 1 and category_id =1 AND matrix_id =3 and id=91")
+        
+    // }
 
     public function store($data)
     {
@@ -200,7 +204,7 @@ class UserModule extends Database
 
         // $datas = $this->db->query("SELECT matrix_id,user_id,completed_at,category_id FROM tasks WHERE completed_at is not null and category_id = 1;")->fetchAll(PDO::FETCH_OBJ);
         $datas = $this->db->query("SELECT id,task_name,dates,user_id,category_id,matrix_id,completed_at FROM tasks WHERE completed_at is not null and category_id = 1 and matrix_id ='$matrix_id'")->fetchAll(PDO::FETCH_OBJ);
-        
+        // var_dump($datas);
 
         echo json_encode($datas);
     }
@@ -214,4 +218,42 @@ class UserModule extends Database
     //     $datas = $this->db->query("SELECT * from tasks where user_id = $userId AND matrix_id = $matrix_id AND deleted_at is NULL AND completed_at is NULL ")->fetchAll(PDO::FETCH_OBJ);
     //     echo json_encode($datas);
     // }
+
+    public function commFetch($val){
+        // var_dump($val);
+        $id = $val["id"];
+        $matrix_id = $val["matrixId"];
+        $userId = $_SESSION['userid'];
+        // var_dump($id);
+        // var_dump($matrix_id);
+        // var_dump($userId);
+
+        $v = $this->db->query("SELECT id,comments from tasks WHERE  comments IS not null and user_id = '$userId' and matrix_id ='$matrix_id' and id='$id'");
+        // $v = $this->db->query("SELECT id,comments from tasks WHERE  comments IS not null and user_id = '$userId' and matrix_id ='$matrix_id' and id='$id'")->fetchAll(PDO::FETCH_OBJ);
+        // var_dump($v);
+        // echo json_encode($v);   
+        
+
+        $fetcedTables = $v->fetchAll();
+        // var_dump($fetcedTables);
+        $allTable = [];
+        /*
+        array(2) {
+  ["Tables_in_calCulator"]=>
+  string(9) "operators"
+  [0]=>
+  string(9) "operators"
+}*/
+
+        foreach ($fetcedTables as $a) {
+            $allTable[]=$a["comments"];
+        }
+        // print_r($allTable);
+        echo json_encode($allTable);
+
+
+        
+
+        
+    }
 }

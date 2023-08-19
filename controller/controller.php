@@ -45,6 +45,8 @@ class UserController
         $fetchAllDataDefer = $this->userModel->fetchDataFromdefer($category_id);
         $fetchAllDataDelegate = $this->userModel->fetchDataFromdelegate($category_id);
         $fetchAllDataDelete = $this->userModel->fetchDataFromdelete($category_id);
+        // $all = $this->userModel->fetchedComment($_REQUEST);
+
 
         $tasks = $this->userModel->addedTaskDetails();
 
@@ -126,5 +128,10 @@ class UserController
     {
         // var_dump($_REQUEST);
         $this->userModel->completed($_REQUEST);
+    }
+
+    public function commFetch() {
+        // var_dump($_REQUEST);
+        $this->userModel->commFetch($_REQUEST);
     }
 }
