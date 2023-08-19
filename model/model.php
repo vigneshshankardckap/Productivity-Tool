@@ -214,6 +214,7 @@ class UserModule extends Database
     {
         $delFun = $this->db->query("DELETE FROM `tasks` WHERE `tasks`.`id` = $delId");
         echo json_encode($delFun);
+
     }
 
 }
