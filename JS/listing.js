@@ -6,7 +6,6 @@ let innerContainer = document.querySelector(".inner-container")
 let cancelBtn = document.querySelector(".cancel-btn");
 let empty = document.querySelector(".forms-inner-div")
 
-// console.log(task_title);
 // ======================below code is for open single form and multi form ===============================
 for (let i = 0; i < inputBtn.length; i++) {
   inputBtn[i].addEventListener("click", () => {
@@ -334,7 +333,7 @@ $(document).ready(function () {
 let taskDiv = document.querySelector('.taskListDiv')
 
 function datas(data) {
-  // console.log(data);
+
   if (data.length > 0) {
     let datas = data.map((element) => {
 
@@ -902,12 +901,14 @@ let listName = document.querySelector(".task-inner-div")
     data: { id: taskid },
     type: "POST",
     success: function (response) {
-      // console.log(response);
+      
       confirm("Are you sure to Delete permanently?");
       listName.parentElement.remove()
-      // btnDelete.remove()
+      
 
     }
   });
 })
 
+
+// ==========================================================================================
