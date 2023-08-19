@@ -100,14 +100,14 @@ class UserModule extends Database
 
     public function completedTask($value)
     {
-        // var_dump($value);
+      
         $this->db->query("UPDATE tasks SET completed_at = now() WHERE id = '$value'");
-        // header('location:/LandingPage');
+    
     }
 
     public function deleteAddedTask($value)
     {
-
+        
         $taskId = $value["value"];
         $deleteAddedHabits = $this->db->query("DELETE FROM userAddedTask WHERE id = '$taskId';");
         header('location:/LandingPage');
@@ -119,7 +119,6 @@ class UserModule extends Database
 
         if ($category_id) {
             return $this->db->query("SELECT * from tasks where user_id =$userId AND matrix_id = 1 AND deleted_at is NULL and category_id = $category_id ")->fetchAll(PDO::FETCH_OBJ);
-            // var_dump($data);
 
         } else {
             return $this->db->query("SELECT * from tasks where user_id =$userId AND matrix_id = 1 AND deleted_at is NULL and category_id = 1 ")->fetchAll(PDO::FETCH_OBJ);
@@ -159,9 +158,20 @@ class UserModule extends Database
 
     public function editTask($id)
     {
-
-        $userId = $id;
-        $fetchUserAddedTask = $this->db->query("SELECT * FROM tasks WHERE userId = '$userId'");
+        $userId = $_SESSION['userid'];
+       $id=$_REQUEST['id'];
+       
+        $fetchUserAddedTask = $this->db->query("SELECT * FROM tasks WHERE id=$id")->fetchAll();
+        echo json_encode($fetchUserAddedTask);
+    }
+    public function updateTask($data)
+    {
+        $userId=$data['userId'];
+        $taskName=$data['editTaskName'];
+        $taskdate=$data['editTaskdate'];
+        $taskId=$data['id'];
+        $updatetask = $this->db->query("UPDATE tasks SET task_name=$taskName,dates=$taskdate WHERE id=$taskId AND user_id=$userId")->fetchAll();
+        echo json_encode($updatetask);
     }
 
     public function DeleteTask($id)
@@ -177,7 +187,6 @@ class UserModule extends Database
         $userId = $_SESSION['userid'];
         $matrix_id = $data;
 
-
         $datas = $this->db->query("SELECT * from tasks where user_id = $userId AND matrix_id = $matrix_id AND deleted_at is NULL AND completed_at is NULL ")->fetchAll(PDO::FETCH_OBJ);
         echo json_encode($datas);
     }
@@ -188,15 +197,12 @@ class UserModule extends Database
         $commentId = $values['id'];
         $comment = $values['comments'];
         $this->db->query("UPDATE tasks SET comments = '$comment' where id='$commentId' ");
-        // header('location:/viewAllTask');
     }
 
     public function completed($matrixId)
     {
         $matrix_id = $matrixId["value"];
         $userId = $_SESSION['userid'];
-//select * from tasks where completed_at is not null and matrix_id = 1;
-
         // $datas = $this->db->query("SELECT matrix_id,user_id,completed_at,category_id FROM tasks WHERE completed_at is not null and category_id = 1;")->fetchAll(PDO::FETCH_OBJ);
         $datas = $this->db->query("SELECT id,task_name,dates,user_id,category_id,matrix_id,completed_at FROM tasks WHERE completed_at is not null and category_id = 1 and matrix_id ='$matrix_id' AND user_id = '$userId;'")->fetchAll(PDO::FETCH_OBJ);
         
@@ -218,8 +224,6 @@ class UserModule extends Database
     //     $userId = $_SESSION['userid'];
     //     $matrix_id = $data;
 
+    }
 
-    //     $datas = $this->db->query("SELECT * from tasks where user_id = $userId AND matrix_id = $matrix_id AND deleted_at is NULL AND completed_at is NULL ")->fetchAll(PDO::FETCH_OBJ);
-    //     echo json_encode($datas);
-    // }
 }

@@ -1,8 +1,7 @@
 <?php 
-session_start();
+
 $servername = "localhost";
-$username = "admin";
-$password = "welcome";
+
 
 
 include "sample/gc_config.php";
@@ -14,7 +13,6 @@ if(isset($_GET["code"])){
     
     $obj=new Google_Service_Oauth2($client);
     $data=$obj->userinfo->get();
-
 
     if(!empty($data["email"])&&!empty($data["name"])){
         
