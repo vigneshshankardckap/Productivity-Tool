@@ -3,7 +3,7 @@
   
   $clientId="391204263871-ebbl34e05rjcvg3357nr6e8ivijgickd.apps.googleusercontent.com";
   $clientSecret="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";
-  $redirectURI="http://localhost:43449/signup.php";
+  $redirectURI="http://localhost:8888/signup.php";
   
   $client=new Google_Client();
   $client->setClientId($clientId);

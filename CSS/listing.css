@@ -31,6 +31,8 @@ button {
   --font-sans: "Rubik", sans-serif;
   --font-serif: "Cardo", serif;
   --task-list-bg-color: #ffffff;
+  --search-box-br-color: #e2e2e2;
+
 }
 
 .darkmode {
@@ -54,30 +56,29 @@ body {
 
 .main-container {
   position: relative;
-  padding: 30px 60px;
-  /* max-width: 1024px; */
-  width: 100%;
 }
 
 
 .active {
   color: var(--background-color);
-  filter: blur(2px);
+  filter: blur(1px);
   pointer-events: none;
   user-select: none;
+
 }
 
-.header>:first-child {
+.header {
+  position: fixed;
+  z-index: 1;
+  background-color: var(--thresary-color);
+  width: 100%;
   display: flex;
   justify-content: space-between;
+  padding: 10px 20px;
+  top: 0;
+  left: 0;
 }
 
-.header>:last-child {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  gap: 38%;
-}
 
 /* -----------home page right side element styling----------------- */
 
@@ -96,20 +97,22 @@ body {
   height: 37px;
   width: 300px;
   color: var(--font-color);
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 5px;
   background-color: var(--thresary-color);
   padding: 0px 10px 0px 40px;
+  border: 1px solid var(--search-box-br-color);
+  transition: 0.2s;
+
 }
 
 .search-box:focus {
-  transition: 0.4s;
+  transition: 0.2s;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   outline: none;
-  border: 1px solid #52a521;
+  border: 1px solid var(--primary-color);
 }
 
 .search-box::placeholder {
-  color: var(--icon-color);
+  color: var(--font-color);
 }
 
 .search-icon {
@@ -141,7 +144,7 @@ body {
 
   width: 10ch;
   overflow: hidden;
-  animation: typing 2s steps(10) infinite alternate-reverse;
+  /* animation: typing 2s steps(10) infinite alternate-reverse; */
 }
 
 @keyframes typing {
@@ -177,15 +180,20 @@ body {
 }
 
 /* ---------------styling for add todo buttons---------------- */
+.mt-24{
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 150px 0px 210px;
+}
 .add-todo-inner-section {
   position: relative;
 }
 
-.add-todo-btn-section {
+/* .add-todo-btn-section {
   display: flex;
   gap: 30px;
   justify-content: flex-end;
-}
+} */
 
 .add-btn {
   cursor: pointer;
@@ -193,21 +201,23 @@ body {
   background-color: var(--primary-color);
   border-radius: 50%;
   color: white;
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-weight: 250;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 4px 0px;
 }
-.type-btn{
+
+.type-btn {
   cursor: pointer;
 }
 
 /* -----------below style for input type visible button (single or multiplr )------------------ */
 .add-btn:hover {
-  rotate: 44deg;
+  transition: 0.1s;
+  rotate: 45deg;
 }
 
 
@@ -216,7 +226,7 @@ body {
 }
 
 .rotate {
-  transition: 10s;
+  transition: 1s;
   rotate: 44deg;
 }
 
@@ -231,7 +241,7 @@ body {
   animation-duration: 0.5s;
   animation-name: showInputBox;
   z-index: 1;
-  padding: 16px 0px;
+  padding: 20px 0px;
 }
 
 @keyframes showInputBox {
@@ -240,15 +250,15 @@ body {
   }
 
   50% {
-    top: 60px;
+    top: 50px;
   }
 
   75% {
-    top: 60px;
+    top: 50px;
   }
 
   100% {
-    top: 60px;
+    top: 50px;
   }
 }
 
@@ -260,13 +270,17 @@ body {
   align-items: center;
   gap: 5%;
 }
+.input-type-btn>img{
+  height:50px;
 
+}
 .input-type-btn>span {
   background-color: var(--thresary-color);
-  color: var(--primary-color);
+  color: var(--font-color);
+  font-weight: 500;
   border-radius: 0px 10px 10px 10px;
   text-align: center;
-  line-height: 35px;   
+  line-height: 35px;
   height: 35px;
   width: 150px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 4px 0px;
@@ -295,14 +309,15 @@ body {
 }
 
 .single-input-form p {
-  padding-left: 120px;
+  /* padding-left: 120px; */
   color: var(--font-color);
-  font-weight: bold;
+  font-weight: 500;
+  text-align: center;
 }
 
 .single-input-form label {
+  font-weight: 500;
   color: var(--font-color);
-  font-weight: 600;
 }
 
 /* ---------close button for form---------------- */
@@ -349,7 +364,6 @@ body {
   display: flex;
   gap: 10px;
   align-items: center;
-  padding-left: 143px;
 }
 
 .switchDiv form {
@@ -437,7 +451,7 @@ body {
 
 .inputdiv input {
   height: 35px;
-  width: 275px;
+  width: 305px;
   border: 1px solid var(--primary-color);
   border-radius: var(--single-border-radius);
   background-color: white;
@@ -449,8 +463,7 @@ body {
 /* ------------below style is for our priority buttons-------------- */
 .matix {
   display: flex;
-  padding: 24 px 0px 0px 120px;
-  gap: 35px;
+  gap: 60px;
   margin-left: 120px;
   margin-top: 25px;
 }
@@ -461,14 +474,14 @@ body {
 
 .matix div input {
   height: 20px;
-  width: 38px;
-  border-radius: var(--single-border-radius);
-  border: 1px solid var(--primary-color);
-  background-color: var(--input-background-color);
-  font-size: 15px;
-  margin: 5px 5px 0px 0px;
-  font-weight: 500;
-  color: #656664;
+  /* width: 38px; */
+  /* border-radius: var(--single-border-radius); */
+  /* border: 1px solid var(--primary-color); */
+  /* background-color: var(--input-background-color); */
+  /* font-size: 15px; */
+  /* margin: 5px 5px 0px 0px; */
+  /* font-weight: 500; */
+  /* color: #656664; */
   cursor: pointer;
   transition: 0.3s;
 
@@ -514,7 +527,7 @@ button {
 
 .multiple-input-form {
   position: absolute;
-  top: 140px;
+  top: 55px;  
   right: 185px;
   display: none;
 }
@@ -663,6 +676,7 @@ button {
   display: flex;
   align-items: center;
   gap: 7px;
+  padding: 5px 0px;
 }
 
 .urgentDiv input,
@@ -725,7 +739,7 @@ button {
   align-items: center;
   justify-content: center;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 4px 0px;
-  
+
 }
 
 .addDivBtn:hover {
@@ -782,8 +796,9 @@ button {
 
 .card {
   position: relative;
-  width: 400px;
+  width: 500px;
   padding: 10px;
+
 }
 
 .card> :last-child {
@@ -839,13 +854,13 @@ button {
 /* notification list div */
 
 .Habitsdiv {
-  width: 343px;
+  width: 350px;
   display: none;
   position: absolute;
-  min-height: 555px;
+  min-height: 550px;
   top: 85px;
   left: 950px;
-  border-radius: 10px;
+  border-radius: 15px;
   background-color: var(--background-color);
   color: var(--font-color);
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
@@ -856,12 +871,12 @@ button {
   justify-content: space-between;
   padding: 15px 25px;
   align-items: center;
+  font-weight: 600;
 }
 
 .Habitsdiv hr {
   height: 1px;
-  background-color: #7F808A;
-
+  background-color: #7f808a57;
   border: none;
 
 }
@@ -1071,26 +1086,21 @@ button.removetask {
 
 .wrapper {
   display: inline-flex;
-
   height: 70px;
-  align-items: center;
-  justify-content: space-evenly;
-  border-radius: 5px;
-  padding: 15px 15px;
+  padding: 15px 13px;
 }
 
 .wrapper .option {
   background: #fff;
-  height: 100%;
-  width: 100%;
+  height: 35px;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   margin: 0 10px;
   border-radius: 5px;
   cursor: pointer;
-  padding: 0 10px;
-  border: 2px solid lightgrey;
+  width: 140px;
+  border: 1px solid var(--primary-color);
   transition: all 0.3s ease;
 }
 
@@ -1116,7 +1126,7 @@ button.removetask {
 }
 
 .wrapper .option span {
-  font-size: 20px;
+  font-size: 16px;
   color: #808080;
 }
 
@@ -1137,7 +1147,7 @@ button.removetask {
 .Habits-div {
   display: none;
   position: absolute;
-  top: 188px;
+  top: 130px;
   right: 238px;
 }
 
@@ -1254,6 +1264,7 @@ button.completedBtn:hover {
   display: none;
 }
 
+
 .fetchedComment{
   position: relative;
   width: 250px;
@@ -1279,3 +1290,43 @@ button.completedBtn:hover {
 .addedCommentIcon{
   display: none;
 }
+=======
+
+/* ==============edit form============================================ */
+
+.editForm {
+  display: none;
+  position: absolute;
+  width: 475;
+  height: 300px;
+  background-color: var(--thresary-color);
+  border-radius: var(--single-border-radius);
+   right: 30rem;
+  top: 135px;
+  padding: 0px 24px;
+  box-shadow: #00000029 0px 10px 36px 0px, #0000000f 0px 0px 0px 1px;
+}
+
+
+.updateCloseBtn{
+  
+  cursor: pointer;
+  color: var(--close-btn-color);
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--close-btn-border-color);
+
+  margin-left: 350px;
+
+  font-weight: bold;
+  border-radius: 0px 6px 0px 10px;
+}
+#updateTask{
+  margin-left: 130px;
+  margin-top: 20px;
+  background-color: var(--primary-color);
+}
+

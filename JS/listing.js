@@ -6,7 +6,6 @@ let innerContainer = document.querySelector(".inner-container")
 let cancelBtn = document.querySelector(".cancel-btn");
 let empty = document.querySelector(".forms-inner-div")
 
-
 // ======================below code is for open single form and multi form ===============================
 for (let i = 0; i < inputBtn.length; i++) {
   inputBtn[i].addEventListener("click", () => {
@@ -253,10 +252,30 @@ let showMoreBtn = document.querySelectorAll(".showMoreBtn");
 let popUpWnd = document.querySelector('.testing-window');
 let check = document.querySelectorAll("#round")
 
+let model_title = document.querySelector('#modal-title')
+
 for (let i = 0; i < showMoreBtn.length; i++) {
   showMoreBtn[i].addEventListener("click", () => {
     // popUpWnd.classList.toggle('invisible');
     $("#popUpWindow").show();
+
+    switch (showMoreBtn[i].id) {
+      case "1":
+        model_title.innerHTML = "Do it now"
+        break;
+      case "2":
+        model_title.innerHTML = "Schedule a Time to Do it"
+        break;
+      case "3":
+        model_title.innerHTML = "Who can Do it for you"
+        break;
+      case "4":
+        model_title.innerHTML = "Eleminate it"
+        break;
+      default:
+        model_title.innerHTML = ""
+        break;
+    }
   });
 
 }
@@ -276,12 +295,9 @@ popUpclose.addEventListener("click", () => {
 
 $(document).ready(function () {
 
-  // selecting btn to delete
-
   var viewtask = $("#getid");
 
   let btn = document.querySelectorAll("#getid");
-  // console.log(btn)
 
   for (let i = 0; i < btn.length; i++) {
     btn[i].addEventListener("click", (e) => {
@@ -317,7 +333,7 @@ $(document).ready(function () {
 let taskDiv = document.querySelector('.taskListDiv')
 
 function datas(data) {
-  // console.log(data);
+
   if (data.length > 0) {
     let datas = data.map((element) => {
 
@@ -352,20 +368,17 @@ function datas(data) {
             <div class="change">
               <div class="Task-progress pt-px	">
                   <div class="round" >
-                    <label for="checkbox" class="roundCheck" id ="${element.id}"></label>
+                    <label for="checkbox" class="roundCheck" id ="${element.id}" title="Complete"></label>
                   </div>
               </div>
               <div class="make-changes">
-                <button id="editBtn"><i class="fa-solid fa-pen"></i></button>
-              <div>
-    
-    
-              <button type="button" id="btnDelete" data-id="${element.id}"><i class="fa-solid fa-trash-can"></i></button>
-              </div>
+                <button id="editBtn" data-role="update" data-id=${element.id} ><i class="fa-solid fa-pen"></i></button>
+  
                 <button class="add-comment-btn" data-id="${element.id}"><i class="fa-solid fa-comment"></i></button>
                 <button class="addedCommentIcon" data-id="${element.id}"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M21 6.49962C21 9.53698 18.5376 11.9992 15.5 11.9992C12.4624 11.9992 10 9.53698 10 6.49962C10 3.46227 12.4624 1 15.5 1C18.5376 1 21 3.46227 21 6.49962ZM16.5285 2.99986H15.0965C14.8881 2.99986 14.7015 3.12914 14.6283 3.32428L13.5033 6.32407C13.3808 6.65093 13.6224 6.99959 13.9715 6.99959H14.75L13.9773 9.31749C13.8655 9.65295 14.1152 9.99938 14.4688 9.99938C14.6442 9.99938 14.8077 9.91068 14.9032 9.76366L17.5283 5.72535C17.7314 5.4129 17.5072 4.99973 17.1345 4.99973H16.5L16.9967 3.67538C17.1192 3.34853 16.8776 2.99986 16.5285 2.99986ZM15.5 12.9992C17.2465 12.9992 18.8321 12.3104 20 11.1897V14.7491C20 16.5439 18.5449 17.9988 16.75 17.9988H10.9648L5.57814 21.8159C5.12752 22.1351 4.50337 22.0287 4.18407 21.5781C4.06432 21.4091 4 21.2071 4 21.0002L3.9992 17.9988H3.25C1.45507 17.9988 0 16.5439 0 14.7491V6.24964C0 4.45484 1.45507 2.99986 3.25 2.99986H10.0218C9.375 4.01009 9 5.21107 9 6.49962C9 10.0892 11.9101 12.9992 15.5 12.9992Z" fill="#5FB32E"/>
                 <circle cx="16" cy="6" r="6" fill="#FF0000"/></svg></button>
+
               </div>
             </div>
           </div>
@@ -402,7 +415,7 @@ function datas(data) {
     }
   });
 
-  // console.log(data)
+
   // =============================below code is for three functionality (comment div toggling)(task detail strike out)(if user click the check box the div will be hiding)=================================
 
   let commentBtn = document.querySelectorAll(".add-comment-btn");
@@ -412,7 +425,17 @@ function datas(data) {
   let popUpHeader = document.querySelector('.popUpHeader')
 
 
-  // popUpHeader.innerHTML = `<button type="submit" id="${data[0].matrix_id}" class="completedBtn focus:outline-none font-medium rounded-lg text-sm px-5 ">COMPLETED TASK </button>`
+  popUpHeader.innerHTML = `<button type="submit" id="${data[0].matrix_id}" class="completedBtn focus:outline-none font-medium rounded-lg text-sm px-5 py-2">COMPLETED TASK </button>`
+
+  popUpHeader.addEventListener('click',()=>{
+    if (popUpHeader.innerText == "COMPLETED TASK") {
+        popUpHeader.innerHTML = `<button type="submit" id="${data[0].matrix_id}" class="completedBtn focus:outline-none font-medium rounded-lg text-sm px-5 "> UN COMPLETED TASK </button>`
+    }
+    else if (popUpHeader.innerText == "UN COMPLETED TASK") {
+        popUpHeader.innerHTML = `<button type="submit" id="${data[0].matrix_id}" class="completedBtn focus:outline-none font-medium rounded-lg text-sm px-5 ">COMPLETED TASK </button>`
+
+    }
+  })
 
   for (let j = 0; j < commentBtn.length; j++) {
     commentBtn[j].addEventListener("click", () => {
@@ -425,8 +448,8 @@ function datas(data) {
 
       setTimeout(() => {
         tasks_list[j].remove()
-      }, 400)
 
+      }, 2000)
     })
   }
 
@@ -450,7 +473,7 @@ function datas(data) {
         let datas = completedTask.map((element) => {
           return `
 <div class=" tasks-lists my-1	h-14	py-3 px-1.5	cursor-pointer flex gap-8 pb-5 rounded">
-<div class="task-inner-div">
+  <div class="task-inner-div">
   <div class="task-info " id="rowdiv" >
     <input type="hidden" id="rowid" value="">
     <div class="list-name">
@@ -466,7 +489,7 @@ function datas(data) {
 <div class=" tasks-lists my-1	h-14	py-3 px-1.5	cursor-pointer flex gap-8 pb-5 rounded">
 <div>
 
-<div class="make-changes addvisibility">
+    <div class="make-changes addvisibility">
     <div>
         <button type="button" id="btnDelete" data-id="${element.id}"><i class="fa-solid fa-trash-can"></i></button>
     </div>
@@ -497,14 +520,107 @@ function datas(data) {
   }
 
   let del = document.querySelectorAll("#btnDelete")
-  // console.log(del)
-
-
 
 
   // ------------------------------------------------------------------------
-  //  ==========================This function(datas) ended here=====================
+//  ===========================edit form backend============================================================
 
+  $(document).on("click", '[data-role=update]', function (e) {
+  let id=$(this).data('id')
+
+  $.ajax({
+    url: "/editTask",
+    data: {
+      id: id,
+    },
+    type: "POST",
+    success: function (response) {
+      let EditTask_Responce = JSON.parse(response);
+      EditFilling(EditTask_Responce)
+    }
+  })
+})
+
+function EditFilling(EditTask_Responce){
+  let editbtn = document.querySelectorAll("#editBtn")
+  let editForm = document.querySelector('.editForm')
+  for (let i = 0; i < editbtn.length; i++) {
+    editbtn[i].addEventListener("click", (e) => {
+      $("#popUpWindow").hide();
+      innerContainer.classList.add('active')
+      editForm.style.display = "block"
+
+      EditTask_Responce.forEach(editContent => {
+
+      let editHtml = `<div class="updateCloseBtn" id="updateFormCloseBtn">
+              <div>
+                <span>X</span>
+              </div>
+            </div>
+
+            <input
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+             type="text" hidden name="userId" placeholder="Task Name" value=${editContent.user_id} id="userId" >
+            <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                Task Name
+            </label>
+            <input
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="editTask" type="text" name="editTaskName" placeholder="Task Name" value=${editContent.task_name} id="editTaskName">
+        </div>
+        <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+                Date
+            </label>
+            <input
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="editDate" type="date" name=editTaskdate placeholder="Date" value=${editContent.dates} >
+        </div>
+        <div class="flex items-center justify-between">
+        <button
+            class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            type="button"  id="updateTask" data-id=${editContent.id}>
+            Update
+        </button>
+      </div>`
+       editForm.innerHTML = editHtml
+      });
+
+      let updateFormCloseBtn = document.querySelector('.updateCloseBtn')
+      updateFormCloseBtn.addEventListener('click', () => {
+        editForm.style.display = "none"
+        innerContainer.classList.remove("active")
+      })
+
+      $("#updateTask").on("click",()=>{
+        let editId = $("#updateTask").attr("data-id");
+        let editTaskName = $("#editTask").val();
+        let editTaskdate = $("#editDate").val();
+        let user_id = $("#userId").val();
+
+
+        const url = '/updateTask';
+        const data = {
+          editId: editId,
+          editTaskName: editTaskName,
+          editTaskdate:editTaskdate,
+          user_id:user_id
+        };
+
+        $.ajax({
+          type: "POST",
+          url: url,
+          data:data,
+          success: function(result) {
+              window.location.replace("/list")
+          }
+        }) 
+      })
+
+    })
+  }
+}
 
   // ==========================ADD COMMENT FUNCTION ========================
   // let addComment = document.querySelectorAll("#addComment")
@@ -519,7 +635,7 @@ function datas(data) {
     element.addEventListener("click", () => {
       let id = comment[a].dataset.id
       let comments = comment[a].value
-
+      let addCommentButton = addCommentBtn[a]
       $.ajax({
         url: "/addComment",
         data: {
@@ -538,6 +654,12 @@ function datas(data) {
           $(addCommentBtn[a]).hide()
           $(comment[a]).hide()
           $(addedCommentIcon[a]).show();
+
+          addCommentButton.innerHTML = `<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M21 6.49962C21 9.53698 18.5376 11.9992 15.5 11.9992C12.4624 11.9992 10 9.53698 10 6.49962C10 3.46227 12.4624 1 15.5 1C18.5376 1 21 3.46227 21 6.49962ZM16.5285 2.99986H15.0965C14.8881 2.99986 14.7015 3.12914 14.6283 3.32428L13.5033 6.32407C13.3808 6.65093 13.6224 6.99959 13.9715 6.99959H14.75L13.9773 9.31749C13.8655 9.65295 14.1152 9.99938 14.4688 9.99938C14.6442 9.99938 14.8077 9.91068 14.9032 9.76366L17.5283 5.72535C17.7314 5.4129 17.5072 4.99973 17.1345 4.99973H16.5L16.9967 3.67538C17.1192 3.34853 16.8776 2.99986 16.5285 2.99986ZM15.5 12.9992C17.2465 12.9992 18.8321 12.3104 20 11.1897V14.7491C20 16.5439 18.5449 17.9988 16.75 17.9988H10.9648L5.57814 21.8159C5.12752 22.1351 4.50337 22.0287 4.18407 21.5781C4.06432 21.4091 4 21.2071 4 21.0002L3.9992 17.9988H3.25C1.45507 17.9988 0 16.5439 0 14.7491V6.24964C0 4.45484 1.45507 2.99986 3.25 2.99986H10.0218C9.375 4.01009 9 5.21107 9 6.49962C9 10.0892 11.9101 12.9992 15.5 12.9992Z" fill="#5FB32E"/>
+        <circle cx="16" cy="6" r="6" fill="#FF0000"/>
+        </svg>`
+          addCommentButton.className = "addedCommentIcon";
 
         }
       });
@@ -799,4 +921,27 @@ $(document).on("click", ".category_id", function (e) {
 
 })
 
+// =================permanent delete functionlity==============
+let permanentBtn = document.querySelectorAll('#btnDelete');
+let btnDelete = document.querySelector("#btnDelete")
 
+$(document).on("click", "#btnDelete", function (e) {
+let listName = document.querySelector(".task-inner-div")
+  let taskid = e.target.parentElement.dataset.id;
+  /**  sending task id to backend */
+  $.ajax({
+    url: "/permanentDel",
+    data: { id: taskid },
+    type: "POST",
+    success: function (response) {
+      
+      confirm("Are you sure to Delete permanently?");
+      listName.parentElement.remove()
+      
+
+    }
+  });
+})
+
+
+// ==========================================================================================

@@ -51,4 +51,9 @@ $router->post('/completed','completed');
 $router->post('/commFetch','commFetch');
 
 
+$router->post('/editTask','editTask');
+
+$router->post('/permanentDel','permanentDel');
+
+$router->post('/updateTask','updateTask');
 $router->routing();
