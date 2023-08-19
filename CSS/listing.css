@@ -31,6 +31,8 @@ button {
   --font-sans: "Rubik", sans-serif;
   --font-serif: "Cardo", serif;
   --task-list-bg-color: #ffffff;
+  --search-box-br-color: #e2e2e2;
+
 }
 
 .darkmode {
@@ -54,9 +56,6 @@ body {
 
 .main-container {
   position: relative;
-  padding: 30px 60px;
-  /* max-width: 1024px; */
-  width: 100%;
 }
 
 
@@ -68,16 +67,18 @@ body {
 
 }
 
-.header>:first-child {
+.header {
+  position: fixed;
+  z-index: 1;
+  background-color: var(--thresary-color);
+  width: 100%;
   display: flex;
   justify-content: space-between;
+  padding: 10px 20px;
+  top: 0;
+  left: 0;
 }
 
-.header>:last-child {
-  display: flex;
-  justify-content: center;
-  gap: 50%;
-}
 
 /* -----------home page right side element styling----------------- */
 
@@ -96,20 +97,22 @@ body {
   height: 37px;
   width: 300px;
   color: var(--font-color);
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 5px;
   background-color: var(--thresary-color);
   padding: 0px 10px 0px 40px;
+  border: 1px solid var(--search-box-br-color);
+  transition: 0.2s;
+
 }
 
 .search-box:focus {
-  transition: 0.4s;
+  transition: 0.2s;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   outline: none;
-  border: 1px solid #52a521;
+  border: 1px solid var(--primary-color);
 }
 
 .search-box::placeholder {
-  color: var(--icon-color);
+  color: var(--font-color);
 }
 
 .search-icon {
@@ -141,7 +144,7 @@ body {
 
   width: 10ch;
   overflow: hidden;
-  animation: typing 2s steps(10) infinite alternate-reverse;
+  /* animation: typing 2s steps(10) infinite alternate-reverse; */
 }
 
 @keyframes typing {
@@ -175,19 +178,22 @@ body {
 .right-icon {
   cursor: pointer;
 }
-.right-icon i {
-  color: var(--font-color);
-}
+
 /* ---------------styling for add todo buttons---------------- */
+.mt-24{
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 150px 0px 210px;
+}
 .add-todo-inner-section {
   position: relative;
 }
 
-.add-todo-btn-section {
+/* .add-todo-btn-section {
   display: flex;
   gap: 30px;
   justify-content: flex-end;
-}
+} */
 
 .add-btn {
   cursor: pointer;
@@ -195,15 +201,16 @@ body {
   background-color: var(--primary-color);
   border-radius: 50%;
   color: white;
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-weight: 250;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 4px 0px;
 }
-.type-btn{
+
+.type-btn {
   cursor: pointer;
 }
 
@@ -234,7 +241,7 @@ body {
   animation-duration: 0.5s;
   animation-name: showInputBox;
   z-index: 1;
-  padding: 16px 0px;
+  padding: 20px 0px;
 }
 
 @keyframes showInputBox {
@@ -243,15 +250,15 @@ body {
   }
 
   50% {
-    top: 60px;
+    top: 50px;
   }
 
   75% {
-    top: 60px;
+    top: 50px;
   }
 
   100% {
-    top: 60px;
+    top: 50px;
   }
 }
 
@@ -263,14 +270,17 @@ body {
   align-items: center;
   gap: 5%;
 }
+.input-type-btn>img{
+  height:50px;
 
+}
 .input-type-btn>span {
   background-color: var(--thresary-color);
   color: var(--font-color);
   font-weight: 500;
   border-radius: 0px 10px 10px 10px;
   text-align: center;
-  line-height: 35px;   
+  line-height: 35px;
   height: 35px;
   width: 150px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 4px 0px;
@@ -441,7 +451,7 @@ body {
 
 .inputdiv input {
   height: 35px;
-  width: 305px;  
+  width: 305px;
   border: 1px solid var(--primary-color);
   border-radius: var(--single-border-radius);
   background-color: white;
@@ -453,7 +463,7 @@ body {
 /* ------------below style is for our priority buttons-------------- */
 .matix {
   display: flex;
-  gap: 60px;  
+  gap: 60px;
   margin-left: 120px;
   margin-top: 25px;
 }
@@ -517,7 +527,7 @@ button {
 
 .multiple-input-form {
   position: absolute;
-  top: 140px;
+  top: 55px;  
   right: 185px;
   display: none;
 }
@@ -729,7 +739,7 @@ button {
   align-items: center;
   justify-content: center;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 4px 0px;
-  
+
 }
 
 .addDivBtn:hover {
@@ -786,8 +796,9 @@ button {
 
 .card {
   position: relative;
-  width: 400px;
+  width: 500px;
   padding: 10px;
+
 }
 
 .card> :last-child {
@@ -819,7 +830,7 @@ button {
 .nameDateDiv {
   display: flex;
   background-color: var(--task-list-bg-color);
-  padding: 7px;
+  padding: 5px;
   margin: 5px;
   border-radius: 5px;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
@@ -1134,7 +1145,7 @@ button.removetask {
 .Habits-div {
   display: none;
   position: absolute;
-  top: 188px;
+  top: 130px;
   right: 238px;
 }
 
@@ -1254,7 +1265,7 @@ button.completedBtn:hover {
 
 /* ==============edit form============================================ */
 
-.editForm{
+.editForm {
   display: none;
   position: absolute;
   width: 475;
@@ -1267,7 +1278,9 @@ button.completedBtn:hover {
   box-shadow: #00000029 0px 10px 36px 0px, #0000000f 0px 0px 0px 1px;
 }
 
+
 .updateCloseBtn{
+  
   cursor: pointer;
   color: var(--close-btn-color);
   height: 30px;
@@ -1276,7 +1289,9 @@ button.completedBtn:hover {
   justify-content: center;
   align-items: center;
   border: 1px solid var(--close-btn-border-color);
+
   margin-left: 350px;
+
   font-weight: bold;
   border-radius: 0px 6px 0px 10px;
 }

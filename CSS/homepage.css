@@ -39,8 +39,9 @@ body {
 
 .main-container {
   position: relative;
-  padding: 30px 70px;
+  /* padding: 30px 70px; */
   /* max-width: 1024px; */
+  position: fixed;
   width: 100%;
 }
 
@@ -115,7 +116,7 @@ body {
 
   width: 10ch;
   overflow: hidden;
-  animation: typing 2.5s steps(10) infinite alternate-reverse;
+  /* animation: typing 2.5s steps(10) infinite alternate-reverse; */
 }
 
 @keyframes typing {

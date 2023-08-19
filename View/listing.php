@@ -16,77 +16,73 @@
   <!-- this is the main container of the application -->
   <div class="main-container">
     <div class="inner-container">
-      <header class="header">
-        <div>
-          <div class="left-section">
-            <img src="../Images/logo.png">
-            <span>What's Up
-              <h1 class="username">
-                <?php echo $_SESSION['username']; ?>...
-              </h1>
-            </span>
-          </div>
-          <!-- this is our right side contents -->
-          <div class="right-section">
-            <!-- search input code -->
-            <div>
-              <div class="relative">
-                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                  <svg class="w-4 h-4 search-icon " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                  </svg>
-                </div>
-                <input type="search" id="default-search" class="block rounded-lg search-box" placeholder="Search" title="Search your tasks here" required>
+      <nav class="header">
+        <div class="left-section">
+          <img src="../Images/logo.png" >
+          <span>What's Up
+            <h1 class="username">
+              <?php echo $_SESSION['username']; ?>...
+            </h1>
+          </span>
+        </div>
+        <!-- this is our right side contents -->
+        <div class="right-section">
+          <!-- search input code -->
+          <div>
+            <div class="relative">
+              <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <svg class="w-4 h-4 search-icon " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                </svg>
               </div>
+              <input type="search" id="default-search" class="block rounded-lg search-box" placeholder="Search" title="Find your tasks here" required>
             </div>
-            <!-- ---- -->
-            <ul class="icons">
-              <li class="right-icon">
-                <i class="fa-regular fa-bell notification" title="Notification" onclick="openNotofy()"></i>
-              </li>
-              <li class="right-icon">
-                <i class="fa-solid fa-pen-to-square Habits-icon" title="Daily Habits"></i>
-                <!-- <img src="../Icons/line-icon-for-habits-vector-removebg-preview.png" style="height: 30px;" class="Habits-icon"> -->
-              </li>
-              <li class="right-icon">
-                <i class="fa-regular fa-moon theme-btn" title="Dark Mode"></i>
-              </li>
-              <li class="right-icon">
-                <a href="/logout">
-                  <i class="fa-solid fa-arrow-right-from-bracket logout" title="Log out"></i>
-                </a>
-              </li>
-            </ul>
+          </div>
+          <!-- ---- -->
+          <ul class="icons">
+            <li class="right-icon">
+              <i class="fa-regular fa-bell notification" title="Notification" onclick="openNotofy()"></i>
+            </li>
+            <li class="right-icon">
+              <i class="fa-solid fa-pen-to-square Habits-icon" title="Daily Habits"></i>
+            </li>
+            <li class="right-icon">
+              <i class="fa-regular fa-moon theme-btn" title="Dark Mode"></i>
+            </li>
+            <li class="right-icon">
+              <a href="/logout">
+                <i class="fa-solid fa-arrow-right-from-bracket logout" title="Log out"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="mt-24">
+        <div class="switchDiv">
+          <div>
+            <button name="category_id" class="font-menu selectedCatagory category_id" id="1">PROFESSIONAL</button>
+          </div>
+          <div>
+            <button class="font-menu px-4	category_id" name="category_id" id="2">PERSONAL</button>
           </div>
         </div>
-        <div>
-
-          <div class="switchDiv">
-            <div>
-              <button name="category_id" class="font-menu selectedCatagory category_id" id="1">PROFESSIONAL</button>
+        <div class="add-todo-btn-section">
+          <div class="add-todo-inner-section">
+            <div class="add-btn" title="Create your task here">
+              <i class="fa-sharp fa-light fa-plus fa-xl"></i>
             </div>
-            <div>
-              <button class="font-menu px-4	category_id" name="category_id" id="2">PERSONAL</button>
-            </div>
-          </div>
-
-          <div class="add-todo-btn-section">
-            <div class="add-todo-inner-section">
-              <div class="add-btn">
-                <i class="fa-sharp fa-light fa-plus fa-xl"></i>
+            <div class="input-type">
+              <div class="input-type-btn">
+                <img src="../Icons/single.png" class="type-btn" id="1"><span class="typeName">Single</span>
               </div>
-              <div class="input-type">
-                <div class="input-type-btn">
-                  <img src="../Icons/single.png" class="type-btn" id="1"><span class="typeName">Single</span>
-                </div>
-                <div class="input-type-btn">
-                  <img src="../Icons/multi.png" class="type-btn" id="2"><span class="typeName">Multiple</span>
-                </div>
+              <div class="input-type-btn">
+                <img src="../Icons/multi.png" class="type-btn" id="2"><span class="typeName">Multiple</span>
               </div>
             </div>
           </div>
         </div>
-      </header>
+      </div>
       <!-- -----------Notification div -------------------- -->
       <div id="succcess">
         <div class="notification-success" style="display: flex;">
@@ -113,7 +109,6 @@
         </form>
       </div>
       <!-- this below section is for add button -->
-
       <div class="taskDetailBox">
         <main class="page-content">
           <div class="card-div">
@@ -134,7 +129,7 @@
                     <?php endif; ?>
                   <?php endforeach; ?>
                 </div>
-                <div class="viewBtnDiv1" >
+                <div class="viewBtnDiv1">
                   <!-- view task button injected here -->
                   <div class="showMoreBtn" id="1">
                     <i class="fa-solid fa-circle-chevron-down" title="View All" style="color: #5fb32e; font-size: 24px; " id="getid" name="matrixId" data-id="<?php echo "1" ?>"></i>
@@ -144,7 +139,7 @@
             </div>
           </div>
           <div class="card-div">
-            <h2 class="title">Schedule a Time to Do it</h2>
+            <h2 class="title">Schedule a time to Do it</h2>
             <div class="main-card">
               <div class="card-color"></div>
               <div class="card">
@@ -267,7 +262,7 @@
     </div>
 
     <div class="editForm">
-      
+
 
     </div>
 

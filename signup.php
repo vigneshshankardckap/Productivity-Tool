@@ -7,39 +7,37 @@ $servername = "localhost";
 include "sample/gc_config.php";
 
 if(isset($_GET["code"])){
-        $token=$client->fetchAccessTokenWithAuthCode($_GET["code"]);
+    $token=$client->fetchAccessTokenWithAuthCode($_GET["code"]);
+
+    $client->setAccessToken($token["access_token"]);
     
-        $client->setAccessToken($token["access_token"]);
+    $obj=new Google_Service_Oauth2($client);
+    $data=$obj->userinfo->get();
+
+    if(!empty($data["email"])&&!empty($data["name"])){
         
-        $obj=new Google_Service_Oauth2($client);
-        $data=$obj->userinfo->get();
-    
-
-        if(!empty($data["email"])&&!empty($data["name"])){
-            session_start();
-            $email_id = $data["email"];
-            $name = $data["name"];
-           
+        $email_id = $data["email"];
+        $name = $data["name"];
+        
 
 
-             $_SESSION["email"]= $data["email"];
+            $_SESSION["email"]= $data["email"];
 
 
-            $conn = new PDO("mysql:host=$servername;dbname=EisenDo", "admin", "welcome");
-            $exits = $conn->query("SELECT * FROM users WHERE email_id = '$email_id'");
-            $exits = $exits->fetchAll(PDO::FETCH_OBJ);
-            
-            if($exits){
-                $_SESSION["error"] = "already exits";
-            }
-            else{
-                var_dump("register succesfull");
-                $conn->query("INSERT INTO users(username,email_id)VALUES('$name','$email_id')");
-                header("location:/LandingPage");
-            }
-
+        $conn = new PDO("mysql:host=$servername;dbname=EisenDo", "admin", "welcome");
+        $exits = $conn->query("SELECT * FROM users WHERE email_id = '$email_id'");
+        $exits = $exits->fetchAll(PDO::FETCH_OBJ);
+        
+        if($exits){
+            $_SESSION["error"] = "already exits";
         }
- 
+        else{
+            var_dump("register succesfull");
+            $conn->query("INSERT INTO users(username,email_id)VALUES('$name','$email_id')");
+            header("location:/LandingPage");
+        }
+
+    }
 }
 
 ?>
