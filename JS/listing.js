@@ -432,7 +432,7 @@ function datas(data) {
 
       setTimeout(() => {
         tasks_list[j].remove()
-      }, 400)
+      }, 1000)
 
     })
   }
@@ -539,6 +539,7 @@ function EditFilling(EditTask_Responce){
   for (let i = 0; i < editbtn.length; i++) {
     editbtn[i].addEventListener("click", (e) => {
       $("#popUpWindow").hide();
+      innerContainer.classList.add('active')
       editForm.style.display = "block"
 
       EditTask_Responce.forEach(editContent => {
@@ -578,6 +579,7 @@ function EditFilling(EditTask_Responce){
       let updateFormCloseBtn = document.querySelector('.updateCloseBtn')
       updateFormCloseBtn.addEventListener('click', () => {
         editForm.style.display = "none"
+        innerContainer.classList.remove("active")
       })
     })
   }

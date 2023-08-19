@@ -209,7 +209,7 @@ class UserModule extends Database
     public function permanentDel($delId)
     {
         $delFun = $this->db->query("DELETE FROM `tasks` WHERE `tasks`.`id` = $delId");
-        echo json_encode($datas);
+        // echo json_encode($datas);
     }
     // public function viewAllTask($data)
     // {
