@@ -206,8 +206,11 @@ class UserModule extends Database
 
     public function permanentDel($delId)
     {
-        $delFun = $this->db->query("DELETE FROM `tasks` WHERE `tasks`.`id` = $delId");
+        // var_dump($delId);
+        $delBtnId = $delId;
+        $delFun = $this->db->query("DELETE FROM `tasks` WHERE `tasks`.`id` = '$delBtnId'");
         echo json_encode($datas);
+        header("location:/list");
     }
     // public function viewAllTask($data)
     // {

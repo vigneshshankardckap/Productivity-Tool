@@ -354,11 +354,7 @@ function datas(data) {
               </div>
               <div class="make-changes">
                 <button id="editBtn"><i class="fa-solid fa-pen"></i></button>
-              <div>
-    
-    
-              <button type="button" id="btnDelete" data-id="${element.id}"><i class="fa-solid fa-trash-can"></i></button>
-              </div>
+       
                 <button class="add-comment-btn" data-id="${element.id}"><i class="fa-solid fa-comment"></i></button>
               </div>
             </div>
@@ -407,6 +403,16 @@ function datas(data) {
 
   popUpHeader.innerHTML = `<button type="submit" id="${data[0].matrix_id}" class="completedBtn focus:outline-none font-medium rounded-lg text-sm px-5 ">COMPLETED TASK </button>`
 
+  popUpHeader.addEventListener('click',()=>{
+    if (popUpHeader.innerText == "COMPLETED TASK") {
+        popUpHeader.innerHTML = `<button type="submit" id="${data[0].matrix_id}" class="completedBtn focus:outline-none font-medium rounded-lg text-sm px-5 "> UN COMPLETED TASK </button>`
+    }
+    else if (popUpHeader.innerText == "UN COMPLETED TASK") {
+        popUpHeader.innerHTML = `<button type="submit" id="${data[0].matrix_id}" class="completedBtn focus:outline-none font-medium rounded-lg text-sm px-5 ">COMPLETED TASK </button>`
+
+    }
+  })
+
   for (let j = 0; j < commentBtn.length; j++) {
     commentBtn[j].addEventListener("click", () => {
       commentInput[j].classList.toggle("addvisibility")
@@ -418,7 +424,7 @@ function datas(data) {
 
       setTimeout(() => {
         tasks_list[j].remove()
-      }, 400)
+      }, 2000)
 
     })
   }
@@ -443,7 +449,7 @@ function datas(data) {
         let datas = completedTask.map((element) => {
           return `
 <div class=" tasks-lists my-1	h-14	py-3 px-1.5	cursor-pointer flex gap-8 pb-5 rounded">
-<div class="task-inner-div">
+  <div class="task-inner-div">
   <div class="task-info " id="rowdiv" >
     <input type="hidden" id="rowid" value="">
     <div class="list-name">
@@ -459,7 +465,7 @@ function datas(data) {
 <div class=" tasks-lists my-1	h-14	py-3 px-1.5	cursor-pointer flex gap-8 pb-5 rounded">
 <div>
 
-<div class="make-changes addvisibility">
+    <div class="make-changes addvisibility">
     <div>
         <button type="button" id="btnDelete" data-id="${element.id}"><i class="fa-solid fa-trash-can"></i></button>
     </div>
@@ -781,10 +787,10 @@ $(document).on("click", ".category_id", function (e) {
 
 // =================permanent delete functionlity==============
 let permanentBtn = document.querySelectorAll('#btnDelete');
-
+let btnDelete = document.querySelector("#btnDelete")
 
 $(document).on("click", "#btnDelete", function (e) {
-
+let listName = document.querySelector(".task-inner-div")
   let taskid = e.target.parentElement.dataset.id;
   /**  sending task id to backend */
   $.ajax({
@@ -794,6 +800,9 @@ $(document).on("click", "#btnDelete", function (e) {
     success: function (response) {
       // console.log(response);
       confirm("Are you sure to Delete permanently?");
+      listName.parentElement.remove()
+      // btnDelete.remove()
+
     }
   });
 })
