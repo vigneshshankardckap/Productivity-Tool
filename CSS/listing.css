@@ -796,8 +796,9 @@ button {
 
 .card {
   position: relative;
-  width: 400px;
-  padding: 15px 10px 10px 10px;
+  width: 500px;
+  padding: 10px;
+
 }
 
 .card> :last-child {
