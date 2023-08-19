@@ -512,10 +512,6 @@ function datas(data) {
   }
 
   let del = document.querySelectorAll("#btnDelete")
-  // console.log(del)
-
-
-
 
   // ------------------------------------------------------------------------
 //  ===========================edit form backend============================================================
@@ -545,41 +541,39 @@ function EditFilling(EditTask_Responce){
       editForm.style.display = "block"
 
       EditTask_Responce.forEach(editContent => {
-        console.log(editContent);
-        let editHtml = `<div class="updateCloseBtn" id="updateFormCloseBtn">
-        <div>
-          <span>X</span>
+
+      let editHtml = `<div class="updateCloseBtn" id="updateFormCloseBtn">
+              <div>
+                <span>X</span>
+              </div>
+            </div>
+
+            <input
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+             type="text" hidden name="userId" placeholder="Task Name" value=${editContent.user_id} id="userId" >
+            <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                Task Name
+            </label>
+            <input
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="editTask" type="text" name="editTaskName" placeholder="Task Name" value=${editContent.task_name} id="editTaskName">
         </div>
-      </div>
-
-      <input
-      class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-      id="username" type="text" hidden name="userId" placeholder="Task Name" value=${editContent.user_id} id="userId" >
-      <div class="mb-4">
-      <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
-          Task Name
-      </label>
-      <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          id="username" type="text" name="editTaskName" placeholder="Task Name" value=${editContent.task_name} id="editTaskName">
-  </div>
-  <div class="mb-6">
-      <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
-          Date
-      </label>
-      <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          id="username" type="date" name=editTaskdate placeholder="Date" value=${editContent.dates} id="editTaskdate">
-
-  </div>
-
-  <div class="flex items-center justify-between">
-  <button
-      class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-      type="button"  id="updateTask" data-id=${editContent.id}>
-       Update
-  </button>
-</div>`
+        <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+                Date
+            </label>
+            <input
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="editDate" type="date" name=editTaskdate placeholder="Date" value=${editContent.dates} >
+        </div>
+        <div class="flex items-center justify-between">
+        <button
+            class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            type="button"  id="updateTask" data-id=${editContent.id}>
+            Update
+        </button>
+      </div>`
        editForm.innerHTML = editHtml
       });
 
@@ -588,34 +582,36 @@ function EditFilling(EditTask_Responce){
         editForm.style.display = "none"
         innerContainer.classList.remove("active")
       })
+
+      $("#updateTask").on("click",()=>{
+        let editId = $("#updateTask").attr("data-id");
+        let editTaskName = $("#editTask").val();
+        let editTaskdate = $("#editDate").val();
+        let user_id = $("#userId").val();
+
+
+        const url = '/updateTask';
+        const data = {
+          editId: editId,
+          editTaskName: editTaskName,
+          editTaskdate:editTaskdate,
+          user_id:user_id
+        };
+
+        $.ajax({
+          type: "POST",
+          url: url,
+          data:data,
+          success: function(result) {
+              window.location.replace("/list")
+          }
+        }) 
+      })
+
     })
   }
 }
 
-$(document).on("click", '#updateTask', function (e) {
-  let id=$(this).data('id')
-
-let user_id=$('#userId').val();
-// console.log(user_id);
-let editTaskName=$('#editTaskName').val();
-// console.log(editTaskName);
-let editTaskdate=$('#editTaskdate').val();
-// console.log(editTaskdate);
-
-  $.ajax({
-    url: "/updateTask",
-    data: {
-      id:id,
-      editTaskName:editTaskName,
-      editTaskdate:editTaskdate,
-      user_id:user_id,
-    },
-    type: "PUT",
-    success: function (response) {
-   
-    }
-  })
-})
 
   // ==========================ADD COMMENT FUNCTION ========================
   // let addComment = document.querySelectorAll("#addComment")

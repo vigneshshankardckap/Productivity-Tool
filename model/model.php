@@ -72,8 +72,6 @@ class UserModule extends Database
             echo "Delete";
         }
 
-
-
         $insertIntoTable = $this->db->query("INSERT INTO tasks(task_name,dates,user_id,category_id,matrix_id)VALUES('$taskName','$dueDate','$userId','$categoryId','$urgeImp')");
         header('location:/list');
     }
@@ -166,12 +164,20 @@ class UserModule extends Database
     }
     public function updateTask($data)
     {
-        $userId=$data['userId'];
-        $taskName=$data['editTaskName'];
-        $taskdate=$data['editTaskdate'];
-        $taskId=$data['id'];
-        $updatetask = $this->db->query("UPDATE tasks SET task_name=$taskName,dates=$taskdate WHERE id=$taskId AND user_id=$userId")->fetchAll();
-        echo json_encode($updatetask);
+        
+        
+        $editId = $data["EditId"];
+        $editTaskName = $data["editTaskName"];
+        $editTaskDate = $data["editTaskDate"];
+        $user_id = $data["user_id"];
+
+        $updatetask = $this->db->query("UPDATE tasks SET task_name='$editTaskName',dates ='$editTaskDate' WHERE id = '$editId' AND user_id='$user_id'");
+
+        $al = $updatetask->fetchAll(PDO::FETCH_OBJ);
+
+        header("location:/list");
+    
+    
     }
 
     public function DeleteTask($id)
