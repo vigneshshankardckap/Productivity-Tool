@@ -1,23 +1,127 @@
-let form = document.querySelector(".multiple-form")
 let inputBtn = document.querySelectorAll(".type-btn");
-// let singleForm = document.querySelector(".single-input-form");
-// let multiFormDiv = document.querySelector(".multiple-input-form");
 let innerContainer = document.querySelector(".inner-container")
-let cancelBtn = document.querySelector(".cancel-btn");
-let empty = document.querySelector(".forms-inner-div")
+
+
+// below selectore for task type btn (single or multiple)
+let typeBtn = document.querySelectorAll(".type-btn")
+let typeName = document.querySelectorAll(".typeName")
+// below selectore is for comment section
+
+// below selectore is for multiple form append div
+let divCon = document.querySelector(".forms-inner-div");
+// ----------notification section----------
+let Notificationbtn = document.querySelector(".notification");
+let closelist = document.querySelector("#close-notificationList")
+let Habitsdiv = document.querySelector(".Habitsdiv");
+// --------------dark mode button ----------
+let darkBtn = document.querySelector(".theme-btn")
+
+
+let taskMainCont1 = document.querySelector(".content1")
+let taskMainCont2 = document.querySelector(".content2")
+let taskMainCont3 = document.querySelector(".content3")
+let taskMainCont4 = document.querySelector(".content4")
+
+let content1 = []
+let content2 = []
+let content3 = []
+let content4 = []
+
+$(document).ready(function () {
+  $.ajax({
+    type: "GET",
+    url: "/fetch_proofession",
+    async: false,
+    success: function (response) {
+      var obj = JSON.parse(response)
+      for (let i = 0; i < obj.length; i++) {
+        if (obj[i].matrix_id == 1) {
+          content1.push(obj[i])
+        }
+        else if (obj[i].matrix_id == 2) {
+          content2.push(obj[i])
+        }
+        else if (obj[i].matrix_id == 3) {
+          content3.push(obj[i])
+        }
+        else {
+          content4.push(obj[i])
+        }
+      }
+      createTasks(taskMainCont1, content1)
+      createTasks(taskMainCont2, content2)
+      createTasks(taskMainCont3, content3)
+      createTasks(taskMainCont4, content4)
+    }
+
+  });
+
+})
+
+
+
+function createTasks(div, obj) {
+  let htmlEle = obj.map((datum) => {
+    return `
+      <div class="flex items-center gap-2	">
+        <i class="fas fa-dot-circle" style="color: #99CC11; font-size: 20px; opacity: 90%;"></i>
+        <div class="nameDateDiv">
+          <p class="copy text-start	w-60">${datum.task_name}</p>
+          <p class="date text-right	">${datum.dates} </p>
+        </div>
+      </div>`
+
+  }).join("")
+  div.innerHTML = htmlEle
+}
+
+
+
+$(".category_id").on("click", (e) => {
+ 
+  content1.splice(0,content1.length)
+  content2.splice(0,content2.length)
+  content3.splice(0,content3.length)
+  content4.splice(0,content4.length)
+
+  let CatId = e.target.id;
+  $.post("/list_page", { Id: CatId })
+    .done(function (data) {
+      let category = JSON.parse(data);
+
+
+      for (let i = 0; i < category.length; i++) {
+        if (category[i].matrix_id == 1) {
+          content1.push(category[i])
+        }
+        else if (category[i].matrix_id == 2) {
+          content2.push(category[i])
+        }
+        else if (category[i].matrix_id == 3) {
+          content3.push(category[i])
+        }
+        else {
+          content4.push(category[i])
+        }
+      }
+      createTasks(taskMainCont1, content1)
+      createTasks(taskMainCont2, content2)
+      createTasks(taskMainCont3, content3)
+      createTasks(taskMainCont4, content4)
+    });
+})
 
 // ======================below code is for open single form and multi form ===============================
 for (let i = 0; i < inputBtn.length; i++) {
   inputBtn[i].addEventListener("click", () => {
     innerContainer.classList.add("active")
+    $(".black-screen").show();
 
     if (inputBtn[i].id == "1") {
-      // singleForm.classList.add("show")
       $("#single-form").show()
       openSingleForm()
     }
     else if (inputBtn[i].id == "2") {
-      // multiFormDiv.classList.add("show");
       $("#multi-form").show()
       AddOneMoreForm();
     }
@@ -33,8 +137,6 @@ $(".input-type").hover(function () {
   $(".add-btn").removeClass('rotate')
 });
 // ----------------------------
-let typeBtn = document.querySelectorAll(".type-btn")
-let typeName = document.querySelectorAll(".typeName")
 
 $(document).ready(function () {
   for (let i = 0; i < typeBtn.length; i++) {
@@ -94,6 +196,7 @@ function openSingleForm(params) {
 
   closeBtn.addEventListener("click", () => {
     innerContainer.classList.remove("active")
+    $(".black-screen").hide();
     // singleForm.classList.remove("show")
     $("#single-form").hide()
   })
@@ -104,7 +207,6 @@ function openSingleForm(params) {
 // ==============================================================================================================
 
 // =====================================this function is for append multiple form div============================
-let divCon = document.querySelector(".forms-inner-div")
 let multiformCnt = 0;
 let cnt = 0;
 
@@ -189,6 +291,9 @@ function AddOneMoreForm() {
   }
 
 
+  
+  
+
   // -----------------this below close button for close multi form-----------------
 
   let mainDivCloseBtn = document.querySelectorAll(".main-div-closeBtn");
@@ -199,6 +304,7 @@ function AddOneMoreForm() {
       cnt--;
       if (cnt == 0) {
         innerContainer.classList.remove("active");
+        $(".black-screen").hide();
         multipleFormsDiv[i].remove();
         // multiFormDiv.classList.remove("show");
         $("#multi-form").hide()
@@ -213,10 +319,7 @@ function AddOneMoreForm() {
 }
 // ========================================================================================================/
 
-// ------------- Notification icon  ------------------
-let Notificationbtn = document.querySelector(".notification");
-let closelist = document.querySelector("#close-notificationList")
-let Habitsdiv = document.querySelector(".Habitsdiv");
+// ------------- Notification functionality  ------------------
 
 function openNotofy() {
   Habitsdiv.classList.toggle("showdiv");
@@ -230,7 +333,6 @@ closelist.addEventListener("click", (e) => {
 // ==========================================================================================================
 
 // ==========================This below function is for dark mode functionality==============================
-let darkBtn = document.querySelector(".theme-btn")
 
 darkBtn.addEventListener("click", () => {
   if (darkBtn.classList.contains("fa-moon")) {
@@ -281,21 +383,29 @@ for (let i = 0; i < showMoreBtn.length; i++) {
 }
 
 // -------------task pop up window close functionality code here--------------
+let fetchFilterData = 1;
 
+let taskDiv = document.querySelector('.taskListDiv')
 let popUpclose = document.querySelector('#popUpCloseBtn');
+// let tasksLists = document.querySelectorAll(".tasks-lists")
+
 popUpclose.addEventListener("click", () => {
-  // popUpWnd.classList.toggle('invisible');
   $("#popUpWindow").hide();
-  // closePopUp()
+  location.reload()
+  fetchFilterData = 1;
 });
 
 // ------------------------------------------------------------------------------
 // ==================================getId (we will fetch the tasks using jquery and store it array)==================
+let categoryId = 1
+$(".category_id").on("click", (e) => {
+  categoryId = e.target.id
+})
 
+let unCompletedTask = [];
+let completedTask = [];
 
 $(document).ready(function () {
-
-  var viewtask = $("#getid");
 
   let btn = document.querySelectorAll("#getid");
 
@@ -303,13 +413,12 @@ $(document).ready(function () {
     btn[i].addEventListener("click", (e) => {
 
       let matrixid = e.target.dataset.id;
-
-      let arr = [];
-
+      console.log(categoryId);
       /**  sending task id to backend */
       $.ajax({
         url: "/particulartask",
-        data: { id: matrixid },
+        data: { matrixId: matrixid,
+                categoryId: categoryId},
         type: "POST",
         success: function (response) {
           // console.log(response);  
@@ -317,9 +426,17 @@ $(document).ready(function () {
 
           for (let i = 0; i < obj.length; i++) {
 
-            arr.push(obj[i])
+            if (obj[i].completed_at == null) {
+              unCompletedTask.push(obj[i]);
+            }
+            else {
+              completedTask.push(obj[i]);
+            }
+
           }
-          datas(arr);
+          datas(unCompletedTask,completedTask)
+          completedTaskFun(completedTask)
+          // console.log(completedTask);
         }
       });
 
@@ -330,26 +447,66 @@ $(document).ready(function () {
 
 // =========================================below function is for assign the fetched task details===================== 
 
-let taskDiv = document.querySelector('.taskListDiv')
+let popUpHeader = document.querySelector('.popUpHeader')
 
-function datas(data) {
-
+function datas(data, getType) {
   if (data.length > 0) {
     let datas = data.map((element) => {
-
       return `
-      <div class=" tasks-lists my-1	h-14	py-3 px-1.5	cursor-pointer flex gap-8 pb-5 rounded" >
-        <div class="task-inner-div" id="${element.matrix_id}">
-          <div class="task-info " id="rowdiv" >
-            <input type="hidden" id="rowid" value="">
-            <div class="list-name">
-              <h5>
-               <p class="user-content">${element.task_name}</p>
-              </h5>
+          <div class=" tasks-lists my-1	h-14	py-3 px-data.length > 01.5	cursor-pointer flex gap-8 pb-5 rounded">
+            <div class="task-inner-div">
+              <div class="task-info " id="rowdiv" >
+                <input type="hidden" id="rowid" value="">
+                <div class="list-name">
+                  <h5>
+                   <p class="user-content">${element.task_name}</p>
+                  </h5>
+                </div>
+              </div>
+              <div class="text-base  leading-6 text-gray-900 no-underline " id="modal-title">
+                <p id="due-date">${element.dates}</p>
+              </div>
+            </div>
+            <div class="second-div">
+              <div class="text-base leading-6 text-gray-900 no-underline model-title " id="modal-title">
+                <div class="add-Cmt">
+                  <div class="relative" >
+                  <input type="text" placeholder="comment here" id="comment" data-id="${element.id}" class="add-Cmt">
+                    <button id="addComment" data-id="${element.id}" class="absolute right-0 type="button"><i class="fa-solid fa-upload"></i></button>
+                  </div>
+                </div>
+              </div>
+              <div class="text-base leading-6 text-gray-900 no-underline " id="modal-title">
+                <div class="change">
+                  <div class="Task-progress pt-px	">
+                      <div class="round" >
+                        <label for="checkbox" class="roundCheck" id ="${element.id}" title="Complete"></label>
+                      </div>
+                  </div>
+                  <div class="make-changes">
+                    <button id="editBtn" data-role="update" data-id="${element.id}"><i class="fa-solid fa-pen"></i></button>
+                  <div> 
+                  <button type="button" id="btnDelete"   data-id="${element.id}"><i class="fa-solid fa-trash-can"></i></button>
+                  </div>
+                    <button class="add-comment-btn" data-id="${element.id}" title="Add Comment"><i class="fa-solid fa-comment"></i></button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="text-base  leading-6 text-gray-900 no-underline " id="modal-title">
-            <p id="due-date">${element.dates}</p>
+          `
+    }).join("")
+
+    let anotherTask = data.map((element) => {
+      return `
+      <div class="tasks-lists my-1	h-14	py-3 px-data.length > 01.5	cursor-pointer flex gap-8 pb-5 rounded">
+      <div class="task-inner-div">
+        <div class="task-info " id="rowdiv" >
+          <input type="hidden" id="rowid" value="">
+          <div class="list-name">
+            <h5>
+             <p class="user-content">${element.task_name}</p>
+            </h5>
           </div>
         </div>
         <div class="second-div">
@@ -381,20 +538,28 @@ function datas(data) {
 
               </div>
             </div>
+            <button type="button" id="btnDelete"   data-id="${element.id}"><i class="fa-solid fa-trash-can"></i></button>
           </div>
         </div>
       </div>
-      `
+    </div>
+          `
     }).join("")
-    taskDiv.innerHTML = datas
+
+    if (getType) {
+      taskDiv.innerHTML = datas
+    }
+    else {
+      taskDiv.innerHTML = anotherTask
+    }
   }
 
   else {
     let emptyMsg = `
-    <div>
-     <p>Please Add Task</p>
-    </div>
-    `
+                    <div>
+                    <p>Please Add Task</p>
+                    </div>
+                    `
     taskDiv.innerHTML = emptyMsg;
   }
 
@@ -422,8 +587,6 @@ function datas(data) {
   let commentInput = document.querySelectorAll(".model-title ");
   let TaskCompleted = document.querySelectorAll(".roundCheck");
   let task_name = document.querySelectorAll(".task-inner-div");
-  let popUpHeader = document.querySelector('.popUpHeader')
-
 
   popUpHeader.innerHTML = `<button type="submit" id="${data[0].matrix_id}" class="completedBtn focus:outline-none font-medium rounded-lg text-sm px-5 py-2">COMPLETED TASK </button>`
 
@@ -453,61 +616,6 @@ function datas(data) {
     })
   }
 
-  // ==============================completed task shown=================================
-  let completedBtn = document.querySelector('.completedBtn')
-  $(document).on("click", ".completedBtn", function (e) {
-    let matrixId = e.target.id;
-    // console.log(matrixId)
-
-    /**  sending martix id to backend */
-    $.ajax({
-      url: "/completed",
-      data: {
-        value: matrixId
-      },
-      type: "POST",
-      success: function (response) {
-        // console.log(response)
-        let completedTask = JSON.parse(response)
-        // console.log(completedTask)
-        let datas = completedTask.map((element) => {
-          return `
-<div class=" tasks-lists my-1	h-14	py-3 px-1.5	cursor-pointer flex gap-8 pb-5 rounded">
-  <div class="task-inner-div">
-  <div class="task-info " id="rowdiv" >
-    <input type="hidden" id="rowid" value="">
-    <div class="list-name">
-      <h5>
-       <p class="user-content">${element.task_name}</p>
-      </h5>
-    </div>
-  </div>
-  <div class="text-base  leading-6 text-gray-900 no-underline " id="modal-title">
-    <p id="due-date">${element.dates}</p>
-  </div>
-</div>
-<div class=" tasks-lists my-1	h-14	py-3 px-1.5	cursor-pointer flex gap-8 pb-5 rounded">
-<div>
-
-    <div class="make-changes addvisibility">
-    <div>
-        <button type="button" id="btnDelete" data-id="${element.id}"><i class="fa-solid fa-trash-can"></i></button>
-    </div>
-    </div>
-</div>
-</div>
-</div>
-`
-        }).join("")
-        taskDiv.innerHTML = datas
-        // });
-      }
-    });
-  })
-
-  // =====================================
-
-
   // -------------------------below code is for remove the task from UI------------------------------------
   // UI delete function code here //
   let deleteBtn = document.querySelectorAll('#btnDelete')
@@ -519,10 +627,39 @@ function datas(data) {
     })
   }
 
-  let del = document.querySelectorAll("#btnDelete")
+  // let del = document.querySelectorAll("#btnDelete")
+
+}
 
 
-  // ------------------------------------------------------------------------
+function completedTaskFun(tasks) {
+  if (tasks.length > 0) {
+    // console.log(tasks);
+    popUpHeader.innerHTML = `<button type="submit" id="${tasks[0].matrix_id}" class="completedBtn showDataBtn focus:outline-none font-medium rounded-lg text-sm px-5 py-2">COMPLETED TASK </button>`
+
+    let showUserDataBtn = document.querySelector(".showDataBtn");
+    showUserDataBtn.addEventListener("click", () => {
+      if (fetchFilterData == 0) {
+        fetchFilterData = 1;
+        showUserDataBtn.innerText = "COMPLETED TASK";
+        datas(unCompletedTask, fetchFilterData)
+      } else {
+        fetchFilterData = 0;
+        showUserDataBtn.innerText = "INCOMPLETED TASK";
+        datas(completedTask, fetchFilterData)
+      }
+    })
+
+  }
+
+}
+
+
+
+// ==============================completed task shown=================================
+
+
+// ------------------------------------------------------------------------
 //  ===========================edit form backend============================================================
 
   $(document).on("click", '[data-role=update]', function (e) {
@@ -537,18 +674,20 @@ function datas(data) {
     success: function (response) {
       let EditTask_Responce = JSON.parse(response);
       EditFilling(EditTask_Responce)
+
     }
   })
 })
 
-function EditFilling(EditTask_Responce){
+function EditFilling(EditTask_Responce) {
   let editbtn = document.querySelectorAll("#editBtn")
   let editForm = document.querySelector('.editForm')
   for (let i = 0; i < editbtn.length; i++) {
     editbtn[i].addEventListener("click", (e) => {
-      $("#popUpWindow").hide();
-      innerContainer.classList.add('active')
-      editForm.style.display = "block"
+      // $("#popUpWindow").hide();
+      $(".black-screen").show();
+      $(".editForm").show()
+      // editForm.style.display = "block"
 
       EditTask_Responce.forEach(editContent => {
 
@@ -585,12 +724,16 @@ function EditFilling(EditTask_Responce){
         </button>
       </div>`
        editForm.innerHTML = editHtml
+
       });
 
       let updateFormCloseBtn = document.querySelector('.updateCloseBtn')
       updateFormCloseBtn.addEventListener('click', () => {
-        editForm.style.display = "none"
-        innerContainer.classList.remove("active")
+        // editForm.style.display = "none"
+        $(".editForm").hide()
+        $(".black-screen").hide();
+
+
       })
 
       $("#updateTask").on("click",()=>{
@@ -645,7 +788,9 @@ function EditFilling(EditTask_Responce){
         type: "POST",
         success: function (response) {
 
-          $("#succcess").css("display", "block");
+
+        $("#succcess").css("display", "block");
+
 
           setTimeout(() => {
             $("#succcess").css("display", "none");
@@ -655,10 +800,12 @@ function EditFilling(EditTask_Responce){
           $(comment[a]).hide()
           $(addedCommentIcon[a]).show();
 
-          addCommentButton.innerHTML = `<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+        addCommentButton.innerHTML = `<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M21 6.49962C21 9.53698 18.5376 11.9992 15.5 11.9992C12.4624 11.9992 10 9.53698 10 6.49962C10 3.46227 12.4624 1 15.5 1C18.5376 1 21 3.46227 21 6.49962ZM16.5285 2.99986H15.0965C14.8881 2.99986 14.7015 3.12914 14.6283 3.32428L13.5033 6.32407C13.3808 6.65093 13.6224 6.99959 13.9715 6.99959H14.75L13.9773 9.31749C13.8655 9.65295 14.1152 9.99938 14.4688 9.99938C14.6442 9.99938 14.8077 9.91068 14.9032 9.76366L17.5283 5.72535C17.7314 5.4129 17.5072 4.99973 17.1345 4.99973H16.5L16.9967 3.67538C17.1192 3.34853 16.8776 2.99986 16.5285 2.99986ZM15.5 12.9992C17.2465 12.9992 18.8321 12.3104 20 11.1897V14.7491C20 16.5439 18.5449 17.9988 16.75 17.9988H10.9648L5.57814 21.8159C5.12752 22.1351 4.50337 22.0287 4.18407 21.5781C4.06432 21.4091 4 21.2071 4 21.0002L3.9992 17.9988H3.25C1.45507 17.9988 0 16.5439 0 14.7491V6.24964C0 4.45484 1.45507 2.99986 3.25 2.99986H10.0218C9.375 4.01009 9 5.21107 9 6.49962C9 10.0892 11.9101 12.9992 15.5 12.9992Z" fill="#5FB32E"/>
         <circle cx="16" cy="6" r="6" fill="#FF0000"/>
         </svg>`
+
           addCommentButton.className = "addedCommentIcon";
 
         }
@@ -692,8 +839,9 @@ function EditFilling(EditTask_Responce){
   }
 }
 
+  })
 
-// =========================================================================
+
 
 function close(params) {
   for (let i = 0; i < commentInput.length; i++) {
@@ -704,8 +852,11 @@ function close(params) {
 }
 
 // ===================================Below ajax code is for send the task id to backend for complete task functionality=============================================
+let TaskCompleted = document.querySelectorAll(".roundCheck");
+// console.log(Task);
 $(document).on("click", ".roundCheck", function (e) {
-
+  // alert("hi")
+  popUpHeader.innerHTML = `<button type="submit" id="${tasks[0].matrix_id}" class="completedBtn showDataBtn focus:outline-none font-medium rounded-lg text-sm px-5 py-2">COMPLETED TASK </button>`
   let taskid = e.target.id;
   /**  sending task id to backend */
   $.ajax({
@@ -724,8 +875,6 @@ $(document).on("click", ".roundCheck", function (e) {
 
 // ----------backend delete function here--------
 
-let deleteBtn = document.querySelectorAll('#btnDelete');
-
 $(document).on("click", "#btnDelete", function (e) {
 
   let taskid = e.target.parentElement.dataset.id;
@@ -741,8 +890,6 @@ $(document).on("click", "#btnDelete", function (e) {
 })
 
 
-let cmtBtn = document.querySelectorAll("#addComment")
-let comment = document.querySelectorAll("#comment")
 for (let a = 0; a < cmtBtn.length; a++) {
   const element = cmtBtn[a];
   element.addEventListener("click", (e) => {
@@ -880,12 +1027,12 @@ let matrixdiv = document.querySelector(".page-content")
 let closeHabitdiv = document.querySelector("#close-habit-div");
 
 habiticon.addEventListener("click", () => {
-  innerContainer.classList.add("active")
+  $(".black-screen").show();
   AddHabisDiv.style.display = "block"
 })
 
 closeHabitdiv.addEventListener("click", () => {
-  innerContainer.classList.remove("active")
+  $(".black-screen").hide();
   AddHabisDiv.style.display = "none"
 })
 // ===============================================================
@@ -898,28 +1045,27 @@ for (let i = 0; i < check.length; i++) {
 }
 
 
-let category_id = document.querySelectorAll(".category_id")
+// let category_id = document.querySelectorAll("")
 
 
-$(document).on("click", ".category_id", function (e) {
+// $(document).on("click", ".category_id", function (e) {
 
 
   let taskid = +e.target.id;
   // console.log(taskid);
 
-  /**  sending task id to backend */
-  $.ajax({
-    url: "/list",
-    data: { category_id: taskid },
-    type: "POST",
-    success: function (response) {
-    }
 
-  });
+//   let taskid = +e.target.id;
+
+//   // console.log(taskid)
+
+
+//   /**  sending task id to backend */
 
 
 
-})
+// })
+
 
 // =================permanent delete functionlity==============
 let permanentBtn = document.querySelectorAll('#btnDelete');
@@ -945,3 +1091,4 @@ let listName = document.querySelector(".task-inner-div")
 
 
 // ==========================================================================================
+

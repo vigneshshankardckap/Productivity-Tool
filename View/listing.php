@@ -8,11 +8,10 @@ var_dump($all);
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Listing page</title>
-  <link rel="stylesheet" href="../CSS/listing.css" />
-  <script src="https://kit.fontawesome.com/52d2b40c3f.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <link rel="stylesheet" href="../CSS/listing.css" /> <!--stylesheet link here -->
+  <script src="https://kit.fontawesome.com/52d2b40c3f.js" crossorigin="anonymous"></script> <!--fontawesome link here-->
+  <script src="https://cdn.tailwindcss.com"></script> <!--Tailwind link here-->
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script> <!--Jquery link here-->
 </head>
 
 <body>
@@ -24,7 +23,7 @@ var_dump($all);
     <div class="inner-container">
       <nav class="header">
         <div class="left-section">
-          <img src="../Images/logo.png" >
+          <img src="../Images/logo.png">
           <span>What's Up
             <h1 class="username">
               <?php echo $_SESSION['username']; ?>...
@@ -64,7 +63,7 @@ var_dump($all);
         </div>
       </nav>
 
-      <div class="mt-24">
+      <div class="mt-24 body-contaienr">
         <div class="switchDiv">
           <div>
             <button name="category_id" class="font-menu selectedCatagory category_id" id="1">PROFESSIONAL</button>
@@ -80,11 +79,13 @@ var_dump($all);
             </div>
             <div class="input-type">
               <div class="input-type-btn">
-                <img src="../Icons/single.png" class="type-btn" id="1"><span class="typeName">Single</span>
+                <img src="../Icons/single.png" class="type-btn" id="1">
+                <span class="typeName">Single</span>
               </div>
 
               <div class="input-type-btn">
-                <img src="../Icons/multi.png" class="type-btn" id="2"><span class="typeName">Multiple</span>
+                <img src="../Icons/multi.png" class="type-btn" id="2">
+                <span class="typeName">Multiple</span>
               </div>
             </div>
           </div>
@@ -115,7 +116,6 @@ var_dump($all);
           <?php endforeach; ?>
         </form>
       </div>
-      <!-- this below section is for add button -->
       <div class="taskDetailBox">
         <main class="page-content">
           <div class="card-div">
@@ -123,21 +123,10 @@ var_dump($all);
             <div class="main-card">
               <div class="card-color"></div>
               <div class="card">
-                <div class="content">
-                  <?php foreach ($fetchAllDataDo as $key => $do) : ?>
-                    <?php if ($key < 4) : ?>
-                      <div class="flex items-center gap-2	">
-                        <i class="fas fa-dot-circle" style="color: #99CC11; font-size: 20px; opacity: 90%;"></i>
-                        <div class="nameDateDiv">
-                          <p class="copy text-start	w-60"> <?php echo $do->task_name; ?></p>
-                          <p class="date text-right	"><?php echo $do->dates; ?></p>
-                        </div>
-                      </div>
-                    <?php endif; ?>
-                  <?php endforeach; ?>
+                <div class="content1">
+                <!-- fetched tasks injected here -->
                 </div>
                 <div class="viewBtnDiv1">
-                  <!-- view task button injected here -->
                   <div class="showMoreBtn" id="1">
                     <i class="fa-solid fa-circle-chevron-down" title="View All" style="color: #5fb32e; font-size: 24px; " id="getid" name="matrixId" data-id="<?php echo "1" ?>"></i>
                   </div>
@@ -150,25 +139,13 @@ var_dump($all);
             <div class="main-card">
               <div class="card-color"></div>
               <div class="card">
-                <div class="content">
-                  <?php foreach ($fetchAllDataDefer as $key => $defer[0]) : ?>
-                    <?php if ($key < 4) : ?>
-                      <div class="flex items-center gap-2	">
-                        <i class="fas fa-dot-circle" style="color: #4588EE; font-size: 20px; opacity: 90%;"></i>
-                        <div class="nameDateDiv">
-                          <p class="copy text-start	w-60"><?php echo $defer[0]->task_name ?></p>
-                          <p class="date text-right	"><?php echo $defer[0]->dates; ?></p>
-                        </div>
-                      </div>
-                    <?php endif; ?>
-                  <?php endforeach; ?>
+                <div class="content2">
+                <!-- fetched tasks injected here -->
                 </div>
                 <div class="viewBtnDiv2">
-                  <!-- <form action="/viewAllTask" method="post"> -->
                   <div class="showMoreBtn" id="2">
                     <i class="fa-solid fa-circle-chevron-down" title="View All" style="color: #5fb32e; font-size: 24px;" id="getid" name="matrixId" data-id="<?php echo "2" ?>"></i>
                   </div>
-                  <!-- </form> -->
                 </div>
               </div>
             </div>
@@ -179,25 +156,13 @@ var_dump($all);
             <div class="main-card">
               <div class="card-color"></div>
               <div class="card">
-                <div class="content">
-                  <?php foreach ($fetchAllDataDelegate as $key => $Delegate) : ?>
-                    <?php if ($key < 4) : ?>
-                      <div class="flex items-center gap-2	">
-                        <i class="fas fa-dot-circle" style="color: #F7A821; font-size: 20px; opacity: 90%;"></i>
-                        <div class="nameDateDiv">
-                          <p class="copy text-start	w-60"><?php echo $Delegate->task_name ?></p>
-                          <p class="date text-right	"><?php echo $Delegate->dates; ?></p>
-                        </div>
-                      </div>
-                    <?php endif; ?>
-                  <?php endforeach; ?>
+                <div class="content3">
+                <!-- fetched tasks injected here -->
                 </div>
                 <div class="viewBtnDiv3">
-                  <!-- <form action="/viewAllTask" method="post"> -->
                   <div class="showMoreBtn" id="3">
                     <i class="fa-solid fa-circle-chevron-down" title="View All" style="color: #5fb32e; font-size: 24px;" id="getid" name="matrixId" data-id="<?php echo "3" ?>"> </i>
                   </div>
-                  <!-- </form> -->
                 </div>
               </div>
             </div>
@@ -207,18 +172,8 @@ var_dump($all);
             <div class="main-card">
               <div class="card-color"></div>
               <div class="card">
-                <div class="content">
-                  <?php foreach ($fetchAllDataDelete as $key => $delete) : ?>
-                    <?php if ($key < 4) : ?>
-                      <div class="flex items-center gap-2	taskDetailcont">
-                        <i class="fas fa-dot-circle" style="color: #CE4317; font-size: 20px; opacity: 90%;"></i>
-                        <div class="nameDateDiv">
-                          <p class="copy text-start	w-60"><?php echo $delete->task_name ?></p>
-                          <p class="date text-right	"><?php echo $delete->dates; ?></p>
-                        </div>
-                      </div>
-                    <?php endif; ?>
-                  <?php endforeach; ?>
+                <div class="content4">
+                <!-- fetched tasks injected here -->
                 </div>
                 <div class="viewBtnDiv4">
                   <div class="showMoreBtn" id="4">
@@ -254,11 +209,9 @@ var_dump($all);
                 </div>
                 <hr>
                 <div class="bg-white">
-                  <div class="px-4 py-3 sm:flex justify-center items-center px-3">
+                  <div class="px-4 py-3 sm:flex justify-center items-center px-3 list-parent-div">
                     <div class="taskListDiv text-base leading-6 text-gray-900 no-underline " id="modal-title">
-                      <div class="carts tasks-lists bg-zinc-200 my-1	h-14	py-3 px-1.5	cursor-pointer flex gap-8 pb-5 rounded">
-                      </div>
-                      <!-- fetched tasks and other functcartsionality buttons injected here -->
+                    <!-- fetched tasks and other functcartsionality buttons injected here -->
                     </div>
                   </div>
                 </div>
@@ -269,9 +222,12 @@ var_dump($all);
       </div>
     </div>
 
+
+    <!-- black screen -->
+    <div class="black-screen"></div>
+
     <div class="editForm">
-
-
+      <!-- edit form injected here -->
     </div>
 
     <div class="Habits-div">
@@ -327,7 +283,6 @@ var_dump($all);
         </div>
       </form>
     </div>
-
     <div class="single-input-form" id="single-form">
       <form action="/store" method="post">
         <div class="close-btn" id="singleCloseBtn">
