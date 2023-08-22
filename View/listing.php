@@ -1,3 +1,6 @@
+<?php
+var_dump($all);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,6 +16,9 @@
 
 <body>
   <!-- this is the main container of the application -->
+  <!-- <div class="fetchedComment">
+    <p class="fetchCmt">Text</p>
+  </div> -->
   <div class="main-container">
     <div class="inner-container">
       <nav class="header">
@@ -76,6 +82,7 @@
                 <img src="../Icons/single.png" class="type-btn" id="1">
                 <span class="typeName">Single</span>
               </div>
+
               <div class="input-type-btn">
                 <img src="../Icons/multi.png" class="type-btn" id="2">
                 <span class="typeName">Multiple</span>
@@ -144,6 +151,7 @@
             </div>
           </div>
           <div class="card-div">
+
             <h2 class="title">Who can Do it for you</h2>
             <div class="main-card">
               <div class="card-color"></div>
