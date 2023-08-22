@@ -34,22 +34,37 @@ class UserController
         require "signup.php";
     }
 
-
     public function list()
     {
 
-        $category_id =  $_REQUEST['category_id'];
-        // var_dump($category_id);
-        $fetchAllDataDo = $this->userModel->fetchDataFromDo($category_id);
-        // var_dump($fetchAllDataDo);
-        $fetchAllDataDefer = $this->userModel->fetchDataFromdefer($category_id);
-        $fetchAllDataDelegate = $this->userModel->fetchDataFromdelegate($category_id);
-        $fetchAllDataDelete = $this->userModel->fetchDataFromdelete($category_id);
 
-        $tasks = $this->userModel->addedTaskDetails();
 
-        require "View/listing.php";
+
+        // $category_id =  $_REQUEST['category_id'];
+        // $this->userModel->fetchDataFromDo($category_id);
+        // // $this->userModel->fetchDataFromdefer($category_id);
+        // // $this->userModel->fetchDataFromdelegate($category_id);
+        // // $this->userModel->fetchDataFromdelete($category_id);
+
+        // $this->userModel->addedTaskDetails();
+       
+       require "View/listing.php";
+    //    $this->userModel->fetchDataFromDo();
+    //   $this->fetchDatas($_REQUEST['category_id']);
+
     }
+
+    public function list_page(){
+       $category_id = intval($_POST["Id"]);
+       $this->userModel->list_page($category_id);
+
+    }
+
+    public function fetch_proofession()
+    {
+        $this->userModel->fetch_proofession();
+    }
+
     public function signupLogic()
     {
         $this->userModel->signUp($_POST);
@@ -111,8 +126,7 @@ class UserController
 
     public function particulartask()
     {
-       
-        $this->userModel->viewAllTask($_REQUEST['id']);
+        $this->userModel->viewAllTask($_REQUEST);
     }
 
     public function completed()
