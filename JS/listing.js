@@ -171,6 +171,7 @@ function openSingleForm(params) {
     classListAdd(taskType[i], taskType);
     classListAdd(urgentBtn[i], urgentBtn);
     classListAdd(importantBtn[i], importantBtn);
+
   }
 
   function classListAdd(getBtns, getBtn) {
@@ -186,7 +187,7 @@ function openSingleForm(params) {
       getBtns.style.backgroundColor = "#5fb32e";
       getBtns.style.color = "white ";
       getBtns.style.border = "none";
-
+      
     })
   }
 
@@ -636,9 +637,10 @@ function completedTaskFun(tasks) {
 // ------------------------------------------------------------------------
 //  ===========================edit form backend============================================================
 
-$(document).on("click", '[data-role=update]', function (e) {
-  let id = $(this).data('id')
 
+
+$(document).on("click", '[data-role=update]', function (e) {
+  let id=$(this).data('id')
   $.ajax({
     url: "/editTask",
     data: {
@@ -739,29 +741,29 @@ function EditFilling(EditTask_Responce) {
   }
 }
 
-// ==========================ADD COMMENT FUNCTION ========================
-// let addComment = document.querySelectorAll("#addComment")
-let cmtBtn = document.querySelectorAll("#addComment")
-let comment = document.querySelectorAll("#comment")
-let addCommentBtn = document.querySelectorAll(".add-comment-btn")
-let addedCommentIcon = document.querySelectorAll(".addedCommentIcon")
 
-for (let a = 0; a < cmtBtn.length; a++) {
-  const element = cmtBtn[a];
-  // console.log(element)
-  element.addEventListener("click", () => {
-    let id = comment[a].dataset.id
-    let comments = comment[a].value
-    let addCommentButton = addCommentBtn[a]
-    $.ajax({
-      url: "/addComment",
-      data: {
-        id: id,
-        comments: comments
-      },
-      type: "POST",
-      success: function (response) {
+  // ==========================ADD COMMENT FUNCTION ========================
+  // let addComment = document.querySelectorAll("#addComment")
+  let cmtBtn = document.querySelectorAll("#addComment")
+  let comment = document.querySelectorAll("#comment")
+  let addCommentBtn = document.querySelectorAll(".add-comment-btn")
+  let addedCommentIcon = document.querySelectorAll(".addedCommentIcon")
 
+  for (let a = 0; a < cmtBtn.length; a++) {
+    const element = cmtBtn[a];
+    // console.log(element)
+    element.addEventListener("click", () => {
+      let id = comment[a].dataset.id
+      let comments = comment[a].value
+      let addCommentButton = addCommentBtn[a]
+      $.ajax({
+        url: "/addComment",
+        data: {
+          id: id,
+          comments: comments
+        },
+        type: "POST",
+        success: function (response) {
 
         $("#succcess").css("display", "block");
 
@@ -1013,6 +1015,7 @@ for (let i = 0; i < check.length; i++) {
   })
 
 }
+
 
 // =================permanent delete functionlity==============
 let permanentBtn = document.querySelectorAll('#btnDelete');
