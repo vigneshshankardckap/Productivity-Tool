@@ -99,3 +99,23 @@ SELECT * from tasks where user_id = 2 AND matrix_id = 1 AND category_id = 1;
 SELECT id FROM `users` WHERE username = 'sunil';
 
 select name from addTask join userAddedTask on addTask.id = userAddedTask.addTask_id;
+
+-- SELECT comments from tasks where user_id = 1 and matrix_id = 3 and category_id = 1;
+
+-- WHERE Address IS NULL;
+
+
+-- SELECT comments from tasks WHERE  comments IS NULL and user_id = 1 and category_id =3
+
+
+-- SELECT comments from tasks WHERE  comments IS NULL and user_id = 2 and category_id =3 AND matrix_id =3 
+
+-- SELECT comments from tasks WHERE  comments IS NULL and user_id = 1 and category_id =1 AND matrix_id =3 
+
+-- SELECT comments from tasks WHERE  comments IS not null and user_id = 1 and category_id =1 AND matrix_id =3 
+
+-- ////////////////code///////////////////////////////////no comment
+-- SELECT id,comments from tasks WHERE  comments IS null and user_id = 1 and category_id =1 AND matrix_id =3 and id=91
+
+-- ////////////comment
+-- SELECT id,comments from tasks WHERE  comments IS not null and user_id = 1 and category_id =1 AND matrix_id =3 and id=91

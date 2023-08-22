@@ -123,7 +123,7 @@
         </div>
       </div>
       <!-- this is the body content (suggesed todo) -->
-      <!-- <form action="/addTask" method="post"> -->
+
       <div class="body-mainDiv">
         <div class="body-content">
           <h3>Let's Start With Some Good Habits</h3>
@@ -175,7 +175,6 @@
                   <input value="1" hidden>
                   <button class="add" name="4" type="button">ADD</button>
                 </form>
-
               </div>
             </div>
           </div>

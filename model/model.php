@@ -3,6 +3,8 @@ require 'con.php';
 
 class UserModule extends Database
 {
+    public $all = [];
+
     public function logincheck($data)
     {
 
@@ -47,6 +49,10 @@ class UserModule extends Database
             header('location:/LandingPage');
         }
     }
+    // public function fetchedComment()  {
+    //     // $value = $this->db->("SELECT id,comments from tasks WHERE  comments IS not null and user_id = 1 and category_id =1 AND matrix_id =3 and id=91")
+        
+    // }
 
     public function store($data)
     {
@@ -98,9 +104,8 @@ class UserModule extends Database
 
     public function completedTask($value)
     {
-      
+
         $this->db->query("UPDATE tasks SET completed_at = now() WHERE id = '$value'");
-    
     }
 
     public function deleteAddedTask($value)
@@ -111,54 +116,22 @@ class UserModule extends Database
         header('location:/LandingPage');
     }
 
-    public function fetchDataFromDo($category_id)
+    public function fetch_proofession()
+
     {
-        $userId = $_SESSION['userid'];
+        
+        $userId = intval($_SESSION['userid']);
 
-        if ($category_id) {
-            return $this->db->query("SELECT * from tasks where user_id =$userId AND matrix_id = 1 AND deleted_at is NULL and category_id = $category_id ")->fetchAll(PDO::FETCH_OBJ);
-
-        } else {
-            return $this->db->query("SELECT * from tasks where user_id =$userId AND matrix_id = 1 AND deleted_at is NULL and category_id = 1 ")->fetchAll(PDO::FETCH_OBJ);
-        }
-    }
-
-    public function fetchDataFromdefer($category_id)
-    {
-
-        $userId = $_SESSION['userid'];
-        if ($category_id) {
-            return $this->db->query("SELECT * from tasks where user_id =$userId AND matrix_id = 2 and category_id = $category_id AND deleted_at is NULL AND completed_at is NULL")->fetchAll(PDO::FETCH_OBJ);
-        } else {
-            return $this->db->query("SELECT * from tasks where user_id =$userId AND matrix_id = 2 and category_id = 1 AND deleted_at is NULL AND completed_at is NULL")->fetchAll(PDO::FETCH_OBJ);
-        }
-    }
-    public function fetchDataFromdelegate($category_id)
-    {
-
-        $userId = $_SESSION['userid'];
-        if ($category_id) {
-            return $this->db->query("SELECT * from tasks where user_id =$userId AND matrix_id = 3 and category_id = $category_id AND deleted_at is NULL AND completed_at is NULL")->fetchAll(PDO::FETCH_OBJ);
-        } else {
-            return $this->db->query("SELECT * from tasks where user_id =$userId AND matrix_id = 3 and category_id = 1 AND deleted_at is NULL AND completed_at is NULL")->fetchAll(PDO::FETCH_OBJ);
-        }
-    }
-
-    public function fetchDataFromdelete($category_id)
-    {
-        $userId = $_SESSION['userid'];
-        if ($category_id) {
-            return $this->db->query("SELECT * from tasks where user_id =$userId AND matrix_id = 4 and category_id = $category_id AND deleted_at is NULL AND completed_at is NULL")->fetchAll(PDO::FETCH_OBJ);
-        } else {
-            return $this->db->query("SELECT * from tasks where user_id =$userId AND matrix_id = 4 and category_id = 1 AND deleted_at is NULL AND completed_at is NULL")->fetchAll(PDO::FETCH_OBJ);
-        }
+      $profissional = $this->db->query("SELECT * FROM tasks WHERE category_id = '1' AND user_id = '$userId' AND completed_at is null")->fetchAll();
+    
+      echo json_encode($profissional);
     }
 
     public function editTask($id)
     {
         $userId = $_SESSION['userid'];
-       $id=$_REQUEST['id'];
-       
+        $id = $_REQUEST['id'];
+
         $fetchUserAddedTask = $this->db->query("SELECT * FROM tasks WHERE id=$id")->fetchAll();
         echo json_encode($fetchUserAddedTask);
     }
@@ -191,9 +164,13 @@ class UserModule extends Database
     {
 
         $userId = $_SESSION['userid'];
-        $matrix_id = $data;
+        $matrix_id = $data["matrixId"];
+        $categoryId = $data["categoryId"];
 
-        $datas = $this->db->query("SELECT * from tasks where user_id = $userId AND matrix_id = $matrix_id AND deleted_at is NULL AND completed_at is NULL ")->fetchAll(PDO::FETCH_OBJ);
+
+        $datas = $this->db->query("SELECT * from tasks where user_id = $userId AND matrix_id = $matrix_id AND category_id = $categoryId AND deleted_at is NULL")->fetchAll(PDO::FETCH_OBJ);
+
+
         echo json_encode($datas);
     }
 
@@ -209,13 +186,59 @@ class UserModule extends Database
     {
         $matrix_id = $matrixId["value"];
         $userId = $_SESSION['userid'];
+        //select * from tasks where completed_at is not null and matrix_id = 1;
+
         // $datas = $this->db->query("SELECT matrix_id,user_id,completed_at,category_id FROM tasks WHERE completed_at is not null and category_id = 1;")->fetchAll(PDO::FETCH_OBJ);
         $datas = $this->db->query("SELECT id,task_name,dates,user_id,category_id,matrix_id,completed_at FROM tasks WHERE completed_at is not null and category_id = 1 and matrix_id ='$matrix_id' AND user_id = '$userId;'")->fetchAll(PDO::FETCH_OBJ);
-        
+
+
 
         echo json_encode($datas);
     }
 
+    public function list_page($category_id){
+        $userId = intval($_SESSION['userid']);
+    
+        $cat = $this->db->query("SELECT * FROM tasks WHERE category_id = '$category_id' AND user_id = '$userId' AND completed_at is null")->fetchAll();
+        echo json_encode($cat);
+    }
+
+    // public function viewAllTask($data)
+    // {
+
+    //     $userId = $_SESSION['userid'];
+    //     $matrix_id = $data;
+
+
+    //     $datas = $this->db->query("SELECT * from tasks where user_id = $userId AND matrix_id = $matrix_id AND deleted_at is NULL AND completed_at is NULL ")->fetchAll(PDO::FETCH_OBJ);
+    //     echo json_encode($datas);
+    // }
+
+    public function commFetch($val){
+        // var_dump($val);
+        $id = $val["id"];
+        $matrix_id = $val["matrixId"];
+        $userId = $_SESSION['userid'];
+        // var_dump($id);
+        // var_dump($matrix_id);
+        // var_dump($userId);
+
+        $v = $this->db->query("SELECT id,comments from tasks WHERE  comments IS not null and user_id = '$userId' and matrix_id ='$matrix_id' and id='$id'");
+        // $v = $this->db->query("SELECT id,comments from tasks WHERE  comments IS not null and user_id = '$userId' and matrix_id ='$matrix_id' and id='$id'")->fetchAll(PDO::FETCH_OBJ);
+        // var_dump($v);
+        // echo json_encode($v);   
+        
+        $fetcedTables = $v->fetchAll();
+        // var_dump($fetcedTables);
+        $allTable = [];
+
+        foreach ($fetcedTables as $a) {
+            $allTable[]=$a["comments"];
+        }
+        // print_r($allTable);
+        echo json_encode($allTable);
+    }
+}
     public function permanentDel($delId)
     {
         // var_dump($delId);

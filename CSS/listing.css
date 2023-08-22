@@ -52,24 +52,18 @@ button {
 
 body {
   background-color: var(--background-color);
-}
 
+}
+.active{
+  pointer-events: none;
+}
 .main-container {
   position: relative;
 }
 
-
-.active {
-  color: var(--background-color);
-  filter: blur(1px);
-  pointer-events: none;
-  user-select: none;
-
-}
-
 .header {
   position: fixed;
-  z-index: 1;
+  /* z-index: 1; */
   background-color: var(--thresary-color);
   width: 100%;
   display: flex;
@@ -180,20 +174,22 @@ body {
 }
 
 /* ---------------styling for add todo buttons---------------- */
-.mt-24{
+.mt-24 {
   display: flex;
   justify-content: space-between;
-  padding: 0px 150px 0px 210px;
-}
-.add-todo-inner-section {
-  position: relative;
+  padding: 0px 65px 0px 210px;
 }
 
-/* .add-todo-btn-section {
+.add-todo-inner-section {
   display: flex;
-  gap: 30px;
-  justify-content: flex-end;
-} */
+  align-items: center;
+}
+
+.add-todo-btn-section {
+  width: 280px;
+  display: flex;
+  height: 70px;
+}
 
 .add-btn {
   cursor: pointer;
@@ -203,9 +199,7 @@ body {
   color: white;
   width: 50px;
   height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
   font-weight: 250;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 4px 0px;
 }
@@ -226,8 +220,8 @@ body {
 }
 
 .rotate {
-  transition: 1s;
-  rotate: 44deg;
+  transition: 0.1s;
+  rotate: 45deg;
 }
 
 .input-type:hover {
@@ -236,12 +230,13 @@ body {
 
 /* ------------styel for input type   div ----------- */
 .input-type {
-  position: absolute;
   display: none;
-  animation-duration: 0.5s;
+  cursor: pointer;
+  animation-duration: 0.7s;
   animation-name: showInputBox;
   z-index: 1;
-  padding: 20px 0px;
+  padding: 0px 0px 0px 20px;
+  /* display: flex; */
 }
 
 @keyframes showInputBox {
@@ -267,13 +262,15 @@ body {
 
 .input-type-btn {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   gap: 5%;
 }
-.input-type-btn>img{
-  height:50px;
+
+.input-type-btn>img {
+  height: 50px;
 
 }
+
 .input-type-btn>span {
   background-color: var(--thresary-color);
   color: var(--font-color);
@@ -282,7 +279,7 @@ body {
   text-align: center;
   line-height: 35px;
   height: 35px;
-  width: 150px;
+  width: 80px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 4px 0px;
   display: none;
 }
@@ -301,11 +298,10 @@ body {
   width: 35rem;
   background-color: var(--thresary-color);
   border-radius: var(--single-border-radius);
-  right: 22rem;
-  top: 163px;
+  right: 25rem;
+  top: 4rem;
   padding: 0px 24px;
-  box-shadow: #00000029 0px 10px 36px 0px,
-    #0000000f 0px 0px 0px 1px;
+  box-shadow: #00000029 0px 10px 36px 0px, #0000000f 0px 0px 0px 1px;
 }
 
 .single-input-form p {
@@ -345,11 +341,6 @@ body {
   transition: 0.3s;
   border-radius: var(--single-border-radius);
   box-shadow: #63636333 0px 2px 8px 0px;
-}
-
-/* --------------this show for open the single form ---------------- */
-.show {
-  display: block;
 }
 
 /* -----below style for task type(personal or professional)---------------- */
@@ -415,26 +406,6 @@ body {
   }
 }
 
-.switchCat {
-  color: var(--font-color);
-  border: 1px solid var(--primary-color);
-  padding: 1px 5px;
-  font-size: 14px;
-  border-radius: 3px;
-}
-
-.switchBall {
-  background-color: #fbfbfb;
-  border: 1px solid var(--primary-color);
-}
-
-.on {
-  transition: 0.6s;
-  border: 1px solid var(--primary-color);
-  padding: 1px 5px;
-  background-color: var(--primary-color);
-  color: var(--thresary-color);
-}
 
 .after\:content-\[\'\'\]::after {
   --tw-content: '';
@@ -474,14 +445,6 @@ body {
 
 .matix div input {
   height: 20px;
-  /* width: 38px; */
-  /* border-radius: var(--single-border-radius); */
-  /* border: 1px solid var(--primary-color); */
-  /* background-color: var(--input-background-color); */
-  /* font-size: 15px; */
-  /* margin: 5px 5px 0px 0px; */
-  /* font-weight: 500; */
-  /* color: #656664; */
   cursor: pointer;
   transition: 0.3s;
 
@@ -527,8 +490,8 @@ button {
 
 .multiple-input-form {
   position: absolute;
-  top: 55px;  
-  right: 185px;
+  right: 12rem;
+  top: 2rem;
   display: none;
 }
 
@@ -555,10 +518,6 @@ button {
   transition: 0.3s;
   border-radius: var(--multi-border-radius);
   box-shadow: var(--shadow-color) 0px 0px 8px 0px;
-}
-
-.show {
-  display: block;
 }
 
 /* ----------style for form inside of multi input div---------- */
@@ -858,12 +817,12 @@ button {
   display: none;
   position: absolute;
   min-height: 550px;
-  top: 85px;
-  left: 950px;
+  left: 910px;
   border-radius: 15px;
   background-color: var(--background-color);
   color: var(--font-color);
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  bottom: 140px;
 }
 
 .Habitsdiv .notification-title {
@@ -979,6 +938,7 @@ button.removetask {
   position: relative;
   width: 250px;
   height: 43px;
+  top: 20px;
   background-color: var(--input-type-hover);
   border-radius: 10px;
   border: 1px solid #b0bdb0;
@@ -988,12 +948,13 @@ button.removetask {
 }
 
 
-.add-Cmt #addComment {
+.add-Cmt #addComment {    
   border-radius: 8px;
-  padding: 7px;
+  padding: 14px 9px 14px;
   font-size: 10px;
   color: var(--primary-color);
   border: 2px solid var(--primary-color);
+  top: 21px;
 }
 
 .model-title {
@@ -1002,8 +963,12 @@ button.removetask {
 
 .make-changes {
   display: flex;
-  gap: 25px;
+  gap: 20px;
   visibility: hidden;
+}
+
+.add-comment-btn {
+  font-size: 30px;
 }
 
 .show {
@@ -1012,19 +977,11 @@ button.removetask {
 
 .make-changes button {
   border: none;
-  width: 20px;
   background: none;
   color: var(--primary-color);
   font-size: 20px;
-
 }
 
-/* #editBtn{
-  font-size: 16px;
-  color: var(--thresary-color);
-  background-color: var(--primary-color);
-  width: 40px;
-} */
 
 .change {
   display: flex;
@@ -1145,8 +1102,8 @@ button.removetask {
 .Habits-div {
   display: none;
   position: absolute;
-  top: 130px;
-  right: 238px;
+  top: 4rem;
+  right: 15rem;
 }
 
 .body-content {
@@ -1222,13 +1179,19 @@ button.removetask {
   display: none;
 }
 
-button.completedBtn {
+button.completedBtn,.UncompletedBtn {
   background-color: #E5F7EE;
   border: 1px solid var(--primary-color);
   color: var(--primary-color);
 }
 
 button.completedBtn:hover {
+  background-color: var(--primary-color);
+  color: var(--thresary-color);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+}
+button.UncompletedBtn:hover {
   background-color: var(--primary-color);
   color: var(--thresary-color);
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
@@ -1263,13 +1226,41 @@ button.completedBtn:hover {
 }
 
 
+.fetchedComment{
+  position: relative;
+  width: 250px;
+  height: 43px;
+  background-color: var(--input-type-hover);
+  border-radius: 10px;
+  border: 1px solid #b0bdb0;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  padding: 0px 40px 0px 15px;
+  outline: #52a521;
+  text-align: inherit;
+  padding: 8px;
+  
+}
+
+/* .fetchCmt{
+  text-align: inherit;
+  padding: 8px;
+} */
+.fetchedComment{
+  visibility: hidden;
+}
+.addedCommentIcon{
+  display: none;
+}
+=======
+
 /* ==============edit form============================================ */
 
 .editForm {
   display: none;
-  position: absolute;
-  width: 475;
-  height: 300px;
+  position: fixed;
+  z-index: 10;
+  width: 350px;
+  height: 275px;
   background-color: var(--thresary-color);
   border-radius: var(--single-border-radius);
    right: 30rem;
@@ -1299,5 +1290,17 @@ button.completedBtn:hover {
   margin-left: 130px;
   margin-top: 20px;
   background-color: var(--primary-color);
+}
+
+.black-screen{
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: 30%;
+  display: none;
+
 }
 /* ====================================================================== */
