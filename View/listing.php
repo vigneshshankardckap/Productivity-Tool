@@ -132,7 +132,7 @@
             <div class="main-card">
               <div class="card-color"></div>
               <div class="card">
-                <div class="content">
+                <div class="content2">
                 <!-- fetched tasks injected here -->
                 </div>
                 <div class="viewBtnDiv2">
@@ -148,7 +148,7 @@
             <div class="main-card">
               <div class="card-color"></div>
               <div class="card">
-                <div class="content">
+                <div class="content3">
                 <!-- fetched tasks injected here -->
                 </div>
                 <div class="viewBtnDiv3">
@@ -164,7 +164,7 @@
             <div class="main-card">
               <div class="card-color"></div>
               <div class="card">
-                <div class="content">
+                <div class="content4">
                 <!-- fetched tasks injected here -->
                 </div>
                 <div class="viewBtnDiv4">
