@@ -238,7 +238,6 @@ class UserModule extends Database
         // print_r($allTable);
         echo json_encode($allTable);
     }
-}
     public function permanentDel($delId)
     {
         // var_dump($delId);

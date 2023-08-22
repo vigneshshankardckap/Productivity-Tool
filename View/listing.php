@@ -1,6 +1,3 @@
-<?php
-var_dump($all);
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,9 +13,6 @@ var_dump($all);
 
 <body>
   <!-- this is the main container of the application -->
-  <!-- <div class="fetchedComment">
-    <p class="fetchCmt">Text</p>
-  </div> -->
   <div class="main-container">
     <div class="inner-container">
       <nav class="header">
@@ -82,7 +76,6 @@ var_dump($all);
                 <img src="../Icons/single.png" class="type-btn" id="1">
                 <span class="typeName">Single</span>
               </div>
-
               <div class="input-type-btn">
                 <img src="../Icons/multi.png" class="type-btn" id="2">
                 <span class="typeName">Multiple</span>
@@ -139,7 +132,7 @@ var_dump($all);
             <div class="main-card">
               <div class="card-color"></div>
               <div class="card">
-                <div class="content2">
+                <div class="content">
                 <!-- fetched tasks injected here -->
                 </div>
                 <div class="viewBtnDiv2">
@@ -151,12 +144,11 @@ var_dump($all);
             </div>
           </div>
           <div class="card-div">
-
             <h2 class="title">Who can Do it for you</h2>
             <div class="main-card">
               <div class="card-color"></div>
               <div class="card">
-                <div class="content3">
+                <div class="content">
                 <!-- fetched tasks injected here -->
                 </div>
                 <div class="viewBtnDiv3">
@@ -172,7 +164,7 @@ var_dump($all);
             <div class="main-card">
               <div class="card-color"></div>
               <div class="card">
-                <div class="content4">
+                <div class="content">
                 <!-- fetched tasks injected here -->
                 </div>
                 <div class="viewBtnDiv4">
