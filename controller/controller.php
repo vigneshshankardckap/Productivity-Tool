@@ -103,8 +103,6 @@ class UserController
      public function updateTask()
 
      {
-
-        
         $EditId = intval($_POST["editId"]);
         $editTaskName = $_POST["editTaskName"];
         $user_id = intval($_POST["user_id"]);
@@ -117,6 +115,7 @@ class UserController
         ];
 
         $this->userModel->updateTask($data);
+        
 
     }
 

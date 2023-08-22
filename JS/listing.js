@@ -69,6 +69,7 @@ function openSingleForm(params) {
     classListAdd(taskType[i], taskType);
     classListAdd(urgentBtn[i], urgentBtn);
     classListAdd(importantBtn[i], importantBtn);
+
   }
 
   function classListAdd(getBtns, getBtn) {
@@ -84,7 +85,7 @@ function openSingleForm(params) {
       getBtns.style.backgroundColor = "#5fb32e";
       getBtns.style.color = "white ";
       getBtns.style.border = "none";
-
+      
     })
   }
 
@@ -516,7 +517,8 @@ function datas(data) {
   // ------------------------------------------------------------------------
 //  ===========================edit form backend============================================================
 
-  $(document).on("click", '[data-role=update]', function (e) {
+
+$(document).on("click", '[data-role=update]', function (e) {
   let id=$(this).data('id')
 
   $.ajax({
@@ -612,6 +614,7 @@ function EditFilling(EditTask_Responce){
     })
   }
 }
+
 
   // ==========================ADD COMMENT FUNCTION ========================
   // let addComment = document.querySelectorAll("#addComment")
@@ -883,8 +886,6 @@ $(document).on("click", ".category_id", function (e) {
     }
 
   });
-
-
 
 })
 
