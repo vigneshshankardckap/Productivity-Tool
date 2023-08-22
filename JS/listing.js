@@ -171,6 +171,7 @@ function openSingleForm(params) {
     classListAdd(taskType[i], taskType);
     classListAdd(urgentBtn[i], urgentBtn);
     classListAdd(importantBtn[i], importantBtn);
+
   }
 
   function classListAdd(getBtns, getBtn) {
@@ -186,7 +187,7 @@ function openSingleForm(params) {
       getBtns.style.backgroundColor = "#5fb32e";
       getBtns.style.color = "white ";
       getBtns.style.border = "none";
-
+      
     })
   }
 
@@ -662,7 +663,8 @@ function completedTaskFun(tasks) {
 // ------------------------------------------------------------------------
 //  ===========================edit form backend============================================================
 
-  $(document).on("click", '[data-role=update]', function (e) {
+
+$(document).on("click", '[data-role=update]', function (e) {
   let id=$(this).data('id')
 
   $.ajax({
@@ -764,6 +766,7 @@ function EditFilling(EditTask_Responce) {
     })
   }
 }
+
 
   // ==========================ADD COMMENT FUNCTION ========================
   // let addComment = document.querySelectorAll("#addComment")
@@ -1057,14 +1060,8 @@ for (let i = 0; i < check.length; i++) {
 
 //   let taskid = +e.target.id;
 
-//   // console.log(taskid)
 
-
-//   /**  sending task id to backend */
-
-
-
-// })
+})
 
 
 // =================permanent delete functionlity==============
