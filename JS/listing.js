@@ -331,6 +331,7 @@ closelist.addEventListener("click", (e) => {
   Habitsdiv.classList.remove("showdiv");
 })
 
+
 // ==========================================================================================================
 
 // ==========================This below function is for dark mode functionality==============================
@@ -840,9 +841,6 @@ function EditFilling(EditTask_Responce) {
       });
     })
   }
-}
-
-  })
 
 
 
