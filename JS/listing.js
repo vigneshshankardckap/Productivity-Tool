@@ -528,7 +528,7 @@ function datas(data, getType) {
           <div class="text-base leading-6 text-gray-900 no-underline model-title " id="modal-title">
           </div>
           <div class="text-base leading-6 text-gray-900 no-underline " id="modal-title" >
-            <button type="button" id="btnDelete" data-id="${element.id}"><i class="fa-solid fa-trash-can"></i></button>
+            <button type="button" id="btnDelete" data-id="${element.id}"><i class="fa-regular fa-trash-can"></i></button>
           </div>
         </div>
       </div>
@@ -983,7 +983,9 @@ let permanentBtn = document.querySelectorAll('#btnDelete');
 let btnDelete = document.querySelector("#btnDelete")
 
 $(document).on("click", "#btnDelete", function (e) {
-  let listName = document.querySelector(".task-inner-div")
+  confirm("Are you sure to Delete permanently?");
+
+  // let listName = document.querySelector(".task-inner-div")
   let taskid = e.target.parentElement.dataset.id;
   /**  sending task id to backend */
   $.ajax({
@@ -991,9 +993,9 @@ $(document).on("click", "#btnDelete", function (e) {
     data: { id: taskid },
     type: "POST",
     success: function (response) {
-
-      confirm("Are you sure to Delete permanently?");
-      listName.parentElement.remove()
+     
+      btnDelete.parentElement.remove()
+ 
 
 
     }
