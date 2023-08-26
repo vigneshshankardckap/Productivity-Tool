@@ -78,7 +78,7 @@ class UserModule extends Database
             echo "Delete";
         }
 
-        $insertIntoTable = $this->db->query("INSERT INTO tasks(task_name,dates,user_id,category_id,matrix_id)VALUES('$taskName','$dueDate','$userId','$categoryId','$urgeImp')");
+        $insertIntoTable = $this->db->query("INSERT INTO tasks(task_name,dates,user_id,category_id,matrix_id,comments)VALUES('$taskName','$dueDate','$userId','$categoryId','$urgeImp','null')");
         header('location:/list');
     }
 
@@ -100,6 +100,7 @@ class UserModule extends Database
         $exists = $fetchAddedTasks->fetchAll();
 
         return $exists;
+        // var_dump($exists);
     }
 
     public function completedTask($value)

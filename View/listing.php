@@ -1,3 +1,6 @@
+<?php
+// var_dump($tasks); 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -88,7 +91,7 @@
       <div id="succcess">
         <div class="notification-success" style="display: flex;">
           <img src="/Images/success.gif" alt="" height="20px" width="20px" class="notifyIcon">
-          <p>Succesfully Added</p>
+          <p>Succesfully deleted</p>
         </div>
       </div>
       <!-- -----------habits div -------------------- -->
@@ -117,7 +120,7 @@
               <div class="card-color"></div>
               <div class="card">
                 <div class="content1">
-                <!-- fetched tasks injected here -->
+                  <!-- fetched tasks injected here -->
                 </div>
                 <div class="viewBtnDiv1">
                   <div class="showMoreBtn" id="1">
@@ -133,7 +136,7 @@
               <div class="card-color"></div>
               <div class="card">
                 <div class="content2">
-                <!-- fetched tasks injected here -->
+                  <!-- fetched tasks injected here -->
                 </div>
                 <div class="viewBtnDiv2">
                   <div class="showMoreBtn" id="2">
@@ -149,7 +152,7 @@
               <div class="card-color"></div>
               <div class="card">
                 <div class="content3">
-                <!-- fetched tasks injected here -->
+                  <!-- fetched tasks injected here -->
                 </div>
                 <div class="viewBtnDiv3">
                   <div class="showMoreBtn" id="3">
@@ -165,7 +168,7 @@
               <div class="card-color"></div>
               <div class="card">
                 <div class="content4">
-                <!-- fetched tasks injected here -->
+                  <!-- fetched tasks injected here -->
                 </div>
                 <div class="viewBtnDiv4">
                   <div class="showMoreBtn" id="4">
@@ -203,7 +206,7 @@
                 <div class="bg-white">
                   <div class="px-4 py-3 sm:flex justify-center items-center px-3 list-parent-div">
                     <div class="taskListDiv text-base leading-6 text-gray-900 no-underline " id="modal-title">
-                    <!-- fetched tasks and other functcartsionality buttons injected here -->
+                      <!-- fetched tasks and other functcartsionality buttons injected here -->
                     </div>
                   </div>
                 </div>
@@ -228,9 +231,12 @@
         <div class="body-mainDiv">
           <div class="body-content">
             <div class="close-btn close-habit-div" id="close-habit-div">
-              <div>
-                <span>X</span>
-              </div>
+              <form action="/list" method="post">
+                <div>
+                  <span>X</span>
+                </div>
+              </form>
+
             </div>
             <h3>Let's Start With Some Good Habits</h3>
             <div class="pre-define-todo">
