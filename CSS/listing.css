@@ -1267,4 +1267,27 @@ button.UncompletedBtn:hover {
   display: none;
 
 }
+
+
+.fetchedComment, .nfetchedComment{
+  position: relative;
+  width: 250px;
+  height: 43px;
+  background-color: var(--input-type-hover);
+  border-radius: 10px;
+  border: 1px solid #b0bdb0;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  padding: 0px 40px 0px 15px;
+  outline: #52a521;
+  text-align: inherit;
+  padding: 8px;
+}
+
+.nfetchedComment{
+  visibility: hidden;
+}
+.addedCommentIcn{
+  display: none;
+}
+
 /* ====================================================================== */
