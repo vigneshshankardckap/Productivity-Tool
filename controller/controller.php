@@ -44,7 +44,7 @@ class UserController
 
         // $all = $this->userModel->fetchedComment($_REQUEST);
 
-        // $this->userModel->addedTaskDetails();
+       $tasks =  $this->userModel->addedTaskDetails();
        
        require "View/listing.php";
     //    $this->userModel->fetchDataFromDo();
