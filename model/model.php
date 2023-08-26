@@ -244,7 +244,7 @@ class UserModule extends Database
         // var_dump($delId);
         $delBtnId = $delId;
         $delFun = $this->db->query("DELETE FROM `tasks` WHERE `tasks`.`id` = '$delBtnId'");
-        echo json_encode($delId);
+        echo json_encode($delFun);
         header("location:/list");
     }
 }
