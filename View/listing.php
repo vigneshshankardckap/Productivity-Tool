@@ -1,7 +1,7 @@
 <?php
 // var_dump($tasks); 
 ?>
-<!DOCTYPE html>
+<!DOCTYPE html class="h-full" >
 <html lang="en">
 
 <head>
@@ -14,7 +14,7 @@
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script> <!--Jquery link here-->
 </head>
 
-<body>
+<body class="h-full">
   <!-- this is the main container of the application -->
   <div class="main-container">
     <div class="inner-container">
