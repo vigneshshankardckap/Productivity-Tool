@@ -14,7 +14,7 @@ let Notificationbtn = document.querySelector(".notification");
 let closelist = document.querySelector("#close-notificationList")
 let Habitsdiv = document.querySelector(".Habitsdiv");
 // ----------notification close function------------------
-closelist.addEventListener("click",()=>{
+closelist.addEventListener("click", () => {
   location.reload()
 })
 // --------------dark mode button ----------
@@ -465,7 +465,59 @@ let popUpHeader = document.querySelector('.popUpHeader')
 function datas(data, getType) {
   if (data.length > 0) {
     let datas = data.map((element) => {
-      return `
+      // console.log(element.comments)
+      if (element.comments == "null") {
+        return `
+        <div class=" tasks-lists my-1	h-14	py-3 px-data.length > 01.5	cursor-pointer flex gap-8 pb-5 rounded">
+          <div class="task-inner-div">
+            <div class="task-info " id="rowdiv" >
+              <input type="hidden" id="rowid" value="">
+              <div class="list-name">
+                <h5>
+                 <p class="user-content">${element.task_name}</p>
+                </h5>
+              </div>
+            </div>
+            <div class="text-base  leading-6 text-gray-900 no-underline " id="modal-title">
+              <p id="due-date">${element.dates}</p>
+            </div>
+          </div>
+          <div class="second-div">
+            <div class="text-base leading-6 text-gray-900 no-underline model-title " id="modal-title">
+              <div class="add-Cmt">
+                <div class="relative" >
+                <input type="text" placeholder="comment here" id="comment" data-id="${element.id}" class="add-Cmt">
+                  <button id="addComment" data-id="${element.id}" class="absolute right-0 type="button"><i class="fa-solid fa-upload"></i></button>
+                </div>
+                <div class="nfetchedComment">
+                <p class="fetchCmt">${element.comments}</p>
+              </div>
+              </div>
+            </div>
+            <div class="text-base leading-6 text-gray-900 no-underline " id="modal-title">
+              <div class="change">
+                <div class="Task-progress pt-px	">
+                    <div class="round" >
+                      <label for="checkbox" class="roundCheck" id ="${element.id}" title="Complete"></label>
+                    </div>
+                </div>
+                <div class="make-changes">
+                  <button id="editBtn" data-role="update" data-id="${element.id}"><i class="fa-solid fa-pen"></i></button>
+                <div> 
+                </div>
+                  <button class="add-comment-btn" data-id="${element.id}" title="Add Comment"><i class="fa-solid fa-comment"></i></button>
+                  <button class="addedCommentIcn" data-id="${element.id}"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M21 6.49962C21 9.53698 18.5376 11.9992 15.5 11.9992C12.4624 11.9992 10 9.53698 10 6.49962C10 3.46227 12.4624 1 15.5 1C18.5376 1 21 3.46227 21 6.49962ZM16.5285 2.99986H15.0965C14.8881 2.99986 14.7015 3.12914 14.6283 3.32428L13.5033 6.32407C13.3808 6.65093 13.6224 6.99959 13.9715 6.99959H14.75L13.9773 9.31749C13.8655 9.65295 14.1152 9.99938 14.4688 9.99938C14.6442 9.99938 14.8077 9.91068 14.9032 9.76366L17.5283 5.72535C17.7314 5.4129 17.5072 4.99973 17.1345 4.99973H16.5L16.9967 3.67538C17.1192 3.34853 16.8776 2.99986 16.5285 2.99986ZM15.5 12.9992C17.2465 12.9992 18.8321 12.3104 20 11.1897V14.7491C20 16.5439 18.5449 17.9988 16.75 17.9988H10.9648L5.57814 21.8159C5.12752 22.1351 4.50337 22.0287 4.18407 21.5781C4.06432 21.4091 4 21.2071 4 21.0002L3.9992 17.9988H3.25C1.45507 17.9988 0 16.5439 0 14.7491V6.24964C0 4.45484 1.45507 2.99986 3.25 2.99986H10.0218C9.375 4.01009 9 5.21107 9 6.49962C9 10.0892 11.9101 12.9992 15.5 12.9992Z" fill="#5FB32E"/>
+                  <circle cx="16" cy="6" r="6" fill="#FF0000"/></svg>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        `
+      }
+      else {
+        return `
           <div class=" tasks-lists my-1	h-14	py-3 px-data.length > 01.5	cursor-pointer flex gap-8 pb-5 rounded">
             <div class="task-inner-div">
               <div class="task-info " id="rowdiv" >
@@ -483,10 +535,9 @@ function datas(data, getType) {
             <div class="second-div">
               <div class="text-base leading-6 text-gray-900 no-underline model-title " id="modal-title">
                 <div class="add-Cmt">
-                  <div class="relative" >
-                  <input type="text" placeholder="comment here" id="comment" data-id="${element.id}" class="add-Cmt">
-                    <button id="addComment" data-id="${element.id}" class="absolute right-0 type="button"><i class="fa-solid fa-upload"></i></button>
-                  </div>
+                <div class="fetchedComment">
+                <p class="fetchCmt">${element.comments}</p>
+              </div>
                 </div>
               </div>
               <div class="text-base leading-6 text-gray-900 no-underline " id="modal-title">
@@ -500,13 +551,18 @@ function datas(data, getType) {
                     <button id="editBtn" data-role="update" data-id="${element.id}"><i class="fa-solid fa-pen"></i></button>
                   <div> 
                   </div>
-                    <button class="add-comment-btn" data-id="${element.id}" title="Add Comment"><i class="fa-solid fa-comment"></i></button>
+                    <button class="add-comment-btn" data-id="${element.id}" title="Add Comment"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 6.49962C21 9.53698 18.5376 11.9992 15.5 11.9992C12.4624 11.9992 10 9.53698 10 6.49962C10 3.46227 12.4624 1 15.5 1C18.5376 1 21 3.46227 21 6.49962ZM16.5285 2.99986H15.0965C14.8881 2.99986 14.7015 3.12914 14.6283 3.32428L13.5033 6.32407C13.3808 6.65093 13.6224 6.99959 13.9715 6.99959H14.75L13.9773 9.31749C13.8655 9.65295 14.1152 9.99938 14.4688 9.99938C14.6442 9.99938 14.8077 9.91068 14.9032 9.76366L17.5283 5.72535C17.7314 5.4129 17.5072 4.99973 17.1345 4.99973H16.5L16.9967 3.67538C17.1192 3.34853 16.8776 2.99986 16.5285 2.99986ZM15.5 12.9992C17.2465 12.9992 18.8321 12.3104 20 11.1897V14.7491C20 16.5439 18.5449 17.9988 16.75 17.9988H10.9648L5.57814 21.8159C5.12752 22.1351 4.50337 22.0287 4.18407 21.5781C4.06432 21.4091 4 21.2071 4 21.0002L3.9992 17.9988H3.25C1.45507 17.9988 0 16.5439 0 14.7491V6.24964C0 4.45484 1.45507 2.99986 3.25 2.99986H10.0218C9.375 4.01009 9 5.21107 9 6.49962C9 10.0892 11.9101 12.9992 15.5 12.9992Z" fill="#5FB32E"/>
+                <circle cx="16" cy="6" r="6" fill="#FF0000"/></svg></i></button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           `
+
+      }
+
     }).join("")
 
     let anotherTask = data.map((element) => {
@@ -610,17 +666,16 @@ function datas(data, getType) {
   let comment = document.querySelectorAll("#comment")
   let addCommentBtn = document.querySelectorAll(".add-comment-btn")
   let addedCommentIcon = document.querySelectorAll(".addedCommentIcon")
+  let nfetchedComment = document.querySelectorAll(".nfetchedComment")
+  let addedCommentIcn = document.querySelectorAll(".addedCommentIcn")
+ 
 
   for (let a = 0; a < cmtBtn.length; a++) {
     const element = cmtBtn[a];
-    console.log(element)
     element.addEventListener("click", () => {
-      alert("clicked")
+      // alert("clicked this icon")
       let id = comment[a].dataset.id
       let comments = comment[a].value
-      let addCommentButton = addCommentBtn[a]
-      console.log(id)
-      console.log(comments)
       $.ajax({
         url: "/addComment",
         data: {
@@ -629,94 +684,84 @@ function datas(data, getType) {
         },
         type: "POST",
         success: function (response) {
-
           $("#succcess").css("display", "block");
-
-
           setTimeout(() => {
             $("#succcess").css("display", "none");
           }, 3000)
-          $(cmtBtn[a]).hide()
-          $(addCommentBtn[a]).hide()
-          $(comment[a]).hide()
-          $(addedCommentIcon[a]).show();
-
-
-          addCommentButton.innerHTML = `<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M21 6.49962C21 9.53698 18.5376 11.9992 15.5 11.9992C12.4624 11.9992 10 9.53698 10 6.49962C10 3.46227 12.4624 1 15.5 1C18.5376 1 21 3.46227 21 6.49962ZM16.5285 2.99986H15.0965C14.8881 2.99986 14.7015 3.12914 14.6283 3.32428L13.5033 6.32407C13.3808 6.65093 13.6224 6.99959 13.9715 6.99959H14.75L13.9773 9.31749C13.8655 9.65295 14.1152 9.99938 14.4688 9.99938C14.6442 9.99938 14.8077 9.91068 14.9032 9.76366L17.5283 5.72535C17.7314 5.4129 17.5072 4.99973 17.1345 4.99973H16.5L16.9967 3.67538C17.1192 3.34853 16.8776 2.99986 16.5285 2.99986ZM15.5 12.9992C17.2465 12.9992 18.8321 12.3104 20 11.1897V14.7491C20 16.5439 18.5449 17.9988 16.75 17.9988H10.9648L5.57814 21.8159C5.12752 22.1351 4.50337 22.0287 4.18407 21.5781C4.06432 21.4091 4 21.2071 4 21.0002L3.9992 17.9988H3.25C1.45507 17.9988 0 16.5439 0 14.7491V6.24964C0 4.45484 1.45507 2.99986 3.25 2.99986H10.0218C9.375 4.01009 9 5.21107 9 6.49962C9 10.0892 11.9101 12.9992 15.5 12.9992Z" fill="#5FB32E"/>
-        <circle cx="16" cy="6" r="6" fill="#FF0000"/>
-        </svg>`
-
-          addCommentButton.className = "addedCommentIcon";
+          comment[a].style.display = "none"
+          addCommentBtn[a].style.display = "none"
+          cmtBtn[a].style.display = "none"
+          addedCommentIcn[a].style.display = "block"
 
         }
       });
     })
-
-
   }
 
 
-// ==============================addedCommentfetching=============================
-let taskInnerDiv = document.querySelectorAll(".task-inner-div")
-let fetchedComment = document.querySelectorAll(".fetchedComment")
-for (let v = 0; v < addedCommentIcon.length; v++) {
-  const element = addedCommentIcon[v];
-  element.addEventListener("click", () => {
-    let id = comment[v].dataset.id
-    let matId = taskInnerDiv[v].id
+  // ==============================addedCommentfetching=============================
+  let taskInnerDiv = document.querySelectorAll(".task-inner-div")
+  let fetchedComment = document.querySelectorAll(".fetchedComment")
+  for (let v = 0; v < addedCommentIcon.length; v++) {
+    const element = addedCommentIcon[v];
+    element.addEventListener("click", () => {
+      let id = comment[v].dataset.id
+      let matId = taskInnerDiv[v].id
+      $.ajax({
+        url: "/commFetch",
+        data: {
+          id: id,
+          matrixId: matId
+        },
+        type: "POST",
+        success: function (res) {
+          // console.log(res)
+          let fetCmt = JSON.parse(res);
+          $(fetchedComment[v]).css("visibility", "visible");
+          fetchedComment[v].innerText = fetCmt
+        }
+      });
+    })
+  }
+
+
+  $(document).on("click", "#btnDelete", function (e) {
+
+    let taskid = e.target.parentElement.dataset.id;
+    /**  sending task id to backend */
     $.ajax({
-      url: "/commFetch",
-      data: {
-        id: id,
-        matrixId: matId
-      },
-      type: "POST",
-      success: function (res) {
-        // console.log(res)
-        let fetCmt = JSON.parse(res);
-        $(fetchedComment[v]).css("visibility", "visible");
-        fetchedComment[v].innerText = fetCmt
-      }
-    });
-  })
-}
-
-
-$(document).on("click", "#btnDelete", function (e) {
-
-  let taskid = e.target.parentElement.dataset.id;
-  /**  sending task id to backend */
-  $.ajax({
-    url: "/deleteTask",
-    data: { id: taskid },
-    type: "POST",
-    success: function (response) {
-      // console.log(response);
-    }
-  });
-})
-
-
-for (let a = 0; a < cmtBtn.length; a++) {
-  const element = cmtBtn[a];
-  element.addEventListener("click", (e) => {
-    let id = comment[a].dataset.id
-    let comments = comment[a].value
-    $.ajax({
-      url: "/addComment",
-      data: {
-        id: id,
-        comments: comments
-      },
+      url: "/deleteTask",
+      data: { id: taskid },
       type: "POST",
       success: function (response) {
         // console.log(response);
-        $("#succcess").css("display", "block");
       }
-    })
+    });
   })
-}
+
+
+  for (let a = 0; a < cmtBtn.length; a++) {
+    const element = cmtBtn[a];
+    element.addEventListener("click", (e) => {
+      let id = comment[a].dataset.id
+      let comments = comment[a].value
+      $.ajax({
+        url: "/addComment",
+        data: {
+          id: id,
+          comments: comments
+        },
+        type: "POST",
+        success: function (response) {
+          // console.log(response);
+          $("#succcess").css("display", "block");
+        }
+      })
+    })
+  }
+
+
+  
 
 }
 
