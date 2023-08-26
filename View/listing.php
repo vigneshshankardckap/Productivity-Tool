@@ -70,22 +70,20 @@
           </div>
         </div>
         <div class="add-todo-btn-section">
-          <div class="add-todo-inner-section">
-            <div class="add-btn" title="Create your task here">
-              <i class="fa-sharp fa-light fa-plus fa-xl"></i>
-            </div>
-            <div class="input-type">
-              <div class="input-type-btn">
-                <img src="../Icons/single.png" class="type-btn" id="1">
-                <span class="typeName">Single</span>
+            <div class="add-todo-inner-section">
+              <div class="add-btn">
+                <i class="fa-sharp fa-light fa-plus fa-xl"></i>
               </div>
-              <div class="input-type-btn">
-                <img src="../Icons/multi.png" class="type-btn" id="2">
-                <span class="typeName">Multiple</span>
+              <div class="input-type">
+                <div class="input-type-btn">
+                  <img src="../Icons/single.png" class="type-btn" id="1" ><span class="typeName">Single</span>
+                </div>
+                <div class="input-type-btn">
+                <img src="../Icons/multi.png" class="type-btn" id="2" ><span class="typeName">Multiple</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
       </div>
       <!-- -----------Notification div -------------------- -->
       <div id="succcess">
