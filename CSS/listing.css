@@ -177,18 +177,17 @@ body {
 .mt-24 {
   display: flex;
   justify-content: space-between;
-  padding: 0px 65px 0px 210px;
+  padding: 0px 100px 0px 210px;
 }
 
 .add-todo-inner-section {
-  display: flex;
-  align-items: center;
+  position: relative;
 }
 
 .add-todo-btn-section {
-  width: 280px;
   display: flex;
-  height: 70px;
+  gap: 30px;
+  justify-content: flex-end;
 }
 
 .add-btn {
@@ -197,24 +196,25 @@ body {
   background-color: var(--primary-color);
   border-radius: 50%;
   color: white;
-  width: 50px;
-  height: 50px;
-  text-align: center;
-  font-weight: 250;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 4px 0px;
+  width: 55px;
+  height: 55px;
   display: flex;
   justify-content: center;
   align-items: center;
-}
+  font-weight: 250;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 4px 0px;
+  transition: 0.2s;
 
-.type-btn {
+}
+.type-btn{
   cursor: pointer;
+  max-width: none;
 }
 
 /* -----------below style for input type visible button (single or multiplr )------------------ */
 .add-btn:hover {
-  transition: 0.1s;
-  rotate: 45deg;
+  transition: 0.2s;
+  rotate: 44deg;
 }
 
 
@@ -223,8 +223,7 @@ body {
 }
 
 .rotate {
-  transition: 0.1s;
-  rotate: 45deg;
+  rotate: 44deg;
 }
 
 .input-type:hover {
@@ -233,13 +232,12 @@ body {
 
 /* ------------styel for input type   div ----------- */
 .input-type {
+  position: absolute;
   display: none;
-  cursor: pointer;
-  animation-duration: 0.7s;
+  animation-duration: 0.5s;
   animation-name: showInputBox;
   z-index: 1;
-  padding: 0px 0px 0px 20px;
-  /* display: flex; */
+  padding: 16px 0px 0px 0px;
 }
 
 @keyframes showInputBox {
@@ -248,15 +246,15 @@ body {
   }
 
   50% {
-    top: 50px;
+    top: 55px;
   }
 
   75% {
-    top: 50px;
+    top: 55px;
   }
 
   100% {
-    top: 50px;
+    top: 55px;
   }
 }
 
@@ -265,24 +263,18 @@ body {
 
 .input-type-btn {
   display: flex;
-  /* align-items: center; */
+  align-items: center;
   gap: 5%;
-}
-
-.input-type-btn>img {
-  height: 50px;
-
 }
 
 .input-type-btn>span {
   background-color: var(--thresary-color);
-  color: var(--font-color);
-  font-weight: 500;
+  color: var(--primary-color);
   border-radius: 0px 10px 10px 10px;
   text-align: center;
-  line-height: 35px;
+  line-height: 35px;   
   height: 35px;
-  width: 80px;
+  width: 90px;  
   box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 4px 0px;
   display: none;
 }
@@ -296,13 +288,13 @@ body {
 
 .single-input-form {
   display: none;
-  position: absolute;
+  position: fixed;
   height: 28rem;
   width: 35rem;
   background-color: var(--thresary-color);
   border-radius: var(--single-border-radius);
   right: 25rem;
-  top: 4rem;
+  top: 25%;
   padding: 0px 24px;
   box-shadow: #00000029 0px 10px 36px 0px, #0000000f 0px 0px 0px 1px;
 }
@@ -336,7 +328,7 @@ body {
 }
 
 .close-habit-div {
-  margin-left: 836px;
+  margin-left: 837px;  
   border-radius: 0px 10px 0px 10px;
 }
 
@@ -378,7 +370,7 @@ body {
 }
 
 .selectedCatagory {
-  transition: 0.5s;
+  transition: 0.9s;
   border-radius: 0px;
   border-bottom: 4px solid var(--primary-color);
   font-weight: 500;
@@ -493,8 +485,8 @@ button {
 
 .multiple-input-form {
   position: absolute;
-  right: 12rem;
-  top: 2rem;
+  right: 13%;
+  top: 3%;
   display: none;
 }
 
@@ -817,9 +809,10 @@ button {
 .Habitsdiv {
   width: 350px;
   display: none;
-  position: absolute;
+  position: fixed;
   min-height: 550px;
-  left: 910px;
+  top: 12%;  
+  left: 70%;
   border-radius: 15px;
   background-color: var(--input-type-hover);
   color: var(--font-color);
@@ -850,13 +843,13 @@ button {
   border: 1px solid var(--close-btn-border-color);
   width: fit-content;
   padding: 2px 8px;
-  border-radius: var(--multi-border-radius);
+  border-radius: 0px 10px 0px 10px;
 
 }
 
 .Habitsdiv .notification-title .cancelicon:hover {
   transition: 0.3s;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  border-radius: var(--single-border-radius);
 }
 
 .Habitsdiv .Tasklist {
@@ -1101,9 +1094,9 @@ button.removetask {
 
 .Habits-div {
   display: none;
-  position: absolute;
-  top: 4rem;
-  right: 15rem;
+  position: fixed;
+  top: 20%;
+  right: 18%;
 }
 
 .body-content {
