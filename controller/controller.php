@@ -44,7 +44,7 @@ class UserController
 
         // $all = $this->userModel->fetchedComment($_REQUEST);
 
-        // $this->userModel->addedTaskDetails();
+        $this->userModel->addedTaskDetails();
        
        require "View/listing.php";
     //    $this->userModel->fetchDataFromDo();
@@ -117,6 +117,7 @@ class UserController
      public function updateTask()
 
      {
+       
         $EditId = intval($_POST["editId"]);
         $editTaskName = $_POST["editTaskName"];
         $user_id = intval($_POST["user_id"]);
@@ -127,6 +128,7 @@ class UserController
             "editTaskDate"=>$_POST["editTaskdate"],
             "user_id"=>$user_id
         ];
+        var_dump($data);
 
         $this->userModel->updateTask($data);
         

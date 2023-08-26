@@ -587,20 +587,20 @@ function datas(data, getType) {
       setTimeout(() => {
         tasks_list[j].remove()
 
-      }, 2000)
+      }, 1000)
     })
   }
 
   // -------------------------below code is for remove the task from UI------------------------------------
   // UI delete function code here //
-  let deleteBtn = document.querySelectorAll('#btnDelete')
-  // console.log(deleteBtn)
-  for (let i = 0; i < deleteBtn.length; i++) {
+  // let deleteBtn = document.querySelectorAll('#btnDelete')
+  // // console.log(deleteBtn)
+  // for (let i = 0; i < deleteBtn.length; i++) {
 
-    deleteBtn[i].addEventListener('click', () => {
-      tasks_list[i].remove()
-    })
-  }
+  //   deleteBtn[i].addEventListener('click', () => {
+  //     tasks_list[i].remove()
+  //   })
+  // }
 
   // let del = document.querySelectorAll("#btnDelete")
 
@@ -857,6 +857,7 @@ $(document).on("click", "#btnDelete", function (e) {
     type: "POST",
     success: function (response) {
       // console.log(response);
+      confirm("Are you sure to Delete Permanently?");
     }
   });
 })
@@ -960,7 +961,7 @@ $(function () {
           $("#succcess").css("display", "block");
           setTimeout(() => {
             $("#succcess").css("display", "none");
-          }, 5000)
+          }, 3000)
           paren.remove()
         }
 
@@ -1009,12 +1010,12 @@ closeHabitdiv.addEventListener("click", () => {
 })
 // ===============================================================
 
-for (let i = 0; i < check.length; i++) {
-  check[i].addEventListener("click", (e) => {
-    // console.log(e.target);
-  })
+// for (let i = 0; i < check.length; i++) {
+//   check[i].addEventListener("click", (e) => {
+//     // console.log(e.target);
+//   })
 
-}
+// }
 
 
 // =================permanent delete functionlity==============
@@ -1031,10 +1032,13 @@ $(document).on("click", "#btnDelete", function (e) {
     type: "POST",
     success: function (response) {
 
-      confirm("Are you sure to Delete permanently?");
-      listName.parentElement.remove()
-
-
+      // confirm("Are you sure to Delete permanently?");
+      listName.remove()
+      $('#popUpWindow').load(location.href+'#popUpWindow')
+      setInterval(() => {
+      $('#popUpWindow').show()
+        
+      }, 1000);
     }
   });
 })
