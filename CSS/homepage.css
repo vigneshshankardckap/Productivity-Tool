@@ -8,17 +8,31 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+button {
+  cursor: pointer;
+}
+
 /* ---------------color choosing------------- */
 :root {
   --primary-color: #5fb32e;
   --secondary-color: #b6e7ce;
   --thresary-color: #ffffff;
-  --font-color: #000000;
+  --font-color: #0C2000;
   --focus-color: #e1f8ec;
   --shadow-color: #479c16ab;
   --background-color: #f3f3f5;
-  --icon-color: #000000;
   --input-background-color: inherit;
+  --input-type-hover: #ffffff;
+  --close-btn-color: #ff0000;
+  --close-btn-border-color: #d19090;
+  --icon-color: #0C2000;
+  --d: 700ms;
+  --e: cubic-bezier(0.19, 1, 0.22, 1);
+  --font-sans: "Rubik", sans-serif;
+  --font-serif: "Cardo", serif;
+  --task-list-bg-color: #ffffff;
+  --search-box-br-color: #e2e2e2;
+
 }
 
 .darkmode {
@@ -31,30 +45,36 @@
   --background-color: #191c24;
   --icon-color: #5fb32e;
   --input-background-color: #2a3038;
+  --input-type-hover: #ffffff;
+  --task-list-bg-color: #191c24;
+
 }
 
 body {
   background-color: var(--background-color);
+
+}
+
+.active {
+  pointer-events: none;
 }
 
 .main-container {
   position: relative;
-  /* padding: 30px 70px; */
-  /* max-width: 1024px; */
-  position: fixed;
-  width: 100%;
-}
-
-.active {
-  filter: blur(1px);
-  pointer-events: none;
-  user-select: none;
 }
 
 .header {
+  position: fixed;
+  z-index: 1;
+  background-color: var(--thresary-color);
+  width: 100%;
   display: flex;
   justify-content: space-between;
+  padding: 10px 20px;
+  top: 0;
+  left: 0;
 }
+
 
 /* -----------home page right side element styling----------------- */
 
@@ -66,26 +86,29 @@ body {
   position: relative;
 }
 
+
 /* ------------------for search box and icon---------------- */
 .search-box {
   font-size: 14px;
   height: 37px;
   width: 300px;
   color: var(--font-color);
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 5px;
   background-color: var(--thresary-color);
   padding: 0px 10px 0px 40px;
+  border: 1px solid var(--search-box-br-color);
+  transition: 0.2s;
+
 }
 
 .search-box:focus {
-  transition: 0.4s;
+  transition: 0.2s;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   outline: none;
-  border: 1px solid #52a521;
+  border: 1px solid var(--primary-color);
 }
 
 .search-box::placeholder {
-  color: var(--icon-color);
+  color: var(--font-color);
 }
 
 .search-icon {
@@ -93,30 +116,29 @@ body {
 }
 
 /* ---------------styling for left side elements----------- */
+
 .left-section {
   display: flex;
   gap: 20px;
   align-items: center;
 }
 
-.left-section span {
-  display: flex;
-  align-items: center;
-  font-size: 26px;
-  font-weight: bold;
-  color: var(--font-color);
-}
 
 .left-section h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 22px;
-  letter-spacing: 0.5px;
-  margin-left: 7px;
   font-weight: 400;
+}
+
+.left-section span {
+  font-size: 25px;
+  color: var(--font-color);
+  margin-left: 7px;
+  font-weight: 500;
   text-transform: capitalize;
 
-  width: 10ch;
-  overflow: hidden;
-  /* animation: typing 2.5s steps(10) infinite alternate-reverse; */
 }
 
 @keyframes typing {
@@ -152,6 +174,8 @@ body {
 }
 
 /* ---------------styling for add todo buttons---------------- */
+
+
 .add-todo-inner-section {
   position: relative;
 }
@@ -160,27 +184,43 @@ body {
   display: flex;
   gap: 30px;
   justify-content: flex-end;
-  padding: 10px 0px;
+  padding: 20px 100px 0px 0px;
 }
 
 .add-btn {
   cursor: pointer;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 32px;
   background-color: var(--primary-color);
-  border-radius: 5px;
+  border-radius: 50%;
   color: white;
-  padding: 7px 42px;
-}
+  width: 55px;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 250;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 4px 0px;
+  transition: 0.2s;
 
-.add-btn:hover {
-  box-shadow: var(--shadow-color) 0px 5px 15px;
-  border-radius: 5px 5px 0px 0px;
+}
+.type-btn{
+  cursor: pointer;
+  max-width: none;
 }
 
 /* -----------below style for input type visible button (single or multiplr )------------------ */
+.add-btn:hover {
+  transition: 0.2s;
+  rotate: 44deg;
+}
+
+
 .add-btn:hover+.input-type {
   display: block;
+}
+
+.rotate {
+  rotate: 44deg;
 }
 
 .input-type:hover {
@@ -190,49 +230,50 @@ body {
 /* ------------styel for input type   div ----------- */
 .input-type {
   position: absolute;
-  background-color: var(--thresary-color);
-  border-radius: 0px 0px 5px 5px;
-  box-shadow: #9b9c9a 0px 5px 15px;
   display: none;
-  animation-duration: 1s;
+  animation-duration: 0.5s;
   animation-name: showInputBox;
   z-index: 1;
+  padding: 16px 0px 0px 0px;
 }
 
 @keyframes showInputBox {
   0% {
-    top: 70px;
-  }
-
-  25% {
-    top: 38px;
+    top: 40px;
   }
 
   50% {
-    top: 38px;
+    top: 55px;
   }
 
   75% {
-    top: 38px;
+    top: 55px;
   }
 
   100% {
-    top: 38px;
+    top: 55px;
   }
 }
 
 /* ------------style for todo input child div------------------ */
-.input-type div {
-  cursor: pointer;
-  text-align: center;
-  color: var(--primary-color);
-  padding: 10px 53px;
+
+
+.input-type-btn {
+  display: flex;
+  align-items: center;
+  gap: 5%;
 }
 
-/* -----------------style for todo input type(single or multiple)---------------- */
-.input-type div:hover {
-  color: var(--thresary-color);
-  background-color: #838f7cfa;
+.input-type-btn>span {
+  background-color: var(--thresary-color);
+  color: var(--primary-color);
+  border-radius: 0px 10px 10px 10px;
+  text-align: center;
+  line-height: 35px;   
+  height: 35px;
+  width: 90px;  
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 4px 0px;
+  display: none;
 }
 
 /* ------------------styling for our default todo portion (home page body content)--------------- */
@@ -311,12 +352,12 @@ body {
 .single-input-form {
   display: none;
   position: absolute;
-  height: 27rem;
+  height: 29rem;
   width: 35rem;
   background-color: var(--thresary-color);
   border-radius: var(--single-border-radius);
-  right: 22rem;
-  top: 182px;
+  top: 12%;
+  right: 29%;
   padding: 5px 24px;
   box-shadow: #00000029 0px 10px 36px 0px, #0000000f 0px 0px 0px 1px;
 }
@@ -454,7 +495,7 @@ button {
   border: none;
   color: var(--thresary-color);
   font-size: 16px;
-  margin: 20px 0px 10px 200px;
+  margin: 20px 0px 11px 181px;  
   cursor: pointer;
 }
 
@@ -523,8 +564,8 @@ button {
 
 .multiple-input-form {
   position: absolute;
-  top: 140px;
-  right: 190px;
+  right: 15%;
+  top: 5%;
   display: none;
 }
 
@@ -746,8 +787,8 @@ button {
   border: 2px solid black;
   position: absolute;
   min-height: 529px;
-  top: 85px;
-  left: 920px;
+  top: 0px;
+  left: 72%;
   border-radius: 10px;
   background-color: #FFFFFF;
   z-index: 1;
@@ -829,4 +870,16 @@ button.removetask {
 
 #succcess {
   display: none;
+}
+
+.black-screen {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: 30%;
+  display: none;
+  pointer-events: none;
 }

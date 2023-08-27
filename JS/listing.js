@@ -1,4 +1,4 @@
-let inputBtn = document.querySelectorAll(".type-btn");
+let inputBtn = document.querySelectorAll(".input-type-btn");
 let innerContainer = document.querySelector(".inner-container")
 
 
@@ -118,7 +118,7 @@ $(".category_id").on("click", (e) => {
 // ======================below code is for open single form and multi form ===============================
 for (let i = 0; i < inputBtn.length; i++) {
   inputBtn[i].addEventListener("click", () => {
-    innerContainer.classList.add("active")
+    // innerContainer.classList.add("active")
     $(".black-screen").show();
 
     if (inputBtn[i].id == "1") {
@@ -165,7 +165,7 @@ for (let s = 0; s < taskType.length; s++) {
 
 //========================================single form functionality================================/
 
-function openSingleForm(params) {
+function openSingleForm() {
 
   let taskType = document.querySelectorAll(".typeBtn");
   let urgentBtn = document.querySelectorAll(".urgent-priority-btn");
@@ -1061,7 +1061,7 @@ let getUserinfo = document.querySelector("#getUserinfo")
 
 let User_detailsdiv = document.querySelector("#User_details"); 
 let closeProfileDiv = document.querySelector("#close-profile-div")
-console.log(closeProfileDiv);
+// console.log(closeProfileDiv);
 
 
  function OpenProfile(){
