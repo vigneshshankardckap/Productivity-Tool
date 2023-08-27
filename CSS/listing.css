@@ -54,9 +54,11 @@ body {
   background-color: var(--background-color);
 
 }
-.active{
+
+.active {
   pointer-events: none;
 }
+
 .main-container {
   position: relative;
 }
@@ -1112,6 +1114,8 @@ button.removetask {
 
 
 
+
+
 /* -----------styling for header ---------------- */
 .body-content h3 {
   font-weight: 400;
@@ -1172,7 +1176,8 @@ button.removetask {
   display: none;
 }
 
-button.completedBtn,.UncompletedBtn {
+button.completedBtn,
+.UncompletedBtn {
   background-color: #E5F7EE;
   border: 1px solid var(--primary-color);
   color: var(--primary-color);
@@ -1184,6 +1189,7 @@ button.completedBtn:hover {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 
 }
+
 button.UncompletedBtn:hover {
   background-color: var(--primary-color);
   color: var(--thresary-color);
@@ -1249,7 +1255,7 @@ button.UncompletedBtn:hover {
   border-radius: 0px 6px 0px 10px;
 }
 
-.black-screen{
+.black-screen {
   position: fixed;
   left: 0;
   top: 0;
@@ -1261,25 +1267,103 @@ button.UncompletedBtn:hover {
 
 }
 
-.fetchedComment, .nfetchedComment{
-  position: relative;
-  width: 250px;
-  height: 43px;
+
+/* ============================= Profile div ========================================= */
+
+.settings {
+  position: absolute;
+  display: none;
   background-color: var(--input-type-hover);
-  border-radius: 10px;
-  border: 1px solid #b0bdb0;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-  padding: 0px 40px 0px 15px;
-  outline: #52a521;
-  text-align: inherit;
-  padding: 8px;
+  border-radius: 5px;
+  width: 250px;
+  min-height: 91px;
+  padding: 20px 0px 9px 12px;
+  left: 991px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
-.nfetchedComment{
-  visibility: hidden;
+.Change-info {
+  display: flex;
+  background-color: #F5F5F5;
+  height: 30px;
+  width: 226px;
+  padding: 4px 15px;
+  gap: 44px;
+  margin-bottom: 10px;
 }
-.addedCommentIcn{
+
+.profile-div {
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--thresary-color);
+  height: 570px;
+  width: 867px;
+  border-radius: 10px;
+  box-shadow: #63636333 0px 2px 8px 0px;
+}
+
+.profile-div h1 {
+  align-items: center;
+}
+
+.profile-div {
+  position: absolute;
+  top: 4rem;
+  right: 15rem;
   display: none;
 }
+.profile-div h1 {
+  margin: -27px 0px 0px 350px;
+  font-size: 24px;
+}
+.Profile-img {
+  display: flex;
+  gap: 20px;
+}
 
-/* ====================================================================== */
+.Profile-img div img {
+  width: 100px;
+  border-radius: 100px;
+}
+
+.Profile-img button {
+  border: 2px solid #7F808A;
+  height: 40px;
+  padding: 8px 17px;
+  margin-top: 36px;
+}
+
+.Profile-data {
+  padding: 50px 0px 0px 60px;
+}
+
+.data-input div {
+  padding: 10px 0px 10px 0px;
+  gap: 10px;
+  display: grid;
+}
+
+.data-input div input {
+  padding: 0px 0px 0px 21px;
+  width: 500px;
+  height: 40px;
+  border-radius: 5px;
+  border: 2px solid #7F808A;
+} 
+.data-input div p {
+  position: absolute;
+  left: 406px;
+  padding-top: 42px;  
+ border-bottom: 2px solid #7F808A;
+  color:  #7F808A;
+}
+.viewProfile {
+  display: block;
+  z-index: 1;
+}
+.showuserdata{
+  display: block;
+  z-index: 1;
+}
+
