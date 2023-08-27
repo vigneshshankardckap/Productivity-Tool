@@ -174,5 +174,10 @@ class UserController
     {
         $this->userModel->permanentDel($_REQUEST['id']);
     }
+    public function profileView()
+    {
+        
+        $this->userModel->profileView();
+    }
     
 }

@@ -66,12 +66,15 @@
         </div> -->
         <div class="Change-info" id="getUserinfo">
           <p><i class="fa-regular fa-user"></i></p>
-          <h1>Profile</h1>
+          <h1 id="<?php echo  $_SESSION['userid'];  ?>" class="profileId" >Profile</h1>
         </div>
+        <a href="/logout">
         <div class="Change-info">
+         
           <p><i class="fa-solid fa-arrow-right-from-bracket logout" title="Log out"></i></i></p>
           <h1>Log out</h1>
         </div>
+        </a>
 
       </div>
       <div class="mt-24 body-contaienr">
@@ -250,7 +253,7 @@
               </form>
 
             </div>
-            div<h3>Let's Start With Some Good Habits</h3>
+            <h3>Let's Start With Some Good Habits</h3>
             <div class="pre-define-todo">
               <div class="contents">
                 <div>
@@ -314,7 +317,8 @@
           <div class="Profile-img">
             <div class="image"> <img src="/Images/profile1-removebg-preview.png" alt="">
             </div>
-            <button clas\>Change profile</button>
+            <button>Change profile</button>
+            <!-- <input type="file"> -->
             <button>Remove profile</button>
           </div>
           <div class="data-input">
@@ -329,7 +333,6 @@
               <input type="password" value="prasanthndckap@gmail.com">
               <p>Change Password</p>
             </div>
-
           </div>
         </div>
       </div>
