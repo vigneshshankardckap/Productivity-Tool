@@ -1,27 +1,51 @@
 let form = document.querySelector(".multiple-form")
 // ---------------below code for form open a form by clicking the type button(sinle btn and multiple btn)------------------
 let inputBtn = document.querySelectorAll(".input-type-btn");
-let singleForm = document.querySelector(".single-input-form");
-let multiFormDiv = document.querySelector(".multiple-input-form");
-let innerContainer = document.querySelector(".inner-container")
+let innerContainer = document.querySelector(".inner-container");
 let cancelBtn = document.querySelector(".cancel-btn");
 let empty = document.querySelector(".forms-inner-div")
+// below selectore for task type btn (single or multiple)
+let typeBtn = document.querySelectorAll(".type-btn")
+let typeName = document.querySelectorAll(".typeName")
 
 // ======================below code is for open single form and multi form ===============================
 for (let i = 0; i < inputBtn.length; i++) {
   inputBtn[i].addEventListener("click", () => {
     innerContainer.classList.add("active")
+    $(".black-screen").show();
 
-    if (inputBtn[i].innerText == "Single") {
-      singleForm.classList.add("show")
+    if (inputBtn[i].id == "1") {
+      $("#single-form").show()
       openSingleForm()
     }
-    else if (inputBtn[i].innerText == "Multiple") {
-      multiFormDiv.classList.add("show");
+    else if (inputBtn[i].id == "2") {
+      $("#multi-form").show()
       AddOneMoreForm();
     }
+
   })
+
 }
+
+// -----------below jquery code is for rotate the add button when user hover the btn-------------
+$(".input-type").hover(function () {
+  $(".add-btn").addClass('rotate')
+}, function () {
+  $(".add-btn").removeClass('rotate')
+});
+
+// ----------------------------
+
+$(document).ready(function () {
+  for (let i = 0; i < typeBtn.length; i++) {
+    $(typeBtn[i]).hover(function () {
+      $(typeName[i]).show()
+    }, function () {
+      $(typeName[i]).hide()
+    });
+  }
+});
+
 
 //========================================single form functionality================================/
 
@@ -62,9 +86,10 @@ function openSingleForm(params) {
 
   closeBtn.addEventListener("click", () => {
     innerContainer.classList.remove("active")
-    singleForm.classList.remove("show")
-  })
+    $(".black-screen").hide();
+    $("#single-form").hide()
 
+  })
 
 }
 
@@ -172,8 +197,9 @@ function closeBtnActions(params) {
       cnt--;
       if (cnt == 0) {
         innerContainer.classList.remove("active");
+        $(".black-screen").hide();
+        $("#multi-form").hide()
         multipleFormsDiv[i].remove();
-        multiFormDiv.classList.remove("show");
       }
       else {
         multipleFormsDiv[i].remove();
@@ -266,23 +292,23 @@ $(function () {
         },
         type: "POST",
         success: function (response) {
-         
+
           $("#succcess").css("display", "block");
 
-          setTimeout(() =>{
+          setTimeout(() => {
             $("#succcess").css("display", "none");
-          },1000)
+          }, 1000)
 
           paren.remove()
 
         }
-        
+
       });
 
     });
-    
+
   });
-  
+
 });
 
 // =======================fetching user added habits using jquery and ajax===========================
