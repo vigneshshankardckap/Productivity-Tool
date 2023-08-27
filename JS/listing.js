@@ -1063,12 +1063,7 @@ let User_detailsdiv = document.querySelector("#User_details");
 let closeProfileDiv = document.querySelector("#close-profile-div")
 // console.log(closeProfileDiv);
 
-// profile.addEventListener("click",(e)=>{
-//   view_profile.classList.toggle("showdiv");
 
-
-//   console.log("hII");
-// })
  function OpenProfile(){
   view_profile.classList.toggle("viewProfile");
  }
@@ -1087,5 +1082,21 @@ getUserinfo.addEventListener("click",(e)=>{
 closeProfileDiv.addEventListener("click",()=>{
   User_detailsdiv.classList.remove("showuserdata");
 })
+// ===========================================profile page===========================================================
 
+let profileView=document.querySelector(".profileId");
+$(document).on("click", '.profileId', function (e) {
+  let id = $(this).data('id')
+  $.ajax({
+    url: "/profileView",
+    data: {
+      id: id,
+    },
+    type: "POST",
+    success: function (response) {
+      // let EditTask_Responce = JSON.parse(response);
+      // EditFilling(EditTask_Responce)
 
+    }
+  })
+})

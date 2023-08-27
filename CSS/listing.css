@@ -892,7 +892,7 @@ button.removetask {
   display: flex;
   align-items: center;
   gap: 12rem;
-  width: 40rem;
+  width: 45rem;
   padding: 15px 0px;
 
 }
@@ -1276,7 +1276,8 @@ button.UncompletedBtn:hover {
   width: 250px;
   min-height: 91px;
   padding: 20px 0px 9px 12px;
-  left: 991px;
+  left: 1100px;
+  bottom: 565px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
@@ -1288,12 +1289,12 @@ button.UncompletedBtn:hover {
   padding: 4px 15px;
   gap: 44px;
   margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .profile-div {
   display: flex;
   flex-direction: column;
-
   background-color: var(--thresary-color);
   height: 570px;
   width: 867px;
@@ -1333,7 +1334,7 @@ button.UncompletedBtn:hover {
 }
 
 .Profile-data {
-  padding: 50px 0px 0px 60px;
+  padding: 26px 0px 0px 200px;
 }
 
 .data-input div {
@@ -1351,7 +1352,7 @@ button.UncompletedBtn:hover {
 } 
 .data-input div p {
   position: absolute;
-  left: 406px;
+  left: 545px;
   padding-top: 42px;  
  border-bottom: 2px solid #7F808A;
   color:  #7F808A;
