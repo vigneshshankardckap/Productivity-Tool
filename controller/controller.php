@@ -39,16 +39,9 @@ class UserController
     public function list()
     {
 
-
-        // $category_id =  $_REQUEST['category_id'];
-
-        // $all = $this->userModel->fetchedComment($_REQUEST);
-
         $this->userModel->addedTaskDetails();
        
        require "View/listing.php";
-    //    $this->userModel->fetchDataFromDo();
-    //   $this->fetchDatas($_REQUEST['category_id']);
 
     }
 
@@ -167,14 +160,28 @@ class UserController
         $this->userModel->completed($_REQUEST);
     }
 
-    public function commFetch() {
-        // var_dump($_REQUEST);
+    public function commFetch() 
+    {
         $this->userModel->commFetch($_REQUEST);
+
     }
     public function permanentDel()
 
     {
         $this->userModel->permanentDel($_REQUEST['id']);
     }
+
+    public function profileView()
+
+    {
+        $this->userModel->profileView($_REQUEST['id']);
+    }
+
+    public function updateProfile()
+
+    {
+        // $this->userModel->updateProfile();
+    }
+
     
 }
