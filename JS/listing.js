@@ -613,14 +613,14 @@ function datas(data, getType) {
 
   for (let a = 0; a < cmtBtn.length; a++) {
     const element = cmtBtn[a];
-    console.log(element)
+    // console.log(element)
     element.addEventListener("click", () => {
       alert("clicked")
       let id = comment[a].dataset.id
       let comments = comment[a].value
       let addCommentButton = addCommentBtn[a]
-      console.log(id)
-      console.log(comments)
+      // console.log(id)
+      // console.log(comments)
       $.ajax({
         url: "/addComment",
         data: {
@@ -1001,5 +1001,39 @@ $(document).on("click", "#btnDelete", function (e) {
 })
 
 
-// ==========================================================================================
+// ==================================  Profile functions ========================================== 
+
+let profile = document.querySelector("#profile");
+let view_profile = document.querySelector("#view-profile");
+let getUserinfo = document.querySelector("#getUserinfo")
+
+let User_detailsdiv = document.querySelector("#User_details"); 
+let closeProfileDiv = document.querySelector("#close-profile-div")
+console.log(closeProfileDiv);
+
+// profile.addEventListener("click",(e)=>{
+//   view_profile.classList.toggle("showdiv");
+
+
+//   console.log("hII");
+// })
+ function OpenProfile(){
+  view_profile.classList.toggle("viewProfile");
+ }
+ $(document).mouseup(function () {
+  if (view_profile.classList.contains("viewProfile")) {
+    view_profile.classList.remove("viewProfile");
+  }
+});
+
+
+getUserinfo.addEventListener("click",(e)=>{
+  User_detailsdiv.classList.toggle("showuserdata");
+})
+
+
+closeProfileDiv.addEventListener("click",()=>{
+  User_detailsdiv.classList.remove("showuserdata");
+})
+
 

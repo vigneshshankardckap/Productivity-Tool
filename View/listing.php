@@ -52,14 +52,28 @@
               <i class="fa-regular fa-moon theme-btn" title="Dark Mode"></i>
             </li>
             <li class="right-icon">
-              <a href="/logout">
+              <!-- <a href="/logout">
                 <i class="fa-solid fa-arrow-right-from-bracket logout" title="Log out"></i>
-              </a>
+              </a> -->
+              <i class="fa-regular fa-user" title="Profile" id="profile" onclick="OpenProfile()"></i>
             </li>
           </ul>
         </div>
       </nav>
+      <div class="settings" id="view-profile">
+        <!-- <div>
+          <button class="cancelicon">X</button>
+        </div> -->
+        <div class="Change-info" id="getUserinfo">
+          <p><i class="fa-regular fa-user"></i></p>
+          <h1>Profile</h1>
+        </div>
+        <div class="Change-info">
+          <p><i class="fa-solid fa-arrow-right-from-bracket logout" title="Log out"></i></i></p>
+          <h1>Log out</h1>
+        </div>
 
+      </div>
       <div class="mt-24 body-contaienr">
         <div class="switchDiv">
           <div>
@@ -238,7 +252,7 @@
               </form>
 
             </div>
-            <h3>Let's Start With Some Good Habits</h3>
+            div<h3>Let's Start With Some Good Habits</h3>
             <div class="pre-define-todo">
               <div class="contents">
                 <div>
@@ -281,88 +295,133 @@
         </div>
       </form>
     </div>
-    <div class="single-input-form" id="single-form">
-      <form action="/store" method="post">
-        <div class="close-btn" id="singleCloseBtn">
-          <div>
-            <span>X</span>
-          </div>
-        </div>
-        <p>Pick Category</p>
-        <div class="Task_Type">
-          <div class="wrapper">
-            <input name="user_id" class="user_id" value="<?= $_SESSION['userid'] ?>" type="hidden">
 
-            <input type="radio" name="task_type" id="option-1" value="1" required class=".typeBtn" checked>
-            <input type="radio" name="task_type" id="option-2" value="2" required class=".typeBtn">
 
-            <label for="option-1" class="option option-1">
-              <div class="dot"></div>
-              <span>Professional</span>
-            </label>
-
-            <label for="option-2" class="option option-2">
-              <div class="dot"></div>
-              <span>Personal</span>
-            </label>
-          </div>
-        </div>
-        <div>
-          <div class="inputdiv">
+    <div class="Profile-container">
+      <div class="profile-div" id="User_details">
+     <div>
+        <div class="close-btn close-habit-div" id="close-profile-div">
+          <form action="/list" method="post">
             <div>
-              <label for="grid-first-name">
-                What is on your Task
+              <span>X</span>
+            </div>
+          </form>
+         
+
+        </div>
+        <h1>My Profile</h1>
+   
+ 
+        <div class="Profile-data">
+          <div class="Profile-img">
+            <div class="image"> <img src="/Images/profile1-removebg-preview.png" alt="">
+            </div>
+            <button clas\>Change profile</button>
+            <button>Remove profile</button>
+          </div>
+          <div class="data-input">
+            <div> <label for="">Name</label>
+              <input type="text" value="prasanth">
+            </div>
+            <div> <label for="">Email</label>
+              <input type="gmail" value="prasanthndckap@gmail.com">
+              <p>Change Email</p>
+            </div>
+            <div> <label for="">Password</label>
+              <input type="password" value="prasanthndckap@gmail.com">
+              <p>Change Password</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+      <div class="single-input-form" id="single-form">
+        <form action="/store" method="post">
+          <div class="close-btn" id="singleCloseBtn">
+            <div>
+              <span>X</span>
+            </div>
+          </div>
+          <p>Pick Category</p>
+          <div class="Task_Type">
+            <div class="wrapper">
+              <input name="user_id" class="user_id" value="<?= $_SESSION['userid'] ?>" type="hidden">
+
+              <input type="radio" name="task_type" id="option-1" value="1" required class=".typeBtn" checked>
+              <input type="radio" name="task_type" id="option-2" value="2" required class=".typeBtn">
+
+              <label for="option-1" class="option option-1">
+                <div class="dot"></div>
+                <span>Professional</span>
               </label>
-              <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-black focus:bg-white" id="grid-first-name" type="text" required placeholder="projectName" name="Task_name">
-            </div>
-            <div>
-              <label for="project" placeholder="Get Date/Time">What on your due?</label>
-              <input type="datetime-local" placeholder="Get Date/Time" required class="dateTime" value="" name="dateTime" />
-            </div>
-          </div>
-        </div>
-        <div class="matix">
-          <div class="urgentDiv">
-            <label for="project" style="padding-left: 30px;">Urgent</label>
-            <br>
-            <div>
-              <label for="css">Yes</label>
-              <input type="radio" class="urgent-priority-btn " required id="1" value="1" name="urgent">
-              <label for="css">No</label>
-              <input type="radio" class="urgent-priority-btn " required id="1" value="0" name="urgent">
+
+              <label for="option-2" class="option option-2">
+                <div class="dot"></div>
+                <span>Personal</span>
+              </label>
             </div>
           </div>
-          <div class="ImportantDiv">
-            <label for="project" style="padding-left: 15px;">Important</label>
-            <br>
-            <div>
-              <label for="css">Yes</label>
-              <input type="radio" class="important-priority-btn datas" id="1" required value="1" name="important">
-              <label for="css">No</label>
-              <input type="radio" class="important-priority-btn datas" required id="1" value="0" name="important">
+          <div>
+            <div class="inputdiv">
+              <div>
+                <label for="grid-first-name">
+                  What is on your Task
+                </label>
+                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-black focus:bg-white" id="grid-first-name" type="text" required placeholder="projectName" name="Task_name">
+              </div>
+              <div>
+                <label for="project" placeholder="Get Date/Time">What on your due?</label>
+                <input type="datetime-local" placeholder="Get Date/Time" required class="dateTime" value="" name="dateTime" />
+              </div>
             </div>
           </div>
-        </div>
-        <button type="submit" onclick="store()" class="submit-btn">Submit</button>
-      </form>
+          <div class="matix">
+            <div class="urgentDiv">
+              <label for="project" style="padding-left: 30px;">Urgent</label>
+              <br>
+              <div>
+                <label for="css">Yes</label>
+                <input type="radio" class="urgent-priority-btn " required id="1" value="1" name="urgent">
+                <label for="css">No</label>
+                <input type="radio" class="urgent-priority-btn " required id="1" value="0" name="urgent">
+              </div>
+            </div>
+            <div class="ImportantDiv">
+              <label for="project" style="padding-left: 15px;">Important</label>
+              <br>
+              <div>
+                <label for="css">Yes</label>
+                <input type="radio" class="important-priority-btn datas" id="1" required value="1" name="important">
+                <label for="css">No</label>
+                <input type="radio" class="important-priority-btn datas" required id="1" value="0" name="important">
+              </div>
+            </div>
+          </div>
+          <button type="submit" onclick="store()" class="submit-btn">Submit</button>
+        </form>
+      </div>
+      <!-- this is multiple-input-form  -->
+      <div class="multiple-input-form" id="multi-form">`
+        <form action="" method="post" class="multiple-form">
+          <div class="forms-inner-div">
+            <!-- multiple forms injected here  -->
+          </div>
+          <div class="addOneMoreTodo">
+            <span class="addDivBtn" onclick="AddOneMoreForm()">+</span>
+          </div>
+          <div class="multiForm-btn-div">
+            <!-- <button type="button" class="cancel-btn">Cancel</button> -->
+            <button type="button" class="submit-btn">Submit</button>
+          </div>
+        </form>
+      </div>
     </div>
-    <!-- this is multiple-input-form  -->
-    <div class="multiple-input-form" id="multi-form">`
-      <form action="" method="post" class="multiple-form">
-        <div class="forms-inner-div">
-          <!-- multiple forms injected here  -->
-        </div>
-        <div class="addOneMoreTodo">
-          <span class="addDivBtn" onclick="AddOneMoreForm()">+</span>
-        </div>
-        <div class="multiForm-btn-div">
-          <!-- <button type="button" class="cancel-btn">Cancel</button> -->
-          <button type="button" class="submit-btn">Submit</button>
-        </div>
-      </form>
-    </div>
-  </div>
-  <script src="../JS/listing.js"></script>
+    <script src="../JS/listing.js"></script>
 </body>
 
 </html>
