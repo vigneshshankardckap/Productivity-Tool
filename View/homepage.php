@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full">
 
 <head>
   <meta charset="UTF-8" />
@@ -12,7 +12,7 @@
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 </head>
 
-<body>
+<body class="h-full">
   <!-- this is the main container of the application -->
   <div class="main-container">
     <div class="inner-container">

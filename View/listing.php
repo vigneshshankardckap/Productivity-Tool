@@ -1,7 +1,7 @@
 <?php
 // var_dump($tasks); 
 ?>
-<!DOCTYPE html>
+<!DOCTYPE html class="h-full" >
 <html lang="en">
 
 <head>
@@ -14,7 +14,7 @@
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script> <!--Jquery link here-->
 </head>
 
-<body>
+<body class="h-full">
   <!-- this is the main container of the application -->
   <div class="main-container">
     <div class="inner-container">
@@ -84,22 +84,20 @@
           </div>
         </div>
         <div class="add-todo-btn-section">
-          <div class="add-todo-inner-section">
-            <div class="add-btn" title="Create your task here">
-              <i class="fa-sharp fa-light fa-plus fa-xl"></i>
-            </div>
-            <div class="input-type">
-              <div class="input-type-btn">
-                <img src="../Icons/single.png" class="type-btn" id="1">
-                <span class="typeName">Single</span>
+            <div class="add-todo-inner-section">
+              <div class="add-btn">
+                <i class="fa-sharp fa-light fa-plus fa-xl"></i>
               </div>
-              <div class="input-type-btn">
-                <img src="../Icons/multi.png" class="type-btn" id="2">
-                <span class="typeName">Multiple</span>
+              <div class="input-type">
+                <div class="input-type-btn">
+                  <img src="../Icons/single.png" class="type-btn" id="1" ><span class="typeName">Single</span>
+                </div>
+                <div class="input-type-btn">
+                <img src="../Icons/multi.png" class="type-btn" id="2" ><span class="typeName">Multiple</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
       </div>
       <!-- -----------Notification div -------------------- -->
       <div id="succcess">
