@@ -287,7 +287,7 @@ body {
 }
 
 .single-input-form {
-  /* display: none; */
+  display: none;
   position: fixed;
   height: 28rem;
   width: 35rem;
@@ -582,11 +582,15 @@ button {
   gap: 60px;
 }
 
-.task_type {
+.multi-task_type {
+  display: flex;
+  gap: 10px;
+  /* margin-left: 6rem; */
+  align-items: center;
   margin-top: var(--inputs-top-margin);
 }
 
-.task_type .typeBtn {
+.multi-task_type .typeBtn {
   cursor: pointer;
   height: 35px;
   width: 135px;
@@ -623,6 +627,7 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 10px;
 }
 
 .urgentDiv>div,

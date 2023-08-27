@@ -232,7 +232,7 @@ function AddOneMoreForm() {
     <div class="other-input-div">
       <div class="category-div">
         <label>Pick category</label>
-        <div class="task_type">
+        <div class="multi-task_type">
           <input type="button" class="typeBtn" name="1" value="Professional" id=${multiformCnt} />
           <input type="button" class="typeBtn" id=${multiformCnt} name="2" value="Personal" id="personal" />
         </div>
