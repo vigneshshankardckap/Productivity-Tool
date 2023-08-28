@@ -70,7 +70,7 @@ class UserModule extends Database
         $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
     
         //Recipients
-        $mail->setFrom('vigneshshankardckap@gmail.com', 'Welocome To the TODO');
+        $mail->setFrom('vigneshshankardckap@gmail.com', 'Welocome To the Productivity Tool');
         $mail->addAddress($email, 'HI');     //Add a recipient
         // $mail->addAddress('ellen@example.com');               //Name is optional
         // $mail->addReplyTo('info@example.com', 'Information');
@@ -85,9 +85,10 @@ class UserModule extends Database
     
         //Content
         $mail->isHTML(true);                          //Set email format to HTML
-        $mail->Subject = 'Thank you for Registration';
-        $mail->Body    = 'Welocome to the Productivity Tool By TODO Team';
-        // $mail->Body    = 'Welocome to the Productivity Tool By TODO Team';
+        $mail->Subject = 'Welcome to Productivity Tool-Your Journey Begins Here !';
+        $mail->Body    =' <p>Dear User,</p>
+        <p>At Productivity Tool, our mission is to  we are simplifying tasks based on urgent and important is helpful in planning our daily schedules.were here to make sure your experience is nothing short of amazing</p>
+        <img src="https://i.postimg.cc/Dykc03w5/Produtivity-Tool.png" width="800" height="400" alt=""> ';
         $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
     
         $mail->send();
