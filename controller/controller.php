@@ -176,8 +176,9 @@ class UserController
     }
     public function profileView()
     {
-        
-        $this->userModel->profileView();
+        $id = $_POST["id"];
+        // var_dump($id);
+        $this->userModel->profileView($id);
     }
     
 }

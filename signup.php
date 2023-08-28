@@ -30,11 +30,14 @@ if(isset($_GET["code"])){
         
         if($exits){
             $_SESSION["error"] = "already exits";
+            header("location:/LandingPage");
+
         }
         else{
-            var_dump("register succesfull");
+            // var_dump("register succesfull");
             $conn->query("INSERT INTO users(username,email_id)VALUES('$name','$email_id')");
-            header("location:/LandingPage");
+            $_SESSION['username'] = $name;
+            header("location:/list");
         }
 
     }

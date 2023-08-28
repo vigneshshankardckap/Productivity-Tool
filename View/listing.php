@@ -130,14 +130,14 @@
           <?php endforeach; ?>
         </form>
       </div>
-      <div class="taskDetailBox">
+      <div class="taskDetailBox" id="overAll">
         <main class="page-content">
           <div class="card-div">
             <h2 class="title">Do it now</h2>
             <div class="main-card">
               <div class="card-color"></div>
               <div class="card">
-                <div class="content1">
+                <div class="content1 search">
                   <!-- fetched tasks injected here -->
                 </div>
                 <div class="viewBtnDiv1">
@@ -153,7 +153,7 @@
             <div class="main-card">
               <div class="card-color"></div>
               <div class="card">
-                <div class="content2">
+                <div class="content2 search">
                   <!-- fetched tasks injected here -->
                 </div>
                 <div class="viewBtnDiv2">
@@ -169,7 +169,7 @@
             <div class="main-card">
               <div class="card-color"></div>
               <div class="card">
-                <div class="content3">
+                <div class="content3 search">
                   <!-- fetched tasks injected here -->
                 </div>
                 <div class="viewBtnDiv3">
@@ -185,7 +185,7 @@
             <div class="main-card">
               <div class="card-color"></div>
               <div class="card">
-                <div class="content4">
+                <div class="content4 search">
                   <!-- fetched tasks injected here -->
                 </div>
                 <div class="viewBtnDiv4">
@@ -309,8 +309,6 @@
                 <span>X</span>
               </div>
             </form>
-
-
           </div>
             <h1>My Profile</h1>
             <div class="Profile-data">

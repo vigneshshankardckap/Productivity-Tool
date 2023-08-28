@@ -60,8 +60,7 @@ $router->post('/permanentDel','permanentDel');
 
 $router->get('/fetch_proofession','fetch_proofession');
 
-
-
 $router->post('/updateTask','updateTask');
+$router->post('/profileView','profileView');
 
 $router->routing();

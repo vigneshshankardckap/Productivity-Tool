@@ -70,8 +70,8 @@ function createTasks(div, obj) {
       <div class="flex items-center gap-2	">
         <i class="fas fa-dot-circle" style="color: #99CC11; font-size: 20px; opacity: 90%;"></i>
         <div class="nameDateDiv">
-          <p class="copy text-start	w-60">${datum.task_name}</p>
-          <p class="date text-right	">${datum.dates} </p>
+          <p class="copy text-start	w-48">${datum.task_name}</p>
+          <p class="date text-right	">${datum.dates.slice(0, 16)} </p>
         </div>
       </div>`
 
@@ -232,7 +232,7 @@ function AddOneMoreForm() {
     <div class="other-input-div">
       <div class="category-div">
         <label>Pick category</label>
-        <div class="task_type">
+        <div class="multi-task_type">
           <input type="button" class="typeBtn" name="1" value="Professional" id=${multiformCnt} />
           <input type="button" class="typeBtn" id=${multiformCnt} name="2" value="Personal" id="personal" />
         </div>
@@ -287,6 +287,7 @@ function AddOneMoreForm() {
           getBtn[j].style.border = "";
         }
       }
+
       getBtns.style.backgroundColor = "#5fb32e";
       getBtns.style.color = "white ";
       getBtns.style.border = "none";
@@ -503,8 +504,7 @@ function datas(data, getType) {
                 </div>
                 <div class="make-changes">
                   <button id="editBtn" data-role="update" data-id="${element.id}"><i class="fa-solid fa-pen"></i></button>
-                <div> 
-                </div>
+                
                   <button class="add-comment-btn" data-id="${element.id}" title="Add Comment"><i class="fa-solid fa-comment"></i></button>
                   <button class="addedCommentIcn" data-id="${element.id}"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M21 6.49962C21 9.53698 18.5376 11.9992 15.5 11.9992C12.4624 11.9992 10 9.53698 10 6.49962C10 3.46227 12.4624 1 15.5 1C18.5376 1 21 3.46227 21 6.49962ZM16.5285 2.99986H15.0965C14.8881 2.99986 14.7015 3.12914 14.6283 3.32428L13.5033 6.32407C13.3808 6.65093 13.6224 6.99959 13.9715 6.99959H14.75L13.9773 9.31749C13.8655 9.65295 14.1152 9.99938 14.4688 9.99938C14.6442 9.99938 14.8077 9.91068 14.9032 9.76366L17.5283 5.72535C17.7314 5.4129 17.5072 4.99973 17.1345 4.99973H16.5L16.9967 3.67538C17.1192 3.34853 16.8776 2.99986 16.5285 2.99986ZM15.5 12.9992C17.2465 12.9992 18.8321 12.3104 20 11.1897V14.7491C20 16.5439 18.5449 17.9988 16.75 17.9988H10.9648L5.57814 21.8159C5.12752 22.1351 4.50337 22.0287 4.18407 21.5781C4.06432 21.4091 4 21.2071 4 21.0002L3.9992 17.9988H3.25C1.45507 17.9988 0 16.5439 0 14.7491V6.24964C0 4.45484 1.45507 2.99986 3.25 2.99986H10.0218C9.375 4.01009 9 5.21107 9 6.49962C9 10.0892 11.9101 12.9992 15.5 12.9992Z" fill="#5FB32E"/>
@@ -549,11 +549,9 @@ function datas(data, getType) {
                   </div>
                   <div class="make-changes">
                     <button id="editBtn" data-role="update" data-id="${element.id}"><i class="fa-solid fa-pen"></i></button>
-                  <div> 
-                  </div>
                     <button class="add-comment-btn" data-id="${element.id}" title="Add Comment"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M21 6.49962C21 9.53698 18.5376 11.9992 15.5 11.9992C12.4624 11.9992 10 9.53698 10 6.49962C10 3.46227 12.4624 1 15.5 1C18.5376 1 21 3.46227 21 6.49962ZM16.5285 2.99986H15.0965C14.8881 2.99986 14.7015 3.12914 14.6283 3.32428L13.5033 6.32407C13.3808 6.65093 13.6224 6.99959 13.9715 6.99959H14.75L13.9773 9.31749C13.8655 9.65295 14.1152 9.99938 14.4688 9.99938C14.6442 9.99938 14.8077 9.91068 14.9032 9.76366L17.5283 5.72535C17.7314 5.4129 17.5072 4.99973 17.1345 4.99973H16.5L16.9967 3.67538C17.1192 3.34853 16.8776 2.99986 16.5285 2.99986ZM15.5 12.9992C17.2465 12.9992 18.8321 12.3104 20 11.1897V14.7491C20 16.5439 18.5449 17.9988 16.75 17.9988H10.9648L5.57814 21.8159C5.12752 22.1351 4.50337 22.0287 4.18407 21.5781C4.06432 21.4091 4 21.2071 4 21.0002L3.9992 17.9988H3.25C1.45507 17.9988 0 16.5439 0 14.7491V6.24964C0 4.45484 1.45507 2.99986 3.25 2.99986H10.0218C9.375 4.01009 9 5.21107 9 6.49962C9 10.0892 11.9101 12.9992 15.5 12.9992Z" fill="#5FB32E"/>
-                <circle cx="16" cy="6" r="6" fill="#FF0000"/></svg></i></button>
+                    <path d="M21 6.49962C21 9.53698 18.5376 11.9992 15.5 11.9992C12.4624 11.9992 10 9.53698 10 6.49962C10 3.46227 12.4624 1 15.5 1C18.5376 1 21 3.46227 21 6.49962ZM16.5285 2.99986H15.0965C14.8881 2.99986 14.7015 3.12914 14.6283 3.32428L13.5033 6.32407C13.3808 6.65093 13.6224 6.99959 13.9715 6.99959H14.75L13.9773 9.31749C13.8655 9.65295 14.1152 9.99938 14.4688 9.99938C14.6442 9.99938 14.8077 9.91068 14.9032 9.76366L17.5283 5.72535C17.7314 5.4129 17.5072 4.99973 17.1345 4.99973H16.5L16.9967 3.67538C17.1192 3.34853 16.8776 2.99986 16.5285 2.99986ZM15.5 12.9992C17.2465 12.9992 18.8321 12.3104 20 11.1897V14.7491C20 16.5439 18.5449 17.9988 16.75 17.9988H10.9648L5.57814 21.8159C5.12752 22.1351 4.50337 22.0287 4.18407 21.5781C4.06432 21.4091 4 21.2071 4 21.0002L3.9992 17.9988H3.25C1.45507 17.9988 0 16.5439 0 14.7491V6.24964C0 4.45484 1.45507 2.99986 3.25 2.99986H10.0218C9.375 4.01009 9 5.21107 9 6.49962C9 10.0892 11.9101 12.9992 15.5 12.9992Z" fill="#5FB32E"/>
+                    <circle cx="16" cy="6" r="6" fill="#FF0000"/></svg></i></button>
                   </div>
                 </div>
               </div>
@@ -568,24 +566,18 @@ function datas(data, getType) {
     let anotherTask = data.map((element) => {
       return `
       <div class="tasks-lists my-1	h-14	py-3 px-data.length > 01.5	cursor-pointer flex gap-8 pb-5 rounded">
-      <div class="task-inner-div">
+      <div class="completed-task-inner-div">
         <div class="task-info " id="rowdiv" >
           <input type="hidden" id="rowid" value="">
           <div class="list-name">
-            <h5>
-             <p class="user-content">${element.task_name}</p>
-            </h5>
+             <p class="user-content w-56">${element.task_name}</p>
           </div>
         </div>
         <div class="text-base  leading-6 text-gray-900 no-underline " id="modal-title">
-          <p id="due-date">${element.dates}</p>
+          <p id="due-date w-3" style="color:#5fb32e">${element.dates}</p>
         </div>
-        <div class="second-div">
-          <div class="text-base leading-6 text-gray-900 no-underline model-title " id="modal-title">
-          </div>
-          <div class="text-base leading-6 text-gray-900 no-underline " id="modal-title" >
-            <button type="button" id="btnDelete" data-id="${element.id}"><i class="fa-regular fa-trash-can"></i></button>
-          </div>
+        <div class="text-base leading-6 text-gray-900 no-underline " id="modal-title w-56" >
+          <button type="button" id="btnDelete" data-id="${element.id}"><i class="fa-regular fa-trash-can" style="color:#5fb32e"></i></button>
         </div>
       </div>
     </div>
@@ -668,7 +660,7 @@ function datas(data, getType) {
   let addedCommentIcon = document.querySelectorAll(".addedCommentIcon")
   let nfetchedComment = document.querySelectorAll(".nfetchedComment")
   let addedCommentIcn = document.querySelectorAll(".addedCommentIcn")
- 
+
 
   for (let a = 0; a < cmtBtn.length; a++) {
     const element = cmtBtn[a];
@@ -766,7 +758,7 @@ function datas(data, getType) {
   }
 
 
-  
+
 
 }
 
@@ -847,7 +839,7 @@ function EditFilling(EditTask_Responce) {
                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="editDate" type="date" name=editTaskdate placeholder="Date" value=${editContent.dates} >
         </div>
-        <div class="flex items-center justify-between">
+        <div class="flex items-center justify-center">
         <button
             class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="button"  id="updateTask" data-id=${editContent.id}>
@@ -1043,9 +1035,9 @@ $(document).on("click", "#btnDelete", function (e) {
     data: { id: taskid },
     type: "POST",
     success: function (response) {
-     
+
       btnDelete.parentElement.remove()
- 
+
 
 
     }
@@ -1059,34 +1051,42 @@ let profile = document.querySelector("#profile");
 let view_profile = document.querySelector("#view-profile");
 let getUserinfo = document.querySelector("#getUserinfo")
 
-let User_detailsdiv = document.querySelector("#User_details"); 
+let User_detailsdiv = document.querySelector("#User_details");
 let closeProfileDiv = document.querySelector("#close-profile-div")
 // console.log(closeProfileDiv);
 
 
- function OpenProfile(){
+function OpenProfile() {
+  $(".black-screen").show();
   view_profile.classList.toggle("viewProfile");
- }
- $(document).mouseup(function () {
+}
+$(document).mouseup(function () {
   if (view_profile.classList.contains("viewProfile")) {
+  $(".black-screen").hide();
     view_profile.classList.remove("viewProfile");
   }
 });
 
 
-getUserinfo.addEventListener("click",(e)=>{
+getUserinfo.addEventListener("click", (e) => {
+  $(".black-screen").show();
   User_detailsdiv.classList.toggle("showuserdata");
 })
 
 
-closeProfileDiv.addEventListener("click",()=>{
+closeProfileDiv.addEventListener("click", () => {
+  $(".black-screen").hide();
   User_detailsdiv.classList.remove("showuserdata");
 })
 // ===========================================profile page===========================================================
 
+
 let profileView=document.querySelector(".profileId");
+// console.log(profileView);
+
 $(document).on("click", '.profileId', function (e) {
-  let id = $(this).data('id')
+  let id = e.target.id
+  // console.log(id);
   $.ajax({
     url: "/profileView",
     data: {
@@ -1094,9 +1094,26 @@ $(document).on("click", '.profileId', function (e) {
     },
     type: "POST",
     success: function (response) {
-      // let EditTask_Responce = JSON.parse(response);
-      // EditFilling(EditTask_Responce)
-
-    }
+      
+;    }
   })
 })
+
+// search input functionality///////////////////////////////////////////
+
+const searchInput = $("#default-search");
+
+const content = document.querySelectorAll(".search")
+
+$("#default-search").on("keyup",(e)=>{
+  let searchValue = e.target.value.toLowerCase().trim();
+  content.forEach(ele=>{
+     if(ele.innerText.toLowerCase().indexOf(searchValue) != -1){
+       ele.style.display = "block"
+     }else{
+      ele.style.display = "none"
+     }
+  })
+})
+
+// =========================================================================
