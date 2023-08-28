@@ -309,17 +309,6 @@
          
 
         </div>
-        <h1>My Profile</h1>
-   
- 
-        <div class="Profile-data">
-          <div class="Profile-img">
-            <div class="image"> <img src="/Images/profile1-removebg-preview.png" alt="">
-            </div>
-            <button>Change profile</button>
-            <!-- <input type="file"> -->
-            <button>Remove profile</button>
-          </div>
           <h1>My Profile</h1>
           <div class="Profile-data">
             <div class="Profile-img">

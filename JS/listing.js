@@ -287,6 +287,7 @@ function AddOneMoreForm() {
           getBtn[j].style.border = "";
         }
       }
+
       getBtns.style.backgroundColor = "#5fb32e";
       getBtns.style.color = "white ";
       getBtns.style.border = "none";
@@ -1084,9 +1085,12 @@ closeProfileDiv.addEventListener("click",()=>{
 })
 // ===========================================profile page===========================================================
 
+
 let profileView=document.querySelector(".profileId");
+// console.log(profileView);
 $(document).on("click", '.profileId', function (e) {
-  let id = $(this).data('id')
+  let id = e.target.id
+  // console.log(id);
   $.ajax({
     url: "/profileView",
     data: {
@@ -1094,9 +1098,7 @@ $(document).on("click", '.profileId', function (e) {
     },
     type: "POST",
     success: function (response) {
-      // let EditTask_Responce = JSON.parse(response);
-      // EditFilling(EditTask_Responce)
-
-    }
+      
+;    }
   })
 })
