@@ -66,14 +66,14 @@
         </div> -->
         <div class="Change-info" id="getUserinfo">
           <p><i class="fa-regular fa-user"></i></p>
-          <h1 id="<?php echo  $_SESSION['userid'];  ?>" class="profileId" >Profile</h1>
+          <h1 id="<?php echo  $_SESSION['userid'];  ?>" class="profileId">Profile</h1>
         </div>
         <a href="/logout">
-        <div class="Change-info">
-         
-          <p><i class="fa-solid fa-arrow-right-from-bracket logout" title="Log out"></i></i></p>
-          <h1>Log out</h1>
-        </div>
+          <div class="Change-info">
+
+            <p><i class="fa-solid fa-arrow-right-from-bracket logout" title="Log out"></i></i></p>
+            <h1>Log out</h1>
+          </div>
         </a>
 
       </div>
@@ -296,29 +296,16 @@
         </div>
       </form>
     </div>
-    
+
     <div class="Profile-container">
       <div class="profile-div" id="User_details">
-     <div>
-        <div class="close-btn close-habit-div" id="close-profile-div">
-          <form action="/list" method="post">
-            <div>
-              <span>X</span>
-            </div>
-          </form>
-         
-
-        </div>
-        <h1>My Profile</h1>
-   
- 
-        <div class="Profile-data">
-          <div class="Profile-img">
-            <div class="image"> <img src="/Images/profile1-removebg-preview.png" alt="">
-            </div>
-            <button>Change profile</button>
-            <!-- <input type="file"> -->
-            <button>Remove profile</button>
+        <div>
+          <div class="close-btn close-habit-div" id="close-profile-div">
+            <form action="/list" method="post">
+              <div>
+                <span>X</span>
+              </div>
+            </form>
           </div>
           <h1>My Profile</h1>
           <div class="Profile-data">
