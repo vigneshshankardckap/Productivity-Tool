@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
+  <title>welcome page</title>
   <link rel="stylesheet" href="../CSS/homepage.css" />
   <script src="https://kit.fontawesome.com/52d2b40c3f.js" crossorigin="anonymous"></script>
   <script src="https://cdn.tailwindcss.com"></script>
@@ -42,9 +42,6 @@
           <ul class="icons">
             <li class="right-icon">
               <i class="fa-regular fa-bell notification" title="Notification" onclick="openNotofy()"></i>
-            </li>
-            <li class="right-icon">
-              <i class="fa-solid fa-pen-to-square Habits-icon" title="Daily Habits"></i>
             </li>
             <li class="right-icon">
               <i class="fa-regular fa-moon theme-btn" title="Dark Mode"></i>
@@ -193,7 +190,7 @@
         <div>
           <div class="inputdiv">
             <div>
-              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+              <label class="block  tracking-wide text-gray" for="grid-first-name">
                 What is on your Task
               </label>
               <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-black focus:bg-white" id="grid-first-name" type="text" required placeholder="projectName" name="Task_name">
@@ -206,19 +203,24 @@
         </div>
         <div class="matix">
           <div class="urgentDiv">
-            <label for="project">Urgent</label>
+            <label for="project" style="padding-left: 15px">Urgent</label>
             <br>
-            <label for="css">Yes</label>
+            <div><label for="css">Yes</label>
             <input type="radio" class="urgent-priority-btn data" required id="1" value="1" name="urgent">
             <label for="css">No</label>
             <input type="radio" class="urgent-priority-btn data" id="2" required value="0" name="urgent">
           </div>
+          </div>
+          
           <div class="ImportantDiv">
-            <label for="project">Important</label><br>
+ 
+            <label for="project" style="padding-left: 15px" >Important</label><br>
+            <div>
             <label for="css">Yes</label>
             <input type="radio" class="important-priority-btn datas" required id="1" value="1" name="important">
             <label for="css">No</label>
             <input type="radio" class="important-priority-btn datas" id="2" required value="0" name="important">
+         </div>
           </div>
         </div>
         <button type="submit" onclick="store()" class="submit-btn">Submit</button>

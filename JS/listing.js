@@ -1089,17 +1089,63 @@ let profileView = document.querySelector(".profileId");
 // console.log(profileView);
 
 $(document).on("click", '.profileId', function (e) {
-  let id = e.target.id
-  // console.log(id);
+  let id = e.target.id;
+
   $.ajax({
     url: "/profileView",
     data: {
       id: id,
     },
     type: "POST",
-    success: function (response) {
-
-      ;
+    success: function (response) 
+      let datas = JSON.parse(response)
+         profilePage(datas) 
     }
+        })
+})
+
+function profilePage(datas){
+let inputdiv=document.querySelector('.inputs')
+
+  datas.forEach(profile => {
+
+    console.log(profile);
+
+    let Html=`<div class="data-input">
+    <div> <label for="">Name</label>
+      <input type="text" readOnly value="${profile.username}">
+    </div>
+    <div> <label for="">Email</label>
+      <input type="gmail" value="${profile.email_id}">
+      <p>Change Email</p>
+    </div>
+    <div> <label for="">Password</label>
+      <input type="password" value="${profile.password}">
+      <p>Change Password</p>
+    </div>
+  </div>`
+
+  inputdiv.innerHTML=Html;
+  })
+
+})
+
+// search input functionality///////////////////////////////////////////
+
+const searchInput = $("#default-search");
+
+const content = document.querySelectorAll(".search")
+
+$("#default-search").on("keyup",(e)=>{
+  let searchValue = e.target.value.toLowerCase().trim();
+  content.forEach(ele=>{
+     if(ele.innerText.toLowerCase().indexOf(searchValue) != -1){
+       ele.style.display = "block"
+     }else{
+      ele.style.display = "none"
+     }
   })
 })
+
+// =========================================================================
+

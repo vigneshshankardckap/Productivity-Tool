@@ -134,6 +134,8 @@ body {
   justify-content: center;
   font-size: 22px;
   font-weight: 400;
+  color: var(--font-color);
+
 }
 
 .left-section span {
@@ -317,18 +319,17 @@ body {
 
 /* ---------close button for form---------------- */
 .close-btn {
-  cursor: pointer;
-  color: var(--close-btn-color);
-  height: 30px;
-  width: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid var(--close-btn-border-color);
-  margin-left: 506px;
-  font-weight: bold;
-  border-radius: 0px 6px 0px 10px;
-
+    cursor: pointer;
+    color: var(--close-btn-color);
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--close-btn-border-color);
+    margin-left: 506px;
+    font-weight: bold;
+    border-radius: 0px 6px 0px 10px;
 }
 
 .close-habit-div {

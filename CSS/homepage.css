@@ -358,33 +358,35 @@ body {
   border-radius: var(--single-border-radius);
   top: 12%;
   right: 29%;
-  padding: 5px 24px;
+  padding: 0px 24px;
   box-shadow: #00000029 0px 10px 36px 0px, #0000000f 0px 0px 0px 1px;
 }
 
 .single-input-form p {
-  padding-left: 120px;
-  color: var(--font-color);
-  font-weight: bold;
+
+  font-weight: 500;
+  text-align: center;
 }
+
 
 .single-input-form label {
   color: var(--font-color);
-  font-weight: 600;
+  font-weight: 500;
 }
 
 /* ---------close button for form---------------- */
 .close-btn {
-  cursor: pointer;
-  color: var(--primary-color);
-  height: 30px;
-  width: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid var(--primary-color);
-  margin-left: 496px;
-  font-weight: bold;
+    cursor: pointer;
+    color: var(--close-btn-color);
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--close-btn-border-color);
+    margin-left: 506px;
+    font-weight: bold;
+    border-radius: 0px 6px 0px 10px;
 }
 
 .close-btn:hover {
@@ -436,14 +438,13 @@ body {
 
 .inputdiv input {
   height: 35px;
-  width: 275px;
+  width: 305px;
   border: 1px solid var(--primary-color);
   border-radius: var(--single-border-radius);
   background-color: var(--input-background-color);
   columns: var(--font-color);
   padding: 0px 10px;
 }
-
 
 .dateTime {
   cursor: pointer;
@@ -452,11 +453,10 @@ body {
 /* ------------below style is for priority buttons-------------- */
 .matix {
   display: flex;
-  padding: 24 px 0px 0px 120px;
-  gap: 35px;
-  padding: 25px 0px 0px 120px;
+  gap: 60px;
+  margin-left: 120px;
+  margin-top: 25px;
 }
-
 .matix div input {
   height: 20px;
   width: 38px;
@@ -464,12 +464,14 @@ body {
   border: 1px solid var(--primary-color);
   background-color: var(--input-background-color);
   font-size: 15px;
-  margin: 5px 5px 0px 0px;
+  margin: 0px 0px 0px 0px;
   font-weight: 500;
   color: #656664;
   cursor: pointer;
   transition: 0.3s;
 }
+
+
 
 .matix div input:hover {
   background-color: var(--focus-color);
@@ -506,25 +508,22 @@ button {
 
 .wrapper {
   display: inline-flex;
-  height: 70px;
   align-items: center;
   justify-content: space-evenly;
   border-radius: 5px;
-  padding: 15px 15px;
+  padding: 25px 0px 15px 20px;
 }
 
 .wrapper .option {
   background: #fff;
-  height: 100%;
-  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   margin: 0 10px;
   border-radius: 5px;
   cursor: pointer;
-  padding: 0 10px;
-  border: 2px solid lightgrey;
+  width: 140px;
+  border: 1px solid var(--primary-color);
   transition: all 0.3s ease;
 }
 
@@ -575,6 +574,7 @@ button {
   --multi-border-radius: 7px;
   --inputs-top-margin: 15px;
 }
+
 
 .main-div-closeBtn {
   cursor: pointer;
@@ -716,6 +716,11 @@ button {
   margin-top: var(--inputs-top-margin);
 }
 
+.urgentDiv>div, .ImportantDiv>div {
+  display: flex;
+  align-items: center;
+  padding: 5px 0px;
+}
 /* ------------multi form submit button styling--------- */
 .multiForm-btn-div {
   display: flex;
