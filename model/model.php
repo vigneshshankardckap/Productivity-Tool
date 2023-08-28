@@ -305,8 +305,9 @@ class UserModule extends Database
         header("location:/list");
     }
 
-    public function  profileView() 
+    public function  profileView($id) 
      {
-        
+        $pro = $this->db->query("SELECT * FROM users WHERE id = '$id'")->fetchAll();
+        echo json_encode($pro);        
     }
 }
