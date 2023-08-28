@@ -1125,7 +1125,7 @@ let inputdiv=document.querySelector('.inputs')
 
   })
 
-})
+}
 
 // search input functionality///////////////////////////////////////////
 
