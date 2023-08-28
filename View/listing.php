@@ -310,27 +310,15 @@
               </div>
             </form>
           </div>
-            <h1>My Profile</h1>
-            <div class="Profile-data">
-              <div class="Profile-img">
-                <div class="image"> <img src="/Images/profile1-removebg-preview.png" alt="">
-                </div>
-                <button clas\>Change profile</button>
-                <button>Remove profile</button>
+          <h1>My Profile</h1>
+          <div class="Profile-data">
+            <div class="Profile-img">
+              <div class="image"> <img src="/Images/profile1-removebg-preview.png" alt="">
               </div>
-              <div class="data-input">
-                <div> <label for="">Name</label>
-                  <input type="text" value="prasanth">
-                </div>
-                <div> <label for="">Email</label>
-                  <input type="gmail" value="prasanthndckap@gmail.com">
-                  <p>Change Email</p>
-                </div>
-                <div> <label for="">Password</label>
-                  <input type="password" value="prasanthndckap@gmail.com">
-                  <p>Change Password</p>
-                </div>
-              </div>
+              <button clas>Change profile</button>
+              <button>Remove profile</button>
+            </div>
+            <div class="inputs">
             </div>
           </div>
         </div>
