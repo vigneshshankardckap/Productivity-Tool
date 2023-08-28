@@ -1128,7 +1128,7 @@ let inputdiv=document.querySelector('.inputs')
   inputdiv.innerHTML=Html;
   })
 
-})
+}
 
 // search input functionality///////////////////////////////////////////
 
