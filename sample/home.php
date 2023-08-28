@@ -9,7 +9,7 @@
     <title>Home</title>
   </head>
   <body>
-    <h1>Login Successfully. Welcome <?php echo $_SESSION["name"]; ?></h1>
+    <h1>Login Successfully. Welcome <?php echo $_SESSION["username"]; ?></h1>
     <img src="<?php echo $_SESSION["picture"] ?>" alt="photo">
     <a href='logout.php'>Logout</a>
   </body>

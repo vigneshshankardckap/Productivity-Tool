@@ -1125,5 +1125,24 @@ let inputdiv=document.querySelector('.inputs')
 
   })
 
+})
 
-}
+// search input functionality///////////////////////////////////////////
+
+const searchInput = $("#default-search");
+
+const content = document.querySelectorAll(".search")
+
+$("#default-search").on("keyup",(e)=>{
+  let searchValue = e.target.value.toLowerCase().trim();
+  content.forEach(ele=>{
+     if(ele.innerText.toLowerCase().indexOf(searchValue) != -1){
+       ele.style.display = "block"
+     }else{
+      ele.style.display = "none"
+     }
+  })
+})
+
+// =========================================================================
+
