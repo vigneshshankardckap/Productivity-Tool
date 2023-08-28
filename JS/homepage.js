@@ -335,3 +335,35 @@ $(function () {
 // var succcess = $("#succcess")
 
 
+// =================== profile information div
+let profile = document.querySelector("#profile");
+let view_profile = document.querySelector("#view-profile");
+let getUserinfo = document.querySelector("#getUserinfo")
+
+let User_detailsdiv = document.querySelector("#User_details");
+let closeProfileDiv = document.querySelector("#close-profile-div")
+// console.log(closeProfileDiv);
+
+
+function OpenProfile() {
+  $(".black-screen").show();
+  view_profile.classList.toggle("viewProfile");
+}
+$(document).mouseup(function () {
+  if (view_profile.classList.contains("viewProfile")) {
+  $(".black-screen").hide();
+    view_profile.classList.remove("viewProfile");
+  }
+});
+
+
+getUserinfo.addEventListener("click", (e) => {
+  $(".black-screen").show();
+  User_detailsdiv.classList.toggle("showuserdata");
+})
+
+
+closeProfileDiv.addEventListener("click", () => {
+  $(".black-screen").hide();
+  User_detailsdiv.classList.remove("showuserdata");
+})
