@@ -287,7 +287,7 @@ body {
 }
 
 .single-input-form {
-  /* display: none; */
+  display: none;
   position: fixed;
   height: 28rem;
   width: 35rem;
@@ -582,11 +582,15 @@ button {
   gap: 60px;
 }
 
-.task_type {
+.multi-task_type {
+  display: flex;
+  gap: 10px;
+  /* margin-left: 6rem; */
+  align-items: center;
   margin-top: var(--inputs-top-margin);
 }
 
-.task_type .typeBtn {
+.multi-task_type .typeBtn {
   cursor: pointer;
   height: 35px;
   width: 135px;
@@ -623,6 +627,7 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 10px;
 }
 
 .urgentDiv>div,
@@ -891,10 +896,17 @@ button.removetask {
 .task-inner-div {
   display: flex;
   align-items: center;
-  gap: 12rem;
-  width: 45rem;
-  padding: 15px 0px;
+  gap: 1rem;
+  /* width: 45rem; */
+  padding: 15px 0px 15px 125px;
 
+}
+
+.completed-task-inner-div{
+  display: flex;
+  align-items: center;
+  gap: 11rem;
+  padding: 15px 230px 15px 20px;
 }
 
 .tasks-lists:hover {
@@ -904,8 +916,8 @@ button.removetask {
 .second-div {
   display: flex;
   align-items: center;
-  gap: 60px;
-  padding: 15px 0px;
+  gap: 8px;
+  padding: 15px 30px;
 }
 
 .list-name h5 {
@@ -1233,8 +1245,8 @@ button.UncompletedBtn:hover {
   height: 275px;
   background-color: var(--thresary-color);
   border-radius: var(--single-border-radius);
-  right: 31rem;
-  top: 206px;
+  right: 36%;
+  top: 30%;
   padding: 0px 24px;
   box-shadow: #00000029 0px 10px 36px 0px, #0000000f 0px 0px 0px 1px;
 }
@@ -1296,7 +1308,7 @@ button.UncompletedBtn:hover {
   display: flex;
   flex-direction: column;
   background-color: var(--thresary-color);
-  height: 570px;
+  height: 489px;  
   width: 867px;
   border-radius: 10px;
   box-shadow: #63636333 0px 2px 8px 0px;
@@ -1307,9 +1319,9 @@ button.UncompletedBtn:hover {
 }
 
 .profile-div {
-  position: absolute;
-  top: 4rem;
-  right: 15rem;
+  position: fixed;
+  top: 23%;
+  right: 18%;
   display: none;
 }
 .profile-div h1 {
