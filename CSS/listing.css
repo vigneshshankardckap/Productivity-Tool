@@ -75,7 +75,11 @@ body {
   left: 0;
 }
 
+.hiIcon{
+  font-size: 22px;
+  transform: scale(-1, 1); color:green; 
 
+}
 /* -----------home page right side element styling----------------- */
 
 .right-section {
@@ -1314,19 +1318,15 @@ button.UncompletedBtn:hover {
   box-shadow: #63636333 0px 2px 8px 0px;
 }
 
-.profile-div h1 {
-  align-items: center;
-}
-
 .profile-div {
   position: fixed;
-  top: 23%;
+  top: 22%;
   right: 18%;
   display: none;
 }
 .profile-div h1 {
-  margin: -27px 0px 0px 350px;
   font-size: 24px;
+  text-align: center;
 }
 .Profile-img {
   display: flex;
@@ -1346,7 +1346,10 @@ button.UncompletedBtn:hover {
 }
 
 .Profile-data {
-  padding: 26px 0px 0px 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .data-input div {

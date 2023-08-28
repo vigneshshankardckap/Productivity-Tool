@@ -179,7 +179,7 @@ class UserModule extends Database
     {
         
         $userId = intval($_SESSION['userid']);
-
+        // echo $userId;
       $profissional = $this->db->query("SELECT * FROM tasks WHERE category_id = '1' AND user_id = '$userId' AND completed_at is null and deleted_at is null")->fetchAll();
     
       echo json_encode($profissional);

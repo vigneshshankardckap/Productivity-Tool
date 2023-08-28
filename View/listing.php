@@ -9,6 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Listing page</title>
   <link rel="stylesheet" href="../CSS/listing.css" /> <!--stylesheet link here -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" /> <!--google icons link -->
   <script src="https://kit.fontawesome.com/52d2b40c3f.js" crossorigin="anonymous"></script> <!--fontawesome link here-->
   <script src="https://cdn.tailwindcss.com"></script> <!--Tailwind link here-->
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script> <!--Jquery link here-->
@@ -23,7 +24,7 @@
           <img src="../Images/logo.png">
           <h1>What's Up
             <span class="username">
-              <?php echo $_SESSION['username']; ?>...
+              <?php echo $_SESSION['username']; ?> <b class="hiIcon">👋</b>
             </span>
           </h1>
         </div>
@@ -43,35 +44,36 @@
           <!-- ---- -->
           <ul class="icons">
             <li class="right-icon">
-              <i class="fa-regular fa-bell notification" title="Notification" onclick="openNotofy()"></i>
+              <span class="material-symbols-outlined" title="Notification" onclick="openNotofy()">notifications</span>
             </li>
             <li class="right-icon">
-              <i class="fa-solid fa-pen-to-square Habits-icon" title="Daily Habits"></i>
+              <span class="material-symbols-outlined Habits-icon" title="Daily Habits">body_system</span>
             </li>
             <li class="right-icon">
-              <i class="fa-regular fa-moon theme-btn" title="Dark Mode"></i>
+              <span class="material-symbols-outlined theme-btn" title="Dark mode">dark_mode</span>
             </li>
             <li class="right-icon">
-              <!-- <a href="/logout">
-                <i class="fa-solid fa-arrow-right-from-bracket logout" title="Log out"></i>
-              </a> -->
-              <i class="fa-regular fa-user" title="Profile" id="profile" onclick="OpenProfile()"></i>
+              <span class="material-symbols-outlined" title="Profile" id="profile" onclick="OpenProfile()">account_circle</span>
             </li>
           </ul>
         </div>
       </nav>
       <div class="settings" id="view-profile">
-        <!-- <div>
-          <button class="cancelicon">X</button>
-        </div> -->
         <div class="Change-info" id="getUserinfo">
-          <p><i class="fa-regular fa-user"></i></p>
+          <p>
+            <span class="material-symbols-outlined" title="Profile">
+              person
+            </span>
+          </p>
           <h1 id="<?php echo  $_SESSION['userid'];  ?>" class="profileId">Profile</h1>
         </div>
         <a href="/logout">
           <div class="Change-info">
-
-            <p><i class="fa-solid fa-arrow-right-from-bracket logout" title="Log out"></i></i></p>
+            <p>
+              <span class="material-symbols-outlined" title="Log out">
+                logout
+              </span>
+            </p>
             <h1>Log out</h1>
           </div>
         </a>
@@ -89,7 +91,9 @@
         <div class="add-todo-btn-section">
           <div class="add-todo-inner-section">
             <div class="add-btn">
-              <i class="fa-sharp fa-light fa-plus fa-xl"></i>
+              <span class="material-symbols-outlined">
+                add
+              </span>
             </div>
             <div class="input-type">
               <div class="input-type-btn" id="1">
@@ -139,7 +143,8 @@
                 </div>
                 <div class="viewBtnDiv1">
                   <div class="showMoreBtn" id="1">
-                    <i class="fa-solid fa-circle-chevron-down" title="View All" style="color: #5fb32e; font-size: 24px; " id="getid" name="matrixId" data-id="<?php echo "1" ?>"></i>
+                    <i class="material-symbols-outlined" title="View All" style="color: #5fb32e; font-size: 32px; " id="getid" name="matrixId" data-id="<?php echo "1" ?>">arrow_drop_down_circle</i>
+                    <!-- <span class="material-symbols-outlined">arrow_drop_down_circle</span> -->
                   </div>
                 </div>
               </div>
@@ -155,7 +160,7 @@
                 </div>
                 <div class="viewBtnDiv2">
                   <div class="showMoreBtn" id="2">
-                    <i class="fa-solid fa-circle-chevron-down" title="View All" style="color: #5fb32e; font-size: 24px;" id="getid" name="matrixId" data-id="<?php echo "2" ?>"></i>
+                    <i class="material-symbols-outlined" title="View All" style="color: #5fb32e; font-size: 32px;" id="getid" name="matrixId" data-id="<?php echo "2" ?>">arrow_drop_down_circle</i>
                   </div>
                 </div>
               </div>
@@ -171,7 +176,7 @@
                 </div>
                 <div class="viewBtnDiv3">
                   <div class="showMoreBtn" id="3">
-                    <i class="fa-solid fa-circle-chevron-down" title="View All" style="color: #5fb32e; font-size: 24px;" id="getid" name="matrixId" data-id="<?php echo "3" ?>"> </i>
+                    <i class="material-symbols-outlined" title="View All" style="color: #5fb32e; font-size: 32px;" id="getid" name="matrixId" data-id="<?php echo "3" ?>">arrow_drop_down_circle</i>
                   </div>
                 </div>
               </div>
@@ -187,7 +192,7 @@
                 </div>
                 <div class="viewBtnDiv4">
                   <div class="showMoreBtn" id="4">
-                    <i class="fa-solid fa-circle-chevron-down" title="View All" style="color: #5fb32e; font-size: 24px; " id="getid" name="matrixId" data-id="<?php echo "4" ?>"> </i>
+                    <i class="material-symbols-outlined" title="View All" style="color: #5fb32e; font-size: 32px; " id="getid" name="matrixId" data-id="<?php echo "4" ?>">arrow_drop_down_circle</i>
                   </div>
                 </div>
               </div>
@@ -312,8 +317,6 @@
             <div class="Profile-img">
               <div class="image"> <img src="/Images/profile1-removebg-preview.png" alt="">
               </div>
-              <button clas\>Change profile</button>
-              <button>Remove profile</button>
             </div>
             <div class="data-input">
               <div> <label for="">Name</label>

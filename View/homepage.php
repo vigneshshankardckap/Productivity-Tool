@@ -21,7 +21,7 @@
           <img src="../Images/logo.png">
           <h1>What's Up
             <span class="username">
-              <?php echo $_SESSION['username']; ?>...
+              <?php echo $_SESSION['username']; ?> 👋
             </span>
           </h1>
         </div>
@@ -50,9 +50,6 @@
               <i class="fa-regular fa-moon theme-btn" title="Dark Mode"></i>
             </li>
             <li class="right-icon">
-              <!-- <a href="/logout">
-                <i class="fa-solid fa-arrow-right-from-bracket logout" title="Log out"></i>
-              </a> -->
               <i class="fa-regular fa-user" title="Profile" id="profile" onclick="OpenProfile()"></i>
             </li>
           </ul>
