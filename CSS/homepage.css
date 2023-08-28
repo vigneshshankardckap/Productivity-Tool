@@ -384,7 +384,7 @@ body {
     justify-content: center;
     align-items: center;
     border: 1px solid var(--close-btn-border-color);
-    margin-left: 506px;
+    margin-left: 507px;
     font-weight: bold;
     border-radius: 0px 6px 0px 10px;
 }
@@ -888,3 +888,124 @@ button.removetask {
   display: none;
   pointer-events: none;
 }
+
+
+
+
+
+
+
+/* ========================= profile infomation styles ============ */
+/* .User_profile {
+  width: 35px;
+  border-radius: 100px;
+
+  border: 2px solid black;
+}
+.User_profile>img{
+  width: 35px;
+  border-radius: 100px;
+  border: 2px solid black;
+} */
+
+.settings {
+  position: absolute;
+  display: none;
+  background-color: var(--input-type-hover);
+  border-radius: 5px;
+  width: 250px;
+  min-height: 108px;
+  padding: 20px 0px 9px 12px;
+  left: 1100px;
+  top: 14px;
+  bottom: 565px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+div#close-profile-div {
+  margin-left: 837px;
+}
+.Change-info {
+  display: flex;
+  background-color: #F5F5F5;
+  height: 30px;
+  width: 226px;
+  padding: 4px 15px;
+  gap: 44px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.profile-div {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--thresary-color);
+  height: 489px;  
+  width: 867px;
+  border-radius: 10px;
+  box-shadow: #63636333 0px 2px 8px 0px;
+}
+
+.profile-div h1 {
+  align-items: center;
+}
+
+.profile-div {
+  position: fixed;
+  top: 23%;
+  right: 18%;
+  display: none;
+}
+.profile-div h1 {
+  margin: -27px 0px 0px 350px;
+  font-size: 24px;
+}
+.Profile-img {
+  display: flex;
+  gap: 20px;
+}
+
+.Profile-img div img {
+  width: 100px;
+  border-radius: 100px;
+}
+
+.Profile-img button {
+  border: 2px solid #7F808A;
+  height: 40px;
+  padding: 8px 17px;
+  margin-top: 36px;
+}
+
+.Profile-data {
+  padding: 26px 0px 0px 200px;
+}
+
+.data-input div {
+  padding: 10px 0px 10px 0px;
+  gap: 10px;
+  display: grid;
+}
+
+.data-input div input {
+  padding: 0px 0px 0px 21px;
+  width: 500px;
+  height: 40px;
+  border-radius: 5px;
+  border: 2px solid #7F808A;
+} 
+.data-input div p {
+  position: absolute;
+  left: 545px;
+  padding-top: 42px;  
+ border-bottom: 2px solid #7F808A;
+  color:  #7F808A;
+}
+
+.viewProfile {
+  display: block;
+  z-index: 1;
+}
+.showuserdata{
+  display: block;
+  z-index: 1;
+}
+

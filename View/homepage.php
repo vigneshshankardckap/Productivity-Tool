@@ -52,6 +52,23 @@
           </ul>
         </div>
       </nav>
+
+
+      <div class="settings" id="view-profile">
+
+        <div class="Change-info" id="getUserinfo">
+          <p><i class="fa-regular fa-user"></i></p>
+          <h1 id="<?php echo  $_SESSION['userid'];  ?>" class="profileId">Profile</h1>
+        </div>
+        <a href="/logout">
+          <div class="Change-info">
+
+            <p><i class="fa-solid fa-arrow-right-from-bracket logout" title="Log out"></i></i></p>
+            <h1>Log out</h1>
+          </div>
+        </a>
+
+      </div>
       <div class="mt-20 body-contaienr">
         <!-- -----------Notification div -------------------- -->
         <div id="succcess">
@@ -159,7 +176,7 @@
 
     <!-- black screen -->
     <div class="black-screen"></div>
-    
+
     <!-- this section is our single input form ----------- (it is separated from the inner container div for background blur)-->
     <div class="single-input-form" id="single-form">
       <form action="/store" method="post">
@@ -206,26 +223,67 @@
             <label for="project" style="padding-left: 15px">Urgent</label>
             <br>
             <div><label for="css">Yes</label>
-            <input type="radio" class="urgent-priority-btn data" required id="1" value="1" name="urgent">
-            <label for="css">No</label>
-            <input type="radio" class="urgent-priority-btn data" id="2" required value="0" name="urgent">
+              <input type="radio" class="urgent-priority-btn data" required id="1" value="1" name="urgent">
+              <label for="css">No</label>
+              <input type="radio" class="urgent-priority-btn data" id="2" required value="0" name="urgent">
+            </div>
           </div>
-          </div>
-          
+
           <div class="ImportantDiv">
- 
-            <label for="project" style="padding-left: 15px" >Important</label><br>
+
+            <label for="project" style="padding-left: 15px">Important</label><br>
             <div>
-            <label for="css">Yes</label>
-            <input type="radio" class="important-priority-btn datas" required id="1" value="1" name="important">
-            <label for="css">No</label>
-            <input type="radio" class="important-priority-btn datas" id="2" required value="0" name="important">
-         </div>
+              <label for="css">Yes</label>
+              <input type="radio" class="important-priority-btn datas" required id="1" value="1" name="important">
+              <label for="css">No</label>
+              <input type="radio" class="important-priority-btn datas" id="2" required value="0" name="important">
+            </div>
           </div>
         </div>
         <button type="submit" onclick="store()" class="submit-btn">Submit</button>
       </form>
     </div>
+
+    <!-- ========================= Profile information codes =================== -->
+
+
+    <div class="Profile-container">
+      <div class="profile-div" id="User_details">
+        <div>
+          <div class="close-btn close-habit-div" id="close-profile-div">
+            <form action="/list" method="post">
+              <div>
+                <span>X</span>
+              </div>
+            </form>
+          </div>
+          <h1>My Profile</h1>
+          <div class="Profile-data">
+            <div class="Profile-img">
+              <div class="image"> <img src="/Images/profile1-removebg-preview.png" alt="">
+              </div>
+              <button>Change profile</button>
+              <button>Remove profile</button>
+            </div>
+            <div class="data-input">
+              <div> <label for="">Name</label>
+                <input type="text" value="prasanth">
+              </div>
+              <div> <label for="">Email</label>
+                <input type="gmail" value="prasanthndckap@gmail.com">
+                <p>Change Email</p>
+              </div>
+              <div> <label for="">Password</label>
+                <input type="password" value="prasanthndckap@gmail.com">
+                <p>Change Password</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- =========== -->
+
     <!-- this is multiple-input-form  -->
     <div class="multiple-input-form" id="multi-form">`
       <form action="" method="post" class="multiple-form">
