@@ -68,7 +68,7 @@ if(isset($_GET["code"])){
                 <h1>Create Account</h1>
                 <div class="social-container">
                     <!-- <a href="#" class="social"><i class="fab fa-facebook-f"></i></a> -->
-                   hi <a href='<?php echo  $client->createAuthUrl(); ?>' class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href='<?php echo  $client->createAuthUrl(); ?>' class="social"><i class="fab fa-google-plus-g"></i></a>
                     <!-- <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>  -->
             <!-- <p></p> -->
                 </div>

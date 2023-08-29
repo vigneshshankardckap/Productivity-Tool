@@ -181,7 +181,6 @@ class UserModule extends Database
     {
         
         $userId = intval($_SESSION['userid']);
-        // echo $userId;
       $profissional = $this->db->query("SELECT * FROM tasks WHERE category_id = '1' AND user_id = '$userId' AND completed_at is null and deleted_at is null")->fetchAll();
     
       echo json_encode($profissional);
@@ -263,17 +262,6 @@ class UserModule extends Database
         echo json_encode($cat);
     }
 
-    // public function viewAllTask($data)
-    // {
-
-    //     $userId = $_SESSION['userid'];
-    //     $matrix_id = $data;
-
-
-    //     $datas = $this->db->query("SELECT * from tasks where user_id = $userId AND matrix_id = $matrix_id AND deleted_at is NULL AND completed_at is NULL ")->fetchAll(PDO::FETCH_OBJ);
-    //     echo json_encode($datas);
-    // }
-
     public function commFetch($val){
         // var_dump($val);
         $id = $val["id"];
@@ -300,7 +288,6 @@ class UserModule extends Database
     }
     public function permanentDel($delId)
     {
-        // var_dump($delId);
         $delBtnId = $delId;
         $delFun = $this->db->query("DELETE FROM `tasks` WHERE `tasks`.`id` = '$delBtnId'");
         echo json_encode($delFun);
@@ -311,5 +298,12 @@ class UserModule extends Database
      {
         $pro = $this->db->query("SELECT * FROM users WHERE id = '$id'")->fetchAll();
         echo json_encode($pro);        
+    }
+
+    public function updateProfile($datas)
+    {
+
+        // $pro = $this->db->query("SELECT * FROM users WHERE id = '$id'")->fetchAll(); 
+
     }
 }

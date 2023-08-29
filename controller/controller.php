@@ -181,8 +181,13 @@ class UserController
     public function profileView()
     {
         $id = $_POST["id"];
-        // var_dump($id);
+   
         $this->userModel->profileView($id);
     }
+    public function updateProfile(){
+
+        $this->userModel->updateProfile($_POST);
+    }
+    
     
 }

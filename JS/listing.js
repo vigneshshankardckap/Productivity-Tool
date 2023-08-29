@@ -385,7 +385,7 @@ for (let i = 0; i < showMoreBtn.length; i++) {
         model_title.innerHTML = "Who can Do it for you"
         break;
       case "4":
-        model_title.innerHTML = "Eleminate it"
+        model_title.innerHTML = "Eliminate it"
         break;
       default:
         model_title.innerHTML = ""
@@ -663,12 +663,18 @@ function datas(data, getType) {
     })
   }
 
-  //===========
-  let commnetBtn = document.querySelectorAll(".addComentBtn")
-  let modalTitle = document.querySelectorAll("#modalBar")
 
-  for (let i = 0; i < commnetBtn.length; i++) {
-    const element = commnetBtn[i];
+  let cmtBtn = document.querySelectorAll("#addComment")
+  let comment = document.querySelectorAll("#comment")
+  let addCommentBtn = document.querySelectorAll(".add-comment-btn")
+  let addedCommentIcon = document.querySelectorAll(".addedCommentIcon")
+  let nfetchedComment = document.querySelectorAll(".nfetchedComment")
+  let addedCommentIcn = document.querySelectorAll(".addedCommentIcn")
+
+
+  for (let a = 0; a < cmtBtn.length; a++) {
+    const element = cmtBtn[a];
+
     element.addEventListener("click", () => {
       modalTitle[i].style.visibility = "visible"
     })
@@ -832,7 +838,7 @@ $(document).on("click", '[data-role=update]', function (e) {
     type: "POST",
     success: function (response) {
       let EditTask_Responce = JSON.parse(response);
-      EditFilling(EditTask_Responce)
+      EditFilling(EditTask_Responce);
 
     }
   })
