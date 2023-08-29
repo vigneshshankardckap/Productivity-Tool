@@ -8,7 +8,7 @@ let typeName = document.querySelectorAll(".typeName")
 // below selectore is for comment section
 
 // below selectore is for multiple form append div
-let divCon = document.querySelector(".forms-inner-div");
+// let divCon = document.querySelector(".forms-inner-div");
 // ----------notification section----------
 let Notificationbtn = document.querySelector(".notification");
 let closelist = document.querySelector("#close-notificationList")
@@ -218,54 +218,58 @@ let cnt = 0;
 function AddOneMoreForm() {
   multiformCnt = multiformCnt + 1
   cnt++;
-  divCon.innerHTML += `
-  <div class="multiple-forms-div">
-  <form action="" method="post" class="multiple-form">
-  <div class="main-div-closeBtn" id=${multiformCnt} >
-  <span id=${multiformCnt}>X</span>
-  </div>
-    <div class="multi-input-div">
-      <label>What on your task?</label>
-      <div class="todo-input-box">
-        <textarea name="Task_name" id="" cols="30" rows="10" placeholder="Enter your task"></textarea>
-      </div>
-    </div>
-    <div class="other-input-div">
-      <div class="category-div">
-        <label>Pick category</label>
-        <div class="multi-task_type">
-          <input type="button" class="typeBtn" name="1" value="Professional" id=${multiformCnt} />
-          <input type="button" class="typeBtn" id=${multiformCnt} name="2" value="Personal" id="personal" />
-        </div>
-      </div>
-      <div class="date-time-div">
-        <label>When is your due?</label>
-        <div>
-          <input type="datetime-local" placeholder="Get Date/Time" class="multiDateTime" value="" name="" />
-        </div>
-      </div>
-      <div class="urgentDiv">
-        <label>Urgent</label>
-        <div>
-          <label for="css">Yes</label>
-          <input type="radio" value="1" id=${multiformCnt} class="urgent-priority-btn" name="urgent"/>
-          <label for="css">No</label>
-          <input type="radio" value="0" id=${multiformCnt} class="urgent-priority-btn" name="urgent"/>
-        </div>
-      </div>
-      <div class="ImportantDiv">
-        <label>Important</label>
-        <div>
-          <label for="css">Yes</label>
-          <input type="radio" value="1" id=${multiformCnt} class="important-priority-btn" name="important"/>
-          <label for="css">No</label>
-          <input type="radio" value="0" id=${multiformCnt} class="important-priority-btn" name="important"/>
-        </div>
-      </div>
-    </div>
-  </form>
-  </div>
-  `
+
+  jQuery(".forms-inner-div").append('' +
+  `<div class="multiple-forms-div">`+
+  `<form action="" method="post" class="multiple-form">`+
+  `<div class="main-div-closeBtn" id=${multiformCnt} >`+
+  `<span id=${multiformCnt}>X</span>`+
+  `</div>`+
+    `<div class="multi-input-div">`+
+      `<label>What on your task?</label>`+
+      `<div class="todo-input-box">`+
+        `<textarea name="Task_name[]" id="" cols="30" rows="10" placeholder="Enter your task"></textarea>`+
+      `</div>`+
+    `</div>`+
+    `<div class="other-input-div">`+
+      `<div class="category-div">`+
+        `<label>Pick category</label>`+
+        `<div class="multi-task_type">`+
+          `<input type="button" class="typeBtn" name="1[]" value="Professional" id=${multiformCnt} />`+
+          `<input type="button" class="typeBtn" id=${multiformCnt} name="2[]" value="Personal" id="personal" />`+
+        `</div>`+
+      `</div>`+
+      
+      `<div class="date-time-div">`+
+        `<label>When is your due?</label>`+
+        `<div>`+
+          `<input type="datetime-local" placeholder="Get Date/Time" class="multiDateTime" value="" name="date[]" />`+
+        `</div>`+
+      `</div>`+
+      `<div class="urgentDiv">`+
+        `<label>Urgent</label>`+
+        `<div>`+
+          `<label for="css">Yes</label>`+
+          `<input type="radio" value="1" id=${multiformCnt} class="urgent-priority-btn" name="urgent[]"/>`+
+          `<label for="css">No</label>`+
+          `<input type="radio" value="0" id=${multiformCnt} class="urgent-priority-btn" name="urgent[]"/>`+
+        `</div>`+
+      `</div>`+
+      `<div class="ImportantDiv">`+
+        `<label>Important</label>`+
+        `<div>`+
+          `<label for="css">Yes</label>`+
+          `<input type="radio" value="1" id=${multiformCnt} class="important-priority-btn" name="important[]"/>`+
+          `<label for="css">No</label>`+
+          `<input type="radio" value="0" id=${multiformCnt} class="important-priority-btn" name="important[]"/>`+
+        `</div>`+
+      `</div>`+
+    `</div>`+
+  `</form>`+
+  `</div>`
+  );
+
+
   // ----------below code for adding color to the taskType(personal or professional) ----------------
 
   let taskType = document.querySelectorAll(".typeBtn");
