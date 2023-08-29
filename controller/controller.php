@@ -77,8 +77,7 @@ class UserController
     public function store()
     {
 
-        // $this->userModel->store($_REQUEST);
-        $this->userModel->store($_POST);
+        $this->userModel->store($_REQUEST);
         
     }
 

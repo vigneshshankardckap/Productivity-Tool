@@ -171,6 +171,7 @@ body {
   list-style: none;
   color: var(--icon-color);
   font-size: 20px;
+  padding-top: 5px;
 }
 
 .icons .logout {
@@ -182,7 +183,7 @@ body {
 }
 
 /* ---------------styling for add todo buttons---------------- */
-.mt-24 {
+.mt-20 {
   display: flex;
   justify-content: space-between;
   padding: 0px 100px 0px 210px;
@@ -787,6 +788,7 @@ button {
   color: rgb(255, 255, 255);
 }
 
+
 .title {
   padding-bottom: 10px;
   font-weight: bold;
@@ -800,11 +802,16 @@ button {
   margin: 5px;
   border-radius: 5px;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
+  gap: 35px;
 }
+
 
 .copy,
 .date {
   color: var(--font-color);
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
 }
 
 .showMoreBtn {
@@ -813,6 +820,9 @@ button {
 
 .testing-window {
   display: none;
+}
+.testing-window{
+  background-color: var(--background-color);
 }
 
 /* ===============  ================================================================= */
@@ -936,7 +946,11 @@ button.removetask {
 #due-date,
 .user-content {
   font-size: 18px;
-  color: var(--primary-color);
+  width: 160px;
+  color: var(--font-color);
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
 }
 
 
@@ -1226,13 +1240,15 @@ button.UncompletedBtn:hover {
   display: flex;
   background-color: white;
   padding: 10px;
-  width: 250px;
+  width: 270px;
   justify-content: space-around;
   border-radius: 5px;
   display: flex;
-  position: relative;
-  bottom: 85px;
-  left: 868px;
+  position: absolute;
+  bottom: 102.5%;
+  left: 80%;
+  z-index: 1;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 .notifyIcon {
