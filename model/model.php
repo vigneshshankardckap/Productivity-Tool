@@ -261,27 +261,23 @@ class UserModule extends Database
     }
 
     public function commFetch($val){
-        // var_dump($val);
+
         $id = $val["id"];
         $matrix_id = $val["matrixId"];
         $userId = $_SESSION['userid'];
-        // var_dump($id);
-        // var_dump($matrix_id);
-        // var_dump($userId);
+
 
         $v = $this->db->query("SELECT id,comments from tasks WHERE  comments IS not null and user_id = '$userId' and matrix_id ='$matrix_id' and id='$id'");
-        // $v = $this->db->query("SELECT id,comments from tasks WHERE  comments IS not null and user_id = '$userId' and matrix_id ='$matrix_id' and id='$id'")->fetchAll(PDO::FETCH_OBJ);
-        // var_dump($v);
-        // echo json_encode($v);   
+        
         
         $fetcedTables = $v->fetchAll();
-        // var_dump($fetcedTables);
+        
         $allTable = [];
 
         foreach ($fetcedTables as $a) {
             $allTable[]=$a["comments"];
         }
-        // print_r($allTable);
+       
         echo json_encode($allTable);
     }
     public function permanentDel($delId)
@@ -314,15 +310,15 @@ class UserModule extends Database
             $urgent = $_POST[$id."urgent"][0];
             $importent = $_POST[$id."important"][0];
 
-            if ($urgent == 1 && $important == 1) {
+            if ($urgent == 1 && $importent == 1) {
                 $urgeImp = 1;
                 
-            } elseif ($urgent == 0 && $important == 1) {
+            } elseif ($urgent == 0 && $importent == 1) {
                 $urgeImp = 2;
                 
-            } elseif ($urgent == 1 && $important == 0) {
+            } elseif ($urgent == 1 && $importent == 0) {
                 $urgeImp = 3;
-            } elseif ($urgent == 0 && $important == 0) {
+            } elseif ($urgent == 0 && $importent == 0) {
                 $urgeImp = 4;
     
             }
