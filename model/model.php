@@ -123,16 +123,16 @@ class UserModule extends Database
 
         if ($urgent == 1 && $important == 1) {
             $urgeImp = 1;
-            echo "Do";
+            // echo "Do";
         } elseif ($urgent == 0 && $important == 1) {
             $urgeImp = 2;
-            echo "Defer";
+            // echo "Defer";
         } elseif ($urgent == 1 && $important == 0) {
             $urgeImp = 3;
-            echo "Delegate";
+            // echo "Delegate";
         } elseif ($urgent == 0 && $important == 0) {
             $urgeImp = 4;
-            echo "Delete";
+            // echo "Delete";
         }
 
         $insertIntoTable = $this->db->query("INSERT INTO tasks(task_name,dates,user_id,category_id,matrix_id,comments)VALUES('$taskName','$dueDate','$userId','$categoryId','$urgeImp','null')");
