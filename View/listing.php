@@ -307,7 +307,7 @@
 
     <div class="Profile-container">
       <div class="profile-div" id="User_details">
-        <div>
+        <div >
           <div class="close-btn close-habit-div" id="close-profile-div">
             <form action="/list" method="post">
               <div>
@@ -320,8 +320,7 @@
             <div class="Profile-img">
               <div class="image"> <img src="/Images/profile1-removebg-preview.png" alt="">
               </div>
-              <button clas>Change profile</button>
-              <button>Remove profile</button>
+              <button class="editProfile" id="<?php echo  $_SESSION['userid'];  ?>"> edit profile</button>
             </div>
             <div class="inputs">
             </div>

@@ -826,20 +826,20 @@ function EditFilling(EditTask_Responce) {
 
             <input
             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-             type="text" hidden name="userId" placeholder="Task Name" value=${editContent.user_id} id="userId" >
+             type="text" hidden name="userId" placeholder="Task Name" value=${editContent.user_id} id="userId"   >
             <div class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                 Task Name
             </label>
             <input
                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="editTask" type="text" name="editTaskName" placeholder="Task Name" value=${editContent.task_name} id="editTaskName">
+                id="editTask" type="text" required name="editTaskName" placeholder="Task Name" value=${editContent.task_name} id="editTaskName">
         </div>
         <div class="mb-6">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
                 Date
             </label>
-            <input
+            <input required
                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="editDate" type="date" name=editTaskdate placeholder="Date" value=${editContent.dates} >
         </div>
@@ -1000,10 +1000,13 @@ for (let i = 0; i < Task_typeBtn.length; i++) {
 // =================== habits div ======================
 
 let habiticon = document.querySelector(".Habits-icon")
-// console.log(habiticon);
+
 let AddHabisDiv = document.querySelector(".Habits-div")
+
 let matrixdiv = document.querySelector(".page-content")
+
 let closeHabitdiv = document.querySelector("#close-habit-div");
+
 
 habiticon.addEventListener("click", () => {
   $(".black-screen").show();
@@ -1087,7 +1090,6 @@ closeProfileDiv.addEventListener("click", () => {
 
 
 let profileView = document.querySelector(".profileId");
-// console.log(profileView);
 
 $(document).on("click", '.profileId', function (e) {
   let id = e.target.id;
@@ -1101,6 +1103,7 @@ $(document).on("click", '.profileId', function (e) {
       let datas = JSON.parse(response)
       profilePage(datas)
     }
+
   })
 })
 
@@ -1112,23 +1115,31 @@ function profilePage(datas) {
     console.log(profile);
 
     let Html = `<div class="data-input">
+
     <div> <label for="">Name</label>
       <input type="text" readOnly value="${profile.username}">
     </div>
     <div> <label for="">Email</label>
-      <input type="gmail" value="${profile.email_id}">
-      <p>Change Email</p>
+      <input type="gmail" readOnly value="${profile.email_id}">
     </div>
     <div> <label for="">Password</label>
-      <input type="password" value="${profile.password}">
-      <p>Change Password</p>
+      <input type="password" readOnly value="${profile.password}">
     </div>
   </div>`
+  inputdiv.innerHTML=Html;
 
-    inputdiv.innerHTML = Html;
   })
 
 }
+
+
+editProfilebtn=document.querySelector('.editProfile');
+
+profileinputs=document.querySelector('.Profile-data');
+
+
+
+// =================================================================================
 
 // search input functionality///////////////////////////////////////////
 
