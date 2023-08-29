@@ -1484,7 +1484,7 @@ button.UncompletedBtn:hover {
 
 .profile-div {
   position: fixed;
-  top: 22%;
+  top: 5%;
   right: 21%;
   display: none;
 }
@@ -1551,6 +1551,8 @@ button.UncompletedBtn:hover {
   background-color: var(--primary-color);
   width: 150px;
   height: 35px;
+  position: absolute;
+    top: 195px;
 }
 
 .data-input div label {
