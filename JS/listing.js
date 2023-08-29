@@ -71,7 +71,7 @@ function createTasks(div, obj) {
       adjust
       </span>
         <div class="nameDateDiv">
-          <p class="copy text-start	w-48">${datum.task_name.slice(0, 20)}</p>
+          <p class="copy text-start	w-40">${datum.task_name.slice(0, 20)}</p>
           <p class="date text-right	">${datum.dates.slice(0, 16)}</p>
         </div>
       </div>`
@@ -221,7 +221,6 @@ function AddOneMoreForm() {
 
   jQuery(".forms-inner-div").append('' +
   `<div class="multiple-forms-div">`+
-  `<form action="" method="post" class="multiple-form">`+
   `<div class="main-div-closeBtn" id=${multiformCnt} >`+
   `<span id=${multiformCnt}>X</span>`+
   `</div>`+
@@ -265,7 +264,6 @@ function AddOneMoreForm() {
         `</div>`+
       `</div>`+
     `</div>`+
-  `</form>`+
   `</div>`
   );
 
@@ -466,9 +464,7 @@ let popUpHeader = document.querySelector('.popUpHeader')
 // let incompletedDiv = document.querySelector(".incompleteBtn")
 function datas(data, getType) {
   if (data.length > 0) {
-    // incompletedDiv.innerHTML = `<button type="submit" id="${data[0].matrix_id}" class="completedBtn showDataBtn focus:outline-none font-medium rounded-lg text-sm px-5 py-2">INCOMPLETED TASK</button>`
     let datas = data.map((element) => {
-      // console.log(element.comments)
       if (element.comments == "null") {
         return `
         <div class=" tasks-lists my-1	h-14	py-3 px-data.length > 01.5	cursor-pointer flex gap-8 pb-5 rounded">
@@ -477,12 +473,12 @@ function datas(data, getType) {
               <input type="hidden" id="rowid" value="">
               <div class="list-name">
                 <h5>
-                 <p class="user-content">${element.task_name}</p>
+                 <p class="user-content">${element.task_name.slice(0,20)}</p>
                 </h5>
               </div>
             </div>
             <div class="text-base  leading-6 text-gray-900 no-underline " id="modal-title">
-              <p id="due-date">${element.dates}</p>
+              <p id="due-date">${element.dates.slice(0, 16)}</p>
             </div>
           </div>
           <div class="second-div">
@@ -533,12 +529,12 @@ function datas(data, getType) {
                 <input type="hidden" id="rowid" value="">
                 <div class="list-name">
                   <h5>
-                   <p class="user-content">${element.task_name}</p>
+                   <p class="user-content">${element.task_name.slice(0,20)}</p>
                   </h5>
                 </div>
               </div>
               <div class="text-base  leading-6 text-gray-900 no-underline " id="modal-title">
-                <p id="due-date">${element.dates}</p>
+                <p id="due-date">${element.dates.slice(0, 16)}</p>
               </div>
             </div>
             <div class="second-div">
@@ -578,11 +574,11 @@ function datas(data, getType) {
         <div class="task-info " id="rowdiv" >
           <input type="hidden" id="rowid" value="">
           <div class="list-name">
-             <p class="user-content w-56">${element.task_name}</p>
+             <p class="user-content w-56">${element.task_name.slice(0,20)}</p>
           </div>
         </div>
-        <div class="text-base  leading-6 text-gray-900 no-underline " id="modal-title">
-          <p id="due-date w-3" style="color:#5fb32e">${element.dates}</p>
+        <div class="text-base  leading-6  text-gray-900 no-underline " id="modal-title">
+          <p id="due-date w-3" >${element.dates.slice(0, 16)}</p>
         </div>
         <div class="text-base leading-6 text-gray-900 no-underline " id="modal-title w-56" >
           <button type="button" id="btnDelete" data-id="${element.id}"><i class="fa-regular fa-trash-can" style="color:#5fb32e"></i></button>
@@ -692,7 +688,7 @@ function datas(data, getType) {
           $("#succcess").css("display", "block");
           setTimeout(() => {
             $("#succcess").css("display", "none");
-          }, 3000)
+          }, 2800)
           comment[a].style.display = "none"
           addCommentBtn[a].style.display = "none"
           cmtBtn[a].style.display = "none"
@@ -945,6 +941,11 @@ $(function () {
         },
         type: "POST",
         success: function (response) {
+          $("#toastMsg").text("Succesfully Added");
+          $("#succcess").css("display", "block");
+          setTimeout(() => {
+            $("#succcess").css("display", "none");
+          }, 3000)
           // console.log(response)
         }
       });
@@ -968,10 +969,11 @@ $(function () {
         },
         type: "POST",
         success: function (response) {
+          $("#toastMsg").text("Succesfully Removed");
           $("#succcess").css("display", "block");
           setTimeout(() => {
             $("#succcess").css("display", "none");
-          }, 2500)
+          }, 3000)
           paren.remove()
         }
 

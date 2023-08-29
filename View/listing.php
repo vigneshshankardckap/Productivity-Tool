@@ -79,7 +79,7 @@
         </a>
       </div>
 
-      <div class="mt-24 body-contaienr">
+      <div class="mt-20 body-contaienr">
         <div class="switchDiv">
           <div>
             <button name="category_id" class="font-menu selectedCatagory category_id" id="1">PROFESSIONAL</button>
@@ -110,7 +110,8 @@
       <div id="succcess">
         <div class="notification-success" style="display: flex;">
           <img src="/Images/success.gif" alt="" height="20px" width="20px" class="notifyIcon">
-          <p>Succesfully deleted</p>
+            <!-- <div style="width:100%;height:0;padding-bottom:100%;position:relative;"><iframe src="https://giphy.com/embed/Q81NcsY6YxK7jxnr4v" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/moodman-Q81NcsY6YxK7jxnr4v">via GIPHY</a></p> -->
+          <p id="toastMsg">Succesfully deleted</p>
         </div>
       </div>
       <!-- -----------habits div -------------------- -->
