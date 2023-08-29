@@ -381,7 +381,7 @@ for (let i = 0; i < showMoreBtn.length; i++) {
         model_title.innerHTML = "Who can Do it for you"
         break;
       case "4":
-        model_title.innerHTML = "Eleminate it"
+        model_title.innerHTML = "Eliminate it"
         break;
       default:
         model_title.innerHTML = ""
@@ -669,8 +669,6 @@ function datas(data, getType) {
   for (let a = 0; a < cmtBtn.length; a++) {
     const element = cmtBtn[a];
 
-    // console.log(element)
-
     element.addEventListener("click", () => {
       // alert("clicked this icon")
       let id = comment[a].dataset.id
@@ -800,7 +798,7 @@ $(document).on("click", '[data-role=update]', function (e) {
     type: "POST",
     success: function (response) {
       let EditTask_Responce = JSON.parse(response);
-      EditFilling(EditTask_Responce)
+      EditFilling(EditTask_Responce);
 
     }
   })
