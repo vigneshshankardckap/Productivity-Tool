@@ -110,7 +110,7 @@
       <div id="succcess">
         <div class="notification-success" style="display: flex;">
           <img src="/Images/success.gif" alt="" height="20px" width="20px" class="notifyIcon">
-            <!-- <div style="width:100%;height:0;padding-bottom:100%;position:relative;"><iframe src="https://giphy.com/embed/Q81NcsY6YxK7jxnr4v" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/moodman-Q81NcsY6YxK7jxnr4v">via GIPHY</a></p> -->
+          <!-- <div style="width:100%;height:0;padding-bottom:100%;position:relative;"><iframe src="https://giphy.com/embed/Q81NcsY6YxK7jxnr4v" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/moodman-Q81NcsY6YxK7jxnr4v">via GIPHY</a></p> -->
           <p id="toastMsg">Succesfully deleted</p>
         </div>
       </div>
@@ -318,11 +318,30 @@
           </div>
           <h1>My Profile</h1>
           <div class="Profile-data">
-            <div class="Profile-img">
+            <!-- <div class="Profile-img">
+
               <div class="image"> <img src="/Images/profile1-removebg-preview.png" alt="">
               </div>
 
+            </div> -->
+
+
+            <div class="container">
+              <div class="avatar-upload">
+                <div class="avatar-edit">
+                  <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+                  <label for="imageUpload">
+                    <!-- <i class="fa-solid fa-pencil"></i> -->
+                  </label>
+                </div>
+                <div class="avatar-preview">
+                  <div id="imagePreview" style="background-image: url(http://i.pravatar.cc/500?img=7);">
+                  </div>
+                </div>
+              </div>
             </div>
+
+
             <div class="inputs">
             </div>
 
