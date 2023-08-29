@@ -52,10 +52,10 @@ $(document).ready(function () {
         }
       }
 
-      createTasks(taskMainCont1, content1.slice(0,4))
-      createTasks(taskMainCont2, content2.slice(0,4))
-      createTasks(taskMainCont3, content3.slice(0,4))
-      createTasks(taskMainCont4, content4.slice(0,4))
+      createTasks(taskMainCont1, content1.slice(0, 4))
+      createTasks(taskMainCont2, content2.slice(0, 4))
+      createTasks(taskMainCont3, content3.slice(0, 4))
+      createTasks(taskMainCont4, content4.slice(0, 4))
 
     }
 
@@ -1122,6 +1122,10 @@ closeProfileDiv.addEventListener("click", () => {
   $(".black-screen").hide();
   User_detailsdiv.classList.remove("showuserdata");
 })
+
+
+
+
 // ===========================================profile page===========================================================
 
 
@@ -1138,6 +1142,7 @@ $(document).on("click", '.profileId', function (e) {
     success: function (response) {
       let datas = JSON.parse(response)
       profilePage(datas)
+      console.log(datas);
     }
 
   })
@@ -1148,31 +1153,62 @@ function profilePage(datas) {
 
   datas.forEach(profile => {
 
-    console.log(profile);
 
     let Html = `<div class="data-input">
 
     <div> <label for="">Name</label>
-      <input type="text" readOnly value="${profile.username}">
+      <input type="text" readOnly class="editRemove" value="${profile.username}">
     </div>
     <div> <label for="">Email</label>
-      <input type="gmail" readOnly value="${profile.email_id}">
+      <input type="gmail" readOnly  class="editRemove" value="${profile.email_id}">
     </div>
     <div> <label for="">Password</label>
-      <input type="password" readOnly value="${profile.password}">
+      <input type="password" readOnly  class="editRemove" value="${profile.password}">
     </div>
   </div>`
 
-  inputdiv.innerHTML=Html;
+    inputdiv.innerHTML = Html;
 
   })
+
+
+  let EditProfile = document.querySelector(".editProfile");
+  let UpdateProfile = document.querySelector("#UpdateProfile");
+  let readOnlyRemove = document.querySelectorAll(".editRemove");
+
+
+
+  EditProfile.addEventListener("click", (e) => {
+    EditProfile.classList.add("hidebtn")
+    UpdateProfile.classList.remove("hidebtn")
+    for (let i = 0; i < readOnlyRemove.length; i++) {
+      readOnlyRemove[i].removeAttribute('readonly');
+    }
+
+
+  })
+
+  UpdateProfile.addEventListener("click", (e) => {
+    EditProfile.classList.remove("hidebtn");
+    EditProfile.classList.add("showbtn");
+    UpdateProfile.classList.add("hidebtn");
+    for (let i = 0; i < readOnlyRemove.length; i++) {
+      readOnlyRemove[i].setAttribute('readonly');
+    }
+  });
+  
 
 }
 
 
-editProfilebtn=document.querySelector('.editProfile');
 
-profileinputs=document.querySelector('.Profile-data');
+
+
+
+
+editProfilebtn = document.querySelector('.editProfile');
+
+profileinputs = document.querySelector('.Profile-data');
 
 
 
