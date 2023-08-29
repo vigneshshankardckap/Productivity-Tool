@@ -20,7 +20,6 @@ closelist.addEventListener("click", () => {
 // --------------dark mode button ----------
 let darkBtn = document.querySelector(".theme-btn")
 
-
 let taskMainCont1 = document.querySelector(".content1")
 let taskMainCont2 = document.querySelector(".content2")
 let taskMainCont3 = document.querySelector(".content3")
@@ -38,7 +37,6 @@ $(document).ready(function () {
     async: false,
     success: function (response) {
       var obj = JSON.parse(response)
-      // console.log(obj);
       for (let i = 0; i < obj.length; i++) {
         if (obj[i].matrix_id == 1) {
           content1.push(obj[i])
@@ -53,17 +51,18 @@ $(document).ready(function () {
           content4.push(obj[i])
         }
       }
-      createTasks(taskMainCont1, content1)
-      createTasks(taskMainCont2, content2)
-      createTasks(taskMainCont3, content3)
-      createTasks(taskMainCont4, content4)
+
+      createTasks(taskMainCont1, content1.slice(0,4))
+      createTasks(taskMainCont2, content2.slice(0,4))
+      createTasks(taskMainCont3, content3.slice(0,4))
+      createTasks(taskMainCont4, content4.slice(0,4))
+
     }
 
   });
 
 })
 
-// console.log(content2);
 function createTasks(div, obj) {
   let htmlEle = obj.map((datum) => {
     return `
@@ -78,6 +77,7 @@ function createTasks(div, obj) {
       </div>`
   }).join("")
   div.innerHTML = htmlEle
+
 }
 
 
@@ -119,7 +119,7 @@ $(".category_id").on("click", (e) => {
 // ======================below code is for open single form and multi form ===============================
 for (let i = 0; i < inputBtn.length; i++) {
   inputBtn[i].addEventListener("click", () => {
-    // innerContainer.classList.add("active")
+    innerContainer.classList.add("active")
     $(".black-screen").show();
 
     if (inputBtn[i].id == "1") {
@@ -459,9 +459,10 @@ $(document).ready(function () {
 // =========================================below function is for assign the fetched task details===================== 
 
 let popUpHeader = document.querySelector('.popUpHeader')
-
+// let incompletedDiv = document.querySelector(".incompleteBtn")
 function datas(data, getType) {
   if (data.length > 0) {
+    // incompletedDiv.innerHTML = `<button type="submit" id="${data[0].matrix_id}" class="completedBtn showDataBtn focus:outline-none font-medium rounded-lg text-sm px-5 py-2">INCOMPLETED TASK</button>`
     let datas = data.map((element) => {
       // console.log(element.comments)
       if (element.comments == "null") {
@@ -562,7 +563,6 @@ function datas(data, getType) {
             </div>
           </div>
           `
-
       }
 
     }).join("")
@@ -905,6 +905,7 @@ let TaskCompleted = document.querySelectorAll(".roundCheck");
 // console.log(Task);
 $(document).on("click", ".roundCheck", function (e) {
   // popUpHeader.innerHTML = `<button type="submit" id="${tasks[0].matrix_id}" class="completedBtn showDataBtn focus:outline-none font-medium rounded-lg text-sm px-5 py-2">COMPLETED TASK </button>`
+  completedTaskFun(completedTask)
   let taskid = e.target.id;
   /**  sending task id to backend */
   $.ajax({
@@ -1092,7 +1093,6 @@ let profileView = document.querySelector(".profileId");
 
 $(document).on("click", '.profileId', function (e) {
   let id = e.target.id;
-
   $.ajax({
     url: "/profileView",
     data: {
@@ -1101,18 +1101,21 @@ $(document).on("click", '.profileId', function (e) {
     type: "POST",
     success: function (response) {
       let datas = JSON.parse(response)
-         profilePage(datas) 
+      profilePage(datas)
     }
-        })
-      })
 
-function profilePage(datas){
+  })
+})
 
-let inputdiv=document.querySelector('.inputs')
+function profilePage(datas) {
+  let inputdiv = document.querySelector('.inputs')
 
   datas.forEach(profile => {
 
-    let Html=`<div class="data-input">
+    console.log(profile);
+
+    let Html = `<div class="data-input">
+
     <div> <label for="">Name</label>
       <input type="text" readOnly value="${profile.username}">
     </div>
@@ -1144,14 +1147,14 @@ const searchInput = $("#default-search");
 
 const content = document.querySelectorAll(".search")
 
-$("#default-search").on("keyup",(e)=>{
+$("#default-search").on("keyup", (e) => {
   let searchValue = e.target.value.toLowerCase().trim();
-  content.forEach(ele=>{
-     if(ele.innerText.toLowerCase().indexOf(searchValue) != -1){
-       ele.style.display = "block"
-     }else{
+  content.forEach(ele => {
+    if (ele.innerText.toLowerCase().indexOf(searchValue) != -1) {
+      ele.style.display = "block"
+    } else {
       ele.style.display = "none"
-     }
+    }
   })
 })
 
