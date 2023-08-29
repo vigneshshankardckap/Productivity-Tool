@@ -184,10 +184,17 @@ class UserController
    
         $this->userModel->profileView($id);
     }
-    public function updateProfile(){
 
-        $this->userModel->updateProfile($_POST);
-    }
+
+    // multiple form data 
+    public function multiFormData()
+    {
     
+
+        $this->userModel->multiFormData($_POST);
+
+
+    }
+
     
 }
