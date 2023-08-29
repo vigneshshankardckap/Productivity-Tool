@@ -212,7 +212,7 @@ function openSingleForm() {
 // ==============================================================================================================
 
 // =====================================this function is for append multiple form div============================
-let multiformCnt = 0;
+let multiformCnt = -1;
 let cnt = 0;
 
 function AddOneMoreForm() {
@@ -221,7 +221,6 @@ function AddOneMoreForm() {
 
   jQuery(".forms-inner-div").append('' +
   `<div class="multiple-forms-div">`+
-  `<form action="" method="post" class="multiple-form">`+
   `<div class="main-div-closeBtn" id=${multiformCnt} >`+
   `<span id=${multiformCnt}>X</span>`+
   `</div>`+
@@ -235,8 +234,8 @@ function AddOneMoreForm() {
       `<div class="category-div">`+
         `<label>Pick category</label>`+
         `<div class="multi-task_type">`+
-          `<input type="button" class="typeBtn" name="1[]" value="Professional" id=${multiformCnt} />`+
-          `<input type="button" class="typeBtn" id=${multiformCnt} name="2[]" value="Personal" id="personal" />`+
+          `<input type="radio" class="typeBtn" name="${multiformCnt}catogrey[]" value="1" id=${multiformCnt}/>Professional`+
+          `<input type="radio" class="typeBtn" id=${multiformCnt} name="${multiformCnt}catogrey[]" value="2"/>Personal`+
         `</div>`+
       `</div>`+
       
@@ -250,22 +249,21 @@ function AddOneMoreForm() {
         `<label>Urgent</label>`+
         `<div>`+
           `<label for="css">Yes</label>`+
-          `<input type="radio" value="1" id=${multiformCnt} class="urgent-priority-btn" name="urgent[]"/>`+
+          `<input type="radio" value="1" id=${multiformCnt} class="urgent-priority-btn" name="${multiformCnt}urgent[]"/>`+
           `<label for="css">No</label>`+
-          `<input type="radio" value="0" id=${multiformCnt} class="urgent-priority-btn" name="urgent[]"/>`+
+          `<input type="radio" value="0" id=${multiformCnt} class="urgent-priority-btn" name="${multiformCnt}urgent[]"/>`+
         `</div>`+
       `</div>`+
       `<div class="ImportantDiv">`+
         `<label>Important</label>`+
         `<div>`+
           `<label for="css">Yes</label>`+
-          `<input type="radio" value="1" id=${multiformCnt} class="important-priority-btn" name="important[]"/>`+
+          `<input type="radio" value="1" id=${multiformCnt} class="important-priority-btn" name="${multiformCnt}important[]"/>`+
           `<label for="css">No</label>`+
-          `<input type="radio" value="0" id=${multiformCnt} class="important-priority-btn" name="important[]"/>`+
+          `<input type="radio" value="0" id=${multiformCnt} class="important-priority-btn" name="${multiformCnt}important[]"/>`+
         `</div>`+
       `</div>`+
     `</div>`+
-  `</form>`+
   `</div>`
   );
 

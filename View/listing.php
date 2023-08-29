@@ -396,7 +396,7 @@
     </div>
     <!-- this is multiple-input-form  -->
     <div class="multiple-input-form" id="multi-form">`
-      <form action="/store" method="post" class="multiple-form" enctype="multipart/form-data">
+      <form action="/multiFormData" method="post" class="multiple-form" enctype="multipart/form-data">
         <div class="forms-inner-div">
           <!-- multiple forms injected here  -->
         </div>
