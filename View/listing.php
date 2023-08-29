@@ -38,7 +38,7 @@
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                 </svg>
               </div>
-              <input type="search" id="default-search" class="block rounded-lg search-box" placeholder="Search" title="Find your tasks here" required>
+              <input type="text" id="default-search" class="block rounded-lg search-box" placeholder="Search" title="Find your tasks here" required>
             </div>
           </div>
           <!-- ---- -->
@@ -183,7 +183,7 @@
             </div>
           </div>
           <div class="card-div">
-            <h2 class="title">Eleminate it</h2>
+            <h2 class="title">Eliminate it</h2>
             <div class="main-card">
               <div class="card-color"></div>
               <div class="card">
@@ -210,6 +210,9 @@
                 <div class=" px-4 py-3 sm:flex justify-between items-center px-3	">
                   <h3 class="text-base font-semibold leading-6 text-gray-900 text-xl" id="modal-title">DO FIRST</h3>
                   <div class="flex gap-32 ">
+                    <div class="incompleteBtn">
+
+                    </div>
                     <div class="popUpHeader">
 
                     </div>
@@ -304,7 +307,7 @@
 
     <div class="Profile-container">
       <div class="profile-div" id="User_details">
-        <div>
+        <div >
           <div class="close-btn close-habit-div" id="close-profile-div">
             <form action="/list" method="post">
               <div>
@@ -317,8 +320,7 @@
             <div class="Profile-img">
               <div class="image"> <img src="/Images/profile1-removebg-preview.png" alt="">
               </div>
-              <button clas>Change profile</button>
-              <button>Remove profile</button>
+              <button class="editProfile" id="<?php echo  $_SESSION['userid'];  ?>"> edit profile</button>
             </div>
             <div class="inputs">
             </div>
@@ -394,7 +396,7 @@
     </div>
     <!-- this is multiple-input-form  -->
     <div class="multiple-input-form" id="multi-form">`
-      <form action="" method="post" class="multiple-form">
+      <form action="/store" method="post" class="multiple-form" enctype="multipart/form-data">
         <div class="forms-inner-div">
           <!-- multiple forms injected here  -->
         </div>
@@ -403,7 +405,7 @@
         </div>
         <div class="multiForm-btn-div">
           <!-- <button type="button" class="cancel-btn">Cancel</button> -->
-          <button type="button" class="submit-btn">Submit</button>
+          <button type="submit" class="submit-btn">Submit</button>
         </div>
       </form>
     </div>

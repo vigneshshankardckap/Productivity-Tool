@@ -8,7 +8,7 @@ let typeName = document.querySelectorAll(".typeName")
 // below selectore is for comment section
 
 // below selectore is for multiple form append div
-let divCon = document.querySelector(".forms-inner-div");
+// let divCon = document.querySelector(".forms-inner-div");
 // ----------notification section----------
 let Notificationbtn = document.querySelector(".notification");
 let closelist = document.querySelector("#close-notificationList")
@@ -19,7 +19,6 @@ closelist.addEventListener("click", () => {
 })
 // --------------dark mode button ----------
 let darkBtn = document.querySelector(".theme-btn")
-
 
 let taskMainCont1 = document.querySelector(".content1")
 let taskMainCont2 = document.querySelector(".content2")
@@ -38,7 +37,6 @@ $(document).ready(function () {
     async: false,
     success: function (response) {
       var obj = JSON.parse(response)
-      // console.log(obj);
       for (let i = 0; i < obj.length; i++) {
         if (obj[i].matrix_id == 1) {
           content1.push(obj[i])
@@ -53,17 +51,18 @@ $(document).ready(function () {
           content4.push(obj[i])
         }
       }
-      createTasks(taskMainCont1, content1)
-      createTasks(taskMainCont2, content2)
-      createTasks(taskMainCont3, content3)
-      createTasks(taskMainCont4, content4)
+
+      createTasks(taskMainCont1, content1.slice(0,4))
+      createTasks(taskMainCont2, content2.slice(0,4))
+      createTasks(taskMainCont3, content3.slice(0,4))
+      createTasks(taskMainCont4, content4.slice(0,4))
+
     }
 
   });
 
 })
 
-// console.log(content2);
 function createTasks(div, obj) {
   let htmlEle = obj.map((datum) => {
     return `
@@ -78,6 +77,7 @@ function createTasks(div, obj) {
       </div>`
   }).join("")
   div.innerHTML = htmlEle
+
 }
 
 
@@ -119,7 +119,7 @@ $(".category_id").on("click", (e) => {
 // ======================below code is for open single form and multi form ===============================
 for (let i = 0; i < inputBtn.length; i++) {
   inputBtn[i].addEventListener("click", () => {
-    // innerContainer.classList.add("active")
+    innerContainer.classList.add("active")
     $(".black-screen").show();
 
     if (inputBtn[i].id == "1") {
@@ -218,54 +218,58 @@ let cnt = 0;
 function AddOneMoreForm() {
   multiformCnt = multiformCnt + 1
   cnt++;
-  divCon.innerHTML += `
-  <div class="multiple-forms-div">
-  <form action="" method="post" class="multiple-form">
-  <div class="main-div-closeBtn" id=${multiformCnt} >
-  <span id=${multiformCnt}>X</span>
-  </div>
-    <div class="multi-input-div">
-      <label>What on your task?</label>
-      <div class="todo-input-box">
-        <textarea name="Task_name" id="" cols="30" rows="10" placeholder="Enter your task"></textarea>
-      </div>
-    </div>
-    <div class="other-input-div">
-      <div class="category-div">
-        <label>Pick category</label>
-        <div class="multi-task_type">
-          <input type="button" class="typeBtn" name="1" value="Professional" id=${multiformCnt} />
-          <input type="button" class="typeBtn" id=${multiformCnt} name="2" value="Personal" id="personal" />
-        </div>
-      </div>
-      <div class="date-time-div">
-        <label>When is your due?</label>
-        <div>
-          <input type="datetime-local" placeholder="Get Date/Time" class="multiDateTime" value="" name="" />
-        </div>
-      </div>
-      <div class="urgentDiv">
-        <label>Urgent</label>
-        <div>
-          <label for="css">Yes</label>
-          <input type="radio" value="1" id=${multiformCnt} class="urgent-priority-btn" name="urgent"/>
-          <label for="css">No</label>
-          <input type="radio" value="0" id=${multiformCnt} class="urgent-priority-btn" name="urgent"/>
-        </div>
-      </div>
-      <div class="ImportantDiv">
-        <label>Important</label>
-        <div>
-          <label for="css">Yes</label>
-          <input type="radio" value="1" id=${multiformCnt} class="important-priority-btn" name="important"/>
-          <label for="css">No</label>
-          <input type="radio" value="0" id=${multiformCnt} class="important-priority-btn" name="important"/>
-        </div>
-      </div>
-    </div>
-  </form>
-  </div>
-  `
+
+  jQuery(".forms-inner-div").append('' +
+  `<div class="multiple-forms-div">`+
+  `<form action="" method="post" class="multiple-form">`+
+  `<div class="main-div-closeBtn" id=${multiformCnt} >`+
+  `<span id=${multiformCnt}>X</span>`+
+  `</div>`+
+    `<div class="multi-input-div">`+
+      `<label>What on your task?</label>`+
+      `<div class="todo-input-box">`+
+        `<textarea name="Task_name[]" id="" cols="30" rows="10" placeholder="Enter your task"></textarea>`+
+      `</div>`+
+    `</div>`+
+    `<div class="other-input-div">`+
+      `<div class="category-div">`+
+        `<label>Pick category</label>`+
+        `<div class="multi-task_type">`+
+          `<input type="button" class="typeBtn" name="1[]" value="Professional" id=${multiformCnt} />`+
+          `<input type="button" class="typeBtn" id=${multiformCnt} name="2[]" value="Personal" id="personal" />`+
+        `</div>`+
+      `</div>`+
+      
+      `<div class="date-time-div">`+
+        `<label>When is your due?</label>`+
+        `<div>`+
+          `<input type="datetime-local" placeholder="Get Date/Time" class="multiDateTime" value="" name="date[]" />`+
+        `</div>`+
+      `</div>`+
+      `<div class="urgentDiv">`+
+        `<label>Urgent</label>`+
+        `<div>`+
+          `<label for="css">Yes</label>`+
+          `<input type="radio" value="1" id=${multiformCnt} class="urgent-priority-btn" name="urgent[]"/>`+
+          `<label for="css">No</label>`+
+          `<input type="radio" value="0" id=${multiformCnt} class="urgent-priority-btn" name="urgent[]"/>`+
+        `</div>`+
+      `</div>`+
+      `<div class="ImportantDiv">`+
+        `<label>Important</label>`+
+        `<div>`+
+          `<label for="css">Yes</label>`+
+          `<input type="radio" value="1" id=${multiformCnt} class="important-priority-btn" name="important[]"/>`+
+          `<label for="css">No</label>`+
+          `<input type="radio" value="0" id=${multiformCnt} class="important-priority-btn" name="important[]"/>`+
+        `</div>`+
+      `</div>`+
+    `</div>`+
+  `</form>`+
+  `</div>`
+  );
+
+
   // ----------below code for adding color to the taskType(personal or professional) ----------------
 
   let taskType = document.querySelectorAll(".typeBtn");
@@ -459,9 +463,10 @@ $(document).ready(function () {
 // =========================================below function is for assign the fetched task details===================== 
 
 let popUpHeader = document.querySelector('.popUpHeader')
-
+// let incompletedDiv = document.querySelector(".incompleteBtn")
 function datas(data, getType) {
   if (data.length > 0) {
+    // incompletedDiv.innerHTML = `<button type="submit" id="${data[0].matrix_id}" class="completedBtn showDataBtn focus:outline-none font-medium rounded-lg text-sm px-5 py-2">INCOMPLETED TASK</button>`
     let datas = data.map((element) => {
       // console.log(element.comments)
       if (element.comments == "null") {
@@ -563,7 +568,6 @@ function datas(data, getType) {
             </div>
           </div>
           `
-
       }
 
     }).join("")
@@ -854,20 +858,20 @@ function EditFilling(EditTask_Responce) {
 
             <input
             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-             type="text" hidden name="userId" placeholder="Task Name" value=${editContent.user_id} id="userId" >
+             type="text" hidden name="userId" placeholder="Task Name" value=${editContent.user_id} id="userId"   >
             <div class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                 Task Name
             </label>
             <input
                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="editTask" type="text" name="editTaskName" placeholder="Task Name" value=${editContent.task_name} id="editTaskName">
+                id="editTask" type="text" required name="editTaskName" placeholder="Task Name" value=${editContent.task_name} id="editTaskName">
         </div>
         <div class="mb-6">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
                 Date
             </label>
-            <input
+            <input required
                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="editDate" type="date" name=editTaskdate placeholder="Date" value=${editContent.dates} >
         </div>
@@ -933,6 +937,7 @@ let TaskCompleted = document.querySelectorAll(".roundCheck");
 // console.log(Task);
 $(document).on("click", ".roundCheck", function (e) {
   // popUpHeader.innerHTML = `<button type="submit" id="${tasks[0].matrix_id}" class="completedBtn showDataBtn focus:outline-none font-medium rounded-lg text-sm px-5 py-2">COMPLETED TASK </button>`
+  completedTaskFun(completedTask)
   let taskid = e.target.id;
   /**  sending task id to backend */
   $.ajax({
@@ -1027,10 +1032,13 @@ for (let i = 0; i < Task_typeBtn.length; i++) {
 // =================== habits div ======================
 
 let habiticon = document.querySelector(".Habits-icon")
-// console.log(habiticon);
+
 let AddHabisDiv = document.querySelector(".Habits-div")
+
 let matrixdiv = document.querySelector(".page-content")
+
 let closeHabitdiv = document.querySelector("#close-habit-div");
+
 
 habiticon.addEventListener("click", () => {
   $(".black-screen").show();
@@ -1114,11 +1122,9 @@ closeProfileDiv.addEventListener("click", () => {
 
 
 let profileView = document.querySelector(".profileId");
-// console.log(profileView);
 
 $(document).on("click", '.profileId', function (e) {
   let id = e.target.id;
-
   $.ajax({
     url: "/profileView",
     data: {
@@ -1129,6 +1135,7 @@ $(document).on("click", '.profileId', function (e) {
       let datas = JSON.parse(response)
       profilePage(datas)
     }
+
   })
 })
 
@@ -1140,23 +1147,32 @@ function profilePage(datas) {
     console.log(profile);
 
     let Html = `<div class="data-input">
+
     <div> <label for="">Name</label>
       <input type="text" readOnly value="${profile.username}">
     </div>
     <div> <label for="">Email</label>
-      <input type="gmail" value="${profile.email_id}">
-      <p>Change Email</p>
+      <input type="gmail" readOnly value="${profile.email_id}">
     </div>
     <div> <label for="">Password</label>
-      <input type="password" value="${profile.password}">
-      <p>Change Password</p>
+      <input type="password" readOnly value="${profile.password}">
     </div>
   </div>`
 
-    inputdiv.innerHTML = Html;
+  inputdiv.innerHTML=Html;
+
   })
 
 }
+
+
+editProfilebtn=document.querySelector('.editProfile');
+
+profileinputs=document.querySelector('.Profile-data');
+
+
+
+// =================================================================================
 
 // search input functionality///////////////////////////////////////////
 

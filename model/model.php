@@ -114,30 +114,31 @@ class UserModule extends Database
 
     public function store($data)
     {
+        var_dump($data);
 
-        $taskName = $data['Task_name'];
-        $dueDate = $data['dateTime'];
-        $userId = $data['user_id'];
-        $categoryId = $data['task_type'];
-        $urgent = $data['urgent'];
-        $important = $data['important'];
+        // $taskName = $data['Task_name'];
+        // $dueDate = $data['dateTime'];
+        // $userId = $data['user_id'];
+        // $categoryId = $data['task_type'];
+        // $urgent = $data['urgent'];
+        // $important = $data['important'];
 
-        if ($urgent == 1 && $important == 1) {
-            $urgeImp = 1;
-            echo "Do";
-        } elseif ($urgent == 0 && $important == 1) {
-            $urgeImp = 2;
-            echo "Defer";
-        } elseif ($urgent == 1 && $important == 0) {
-            $urgeImp = 3;
-            echo "Delegate";
-        } elseif ($urgent == 0 && $important == 0) {
-            $urgeImp = 4;
-            echo "Delete";
-        }
+        // if ($urgent == 1 && $important == 1) {
+        //     $urgeImp = 1;
+        //     echo "Do";
+        // } elseif ($urgent == 0 && $important == 1) {
+        //     $urgeImp = 2;
+        //     echo "Defer";
+        // } elseif ($urgent == 1 && $important == 0) {
+        //     $urgeImp = 3;
+        //     echo "Delegate";
+        // } elseif ($urgent == 0 && $important == 0) {
+        //     $urgeImp = 4;
+        //     echo "Delete";
+        // }
 
-        $insertIntoTable = $this->db->query("INSERT INTO tasks(task_name,dates,user_id,category_id,matrix_id,comments)VALUES('$taskName','$dueDate','$userId','$categoryId','$urgeImp','null')");
-        header('location:/list');
+        // $insertIntoTable = $this->db->query("INSERT INTO tasks(task_name,dates,user_id,category_id,matrix_id,comments)VALUES('$taskName','$dueDate','$userId','$categoryId','$urgeImp','null')");
+        // header('location:/list');
     }
 
     public function addTask($value)

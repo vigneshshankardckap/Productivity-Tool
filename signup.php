@@ -93,7 +93,7 @@ if(isset($_GET["code"])){
                 <p class="emailError">Please Fill Up Your Email </p>
                 <input type="password" value="sunil123" placeholder="Password" required name="password"/>
                 <p class="passError">Please Fill Up Your Password </p>
-                <button>login In</button>
+                <button>login</button>
             </form>
         </div>
         <div class="overlay-container">
