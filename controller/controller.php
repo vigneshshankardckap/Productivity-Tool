@@ -1,5 +1,8 @@
 <?php
 
+
+
+
 require 'model/model.php';
 
 class UserController
@@ -74,7 +77,8 @@ class UserController
     public function store()
     {
 
-        $this->userModel->store($_REQUEST);
+        // $this->userModel->store($_REQUEST);
+        $this->userModel->store($_POST);
         
     }
 
