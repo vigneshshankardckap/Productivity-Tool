@@ -347,7 +347,7 @@
 
             <div class="EditprofileBtns">
               <button class="editProfile" id="<?php echo  $_SESSION['userid'];  ?>"> Edit Profile</button>
-              <button class="UpdateProfile hidebtn" id="UpdateProfile">Update</button>
+              <button class="UpdateProfile hidebtn" id="<?php echo  $_SESSION['userid'];  ?>"  data-id="<?php echo  $_SESSION['userid'] ?>"> Update</button>
             </div>
           </div>
         </div>

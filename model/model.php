@@ -294,6 +294,20 @@ class UserModule extends Database
         echo json_encode($pro);        
     }
 
+    public function updateProfile($data) 
+    {
+
+        // var_dump($data);
+        $EditId = $data["EditId"];
+        $updateName = $data["updateName"];
+        $updateEmail = $data["updateEmail"];
+        $updatepass = $data["updatepass"];
+
+        $updateprofile = $this->db->query("UPDATE users SET username ='$updateName',email_id='$updateEmail',password='$updatepass' where id='$EditId'");
+        echo json_encode($updateprofile); 
+        
+    }
+
     // multi form data login
     public function multiFormData($values)
     {

@@ -184,12 +184,28 @@ class UserController
         $this->userModel->profileView($id);
     }
 
+    public function updateProfile() 
+    {
+        $EditId = intval($_POST["updatebtnId"]);
+        var_dump($EditId);
+        $updateName = $_POST["updateName"];
+        $updateEmail = $_POST["updateemail"];
+        $updatepass = $_POST["updatepass"];
 
-   
+
+        $data = [
+            "EditId"=>$EditId,
+            "updateName"=>$updateName,
+            "updateEmail"=>$updateEmail,
+            "updatepass"=>$updatepass
+        ];
+
+        $this->userModel->updateProfile($data);  
+        
+    }
+
     public function multiFormData()
     {
-    
-
         $this->userModel->multiFormData($_POST);
 
 

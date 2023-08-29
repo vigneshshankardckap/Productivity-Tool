@@ -424,7 +424,6 @@ $(document).ready(function () {
     btn[i].addEventListener("click", (e) => {
 
       let matrixid = e.target.dataset.id;
-      // console.log(categoryId);
       /**  sending task id to backend */
       $.ajax({
         url: "/particulartask",
@@ -434,7 +433,6 @@ $(document).ready(function () {
         },
         type: "POST",
         success: function (response) {
-          // console.log(response);  
           let obj = JSON.parse(response);
 
           for (let i = 0; i < obj.length; i++) {
@@ -449,7 +447,6 @@ $(document).ready(function () {
           }
           datas(unCompletedTask, completedTask)
           completedTaskFun(completedTask)
-          // console.log(completedTask);
         }
       });
 
@@ -803,7 +800,7 @@ function EditFilling(EditTask_Responce) {
 
       EditTask_Responce.forEach(editContent => {
 
-        let editHtml = `<div class="updateCloseBtn" id="updateFormCloseBtn">
+        let editHtml =`<div class="updateCloseBtn" id="updateFormCloseBtn">
               <div>
                 <span>X</span>
               </div>
@@ -841,7 +838,6 @@ function EditFilling(EditTask_Responce) {
 
       let updateFormCloseBtn = document.querySelector('.updateCloseBtn')
       updateFormCloseBtn.addEventListener('click', () => {
-        // editForm.style.display = "none"
         $(".editForm").hide()
         $(".black-screen").hide();
 
@@ -868,7 +864,10 @@ function EditFilling(EditTask_Responce) {
           url: url,
           data: data,
           success: function (result) {
+            // EditFilling(EditTask_Responce)
             window.location.replace("/list")
+
+           
           }
         })
       })
@@ -988,7 +987,7 @@ for (let i = 0; i < Task_typeBtn.length; i++) {
 
 }
 
-// =================== habits div ======================
+// =================== habits div =========header('location/list');===========
 
 let habiticon = document.querySelector(".Habits-icon")
 
@@ -1097,7 +1096,7 @@ $(document).on("click", '.profileId', function (e) {
     success: function (response) {
       let datas = JSON.parse(response)
       profilePage(datas)
-      console.log(datas);
+      // console.log(datas);
     }
 
   })
@@ -1112,13 +1111,13 @@ function profilePage(datas) {
     let Html = `<div class="data-input">
 
     <div> <label for="">Name</label>
-      <input type="text" readOnly class="editRemove" value="${profile.username}">
+      <input type="text" readOnly class="editRemove name" value="${profile.username}">
     </div>
     <div> <label for="">Email</label>
-      <input type="gmail" readOnly  class="editRemove" value="${profile.email_id}">
+      <input type="gmail" readOnly  class="editRemove email" value="${profile.email_id}">
     </div>
     <div> <label for="">Password</label>
-      <input type="password" readOnly  class="editRemove" value="${profile.password}">
+      <input type="password" readOnly  class="editRemove pass" value="${profile.password}">
     </div>
   </div>`
 
@@ -1128,9 +1127,8 @@ function profilePage(datas) {
 
 
   let EditProfile = document.querySelector(".editProfile");
-  let UpdateProfile = document.querySelector("#UpdateProfile");
+  let UpdateProfile = document.querySelector(".UpdateProfile");
   let readOnlyRemove = document.querySelectorAll(".editRemove");
-
 
 
   EditProfile.addEventListener("click", (e) => {
@@ -1139,17 +1137,15 @@ function profilePage(datas) {
     for (let i = 0; i < readOnlyRemove.length; i++) {
       readOnlyRemove[i].removeAttribute('readonly');
     }
-
-
   })
 
   UpdateProfile.addEventListener("click", (e) => {
     EditProfile.classList.remove("hidebtn");
     EditProfile.classList.add("showbtn");
     UpdateProfile.classList.add("hidebtn");
-    for (let i = 0; i < readOnlyRemove.length; i++) {
-      readOnlyRemove[i].setAttribute('readonly');
-    }
+    // for (let i = 0; i < readOnlyRemove.length; i++) {
+    //   readOnlyRemove[i].setAttribute('readonly');
+    // }
   });
 }
 
@@ -1171,6 +1167,41 @@ function readURL(input) {
 $("#imageUpload").change(function() {
   readURL(this);
 }); 
+
+
+
+$(".UpdateProfile").on("click", () => {
+
+
+  let updatebtnId = $(".UpdateProfile").attr("data-id");
+  
+  let updateName = $(".name").val();
+  
+  let updateemail = $(".email").val();
+  let updatepass = $(".pass").val();
+
+  const url = '/updateProfile';
+  const data = {
+    updatebtnId:updatebtnId ,
+    updateName: updateName,
+    updateemail: updateemail,
+    updatepass: updatepass
+  };
+
+  $.ajax({
+    type: "POST",
+    url: url,
+    data: data,
+    success: function (result) {
+
+            window.location.replace("/list")
+    
+    }
+  })
+})
+
+
+
 // ------- 
 
 // =================================================================================
