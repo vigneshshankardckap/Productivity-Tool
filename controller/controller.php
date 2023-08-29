@@ -181,9 +181,10 @@ class UserController
     public function profileView()
     {
         $id = $_POST["id"];
-        // var_dump($id);
+   
         $this->userModel->profileView($id);
     }
+
 
     // multiple form data 
     public function multiFormData()
@@ -194,5 +195,6 @@ class UserController
 
 
     }
+
     
 }
