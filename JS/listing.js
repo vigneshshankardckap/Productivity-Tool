@@ -623,31 +623,6 @@ function datas(data, getType) {
     }
   });
 
-
-  // =============================below code is for three functionality (comment div toggling)(task detail strike out)(if user click the check box the div will be hiding)=================================
-
-  // let commentBtn = document.querySelectorAll(".add-comment-btn");
-  // let commentInput = document.querySelectorAll(".model-title ");
-  // let TaskCompleted = document.querySelectorAll(".roundCheck");
-  // let task_name = document.querySelectorAll(".task-inner-div");
-
-
-  // for (let j = 0; j < commentBtn.length; j++) {
-  //   commentBtn[j].addEventListener("click", () => {
-  //     commentInput[j].classList.toggle("addvisibility")
-  //   })
-
-  //   TaskCompleted[j].addEventListener("click", () => {
-
-  //     task_name[j].classList.toggle("completedTask")
-
-  //     setTimeout(() => {
-  //       tasks_list[j].remove()
-
-  //     }, 2000)
-  //   })
-  // }
-
   // -------------------------below code is for remove the task from UI------------------------------------
   // UI delete function code here //
   let deleteBtn = document.querySelectorAll('#btnDelete')
@@ -735,7 +710,7 @@ function datas(data, getType) {
     })
   }
   ///========================commment fetching ======================================
-  let addedCommentIcon = document.querySelectorAll(".commentAdded")
+  // let addedCommentIcon = document.querySelectorAll(".commentAdded")
   let taskInnerDiv = document.querySelectorAll(".task-inner-div")
   let fetchedComment = document.querySelectorAll(".fetchedComment")
   for (let v = 0; v < addedCommentIcon.length; v++) {
@@ -769,31 +744,11 @@ function datas(data, getType) {
       data: { id: taskid },
       type: "POST",
       success: function (response) {
-        // console.log(response);
+      
       }
     });
   })
 
-
-  // for (let a = 0; a < cmtBtn.length; a++) {
-  //   const element = cmtBtn[a];
-  //   element.addEventListener("click", (e) => {
-  //     let id = comment[a].dataset.id
-  //     let comments = comment[a].value
-  //     $.ajax({
-  //       url: "/addComment",
-  //       data: {
-  //         id: id,
-  //         comments: comments
-  //       },
-  //       type: "POST",
-  //       success: function (response) {
-  //         // console.log(response);
-  //         $("#succcess").css("display", "block");
-  //       }
-  //     })
-  //   })
-  // }
 
 
 
@@ -1200,15 +1155,7 @@ function profilePage(datas) {
       readOnlyRemove[i].setAttribute('readonly');
     }
   });
-  
-
 }
-
-
-
-
-
-
 
 editProfilebtn = document.querySelector('.editProfile');
 

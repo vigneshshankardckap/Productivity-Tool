@@ -169,7 +169,7 @@ class UserController
     }
 
     public function commFetch() {
-        // var_dump($_REQUEST);
+       
         $this->userModel->commFetch($_REQUEST);
     }
     public function permanentDel()
@@ -185,7 +185,7 @@ class UserController
     }
 
 
-    // multiple form data 
+   
     public function multiFormData()
     {
     
