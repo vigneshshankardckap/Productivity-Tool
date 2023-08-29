@@ -38,7 +38,7 @@
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                 </svg>
               </div>
-              <input type="search" id="default-search" class="block rounded-lg search-box" placeholder="Search" title="Find your tasks here" required>
+              <input type="text" id="default-search" class="block rounded-lg search-box" placeholder="Search" title="Find your tasks here" required>
             </div>
           </div>
           <!-- ---- -->
@@ -210,6 +210,9 @@
                 <div class=" px-4 py-3 sm:flex justify-between items-center px-3	">
                   <h3 class="text-base font-semibold leading-6 text-gray-900 text-xl" id="modal-title">DO FIRST</h3>
                   <div class="flex gap-32 ">
+                    <div class="incompleteBtn">
+
+                    </div>
                     <div class="popUpHeader">
 
                     </div>
