@@ -1,5 +1,8 @@
 <?php
 
+
+
+
 require 'model/model.php';
 
 class UserController
@@ -74,7 +77,8 @@ class UserController
     public function store()
     {
 
-        $this->userModel->store($_REQUEST);
+        // $this->userModel->store($_REQUEST);
+        $this->userModel->store($_POST);
         
     }
 
@@ -177,8 +181,20 @@ class UserController
     public function profileView()
     {
         $id = $_POST["id"];
-        // var_dump($id);
+   
         $this->userModel->profileView($id);
     }
+
+
+    // multiple form data 
+    public function multiFormData()
+    {
+    
+
+        $this->userModel->multiFormData($_POST);
+
+
+    }
+
     
 }

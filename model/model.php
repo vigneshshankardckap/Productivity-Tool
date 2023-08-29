@@ -114,7 +114,6 @@ class UserModule extends Database
 
     public function store($data)
     {
-
         $taskName = $data['Task_name'];
         $dueDate = $data['dateTime'];
         $userId = $data['user_id'];
@@ -180,7 +179,6 @@ class UserModule extends Database
     {
         
         $userId = intval($_SESSION['userid']);
-        // echo $userId;
       $profissional = $this->db->query("SELECT * FROM tasks WHERE category_id = '1' AND user_id = '$userId' AND completed_at is null and deleted_at is null")->fetchAll();
     
       echo json_encode($profissional);
@@ -262,17 +260,6 @@ class UserModule extends Database
         echo json_encode($cat);
     }
 
-    // public function viewAllTask($data)
-    // {
-
-    //     $userId = $_SESSION['userid'];
-    //     $matrix_id = $data;
-
-
-    //     $datas = $this->db->query("SELECT * from tasks where user_id = $userId AND matrix_id = $matrix_id AND deleted_at is NULL AND completed_at is NULL ")->fetchAll(PDO::FETCH_OBJ);
-    //     echo json_encode($datas);
-    // }
-
     public function commFetch($val){
         // var_dump($val);
         $id = $val["id"];
@@ -299,7 +286,6 @@ class UserModule extends Database
     }
     public function permanentDel($delId)
     {
-        // var_dump($delId);
         $delBtnId = $delId;
         $delFun = $this->db->query("DELETE FROM `tasks` WHERE `tasks`.`id` = '$delBtnId'");
         echo json_encode($delFun);
@@ -310,5 +296,42 @@ class UserModule extends Database
      {
         $pro = $this->db->query("SELECT * FROM users WHERE id = '$id'")->fetchAll();
         echo json_encode($pro);        
+    }
+
+    // multi form data login
+    public function multiFormData($values)
+    {
+
+        $loopId = count($_POST["Task_name"]);
+        $userId = $_SESSION['userid'];
+
+        for($i=0;$i<$loopId;$i++){
+            $taskName = $_POST["Task_name"][$i];
+            $date = $_POST["date"][$i];
+            $userId = $_SESSION['userid'];
+            $id = strval($i);
+            $category = $_POST[$id."catogrey"][0];
+            $urgent = $_POST[$id."urgent"][0];
+            $importent = $_POST[$id."important"][0];
+
+            if ($urgent == 1 && $important == 1) {
+                $urgeImp = 1;
+                
+            } elseif ($urgent == 0 && $important == 1) {
+                $urgeImp = 2;
+                
+            } elseif ($urgent == 1 && $important == 0) {
+                $urgeImp = 3;
+            } elseif ($urgent == 0 && $important == 0) {
+                $urgeImp = 4;
+    
+            }
+
+            $this->db->query("INSERT INTO tasks(task_name,dates,user_id,category_id,matrix_id)VALUES('$taskName','$date','$userId','$category','$urgeImp')");
+
+            header("location:/list");
+
+        }
+
     }
 }

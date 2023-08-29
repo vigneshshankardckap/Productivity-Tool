@@ -961,6 +961,12 @@ button.removetask {
   outline: #52a521;
 }
 
+.addComentBtn{
+  border: none;
+  background: none;
+  color: var(--primary-color);
+  font-size: 20px;
+}
 
 .add-Cmt #addComment {
   border-radius: 8px;
@@ -1396,6 +1402,7 @@ button.UncompletedBtn:hover {
   z-index: 1;
 }
 
+
 .EditprofileBtns button {
 
   color: white;
@@ -1420,3 +1427,38 @@ color: var(--font-color);
 .hidebtn {
   display: none;
 }
+
+
+.fetchedComment,.fetchedComments{
+  position: relative;
+  width: 250px;
+  height: 43px;
+  background-color: var(--input-type-hover);
+  border-radius: 10px;
+  border: 1px solid #b0bdb0;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  padding: 0px 40px 0px 15px;
+  outline: #52a521;
+  text-align: inherit;
+  padding: 8px;
+}
+
+#modalBar{
+  /* visibility: hidden; */
+}
+.commentAddeds{
+  display: none;
+}
+.fetchedComments{
+  visibility: hidden;
+}
+input#comment{
+  position: relative;
+  top: 18px;
+}
+button#addComment {
+  position: relative;
+  top: 15px;
+  right: 32px;
+}
+

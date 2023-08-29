@@ -63,4 +63,6 @@ $router->get('/fetch_proofession','fetch_proofession');
 $router->post('/updateTask','updateTask');
 $router->post('/profileView','profileView');
 
+$router->post('/multiFormData','multiFormData');
+
 $router->routing();

@@ -183,7 +183,7 @@
             </div>
           </div>
           <div class="card-div">
-            <h2 class="title">Eleminate it</h2>
+            <h2 class="title">Eliminate it</h2>
             <div class="main-card">
               <div class="card-color"></div>
               <div class="card">
@@ -401,7 +401,7 @@
     </div>
     <!-- this is multiple-input-form  -->
     <div class="multiple-input-form" id="multi-form">`
-      <form action="" method="post" class="multiple-form">
+      <form action="/multiFormData" method="post" class="multiple-form" enctype="multipart/form-data">
         <div class="forms-inner-div">
           <!-- multiple forms injected here  -->
         </div>
@@ -410,7 +410,7 @@
         </div>
         <div class="multiForm-btn-div">
           <!-- <button type="button" class="cancel-btn">Cancel</button> -->
-          <button type="button" class="submit-btn">Submit</button>
+          <button type="submit" class="submit-btn">Submit</button>
         </div>
       </form>
     </div>
