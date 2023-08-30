@@ -1224,4 +1224,36 @@ $("#default-search").on("keyup", (e) => {
 })
 
 // =========================================================================
+// windows notification 
+if ("Notification" in window) {
+  Notification.requestPermission()
+    .then(permission => {
+      if (permission === "granted") {
+        // Create a function to display the notification
+        const displayNotification = () => {
+          const notification = new Notification("Hello!", {
+            body: "It's Time to drink water",
+            icon: "Images/logo.png" 
+          });
+
+          notification.onclick = () => {
+            window.focus();
+            notification.close(); 
+          };
+        };
+
+        const scheduleNotifications = () => {
+        displayNotification();
+      };
+
+      // Display the first notification immediately
+      scheduleNotifications();
+
+      // Schedule notifications every 2 minutes using setInterval
+      setInterval(scheduleNotifications, 2 * 60 * 1000); 
+    }
+  });
+}
+
+// =========================================================================
 
