@@ -1,8 +1,6 @@
 <?php
 
 
-
-
 require 'model/model.php';
 
 class UserController
@@ -202,5 +200,4 @@ class UserController
 
     }
 
-    
 }
