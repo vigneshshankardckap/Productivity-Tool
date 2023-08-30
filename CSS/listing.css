@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Alkatra', cursive;
+  /* font-family: 'Alkatra', cursive; */
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -337,7 +337,7 @@ body {
 }
 
 .close-habit-div {
-  margin-left: 673px;
+  margin: 5px 0px 0px 95%;  
   border-radius: 0px 10px 0px 10px;
 }
 
@@ -602,13 +602,11 @@ button {
 .multi-task_type .typeBtn {
   cursor: pointer;
   height: 35px;
-  width: 135px;
+  width: 25px;
   border: 1px solid #656664;
   color: #656664;
   border-radius: var(--multi-border-radius);
-
   color: var(--font-color);
-  font-size: 16px;
 }
 
 .other-input-div input {
@@ -797,7 +795,6 @@ button {
 
 .nameDateDiv {
   display: flex;
-  background-color: var(--task-list-bg-color);
   padding: 5px;
   margin: 5px;
   border-radius: 5px;
@@ -984,8 +981,8 @@ button.removetask {
 
 .add-Cmt #addComment {
   border-radius: 8px;
-  padding: 7px;
-  font-size: 10px;
+  padding: 16px 8px;
+  font-size: 8px;
   color: var(--primary-color);
   border: 2px solid var(--primary-color);
 }
@@ -1323,29 +1320,29 @@ button.UncompletedBtn:hover {
 }
 
 .settings {
-  position: absolute;
+  position: fixed;
   display: none;
   background-color: var(--input-type-hover);
   border-radius: 5px;
-  width: 250px;
-  min-height: 91px;
-  padding: 20px 0px 9px 12px;
-  left: 1100px;
-  bottom: 565px;
+  padding: 15px;
+  width: 225px;
+  left: 83%;
+  bottom: 71%;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
 .Change-info {
   display: flex;
+  align-items: center;
   background-color: #F5F5F5;
-  height: 30px;
-  width: 226px;
-  padding: 4px 15px;
-  gap: 44px;
-  margin-bottom: 10px;
+  padding: 4px 47px;
+  gap: 15px;
   cursor: pointer;
 }
-
+.Change-info a{
+  display: flex;
+  gap: 15px;
+}
 .profile-div {
   display: flex;
   flex-direction: column;
@@ -1411,6 +1408,9 @@ button.UncompletedBtn:hover {
 .viewProfile {
   display: block;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .showuserdata {
@@ -1473,8 +1473,15 @@ input#comment{
   top: 18px;
 }
 button#addComment {
-  position: relative;
-  top: 15px;
-  right: 32px;
+  /* position: absolute;
+  top: 17px;
+  right: 0px; */
 }
-
+.relativeDiv{
+  position: relative;
+}
+button#addComment{
+  /* position: absolute;
+  top: 125px;
+  right: 240px; */
+}

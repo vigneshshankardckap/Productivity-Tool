@@ -129,14 +129,15 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 22px;
-  font-weight: 400;
+  color: var(--font-color);
+  font-weight: bold;
 }
 
 .left-section span {
   font-size: 25px;
   color: var(--font-color);
   margin-left: 7px;
-  font-weight: 500;
+  font-weight: 400;
   text-transform: capitalize;
 
 }
@@ -203,7 +204,8 @@ body {
   transition: 0.2s;
 
 }
-.type-btn{
+
+.type-btn {
   cursor: pointer;
   max-width: none;
 }
@@ -269,9 +271,9 @@ body {
   color: var(--primary-color);
   border-radius: 0px 10px 10px 10px;
   text-align: center;
-  line-height: 35px;   
+  line-height: 35px;
   height: 35px;
-  width: 90px;  
+  width: 90px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 4px 0px;
   display: none;
 }
@@ -297,6 +299,7 @@ body {
   font-weight: 400;
   font-size: 24px;
   padding: 30px 280px 30px 45px;
+  color: var(--font-color);
 }
 
 /* -----------------main div for all the separate div styling------------- */
@@ -352,7 +355,7 @@ body {
 .single-input-form {
   display: none;
   position: absolute;
-  height: 29rem;
+  height: 28rem;
   width: 35rem;
   background-color: var(--thresary-color);
   border-radius: var(--single-border-radius);
@@ -363,7 +366,7 @@ body {
 }
 
 .single-input-form p {
-
+  padding: 10px;
   font-weight: 500;
   text-align: center;
 }
@@ -376,25 +379,21 @@ body {
 
 /* ---------close button for form---------------- */
 .close-btn {
-    cursor: pointer;
-    color: var(--close-btn-color);
-    height: 30px;
-    width: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid var(--close-btn-border-color);
-    margin-left: 507px;
-    font-weight: bold;
-    border-radius: 0px 6px 0px 10px;
+  cursor: pointer;
+  color: var(--close-btn-color);
+  padding: 2px 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--close-btn-border-color);
+  margin-left: 507px;
+  border-radius: 0px 6px 0px 10px;
 }
 
 .close-btn:hover {
+  font-weight: bold;
   transition: 0.3s;
   border-radius: var(--single-border-radius);
-  color: var(--thresary-color);
-  background-color: var(--primary-color);
-  box-shadow: var(--shadow-color) 0px 0px 8px 0px;
 }
 
 /* --------------this show for open the single form ---------------- */
@@ -455,11 +454,12 @@ body {
   display: flex;
   gap: 60px;
   margin-left: 120px;
-  margin-top: 25px;
+  margin-top: 16px;
 }
+
 .matix div input {
-  height: 20px;
-  width: 38px;
+  height: 25px;
+  width: 37px;
   border-radius: var(--single-border-radius);
   border: 1px solid var(--primary-color);
   background-color: var(--input-background-color);
@@ -497,7 +497,7 @@ button {
   border: none;
   color: var(--thresary-color);
   font-size: 16px;
-  margin: 20px 0px 11px 181px;  
+  margin: 20px 0px 11px 181px;
   cursor: pointer;
 }
 
@@ -511,7 +511,7 @@ button {
   align-items: center;
   justify-content: space-evenly;
   border-radius: 5px;
-  padding: 25px 0px 15px 20px;
+  padding: 0px 20px;
 }
 
 .wrapper .option {
@@ -522,9 +522,11 @@ button {
   margin: 0 10px;
   border-radius: 5px;
   cursor: pointer;
-  width: 140px;
+  width: 136px;
   border: 1px solid var(--primary-color);
   transition: all 0.3s ease;
+  height: 35px;
+
 }
 
 .wrapper>input[type="radio"] {
@@ -549,7 +551,7 @@ button {
 }
 
 .wrapper .option span {
-  font-size: 20px;
+  font-size: 18px;  
   color: #808080;
 }
 
@@ -578,21 +580,21 @@ button {
 
 .main-div-closeBtn {
   cursor: pointer;
-  color: var(--primary-color);
-  font-weight: 600;
-  border: 1px solid var(--primary-color);
-  width: fit-content;
-  padding: 5px 10px;
+  color: var(--close-btn-color);
+  border: 1px solid var(--close-btn-border-color);
+  padding: 3px 14px;
   margin-left: 55pc;
-  border-radius: 3px;
+  border-radius: 0px 10px 0px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
 .main-div-closeBtn:hover {
+  font-weight: bold;
   transition: 0.3s;
   border-radius: var(--multi-border-radius);
-  color: var(--thresary-color);
-  background-color: var(--primary-color);
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .show {
@@ -619,28 +621,6 @@ button {
   color: var(--font-color);
 }
 
-/* ---------multi form one specific form closing button ----------- */
-.multi-close-btn {
-  cursor: pointer;
-  color: var(--primary-color);
-  height: 30px;
-  width: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: var(--multi-border-radius);
-  border: 1px solid #656664;
-  margin-left: 890px;
-  font-weight: bold;
-}
-
-.multi-close-btn:hover {
-  transition: 0.2s;
-  color: var(--thresary-color);
-  background-color: var(--primary-color);
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-}
-
 /* -----------input box styling---------- */
 .todo-input-box {
   padding: 10px 0px;
@@ -665,7 +645,8 @@ button {
 /* ----------other input styling--------- */
 .other-input-div {
   display: flex;
-  gap: 65px;
+  justify-content: center;
+  gap: 60px;
 }
 
 .task_type {
@@ -716,11 +697,13 @@ button {
   margin-top: var(--inputs-top-margin);
 }
 
-.urgentDiv>div, .ImportantDiv>div {
+.urgentDiv>div,
+.ImportantDiv>div {
   display: flex;
   align-items: center;
-  padding: 5px 0px;
+  gap: 10px;
 }
+
 /* ------------multi form submit button styling--------- */
 .multiForm-btn-div {
   display: flex;
@@ -737,7 +720,7 @@ button {
   background-color: var(--primary-color);
   border: none;
   cursor: pointer;
-  color: var(--thresary-color);
+  color: var(--font-color);
 }
 
 .multiple-input-form .cancel-btn {
@@ -767,12 +750,14 @@ button {
 .addDivBtn {
   cursor: pointer;
   background-color: var(--primary-color);
-  color: var(--thresary-color);
+  color: var(--font-color);
   font-size: 26px;
   border-radius: var(--multi-border-radius);
   width: 35px;
   height: 35px;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .addDivBtn:hover {
@@ -816,14 +801,29 @@ button {
 
 }
 
-.Habitsdiv .notification-title .cancelicon {
+.Habitsdiv .notification-title   {
   border: none;
   background: none;
   color: red;
-  font-size: 22px;
+  font-size: 18px;  
   cursor: pointer;
 }
 
+.cancelicon {
+  cursor: pointer;
+  color: red;
+  color: var(--close-btn-color);
+  border: 1px solid var(--close-btn-border-color);
+  padding: 1px 8px;
+  border-radius: 0px 10px 0px 10px;
+  display: inline;
+}
+
+.cancelicon:hover{
+  font-weight: bold;
+  transition: 0.3s;
+  border-radius: var(--multi-border-radius);
+}
 .Habitsdiv .Tasklist {
   justify-content: space-between;
   display: flex;
@@ -921,9 +921,11 @@ button.removetask {
   bottom: 565px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
+
 div#close-profile-div {
   margin-left: 837px;
 }
+
 .Change-info {
   display: flex;
   background-color: #F5F5F5;
@@ -934,11 +936,12 @@ div#close-profile-div {
   margin-bottom: 10px;
   cursor: pointer;
 }
+
 .profile-div {
   display: flex;
   flex-direction: column;
   background-color: var(--thresary-color);
-  height: 489px;  
+  height: 489px;
   width: 867px;
   border-radius: 10px;
   box-shadow: #63636333 0px 2px 8px 0px;
@@ -954,10 +957,12 @@ div#close-profile-div {
   right: 18%;
   display: none;
 }
+
 .profile-div h1 {
   margin: -27px 0px 0px 350px;
   font-size: 24px;
 }
+
 .Profile-img {
   display: flex;
   gap: 20px;
@@ -991,21 +996,22 @@ div#close-profile-div {
   height: 40px;
   border-radius: 5px;
   border: 2px solid #7F808A;
-} 
+}
+
 .data-input div p {
   position: absolute;
   left: 545px;
-  padding-top: 42px;  
- border-bottom: 2px solid #7F808A;
-  color:  #7F808A;
+  padding-top: 42px;
+  border-bottom: 2px solid #7F808A;
+  color: #7F808A;
 }
 
 .viewProfile {
   display: block;
   z-index: 1;
 }
-.showuserdata{
+
+.showuserdata {
   display: block;
   z-index: 1;
 }
-

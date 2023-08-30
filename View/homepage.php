@@ -210,7 +210,7 @@
               <label class="block  tracking-wide text-gray" for="grid-first-name">
                 What is on your Task
               </label>
-              <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-black focus:bg-white" id="grid-first-name" type="text" required placeholder="projectName" name="Task_name">
+              <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 leading-tight focus:outline-black focus:bg-white" id="grid-first-name" type="text" required placeholder="projectName" name="Task_name">
             </div>
             <div>
               <label for="project" placeholder="Get Date/Time">What on your due?</label>

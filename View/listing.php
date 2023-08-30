@@ -60,23 +60,19 @@
       </nav>
       <div class="settings" id="view-profile">
         <div class="Change-info" id="getUserinfo">
-          <p>
-            <span class="material-symbols-outlined" title="Profile">
-              person
-            </span>
-          </p>
-          <h1 id="<?php echo  $_SESSION['userid'];  ?>" class="profileId">Profile</h1>
+          <span class="material-symbols-outlined" title="Profile">
+            person
+          </span>
+          <p id="<?php echo  $_SESSION['userid'];  ?>" class="profileId">Profile</p>
         </div>
-        <a href="/logout">
-          <div class="Change-info">
-            <p>
-              <span class="material-symbols-outlined" title="Log out">
-                logout
-              </span>
-            </p>
-            <h1>Log out</h1>
-          </div>
-        </a>
+        <div class="Change-info">
+          <a href="/logout">
+            <span class="material-symbols-outlined" title="Log out">
+              logout
+            </span>
+            <p>Log out</p>
+          </a>
+        </div>
       </div>
 
       <div class="mt-20 body-contaienr">
@@ -110,7 +106,7 @@
       <div id="succcess">
         <div class="notification-success" style="display: flex;">
           <img src="/Images/success.gif" alt="" height="20px" width="20px" class="notifyIcon">
-            <!-- <div style="width:100%;height:0;padding-bottom:100%;position:relative;"><iframe src="https://giphy.com/embed/Q81NcsY6YxK7jxnr4v" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/moodman-Q81NcsY6YxK7jxnr4v">via GIPHY</a></p> -->
+          <!-- <div style="width:100%;height:0;padding-bottom:100%;position:relative;"><iframe src="https://giphy.com/embed/Q81NcsY6YxK7jxnr4v" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/moodman-Q81NcsY6YxK7jxnr4v">via GIPHY</a></p> -->
           <p id="toastMsg">Succesfully deleted</p>
         </div>
       </div>
@@ -135,7 +131,7 @@
       <div class="taskDetailBox" id="overAll">
         <main class="page-content">
           <div class="card-div">
-            <h2 class="title">Do it now</h2>
+            <h2 class="title">DO IT NOW</h2>
             <div class="main-card">
               <div class="card-color"></div>
               <div class="card">
@@ -152,7 +148,7 @@
             </div>
           </div>
           <div class="card-div">
-            <h2 class="title">Schedule a time to Do it</h2>
+            <h2 class="title">SCHEDULE A TIME TO DO</h2>
             <div class="main-card">
               <div class="card-color"></div>
               <div class="card">
@@ -168,7 +164,7 @@
             </div>
           </div>
           <div class="card-div">
-            <h2 class="title">Who can Do it for you</h2>
+            <h2 class="title">WHO CAN DO IT FOR YOU</h2>
             <div class="main-card">
               <div class="card-color"></div>
               <div class="card">
@@ -184,7 +180,7 @@
             </div>
           </div>
           <div class="card-div">
-            <h2 class="title">Eliminate it</h2>
+            <h2 class="title">ELIMMINATE IT</h2>
             <div class="main-card">
               <div class="card-color"></div>
               <div class="card">
