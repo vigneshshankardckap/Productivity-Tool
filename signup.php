@@ -73,7 +73,7 @@ if(isset($_GET["code"])){
             <!-- <p></p> -->
                 </div>
                 <span>or use your email for registration</span>
-                <input type="text" placeholder="Name" required name="name" pattern="[a-z,A-Z]*" autocomplete="off"/>
+                <input type="text" placeholder="Name" required name="name" pattern="[a-z,A-Z,' ']*" autocomplete="off"/>
                 <input type="email" placeholder="Email" required name="email" autocomplete="off" />
                 <input type="password" placeholder="Password" required name="password" autocomplete="off" />
                 <button>Sign Up</button>
