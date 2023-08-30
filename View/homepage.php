@@ -257,26 +257,38 @@
               </div>
             </form>
           </div>
-          <h1>My Profile</h1>
+          <h1>profile</h1>
           <div class="Profile-data">
-            <div class="Profile-img">
+            <!-- <div class="Profile-img">
+
               <div class="image"> <img src="/Images/profile1-removebg-preview.png" alt="">
               </div>
-              <button>Change profile</button>
-              <button>Remove profile</button>
+
+            </div> -->
+
+
+            <div class="container">
+              <div class="avatar-upload">
+                <div class="avatar-edit hidebtn"  id="editDP" >
+                  <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+                  <label for="imageUpload">
+                    <!-- <i class="fa-solid fa-pencil"></i> -->
+                  </label>
+                </div>
+                <div class="avatar-preview">
+                  <div id="imagePreview"   style="background-image: url(http://i.pravatar.cc/500?img=7);">
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="data-input">
-              <div> <label for="">Name</label>
-                <input type="text" value="prasanth">
-              </div>
-              <div> <label for="">Email</label>
-                <input type="gmail" value="prasanthndckap@gmail.com">
-                <p>Change Email</p>
-              </div>
-              <div> <label for="">Password</label>
-                <input type="password" value="prasanthndckap@gmail.com">
-                <p>Change Password</p>
-              </div>
+
+
+            <div class="inputs">
+            </div>
+
+            <div class="EditprofileBtns">
+              <button class="editProfile" id="<?php echo  $_SESSION['userid'];  ?>"> Edit Profile</button>
+              <button class="UpdateProfile hidebtn" id="<?php echo  $_SESSION['userid'];  ?>"  data-id="<?php echo  $_SESSION['userid'] ?>"> Update</button>
             </div>
           </div>
         </div>
