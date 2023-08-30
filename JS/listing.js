@@ -220,51 +220,51 @@ function AddOneMoreForm() {
   cnt++;
 
   jQuery(".forms-inner-div").append('' +
-  `<div class="multiple-forms-div">`+
-  `<div class="main-div-closeBtn" id=${multiformCnt} >`+
-  `<span id=${multiformCnt}>X</span>`+
-  `</div>`+
-    `<div class="multi-input-div">`+
-      `<label>What on your task?</label>`+
-      `<div class="todo-input-box">`+
-        `<textarea name="Task_name[]" id="" cols="30" rows="10" placeholder="Enter your task"></textarea>`+
-      `</div>`+
-    `</div>`+
-    `<div class="other-input-div">`+
-      `<div class="category-div">`+
-        `<label>Pick category</label>`+
-        `<div class="multi-task_type">`+
-          `<input type="radio" class="typeBtn" name="${multiformCnt}catogrey[]" value="1" id=${multiformCnt}/>Professional`+
-          `<input type="radio" class="typeBtn" id=${multiformCnt} name="${multiformCnt}catogrey[]" value="2"/>Personal`+
-        `</div>`+
-      `</div>`+
-      
-      `<div class="date-time-div">`+
-        `<label>When is your due?</label>`+
-        `<div>`+
-          `<input type="datetime-local" placeholder="Get Date/Time" class="multiDateTime" value="" name="date[]" />`+
-        `</div>`+
-      `</div>`+
-      `<div class="urgentDiv">`+
-        `<label>Urgent</label>`+
-        `<div>`+
-          `<label for="css">Yes</label>`+
-          `<input type="radio" value="1" id=${multiformCnt} class="urgent-priority-btn" name="${multiformCnt}urgent[]"/>`+
-          `<label for="css">No</label>`+
-          `<input type="radio" value="0" id=${multiformCnt} class="urgent-priority-btn" name="${multiformCnt}urgent[]"/>`+
-        `</div>`+
-      `</div>`+
-      `<div class="ImportantDiv">`+
-        `<label>Important</label>`+
-        `<div>`+
-          `<label for="css">Yes</label>`+
-          `<input type="radio" value="1" id=${multiformCnt} class="important-priority-btn" name="${multiformCnt}important[]"/>`+
-          `<label for="css">No</label>`+
-          `<input type="radio" value="0" id=${multiformCnt} class="important-priority-btn" name="${multiformCnt}important[]"/>`+
-        `</div>`+
-      `</div>`+
-    `</div>`+
-  `</div>`
+    `<div class="multiple-forms-div">` +
+    `<div class="main-div-closeBtn" id=${multiformCnt} >` +
+    `<span id=${multiformCnt}>X</span>` +
+    `</div>` +
+    `<div class="multi-input-div">` +
+    `<label>What on your task?</label>` +
+    `<div class="todo-input-box">` +
+    `<textarea name="Task_name[]" id="" cols="30" rows="10" placeholder="Enter your task"></textarea>` +
+    `</div>` +
+    `</div>` +
+    `<div class="other-input-div">` +
+    `<div class="category-div">` +
+    `<label>Pick category</label>` +
+    `<div class="multi-task_type">` +
+    `<input type="radio" class="typeBtn" name="${multiformCnt}catogrey[]" value="1" id=${multiformCnt}/>Professional` +
+    `<input type="radio" class="typeBtn" id=${multiformCnt} name="${multiformCnt}catogrey[]" value="2"/>Personal` +
+    `</div>` +
+    `</div>` +
+
+    `<div class="date-time-div">` +
+    `<label>When is your due?</label>` +
+    `<div>` +
+    `<input type="datetime-local" placeholder="Get Date/Time" class="multiDateTime" value="" name="date[]" />` +
+    `</div>` +
+    `</div>` +
+    `<div class="urgentDiv">` +
+    `<label>Urgent</label>` +
+    `<div>` +
+    `<label for="css">Yes</label>` +
+    `<input type="radio" value="1" id=${multiformCnt} class="urgent-priority-btn" name="${multiformCnt}urgent[]"/>` +
+    `<label for="css">No</label>` +
+    `<input type="radio" value="0" id=${multiformCnt} class="urgent-priority-btn" name="${multiformCnt}urgent[]"/>` +
+    `</div>` +
+    `</div>` +
+    `<div class="ImportantDiv">` +
+    `<label>Important</label>` +
+    `<div>` +
+    `<label for="css">Yes</label>` +
+    `<input type="radio" value="1" id=${multiformCnt} class="important-priority-btn" name="${multiformCnt}important[]"/>` +
+    `<label for="css">No</label>` +
+    `<input type="radio" value="0" id=${multiformCnt} class="important-priority-btn" name="${multiformCnt}important[]"/>` +
+    `</div>` +
+    `</div>` +
+    `</div>` +
+    `</div>`
   );
 
 
@@ -363,7 +363,7 @@ darkBtn.addEventListener("click", () => {
 // ---------------show more button functionality code here--------------
 let showMoreBtn = document.querySelectorAll(".showMoreBtn");
 let popUpWnd = document.querySelector('.testing-window');
-let check = document.querySelectorAll("#round")
+// let check = document.querySelectorAll(".roundCheck")
 
 let model_title = document.querySelector('#modal-title')
 
@@ -398,7 +398,6 @@ let fetchFilterData = 1;
 
 let taskDiv = document.querySelector('.taskListDiv')
 let popUpclose = document.querySelector('#popUpCloseBtn');
-// let tasksLists = document.querySelectorAll(".tasks-lists")
 
 popUpclose.addEventListener("click", () => {
   $("#popUpWindow").hide();
@@ -462,35 +461,35 @@ let popUpHeader = document.querySelector('.popUpHeader')
 function datas(data, getType) {
   if (data.length > 0) {
     let datas = data.map((element) => {
-      if (element.comments == "null") {
+      if (element.comments === "null") {
         return `
         <div class=" tasks-lists my-1	h-14	py-3 px-data.length > 01.5	cursor-pointer flex gap-8 pb-5 rounded">
-          <div class="task-inner-div">
+          <div class="task-inner-div" id="${element.matrix_id}">
             <div class="task-info " id="rowdiv" >
               <input type="hidden" id="rowid" value="">
               <div class="list-name">
                 <h5>
-                 <p class="user-content">${element.task_name.slice(0,22)}</p>
+                 <p class="user-content">${element.task_name}</p>
                 </h5>
               </div>
             </div>
             <div class="text-base  leading-6 text-gray-900 no-underline " id="modal-title">
-              <p id="due-date">${element.dates.slice(0,16)}</p>
+              <p id="due-date">${element.dates}</p>
             </div>
           </div>
           <div class="second-div">
-            <div class="text-base leading-6 text-gray-900 no-underline model-title " id="modal-title">
-              <div class="add-Cmt">
-                <div class="relative" >
-                <input type="text" placeholder="comment here" id="comment" data-id="${element.id}" class="add-Cmt">
+            <div class="text-base leading-6 text-gray-900 no-underline model-title " id="modalBar" data-id="modal-title">
+              <div class="add-Cmt" id="commentDiv">
+                <div class="relative" id="relativeDiv">
+                  <input type="text" placeholder="comment here" id="comment" data-id="${element.id}" class="add-Cmt" required>
                   <button id="addComment" data-id="${element.id}" class="absolute right-0 type="button"><i class="fa-solid fa-upload"></i></button>
                 </div>
-                <div class="nfetchedComment">
-                <p class="fetchCmt">${element.comments}</p>
-              </div>
+                <div class="fetchedComments" id="${element.id}">
+                  <p class="fetchCmt">${element.comments}</p>
+                </div>
               </div>
             </div>
-            <div class="text-base leading-6 text-gray-900 no-underline " id="modal-title">
+            <div class="text-base leading-6 text-gray-900 no-underline " >
               <div class="change">
                 <div class="Task-progress pt-px	">
                     <div class="round" >
@@ -498,24 +497,22 @@ function datas(data, getType) {
                     </div>
                 </div>
                 <div class="make-changes">
-                  <button id="editBtn" data-role="update" data-id="${element.id}">
-                    <span class="material-symbols-outlined">
-                      edit
-                    </span>
-                  </button>
-                  <button class="add-comment-btn" data-id="${element.id}" title="Add Comment">
-                    <span class="material-symbols-outlined">
-                      chat
-                    </span>
-                  </button>
-                  <button class="addedCommentIcn" data-id="${element.id}"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <button id="editBtn" data-role="update" data-id="${element.id}"><i class="fa-solid fa-pen"></i></button>
+                </div>
+                <div class="commentBtnDiv" id="${element.id}"> 
+                  <button class="addComentBtn" data-id="${element.id}" title="Add Comment" ><i class="fa-solid fa-comment"></i></button>
                   <path d="M21 6.49962C21 9.53698 18.5376 11.9992 15.5 11.9992C12.4624 11.9992 10 9.53698 10 6.49962C10 3.46227 12.4624 1 15.5 1C18.5376 1 21 3.46227 21 6.49962ZM16.5285 2.99986H15.0965C14.8881 2.99986 14.7015 3.12914 14.6283 3.32428L13.5033 6.32407C13.3808 6.65093 13.6224 6.99959 13.9715 6.99959H14.75L13.9773 9.31749C13.8655 9.65295 14.1152 9.99938 14.4688 9.99938C14.6442 9.99938 14.8077 9.91068 14.9032 9.76366L17.5283 5.72535C17.7314 5.4129 17.5072 4.99973 17.1345 4.99973H16.5L16.9967 3.67538C17.1192 3.34853 16.8776 2.99986 16.5285 2.99986ZM15.5 12.9992C17.2465 12.9992 18.8321 12.3104 20 11.1897V14.7491C20 16.5439 18.5449 17.9988 16.75 17.9988H10.9648L5.57814 21.8159C5.12752 22.1351 4.50337 22.0287 4.18407 21.5781C4.06432 21.4091 4 21.2071 4 21.0002L3.9992 17.9988H3.25C1.45507 17.9988 0 16.5439 0 14.7491V6.24964C0 4.45484 1.45507 2.99986 3.25 2.99986H10.0218C9.375 4.01009 9 5.21107 9 6.49962C9 10.0892 11.9101 12.9992 15.5 12.9992Z" fill="#5FB32E"/>
                   <circle cx="16" cy="6" r="6" fill="#FF0000"/></svg>
-                  </div>
+                  <button class="commentAddeds" id="${element.id}" title="Add Comment"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M21 6.49962C21 9.53698 18.5376 11.9992 15.5 11.9992C12.4624 11.9992 10 9.53698 10 6.49962C10 3.46227 12.4624 1 15.5 1C18.5376 1 21 3.46227 21 6.49962ZM16.5285 2.99986H15.0965C14.8881 2.99986 14.7015 3.12914 14.6283 3.32428L13.5033 6.32407C13.3808 6.65093 13.6224 6.99959 13.9715 6.99959H14.75L13.9773 9.31749C13.8655 9.65295 14.1152 9.99938 14.4688 9.99938C14.6442 9.99938 14.8077 9.91068 14.9032 9.76366L17.5283 5.72535C17.7314 5.4129 17.5072 4.99973 17.1345 4.99973H16.5L16.9967 3.67538C17.1192 3.34853 16.8776 2.99986 16.5285 2.99986ZM15.5 12.9992C17.2465 12.9992 18.8321 12.3104 20 11.1897V14.7491C20 16.5439 18.5449 17.9988 16.75 17.9988H10.9648L5.57814 21.8159C5.12752 22.1351 4.50337 22.0287 4.18407 21.5781C4.06432 21.4091 4 21.2071 4 21.0002L3.9992 17.9988H3.25C1.45507 17.9988 0 16.5439 0 14.7491V6.24964C0 4.45484 1.45507 2.99986 3.25 2.99986H10.0218C9.375 4.01009 9 5.21107 9 6.49962C9 10.0892 11.9101 12.9992 15.5 12.9992Z" fill="#5FB32E"/>
+                  <circle cx="16" cy="6" r="6" fill="#FF0000"/></svg></i></button>
+                </div>
+                
               </div>
             </div>
           </div>
         </div>
+
         `
       }
       else {
@@ -526,7 +523,7 @@ function datas(data, getType) {
               <input type="hidden" id="rowid" value="">
               <div class="list-name">
                 <h5>
-                  <p class="user-content">${element.task_name.slice(0,20)}</p>
+                  <p class="user-content">${element.task_name.slice(0, 20)}</p>
                 </h5>
               </div>
             </div>
@@ -570,7 +567,7 @@ function datas(data, getType) {
           <div class="task-info " id="rowdiv" >
             <input type="hidden" id="rowid" value="">
             <div class="list-name">
-              <p class="user-content w-56">${element.task_name.slice(0,20)}</p>
+              <p class="user-content w-56">${element.task_name.slice(0, 20)}</p>
             </div>
           </div>
           <div class="text-base  leading-6  text-gray-900 no-underline " id="modal-title">
@@ -622,7 +619,6 @@ function datas(data, getType) {
   let deleteBtn = document.querySelectorAll('#btnDelete')
   // console.log(deleteBtn)
   for (let i = 0; i < deleteBtn.length; i++) {
-
     deleteBtn[i].addEventListener('click', () => {
       tasks_list[i].remove()
     })
@@ -651,29 +647,29 @@ function datas(data, getType) {
       // alert("btn")
       let commentId = inputCommentBox[q].dataset.id
       let commentValue = inputCommentBox[q].value
-      if(commentValue){
-      $.ajax({
-        url: "/addComment",
-        data: {
-          id: commentId,
-          comments: commentValue
-        },
-        type: "POST",
-        success: function (response) {
-          $("#succcess").css("display", "block");
-          relative[q].remove()
-          addComentBtn[q].remove()
-          commentAddeds[q].style.display = "block"
-        }
-      })
-      console.log("comment added")
-    }
-    else{
-      console.log("add comment")
-    }
+      if (commentValue) {
+        $.ajax({
+          url: "/addComment",
+          data: {
+            id: commentId,
+            comments: commentValue
+          },
+          type: "POST",
+          success: function (response) {
+            $("#succcess").css("display", "block");
+            // relative[q].remove()
+            // addComentBtn[q].remove()
+            // commentAddeds[q].style.display = "block"
+          }
+        })
+        // console.log("comment added")
+      }
+      else {
+        // console.log("add comment")
+      }
     })
-  
-  
+
+
 
   }
 
@@ -696,7 +692,7 @@ function datas(data, getType) {
         type: "POST",
         success: function (res) {
           let fetCmt = JSON.parse(res);
-          fetchedComments[v].style.visibility = "visible"
+          // fetchedComments[v].style.visibility = "visible"
           fetchedComments[v].innerText = fetCmt
         }
       });
@@ -737,17 +733,27 @@ function datas(data, getType) {
       data: { id: taskid },
       type: "POST",
       success: function (response) {
-      
+
       }
     });
   })
 
 
 
+  let TaskCompleted = document.querySelectorAll(".roundCheck");
+  let listName = document.querySelector(".task-inner-div")
+  let tasksLists = document.querySelectorAll(".tasks-lists")
 
+  for (let i = 0; i < TaskCompleted.length; i++) {
+    TaskCompleted[i].addEventListener("click", (e) => {
+      tasksLists[i].remove();
+      listName[i].style.textDecoration = 'line-through';
 
+    })
+
+  }
+    
 }
-
 
 function completedTaskFun(tasks) {
 
@@ -800,7 +806,7 @@ function EditFilling(EditTask_Responce) {
 
       EditTask_Responce.forEach(editContent => {
 
-        let editHtml =`<div class="updateCloseBtn" id="updateFormCloseBtn">
+        let editHtml = `<div class="updateCloseBtn" id="updateFormCloseBtn">
               <div>
                 <span>X</span>
               </div>
@@ -867,25 +873,27 @@ function EditFilling(EditTask_Responce) {
             // EditFilling(EditTask_Responce)
             window.location.replace("/list")
 
-           
+
           }
         })
       })
 
     })
   }
+
 }
 
-function close(params) {
-  for (let i = 0; i < commentInput.length; i++) {
-    if (commentInput[i].classList.contains('addvisibility')) {
-      commentInput[i].classList.remove(' addvisibility')
-    }
-  }
-}
+// function close(params) {
+//   for (let i = 0; i < commentInput.length; i++) {
+//     if (commentInput[i].classList.contains('addvisibility')) {
+//       commentInput[i].classList.remove(' addvisibility')
+//     }
+//   }
+// }
+
+
 
 // ===================================Below ajax code is for send the task id to backend for complete task functionality=============================================
-let TaskCompleted = document.querySelectorAll(".roundCheck");
 // console.log(Task);
 $(document).on("click", ".roundCheck", function (e) {
   // popUpHeader.innerHTML = `<button type="submit" id="${tasks[0].matrix_id}" class="completedBtn showDataBtn focus:outline-none font-medium rounded-lg text-sm px-5 py-2">COMPLETED TASK </button>`
@@ -1010,12 +1018,7 @@ closeHabitdiv.addEventListener("click", () => {
 })
 // ===============================================================
 
-for (let i = 0; i < check.length; i++) {
-  check[i].addEventListener("click", (e) => {
-    // console.log(e.target);
-  })
 
-}
 
 
 // =================permanent delete functionlity==============
@@ -1156,18 +1159,18 @@ profileinputs = document.querySelector('.Profile-data');
 // -----------
 function readURL(input) {
   if (input.files && input.files[0]) {
-      var reader = new FileReader();
-      reader.onload = function(e) {
-          $('#imagePreview').css('background-image', 'url('+e.target.result +')');
-          $('#imagePreview').hide();
-          $('#imagePreview').fadeIn(650);
-      }
-      reader.readAsDataURL(input.files[0]);
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      $('#imagePreview').css('background-image', 'url(' + e.target.result + ')');
+      $('#imagePreview').hide();
+      $('#imagePreview').fadeIn(650);
+    }
+    reader.readAsDataURL(input.files[0]);
   }
 }
-$("#imageUpload").change(function() {
+$("#imageUpload").change(function () {
   readURL(this);
-}); 
+});
 
 
 
@@ -1175,15 +1178,15 @@ $(".UpdateProfile").on("click", () => {
 
 
   let updatebtnId = $(".UpdateProfile").attr("data-id");
-  
+
   let updateName = $(".name").val();
-  
+
   let updateemail = $(".email").val();
   let updatepass = $(".pass").val();
 
   const url = '/updateProfile';
   const data = {
-    updatebtnId:updatebtnId ,
+    updatebtnId: updatebtnId,
     updateName: updateName,
     updateemail: updateemail,
     updatepass: updatepass
@@ -1195,8 +1198,8 @@ $(".UpdateProfile").on("click", () => {
     data: data,
     success: function (result) {
 
-            window.location.replace("/list")
-    
+      window.location.replace("/list")
+
     }
   })
 })
@@ -1223,6 +1226,38 @@ $("#default-search").on("keyup", (e) => {
     }
   })
 })
+
+// =========================================================================
+// windows notification 
+if ("Notification" in window) {
+  Notification.requestPermission()
+    .then(permission => {
+      if (permission === "granted") {
+        // Create a function to display the notification
+        const displayNotification = () => {
+          const notification = new Notification("Hello!", {
+            body: "It's Time to drink water",
+            icon: "Images/logo.png" 
+          });
+
+          notification.onclick = () => {
+            window.focus();
+            notification.close(); 
+          };
+        };
+
+        const scheduleNotifications = () => {
+        displayNotification();
+      };
+
+      // Display the first notification immediately
+      scheduleNotifications();
+
+      // Schedule notifications every 2 minutes using setInterval
+      setInterval(scheduleNotifications, 2 * 60 * 1000); 
+    }
+  });
+}
 
 // =========================================================================
 

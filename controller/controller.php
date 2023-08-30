@@ -41,17 +41,8 @@ class UserController
 
     public function list()
     {
-
-
-        // $category_id =  $_REQUEST['category_id'];
-
-        // $all = $this->userModel->fetchedComment($_REQUEST);
-
        $tasks =  $this->userModel->addedTaskDetails();
-       
        require "View/listing.php";
-    //    $this->userModel->fetchDataFromDo();
-    //   $this->fetchDatas($_REQUEST['category_id']);
 
     }
 

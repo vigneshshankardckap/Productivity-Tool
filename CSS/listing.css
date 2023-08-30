@@ -593,16 +593,16 @@ button {
 
 .multi-task_type {
   display: flex;
-  gap: 10px;
   /* margin-left: 6rem; */
+
   align-items: center;
   margin-top: var(--inputs-top-margin);
 }
 
 .multi-task_type .typeBtn {
   cursor: pointer;
-  height: 35px;
-  width: 135px;
+  height: 25px;
+  width: 50px;
   border: 1px solid #656664;
   color: #656664;
   border-radius: var(--multi-border-radius);
@@ -985,8 +985,8 @@ button.removetask {
 
 .add-Cmt #addComment {
   border-radius: 8px;
-  padding: 7px;
-  font-size: 10px;
+  padding: 15px 7px;  
+  font-size: 9px;
   color: var(--primary-color);
   border: 2px solid var(--primary-color);
 }
@@ -1071,6 +1071,9 @@ button.removetask {
   visibility: visible;
 }
 
+/* #relativeDiv{
+  display: none;
+} */
 /* ====================radio button style==================================== */
 
 .wrapper {
@@ -1421,7 +1424,9 @@ button.UncompletedBtn:hover {
 
 .profile-div {
   position: fixed;
+
   top: 17%;
+
   right: 21%;
   display: none;
 }
@@ -1491,6 +1496,12 @@ button.UncompletedBtn:hover {
   background-color: var(--primary-color);
   width: 150px;
   height: 35px;
+
+  position: absolute;
+    /* top: 195px; */
+    top: 130px;
+    left: 470px;
+
 }
 
 .data-input div label {

@@ -73,7 +73,7 @@ if(isset($_GET["code"])){
             <!-- <p></p> -->
                 </div>
                 <span>or use your email for registration</span>
-                <input type="text" placeholder="Name" required name="name" pattern="[a-z,A-Z]*" autocomplete="off"/>
+                <input type="text" placeholder="Name" required name="name" pattern="[a-z,A-Z,' ']*" autocomplete="off"/>
                 <input type="email" placeholder="Email" required name="email" autocomplete="off" />
                 <input type="password" placeholder="Password" required name="password" autocomplete="off" />
                 <button>Sign Up</button>
@@ -89,9 +89,9 @@ if(isset($_GET["code"])){
                     <!-- <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a> -->
                 </div>
                 <span>or use your account</span>
-                <input type="email" placeholder="Email" value="sunil123@gmail.com" required name="email" pattern="[a-z,A-Z,0-9,@,.]*"/>
+                <input type="email" placeholder="Email" value="" required name="email" pattern="[a-z,A-Z,0-9,@,.]*"/>
                 <p class="emailError">Please Fill Up Your Email </p>
-                <input type="password" value="sunil123" placeholder="Password" required name="password"/>
+                <input type="password" value="" placeholder="Password" required name="password"/>
                 <p class="passError">Please Fill Up Your Password </p>
                 <button>login</button>
             </form>
