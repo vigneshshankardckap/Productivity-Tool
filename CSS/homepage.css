@@ -356,6 +356,7 @@ body {
   width: 35rem;
   background-color: var(--thresary-color);
   border-radius: var(--single-border-radius);
+  color: var(--font-color);
   top: 12%;
   right: 29%;
   padding: 0px 24px;
@@ -921,8 +922,10 @@ button.removetask {
   bottom: 565px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
+
+
 div#close-profile-div {
-  margin-left: 837px;
+    margin-left: 681px;
 }
 .Change-info {
   display: flex;
@@ -934,53 +937,51 @@ div#close-profile-div {
   margin-bottom: 10px;
   cursor: pointer;
 }
+
 .profile-div {
   display: flex;
   flex-direction: column;
   background-color: var(--thresary-color);
-  height: 489px;  
-  width: 867px;
+  height: 505px;
+  width: 55%;
   border-radius: 10px;
   box-shadow: #63636333 0px 2px 8px 0px;
 }
 
-.profile-div h1 {
-  align-items: center;
-}
-
 .profile-div {
   position: fixed;
-  top: 23%;
-  right: 18%;
+  top: 17%;
+  right: 21%;
   display: none;
 }
+
 .profile-div h1 {
-  margin: -27px 0px 0px 350px;
   font-size: 24px;
+  position: absolute;
+  top: 3px;
+  left: 311px;
 }
-.Profile-img {
+
+/* .Profile-img {
   display: flex;
   gap: 20px;
-}
+} */
 
 .Profile-img div img {
   width: 100px;
   border-radius: 100px;
 }
 
-.Profile-img button {
-  border: 2px solid #7F808A;
-  height: 40px;
-  padding: 8px 17px;
-  margin-top: 36px;
-}
-
 .Profile-data {
-  padding: 26px 0px 0px 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 15px;
 }
 
 .data-input div {
-  padding: 10px 0px 10px 0px;
+  padding: 5px 0px 9px 0px;
   gap: 10px;
   display: grid;
 }
@@ -990,22 +991,121 @@ div#close-profile-div {
   width: 500px;
   height: 40px;
   border-radius: 5px;
-  border: 2px solid #7F808A;
-} 
+  outline: none;
+  border: 1px solid var(--primary-color);
+}
+
 .data-input div p {
   position: absolute;
   left: 545px;
-  padding-top: 42px;  
- border-bottom: 2px solid #7F808A;
-  color:  #7F808A;
+  padding-top: 42px;
+  border-bottom: 2px solid #7F808A;
+  color: #7F808A;
 }
 
 .viewProfile {
   display: block;
   z-index: 1;
 }
-.showuserdata{
+
+.showuserdata {
   display: block;
   z-index: 1;
 }
 
+
+.EditprofileBtns button {
+
+  color: white;
+  background-color: var(--primary-color);
+  width: 150px;
+  height: 35px;
+}
+
+.data-input div label {
+  color: var(--font-color);
+}
+
+
+.EditprofileBtns {
+  padding: 5px 0px;
+}
+
+.showbtn {
+  display: block;
+}
+
+.hidebtn {
+  display: none;
+}
+
+
+.avatar-upload .avatar-preview>div {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.avatar-preview {
+  width: 120px;
+  height: 120px;
+  position: relative;
+  border-radius: 100%;
+  border: 6px solid #F8F8F8;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+
+  >div {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+.avatar-edit input {
+  display: none;
+}
+
+.avatar-upload {
+  position: relative;
+  max-width: 125px;
+  margin: 10px auto;
+}
+
+.avatar-upload .avatar-edit {
+    position: absolute;
+    left: 97px;
+    z-index: 1;
+    top: 19px;
+}
+
+.avatar-upload .avatar-edit input+label {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin-bottom: 0;
+  border-radius: 100%;
+  background: var(--primary-color);
+  border: 1px solid transparent;
+  box-shadow: 0px 0px 0px 4px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  font-weight: normal;
+  transition: all 0.2s ease-in-out;
+}
+
+.avatar-upload .avatar-edit input + label:after {
+  content: "\f040";
+  font-family: 'FontAwesome';
+  color: var(--thresary-color);
+  position: absolute;
+  top: 3px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  margin: auto;
+}

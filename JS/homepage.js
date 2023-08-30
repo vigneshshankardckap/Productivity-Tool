@@ -335,7 +335,7 @@ $(function () {
 // var succcess = $("#succcess")
 
 
-// =================== profile information div
+// =================== profile information div =======================
 let profile = document.querySelector("#profile");
 let view_profile = document.querySelector("#view-profile");
 let getUserinfo = document.querySelector("#getUserinfo")
@@ -367,3 +367,71 @@ closeProfileDiv.addEventListener("click", () => {
   $(".black-screen").hide();
   User_detailsdiv.classList.remove("showuserdata");
 })
+
+let profileView = document.querySelector(".profileId");
+
+$(document).on("click", '.profileId', function (e) {
+  let id = e.target.id;
+  $.ajax({
+    url: "/profileView",
+    data: {
+      id: id,
+    },
+    type: "POST",
+    success: function (response) {
+      let datas = JSON.parse(response)
+      profilePage(datas)
+      // console.log(datas);
+    }
+
+  })
+})
+
+function profilePage(datas) {
+  let inputdiv = document.querySelector('.inputs')
+
+  datas.forEach(profile => {
+
+
+    let Html = `<div class="data-input">
+
+    <div> <label for="">Name</label>
+      <input type="text" readOnly class="editRemove name" value="${profile.username}">
+    </div>
+    <div> <label for="">Email</label>
+      <input type="gmail" readOnly  class="editRemove email" value="${profile.email_id}">
+    </div>
+    <div> <label for="">Password</label>
+      <input type="password" readOnly  class="editRemove pass" value="${profile.password}">
+    </div>
+  </div>`
+
+    inputdiv.innerHTML = Html;
+
+  })
+
+
+  let EditProfile = document.querySelector(".editProfile");
+  let UpdateProfile = document.querySelector(".UpdateProfile");
+  let readOnlyRemove = document.querySelectorAll(".editRemove");
+  let displayPicture = document.querySelector("#editDP");
+console.log(displayPicture);
+
+  EditProfile.addEventListener("click", (e) => {
+    EditProfile.classList.add("hidebtn")
+    UpdateProfile.classList.remove("hidebtn");
+    displayPicture.classList.remove("hidebtn")
+    displayPicture.classList.add("showbtn");
+    
+    for (let i = 0; i < readOnlyRemove.length; i++) {
+      readOnlyRemove[i].removeAttribute('readonly');
+    }
+  })
+
+  UpdateProfile.addEventListener("click", (e) => {
+    EditProfile.classList.remove("hidebtn");
+    EditProfile.classList.add("showbtn");
+    UpdateProfile.classList.add("hidebtn");
+   
+  });
+}

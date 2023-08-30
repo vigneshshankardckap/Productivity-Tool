@@ -316,7 +316,7 @@
               </div>
             </form>
           </div>
-          <h1>My Profile</h1>
+          <h1>Profile</h1>
           <div class="Profile-data">
             <!-- <div class="Profile-img">
 
@@ -328,14 +328,14 @@
 
             <div class="container">
               <div class="avatar-upload">
-                <div class="avatar-edit">
+                <div class="avatar-edit hidebtn"  id="editDP" >
                   <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
                   <label for="imageUpload">
                     <!-- <i class="fa-solid fa-pencil"></i> -->
                   </label>
                 </div>
                 <div class="avatar-preview">
-                  <div id="imagePreview" style="background-image: url(http://i.pravatar.cc/500?img=7);">
+                  <div id="imagePreview"   style="background-image: url(http://i.pravatar.cc/500?img=7);">
                   </div>
                 </div>
               </div>

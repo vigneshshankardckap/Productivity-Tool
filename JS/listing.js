@@ -1099,7 +1099,6 @@ $(document).on("click", '.profileId', function (e) {
     success: function (response) {
       let datas = JSON.parse(response)
       profilePage(datas)
-      // console.log(datas);
     }
 
   })
@@ -1132,11 +1131,15 @@ function profilePage(datas) {
   let EditProfile = document.querySelector(".editProfile");
   let UpdateProfile = document.querySelector(".UpdateProfile");
   let readOnlyRemove = document.querySelectorAll(".editRemove");
-
+  let displayPicture = document.querySelector("#editDP");
+console.log(displayPicture);
 
   EditProfile.addEventListener("click", (e) => {
     EditProfile.classList.add("hidebtn")
-    UpdateProfile.classList.remove("hidebtn")
+    UpdateProfile.classList.remove("hidebtn");
+    displayPicture.classList.remove("hidebtn")
+    displayPicture.classList.add("showbtn");
+    
     for (let i = 0; i < readOnlyRemove.length; i++) {
       readOnlyRemove[i].removeAttribute('readonly');
     }
@@ -1146,9 +1149,7 @@ function profilePage(datas) {
     EditProfile.classList.remove("hidebtn");
     EditProfile.classList.add("showbtn");
     UpdateProfile.classList.add("hidebtn");
-    // for (let i = 0; i < readOnlyRemove.length; i++) {
-    //   readOnlyRemove[i].setAttribute('readonly');
-    // }
+   
   });
 }
 
