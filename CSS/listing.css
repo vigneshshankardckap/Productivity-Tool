@@ -337,7 +337,12 @@ body {
 }
 
 .close-habit-div {
-  margin-left: 673px;
+  margin-left: 713px;
+  border-radius: 0px 10px 0px 10px;
+}
+
+.duplicate{
+  margin-left: 836px;
   border-radius: 0px 10px 0px 10px;
 }
 
@@ -797,7 +802,7 @@ button {
 
 .nameDateDiv {
   display: flex;
-  background-color: var(--task-list-bg-color);
+  /* background-color: var(--task-list-bg-color); */
   padding: 5px;
   margin: 5px;
   border-radius: 5px;
@@ -910,6 +915,9 @@ button.removetask {
 .task-heading-2 {
   padding: 10px 180px 10px 150px;
 
+}
+span#modal-title {
+  font-weight: 500;
 }
 
 .task-inner-div {

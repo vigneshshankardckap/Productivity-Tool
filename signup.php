@@ -23,6 +23,8 @@ if(isset($_GET["code"])){
 
             $_SESSION["email"]= $data["email"];
 
+            // $_SESSION["user_id"]= $data["id"];
+        
 
         $conn = new PDO("mysql:host=$servername;dbname=EisenDo", "admin", "welcome");
         $exits = $conn->query("SELECT * FROM users WHERE email_id = '$email_id'");

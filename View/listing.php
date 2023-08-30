@@ -59,7 +59,7 @@
         </div>
       </nav>
       <div class="settings" id="view-profile">
-        <div class="Change-info" id="getUserinfo">
+        <div class="Change-info" id="getUserinfo" class="getId">
           <p>
             <span class="material-symbols-outlined" title="Profile">
               person
@@ -135,7 +135,7 @@
       <div class="taskDetailBox" id="overAll">
         <main class="page-content">
           <div class="card-div">
-            <h2 class="title">Do it now</h2>
+            <h2 class="title">DO IT NOW</h2>
             <div class="main-card">
               <div class="card-color"></div>
               <div class="card">
@@ -152,7 +152,7 @@
             </div>
           </div>
           <div class="card-div">
-            <h2 class="title">Schedule a time to Do it</h2>
+            <h2 class="title">SCHEDULE A TIME TO DO IT</h2>
             <div class="main-card">
               <div class="card-color"></div>
               <div class="card">
@@ -168,7 +168,7 @@
             </div>
           </div>
           <div class="card-div">
-            <h2 class="title">Who can Do it for you</h2>
+            <h2 class="title">WHO CAN DO IT FOR YOU</h2>
             <div class="main-card">
               <div class="card-color"></div>
               <div class="card">
@@ -184,7 +184,7 @@
             </div>
           </div>
           <div class="card-div">
-            <h2 class="title">Eliminate it</h2>
+            <h2 class="title">ELIMINATE IT</h2>
             <div class="main-card">
               <div class="card-color"></div>
               <div class="card">
@@ -254,7 +254,7 @@
       <form action="/addTask" method="post">
         <div class="body-mainDiv">
           <div class="body-content">
-            <div class="close-btn close-habit-div" id="close-habit-div">
+            <div class="close-btn close-habit-div duplicate" id="close-habit-div">
               <form action="/list" method="post">
                 <div>
                   <span>X</span>

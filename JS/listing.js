@@ -789,7 +789,7 @@ $(document).on("click", '[data-role=update]', function (e) {
     success: function (response) {
       let EditTask_Responce = JSON.parse(response);
       EditFilling(EditTask_Responce);
-
+      
     }
   })
 })
@@ -805,7 +805,9 @@ function EditFilling(EditTask_Responce) {
       // editForm.style.display = "block"
 
       EditTask_Responce.forEach(editContent => {
-
+        console.log(editContent.task_name);
+        // let editableTask = {updateId:editContent.id,taskname:editContent.task_name,editDates:editContent.dates,userId:editContent.user_id};
+     
         let editHtml = `<div class="updateCloseBtn" id="updateFormCloseBtn">
               <div>
                 <span>X</span>
@@ -850,6 +852,7 @@ function EditFilling(EditTask_Responce) {
 
       })
 
+     
       $("#updateTask").on("click", () => {
         let editId = $("#updateTask").attr("data-id");
         let editTaskName = $("#editTask").val();
@@ -872,8 +875,8 @@ function EditFilling(EditTask_Responce) {
           success: function (result) {
             // EditFilling(EditTask_Responce)
             window.location.replace("/list")
-
-
+      
+           
           }
         })
       })
@@ -882,6 +885,15 @@ function EditFilling(EditTask_Responce) {
   }
 
 }
+
+
+// function main(array){
+//   // console.log(  array.name);
+// }
+// let a ={editId:"${editContent.id}",editTask:"editTask",editDate:"editDate",userId:"userId"}
+
+// console.log(a)
+
 
 // function close(params) {
 //   for (let i = 0; i < commentInput.length; i++) {
@@ -1229,35 +1241,35 @@ $("#default-search").on("keyup", (e) => {
 
 // =========================================================================
 // windows notification 
-if ("Notification" in window) {
-  Notification.requestPermission()
-    .then(permission => {
-      if (permission === "granted") {
-        // Create a function to display the notification
-        const displayNotification = () => {
-          const notification = new Notification("Hello!", {
-            body: "It's Time to drink water",
-            icon: "Images/logo.png" 
-          });
+// if ("Notification" in window) {
+//   Notification.requestPermission()
+//     .then(permission => {
+//       if (permission === "granted") {
+//         // Create a function to display the notification
+//         const displayNotification = () => {
+//           const notification = new Notification("Hello!", {
+//             body: "It's Time to drink water",
+//             icon: "Images/logo.png" 
+//           });
 
-          notification.onclick = () => {
-            window.focus();
-            notification.close(); 
-          };
-        };
+//           notification.onclick = () => {
+//             window.focus();
+//             notification.close(); 
+//           };
+//         };
 
-        const scheduleNotifications = () => {
-        displayNotification();
-      };
+//         const scheduleNotifications = () => {
+//         displayNotification();
+//       };
 
-      // Display the first notification immediately
-      scheduleNotifications();
+//       // Display the first notification immediately
+//       scheduleNotifications();
 
-      // Schedule notifications every 2 minutes using setInterval
-      setInterval(scheduleNotifications, 2 * 60 * 1000); 
-    }
-  });
-}
+//       // Schedule notifications every 2 minutes using setInterval
+//       setInterval(scheduleNotifications, 10 * 60 * 1000); 
+//     }
+//   });
+// }
 
 // =========================================================================
 
