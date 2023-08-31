@@ -141,11 +141,22 @@ class UserModule extends Database
 
     public function addTask($value)
     {
+        
         $userId = $_SESSION['userid'];
-
         $taskId = $value["value"];
 
-        $insertUserAddedTask = $this->db->query("INSERT INTO userAddedTask(user_id,addTask_id,is_added)VALUES ('$userId','$taskId',1)");
+        $select = $this->db->query("SELECT * FROM `userAddedTask` WHERE user_id = $userId AND addTask_id = $taskId");
+        $exists = $select->fetchAll();
+
+        if(!$exists){
+            $insertUserAddedTask = $this->db->query("INSERT INTO userAddedTask(user_id,addTask_id,is_added)VALUES ('$userId','$taskId',1)");
+            $_SESSION['habit'] = 'ADD';
+
+        }
+        else{
+            $_SESSION['habit'] = "ADDED";  
+        }
+
         header('location:/LandingPage');
     }
 
