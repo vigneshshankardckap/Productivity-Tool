@@ -1,5 +1,6 @@
 <?php
 // var_dump($tasks); 
+var_dump($_SESSION['habitOne'])
 ?>
 <!DOCTYPE html class="h-full">
 <html lang="en">
@@ -270,7 +271,7 @@
                 </div>
                 <p>Drink Water, Keep Healthy</p>
                 <div>
-                  <button class="add" name="1" type="button">ADD</button>
+                  <button class="add" name="1" type="button"><?php echo $_SESSION['habitOne'] ?></button>
                 </div>
               </div>
               <div class="contents">
@@ -279,7 +280,7 @@
                 </div>
                 <p>Go Exercising</p>
                 <div>
-                  <button class="add" name="2" type="button">ADD</button>
+                  <button class="add" name="2" type="button"><?php echo $_SESSION['habitTwo'] ?></button>
                 </div>
               </div>
               <div class="contents">
@@ -288,7 +289,7 @@
                 </div>
                 <p>Go To Bed Early</p>
                 <div>
-                  <button class="add" name="3" type="button">ADD</button>
+                  <button class="add" name="3" type="button"><?php echo $_SESSION['habitThree'] ?></button>
                 </div>
               </div>
               <div class="contents">
@@ -297,7 +298,7 @@
                 </div>
                 <p>Keep Reading</p>
                 <div>
-                  <button class="add" name="4" type="button">ADD</button>
+                  <button class="add" name="4" type="button"><?php echo $_SESSION['habitFour'] ?></button>
                 </div>
               </div>
             </div>
