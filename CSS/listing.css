@@ -342,7 +342,7 @@ body {
 }
 
 .duplicate{
-  margin-left: 836px;
+  margin-left: 837px;  
   border-radius: 0px 10px 0px 10px;
 }
 
@@ -1404,8 +1404,8 @@ button.UncompletedBtn:hover {
   width: 250px;
   min-height: 91px;
   padding: 20px 0px 9px 12px;
-  left: 1100px;
-  bottom: 565px;
+  left: 1097px;
+  bottom: 545px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
@@ -1505,10 +1505,6 @@ button.UncompletedBtn:hover {
   width: 150px;
   height: 35px;
 
-  position: absolute;
-    /* top: 195px; */
-    top: 130px;
-    left: 470px;
 
 }
 

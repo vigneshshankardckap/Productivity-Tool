@@ -223,7 +223,7 @@
                 <hr>
                 <div class="task-heading-2  sm:flex justify-between task-box-heading ">
                   <span class="text-base leading-6 text-gray-900 no-underline " id="modal-title">TASK NAME</span>
-                  <span class="text-base leading-6 text-gray-900 no-underline " id="modal-title">DUE DATE&TIME</span>
+                  <span class="text-base leading-6 text-gray-900 no-underline " id="modal-title">DUE DATE & TIME</span>
                   <span class="text-base leading-6 text-gray-900 no-underline " id="modal-title">PROGRESS</span>
                 </div>
                 <hr>
