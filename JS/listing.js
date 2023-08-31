@@ -931,29 +931,24 @@ $(function () {
     $(this).click(function (e) {
       var addText = $(e.target).text()
       var addedValue = $(e.target).attr("name")
-      // console.log(addedValue)
-      if (addText == "ADD") {
-        $(e.target).text("ADDED")
+      if($(this).text() == "ADD"){
+        $.ajax({
+          url: "/addTask",
+          data: {
+            value: addedValue
+          },
+          type: "POST",
+          success: function (response) {
+            $("#toastMsg").text("Succesfully Added");
+            $("#succcess").css("display", "block");
+            setTimeout(() => {
+              $("#succcess").css("display", "none");
+            }, 3000)
+            // console.log(response)
+          }
+        });  
       }
-      else if (addText == "ADDED") {
-        $(e.target).text("ADD")
-      }
-      $.ajax({
-        url: "/addTask",
-        data: {
-          value: addedValue
-        },
-        type: "POST",
-        success: function (response) {
-          $("#toastMsg").text("Succesfully Added");
-          $("#succcess").css("display", "block");
-          setTimeout(() => {
-            $("#succcess").css("display", "none");
-          }, 3000)
-          // console.log(response)
-        }
-      });
-    });
+         });
   });
 });
 

@@ -14,7 +14,10 @@ class UserModule extends Database
 
     public function logincheck($data)
     {
-
+        $val;
+        $val2;
+        $val3;
+        $val4;
         $username = $data['email'];
         $userpassword = $data['password'];
 
@@ -24,11 +27,53 @@ class UserModule extends Database
         if ($datas) {
             $_SESSION['username'] = $datas[0]['username'];
             $_SESSION['userid'] = $datas[0]['id'];
+            $id = $_SESSION['userid'];
 
+        $habitOne =$this->db->query("SELECT * from userAddedTask where user_id = $id  and addTask_id = 1");
+        $habitOnefetched = $habitOne->fetchall(); 
+        if(empty($habitOnefetched)){
+            $val = "ADD" ;
+
+        }
+        else{
+            $val = "ADDED" ;
+        }
+
+        $habitTwo =$this->db->query("SELECT * from userAddedTask where user_id = $id  and addTask_id = 2");
+        $habitTwofetched = $habitTwo->fetchall(); 
+        if(empty($habitTwofetched)){
+            $val2 = "ADD" ;
+        }
+        else{
+            $val2 = "ADDED" ;
+        }
+        $habitThree =$this->db->query("SELECT * from userAddedTask where user_id = $id and addTask_id = 3");
+        $habitThreeFetched = $habitThree->fetchall(); 
+        if(empty($habitThreeFetched)){
+            $val3 = "ADD" ;
+        }
+        else{
+            $val3 = "ADDED" ;
+        }
+        $habitFour =$this->db->query("SELECT * from userAddedTask where user_id = $id   and addTask_id = 4");
+        $habitFourFetched = $habitFour->fetchall(); 
+        if(empty($habitFourFetched)){
+            $val4 = "ADD" ;
+        }
+        else{
+            $val4 = "ADDED" ;
+        }
+        $_SESSION['habitOne'] = $val;
+        $_SESSION['habitTwo'] = $val2;
+        $_SESSION['habitThree'] = $val3;
+        $_SESSION['habitFour'] = $val4;
             header('Location:/list');
         } else {
             header('location:/login');
         }
+
+
+
     }
     public function signUp($data)
     {
@@ -151,11 +196,8 @@ class UserModule extends Database
         if(!$exists){
             $insertUserAddedTask = $this->db->query("INSERT INTO userAddedTask(user_id,addTask_id,is_added)VALUES ('$userId','$taskId',1)");
             $_SESSION['habit'] = 'ADD';
-
         }
-        else{
-            $_SESSION['habit'] = "ADDED";  
-        }
+        
 
         header('location:/LandingPage');
     }
